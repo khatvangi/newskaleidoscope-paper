@@ -1,0 +1,18 @@
+# raw article cache (large, re-fetchable)
+cache/
+
+# log files
+logs/
+
+# individual analysis files (combined file is in git)
+analysis/*
+!analysis/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# editor
+.vscode/
+*.swp
