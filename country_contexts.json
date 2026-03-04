@@ -1,0 +1,350 @@
+{
+  "Iran": {
+    "context": "Direct target of US military threats and covert operations since the 1953 CIA-backed coup and 1979 hostage crisis. State-controlled media frames all US military action as imperialist aggression, with nuclear program presented as sovereign right. Revolutionary Guard ideology treats resistance to US hegemony as foundational national identity.",
+    "region": "Middle East",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["state media control", "nuclear sovereignty narrative", "revolutionary ideology", "1953 coup memory", "sanctions as economic warfare framing"]
+  },
+  "Israel": {
+    "context": "Closest US military ally in the Middle East, receiving $3.8B annually in security assistance and sharing intelligence on Iran. Israeli media broadly supports containment of Iranian nuclear capability, framing it as existential threat. Domestic debate centers on tactical approach rather than whether Iran should be confronted.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["existential threat framing of Iran", "US alliance as bipartisan consensus", "military-security establishment influence on media", "direct regional rival to Iran"]
+  },
+  "Saudi Arabia": {
+    "context": "Major US arms customer and strategic oil partner, locked in proxy conflicts with Iran across Yemen, Lebanon, and Iraq. Saudi state-controlled media frames Iran as sectarian threat to Sunni Arab world and regional stability. Post-Khashoggi, MBS has diversified relationships toward China and Russia while maintaining core US security dependence.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["state media control", "Sunni-Shia rivalry with Iran", "oil market leverage", "arms dependency on US", "Vision 2030 modernization narrative"]
+  },
+  "Qatar": {
+    "context": "Hosts Al Udeid Air Base, the largest US military facility in the Middle East, while simultaneously maintaining diplomatic channels with Iran and Hamas. Al Jazeera provides coverage that is often critical of US and Israeli military action, creating tension with US and Gulf allies. Qatar's foreign policy balances between Western alliance and independent regional mediation.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Al Jazeera editorial independence from state", "dual relationship with US and Iran", "mediation-as-brand diplomacy", "blockade experience shaped anti-Saudi coverage"]
+  },
+  "Egypt": {
+    "context": "Receives $1.3B annually in US military aid, making its military government deeply dependent on Washington's approval. Egyptian state media avoids direct criticism of US military action while channeling public anger toward Israel and Iran as needed. Sisi's authoritarian control of media ensures coverage aligns with regime survival interests rather than public sentiment.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["military aid dependency", "state media control under Sisi", "Camp David framework constrains criticism", "domestic repression limits independent journalism"]
+  },
+  "Pakistan": {
+    "context": "Complicated US relationship shaped by drone strikes in tribal areas, the bin Laden raid in Abbottabad, and Pakistan's role as both counterterrorism partner and Taliban patron. Pakistani media is vibrant but polarized, with strong anti-American sentiment across political spectrum driven by civilian drone casualties. Deepening China-Pakistan Economic Corridor ties provide alternative to US dependency.",
+    "region": "Middle East",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["drone strike civilian casualties", "anti-American public sentiment", "military-ISI influence on coverage", "China pivot via CPEC", "nuclear state identity"]
+  },
+  "Iraq": {
+    "context": "Directly invaded by US in 2003 on false WMD pretenses, resulting in hundreds of thousands of Iraqi deaths and ongoing instability. Iraqi media is fragmented along sectarian lines, with Iranian-backed militia outlets and Western-leaning Kurdish media producing radically different framings. Any US military action in the region triggers deep trauma responses and sovereignty concerns across Iraqi political spectrum.",
+    "region": "Middle East",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["2003 invasion trauma", "sectarian media fragmentation", "Iranian militia influence", "Kurdish autonomy interests", "sovereignty sensitivity"]
+  },
+  "Turkey": {
+    "context": "NATO member that has increasingly charted independent foreign policy under Erdogan, purchasing Russian S-400 systems and opposing US support for Kurdish forces in Syria. Turkish media is largely controlled by Erdogan-aligned conglomerates, framing Turkey as independent regional power rather than Western subordinate. Opposes both Iranian expansion and US unilateralism, positioning as Sunni-world alternative leader.",
+    "region": "Middle East",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["NATO member but increasingly independent", "Erdogan media consolidation", "Kurdish issue creates US friction", "neo-Ottoman regional ambitions", "S-400 purchase signaling"]
+  },
+  "UAE": {
+    "context": "Major US arms customer and host to US naval forces at Jebel Ali, while pursuing aggressive independent foreign policy in Yemen, Libya, and Sudan. UAE state-influenced media presents the country as modernizing force in contrast to both Iranian theocracy and political Islam. Abraham Accords normalized Israel relations, aligning UAE media framing with anti-Iran coalition.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["state-influenced media ecosystem", "Abraham Accords alignment with Israel", "anti-political Islam stance", "arms dependency on US and France", "economic diversification narrative"]
+  },
+  "Oman": {
+    "context": "Historically neutral Gulf state that has served as back-channel mediator between US and Iran, including facilitating early nuclear deal negotiations. Omani media is state-controlled but notably restrained, avoiding inflammatory coverage of regional conflicts. Oman's deliberate neutrality means its media rarely takes strong positions on US military action.",
+    "region": "Middle East",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["deliberate neutrality policy", "back-channel mediator role", "state media restraint", "non-confrontational diplomatic tradition"]
+  },
+  "Jordan": {
+    "context": "Receives over $1.5B in annual US aid and hosts US military trainers, while ruling Hashemite monarchy governs a population that is majority Palestinian-origin and broadly sympathetic to anti-US sentiment. Jordanian media operates under royal patronage and avoids criticizing the US-Jordan security relationship directly. Coverage threads the needle between regime alignment with Washington and public anger at US Middle East policy.",
+    "region": "Middle East",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["aid dependency", "Palestinian-majority population sentiment", "monarchy media control", "buffer state vulnerability", "public-regime opinion gap"]
+  },
+  "Lebanon": {
+    "context": "Deeply fragmented along sectarian lines, with Hezbollah operating as Iranian proxy with its own media apparatus (Al Manar) alongside Western-leaning Christian and Sunni outlets. Lebanese media coverage of US military action splits predictably along confessional lines, with no unified national framing. The 2006 Israeli war and Beirut port explosion intensified distrust of both Western and Iranian intervention.",
+    "region": "Middle East",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["sectarian media fragmentation", "Hezbollah media apparatus", "Iranian vs Saudi influence competition", "confessional political system", "economic collapse distrust of all external actors"]
+  },
+  "Syria": {
+    "context": "Assad regime survived civil war through Russian and Iranian military support, making Syrian state media reflexively hostile to US military action. US forces occupy eastern Syria supporting Kurdish SDF, creating direct friction with Damascus, Turkey, and Iranian-backed militias. Independent Syrian journalism largely operates in exile, producing diaspora-influenced coverage.",
+    "region": "Middle East",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["Assad regime alignment with Iran and Russia", "US military occupation of eastern Syria", "exile journalism", "state media as regime propaganda", "Kurdish alliance with US"]
+  },
+  "Yemen": {
+    "context": "Devastated by Saudi-led coalition war with US logistical support, creating deep anti-American sentiment especially in Houthi-controlled areas. Houthi media frames conflict as resistance against US-Saudi aggression, while Aden-based government media aligns with coalition narrative. Yemen's humanitarian catastrophe makes any US military action in the region politically toxic in global media.",
+    "region": "Middle East",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["humanitarian catastrophe from US-backed war", "Houthi Iranian alignment", "anti-Saudi and anti-US sentiment", "fragmented governance and media", "Red Sea shipping disruption leverage"]
+  },
+  "United Kingdom": {
+    "context": "Closest US military ally with shared intelligence (Five Eyes) and joint operations from Iraq 2003 to present, though Blair's Iraq war legacy severely damaged public trust in military intervention. British media is diverse but Iraq War created lasting skepticism, with BBC and broadsheets applying heavy scrutiny to military action rationales. Special relationship means UK government typically supports US positions but faces stronger domestic opposition than in pre-Iraq era.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Iraq War trust deficit", "Five Eyes intelligence sharing", "BBC editorial independence", "tabloid vs broadsheet split", "post-colonial Middle East legacy"]
+  },
+  "France": {
+    "context": "Former colonial power in Lebanon and Syria with independent nuclear deterrent and tradition of Gaullist foreign policy autonomy from US. France opposed the 2003 Iraq invasion and maintains capacity for independent Middle East policy, including direct engagement with Iran. French media tends toward intellectual analysis of geopolitics rather than rally-round-the-flag coverage.",
+    "region": "Europe",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["Gaullist independence tradition", "colonial history in Levant", "opposed Iraq 2003", "independent nuclear power", "intellectual media tradition"]
+  },
+  "Germany": {
+    "context": "Declined to participate in Iraq 2003 under Schroeder, and post-WWII constitutional constraints create deep public aversion to military adventurism. Germany's energy dependency on Russia (until Ukraine war) and major trade relationship with Iran made it historically cautious on sanctions. German media tends toward cautious, multilateral framing and skepticism of unilateral military action.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["post-WWII military aversion", "constitutional constraints on war", "historical Iran trade ties", "multilateralist instinct", "public skepticism of military intervention"]
+  },
+  "Spain": {
+    "context": "Withdrew troops from Iraq in 2004 after Madrid train bombings, establishing strong domestic consensus against Middle East military involvement. Spanish media frames US military action through anti-interventionist lens shaped by both Iraq withdrawal and broader Southern European skepticism of American foreign policy. Left-leaning media ecosystem with limited strategic interest in Persian Gulf.",
+    "region": "Europe",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["Madrid bombing and Iraq withdrawal trauma", "anti-interventionist consensus", "limited strategic interest in Gulf", "left-leaning media ecosystem"]
+  },
+  "Italy": {
+    "context": "Contributed troops to Iraq 2003 coalition but suffered the Nasiriyah bombing and public backlash, creating lasting skepticism of Middle East military involvement. Italian media is influenced by Berlusconi-era media consolidation and Vatican proximity, producing coverage that mixes transatlantic loyalty with Catholic-inflected humanitarian concern. Italy's energy imports from Libya and broader Mediterranean focus shape interest more toward North Africa than Persian Gulf.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Iraq coalition participation and backlash", "media consolidation legacy", "Vatican humanitarian influence", "Mediterranean strategic focus", "energy import dependency"]
+  },
+  "Netherlands": {
+    "context": "Strong Atlanticist tradition with close NATO cooperation, but the Srebrenica trauma and ICC hosting create institutional commitment to international law frameworks. Dutch media is highly professionalized and tends to frame military action through legality and proportionality lenses. The Netherlands hosts the ICC and ICJ, giving Dutch coverage a distinctive international law emphasis.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["ICC/ICJ hosting creates legal framing", "Atlanticist but law-focused", "Srebrenica institutional memory", "highly professionalized media", "small-country multilateralism"]
+  },
+  "Belgium": {
+    "context": "Hosts NATO and EU headquarters, making Brussels a nexus for institutional framing of military action through alliance and multilateral lenses. Belgian media is split along Flemish-Walloon linguistic lines, with French-language media closer to French skepticism and Dutch-language media closer to Dutch Atlanticism. Belgium's colonial history in Congo creates some sensitivity to Western intervention narratives.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["NATO/EU headquarters proximity", "linguistic media split", "institutional multilateral framing", "colonial history sensitivity"]
+  },
+  "Norway": {
+    "context": "NATO founding member and close US intelligence partner, but with strong domestic commitment to international law and humanitarian principles that creates tension with unconditional US support. Norwegian media is publicly funded and high-quality, tending toward measured analysis emphasizing legal frameworks and civilian impact. Norway's sovereign wealth fund and energy independence allow editorial positions unconstrained by economic dependency.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["NATO member but humanitarian emphasis", "publicly funded independent media", "international law commitment", "economic independence via sovereign wealth", "Nobel Peace Prize institutional identity"]
+  },
+  "Switzerland": {
+    "context": "Constitutionally neutral with no NATO membership, providing genuinely non-aligned perspective on US military action rare in Western Europe. Swiss media across German, French, and Italian language zones provides coverage filtered through neutrality tradition and Geneva Conventions hosting. Switzerland's role hosting UN agencies and Red Cross creates institutional bias toward humanitarian and diplomatic framing.",
+    "region": "Europe",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["constitutional neutrality", "Geneva Conventions institutional identity", "multilingual media perspectives", "UN/Red Cross hosting", "no NATO alignment"]
+  },
+  "Ireland": {
+    "context": "Militarily neutral with no NATO membership and strong historical anti-colonial identity that generates skepticism of Anglo-American military intervention. Shannon Airport's use for US military transit is domestically contentious and keeps US military policy in public discourse. Irish media draws on colonial experience to produce coverage sympathetic to populations subjected to military action.",
+    "region": "Europe",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["military neutrality", "anti-colonial identity", "Shannon Airport controversy", "large Irish-American diaspora influence", "post-colonial sympathy for occupied populations"]
+  },
+  "Czech Republic": {
+    "context": "Post-1989 Atlanticist orientation with strong gratitude toward US for Cold War stance, making Czech Republic reliably supportive of US security positions. Czech media tends toward pro-Western framing shaped by memory of Soviet occupation and desire to anchor firmly in Western institutions. Small but professional media market with limited independent Middle East reporting capacity.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["post-Soviet Atlanticism", "gratitude for Cold War US stance", "pro-Western media consensus", "limited independent Middle East reporting", "NATO membership as identity anchor"]
+  },
+  "Romania": {
+    "context": "Hosts US missile defense installations at Deveselu and contributed troops to Iraq and Afghanistan, establishing itself as one of Washington's most reliable Eastern European partners. Romanian media is fragmented with oligarchic ownership, but security establishment consensus strongly favors US alliance. Romania's proximity to Black Sea makes it attentive to Russian rather than Middle Eastern security dynamics.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["missile defense hosting", "Iraq/Afghanistan troop contributions", "oligarchic media ownership", "Black Sea security focus", "Russia as primary threat perception"]
+  },
+  "Bulgaria": {
+    "context": "NATO member since 2004 with US military facilities, but retains historical cultural ties to Russia that create more ambivalent public opinion on US military action than other Eastern European states. Bulgarian media is compromised by oligarchic ownership and political capture, producing inconsistent framing of US military policy. Economic vulnerability and corruption make Bulgarian coverage susceptible to both Western and Russian information influence.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["historical Russian cultural ties", "oligarchic media capture", "NATO member but ambivalent public", "susceptible to information influence", "limited independent foreign reporting"]
+  },
+  "Croatia": {
+    "context": "NATO member since 2009 whose 1990s independence war with US diplomatic support created lasting pro-American sentiment in security establishment. Croatian media is small-market and relies heavily on wire services for Middle East coverage, producing framing largely derivative of Western agency reporting. Croatia's own war experience creates public sensitivity to civilian casualties in military operations.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["1990s war gratitude toward US", "small media market reliance on wire services", "war experience sensitivity to civilian harm", "NATO membership commitment"]
+  },
+  "Albania": {
+    "context": "One of the most pro-American countries in Europe, with overwhelming public support for US foreign policy rooted in Clinton-era Kosovo intervention that Albanians credit with preventing genocide. Albanian media is fragmented and politically captured, but anti-American framing is essentially absent from public discourse. Muslim-majority but secular, Albania does not frame Middle East conflicts through religious solidarity lens.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["extreme pro-American sentiment", "Kosovo intervention gratitude", "Muslim-majority but secular framing", "politically captured media", "no religious solidarity framing of Middle East"]
+  },
+  "Kosovo": {
+    "context": "Existence as independent state is attributed directly to 1999 NATO/US military intervention, making Kosovo perhaps the most pro-American territory in the world. Kosovar media reflexively supports US military action and frames American power as liberatory rather than imperial. Clinton and Biden are national heroes, and criticism of US foreign policy is socially taboo.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["national existence attributed to US intervention", "extreme pro-American consensus", "criticism of US is socially taboo", "small media market", "gratitude-based framing"]
+  },
+  "Lithuania": {
+    "context": "Frontline NATO state viewing Russia as existential threat, making unwavering US alliance support the cornerstone of national security strategy. Lithuanian media frames US military capability as guarantor of Baltic independence, producing reflexively supportive coverage of American military power projection. Russian information warfare targeting creates heightened media sensitivity to narratives that could weaken transatlantic solidarity.",
+    "region": "Europe",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Russia as existential threat", "US alliance as survival guarantee", "Russian information warfare awareness", "small but professional media", "unconditional Atlanticism"]
+  },
+  "Slovak Republic": {
+    "context": "NATO member with more ambivalent public attitudes toward US military action than neighboring Czech Republic, partly due to Fico-era populist skepticism of Western institutional commitments. Slovak media is politically divided, with populist outlets questioning NATO orthodoxy and liberal outlets maintaining Atlanticist positions. Limited Middle East reporting capacity means coverage relies heavily on framing imported from larger European media.",
+    "region": "Europe",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["Fico populist skepticism of NATO orthodoxy", "politically divided media", "limited independent foreign reporting", "reliance on European wire services", "more Russia-ambivalent than neighbors"]
+  },
+  "China": {
+    "context": "Strategic competitor to US with major Iranian oil imports and Belt and Road investments across the Middle East, viewing US military action as destabilizing to Chinese economic interests. Chinese state media frames US military action as hegemonic overreach and evidence of Western decline, contrasting it with China's economic development model. Coverage serves dual purpose of discrediting US-led order while signaling to domestic audience that CCP governance is superior.",
+    "region": "Asia",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["state media control", "strategic competitor framing", "Iranian oil dependency", "Belt and Road regional interests", "US decline narrative"]
+  },
+  "India": {
+    "context": "Non-aligned tradition creates instinct to avoid taking sides in US-Iran tensions, while growing US defense partnership (QUAD, defense deals) pulls toward Washington alignment. Indian media is massive and diverse, but Hindu nationalist outlets under BJP increasingly frame Muslims as security threats, complicating coverage of US action against Muslim-majority Iran. India's large Shia minority and historical Iran ties prevent full alignment with anti-Iran framing.",
+    "region": "Asia",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["non-aligned tradition", "growing US defense partnership", "Hindu nationalist media influence", "historical Iran ties", "large Muslim minority complicates framing", "energy import dependency"]
+  },
+  "Japan": {
+    "context": "Treaty ally hosting 50,000 US military personnel, with security dependence creating strong institutional alignment with US positions on military action. Japanese media is professional and cautious, shaped by pacifist constitutional Article 9 tradition that makes public wary of endorsing military action even by allies. Coverage tends to emphasize energy security implications given Japan's near-total dependence on Middle Eastern oil.",
+    "region": "Asia",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["treaty alliance and base hosting", "Article 9 pacifist tradition", "Middle East oil dependency", "cautious professional media", "energy security as primary lens"]
+  },
+  "South Korea": {
+    "context": "Treaty ally with 28,500 US troops stationed permanently, creating existential security dependence that constrains criticism of US military action. South Korean media is vibrant and competitive, but Middle East coverage is limited and typically framed through impact on Korean economic interests and energy imports. Domestic polarization between conservative pro-US and progressive pro-engagement camps shapes coverage orientation.",
+    "region": "Asia",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["treaty alliance and troop hosting", "existential security dependence", "energy import vulnerability", "conservative-progressive media split", "economic impact framing"]
+  },
+  "Singapore": {
+    "context": "Close US security partner hosting rotating naval deployments, with pragmatic foreign policy that avoids publicly criticizing any major power. Singaporean media operates under government influence via licensing and defamation laws, producing measured coverage that avoids strong positions on US military action. Coverage emphasizes trade disruption, shipping route security, and oil price impacts reflecting Singapore's role as financial and logistics hub.",
+    "region": "Asia",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["government-influenced media", "pragmatic non-confrontational foreign policy", "shipping and trade hub vulnerability", "Strait of Malacca security focus", "economic impact as primary lens"]
+  },
+  "Bangladesh": {
+    "context": "Muslim-majority democracy with historically neutral stance on US military action but strong public sympathy for Muslim populations affected by Western military operations. Bangladeshi media is diverse but under-resourced for international reporting, relying on wire services and producing coverage influenced by domestic political competition between secular and Islamist constituencies. Garment industry economic ties to West moderate elite criticism of US policy.",
+    "region": "Asia",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["Muslim-majority public sympathy", "under-resourced international reporting", "secular-Islamist domestic tension", "economic ties to West moderate criticism", "wire service dependency"]
+  },
+  "Indonesia": {
+    "context": "World's largest Muslim-majority democracy with tradition of non-alignment and institutional suspicion of Western military intervention shaped by colonial history. Indonesian media is free but commercially driven, and public opinion strongly opposes US military action in Muslim-majority countries. Government maintains pragmatic security cooperation with US while publicly distancing from military operations to satisfy domestic constituency.",
+    "region": "Asia",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["largest Muslim-majority democracy", "colonial history anti-intervention instinct", "public opposition to US military action in Muslim countries", "pragmatic government vs public opinion gap", "non-aligned tradition"]
+  },
+  "Hong Kong": {
+    "context": "Since 2020 National Security Law, Hong Kong media has been transformed from one of Asia's freest into a controlled environment aligned with Beijing's positions. Coverage of US military action now mirrors mainland Chinese state media framing of American hegemonic overreach. Pre-2020 Hong Kong media would have provided diverse Western-influenced coverage; post-2020 output is functionally Chinese state perspective.",
+    "region": "Asia",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["post-2020 media control", "alignment with Beijing framing", "loss of editorial independence", "formerly Western-influenced now state-aligned", "National Security Law constraints"]
+  },
+  "Taiwan": {
+    "context": "Dependent on US security guarantee against Chinese invasion, making Taiwan's security establishment reflexively supportive of demonstrations of US military power globally. Taiwanese media is vibrant and polarized between pro-independence outlets (supportive of US) and pro-unification outlets (closer to Beijing framing). Coverage of US Middle East action is filtered primarily through implications for US commitment to Taiwan's defense.",
+    "region": "Asia",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["existential US security dependence", "polarized pro-independence vs pro-unification media", "Taiwan defense implications as primary lens", "vibrant free press", "China threat shapes all foreign policy coverage"]
+  },
+  "Philippines": {
+    "context": "Treaty ally with renewed US military access under MARCOS Jr., reversing Duterte-era pivot toward China, but public opinion on US military action is shaped by colonial history and Mindanao Muslim insurgency. Philippine media is free and combative, producing diverse coverage that ranges from pro-alliance security framing to anti-imperialist criticism rooted in colonial experience. Coverage is influenced by large Filipino diaspora in Middle East working as overseas labor.",
+    "region": "Asia",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["colonial history creates anti-imperial current", "renewed military alliance", "large OFW population in Middle East", "free and combative media", "Mindanao Muslim insurgency context"]
+  },
+  "South Africa": {
+    "context": "ANC government maintains strong anti-imperialist foreign policy rooted in liberation struggle, with institutional solidarity with Palestinian cause and skepticism of US military action. South African media is among Africa's most independent and diverse, capable of producing sophisticated analysis critical of Western interventionism. ICJ genocide case against Israel in 2024 positioned South Africa as global voice for Global South critique of Western military policy.",
+    "region": "Africa",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["ANC anti-imperialist tradition", "Palestinian solidarity", "ICJ genocide case precedent", "independent diverse media", "Global South leadership aspiration"]
+  },
+  "Kenya": {
+    "context": "US counterterrorism partner hosting drone operations against Al-Shabaab in Somalia, creating security establishment alignment with US military but public ambivalence about American intervention. Kenyan media is East Africa's most developed, producing independent coverage but with limited Middle East reporting capacity. Al-Shabaab threat creates domestic security framing that sometimes aligns Kenyan coverage with US counterterrorism narrative.",
+    "region": "Africa",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["counterterrorism partnership", "Al-Shabaab domestic threat alignment", "East Africa's most developed media", "limited Middle East reporting capacity", "security establishment vs public ambivalence"]
+  },
+  "Nigeria": {
+    "context": "Africa's largest economy with Muslim-majority north and Christian-majority south, producing internally divided reactions to US military action in Muslim-majority countries. Nigerian media is vibrant but under-resourced for foreign coverage, and Boko Haram insurgency creates complicated relationship with US military assistance. Coverage splits along religious and regional lines, with northern outlets more critical of US intervention.",
+    "region": "Africa",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["Muslim-Christian regional divide", "Boko Haram complicates US military relationship", "vibrant but under-resourced media", "religious line coverage split", "Africa's largest economy diplomatic weight"]
+  },
+  "Uganda": {
+    "context": "Museveni government has cooperated with US military on counterterrorism in Somalia and Central Africa, but Uganda's authoritarian trajectory has strained the relationship. Ugandan media operates under government pressure with journalists facing harassment, limiting independent coverage of foreign affairs. Limited public engagement with Middle East geopolitics except through pan-African and anti-colonial solidarity frameworks.",
+    "region": "Africa",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["counterterrorism cooperation", "authoritarian media pressure", "limited Middle East engagement", "pan-African solidarity framing", "government control of narrative"]
+  },
+  "Brazil": {
+    "context": "Regional power with tradition of non-intervention and multilateral diplomacy, historically skeptical of US unilateral military action. Brazilian media is diverse and commercially driven, with Globo dominant, and coverage tends toward sovereignty-focused framing critical of intervention. Lula's return to power reinforced Global South positioning and BRICS alignment that frames US military action as destabilizing.",
+    "region": "Latin America",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["non-intervention tradition", "BRICS and Global South alignment", "Lula anti-interventionist positioning", "Globo media dominance", "sovereignty-focused framing"]
+  },
+  "Argentina": {
+    "context": "History of US-backed military dictatorship (1976-83) creates deep institutional skepticism of American military intervention, reinforced by Falklands/Malvinas experience of Anglo-American alliance. Argentine media is politically polarized between Peronist and liberal outlets, but anti-interventionist sentiment crosses political lines. IMF debt dependency creates complicated relationship where government may moderate criticism despite public sentiment.",
+    "region": "Latin America",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["dictatorship-era US support memory", "Malvinas Anglo-American alliance resentment", "politically polarized media", "anti-interventionist cross-partisan consensus", "IMF dependency moderates government criticism"]
+  },
+  "Mexico": {
+    "context": "Immediate US neighbor with deep economic integration via USMCA but tradition of non-interventionist foreign policy codified in the Estrada Doctrine. Mexican media is sophisticated but focused primarily on bilateral US-Mexico issues (migration, trade, cartels) rather than Middle East geopolitics. Historical memory of US military interventions in Mexico (1846-48, Veracruz 1914) informs institutional skepticism of American military power.",
+    "region": "Latin America",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["Estrada Doctrine non-intervention", "historical US military intervention in Mexico", "USMCA economic integration constrains criticism", "media focus on bilateral issues over Middle East", "sovereignty sensitivity"]
+  },
+  "Colombia": {
+    "context": "Closest US military ally in Latin America through Plan Colombia counternarcotics partnership and major non-NATO ally status. Colombian media is relatively free but security establishment alignment with US means coverage of American military action is less critical than regional peers. Petro government has shifted toward more independent foreign policy, but institutional US military ties remain deep.",
+    "region": "Latin America",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Plan Colombia military partnership", "major non-NATO ally status", "Petro government independence shift", "security establishment US alignment", "relatively free but establishment-influenced media"]
+  },
+  "Venezuela": {
+    "context": "Under Chavez and Maduro, Venezuela positioned itself as leading opponent of US imperialism with close ties to Iran, Russia, and Cuba. Venezuelan state media frames all US military action as imperial aggression, while opposition media aligns with US positions. US sanctions and regime change rhetoric make Venezuela's coverage reflexively hostile to American military power projection.",
+    "region": "Latin America",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["Chavista anti-imperialist ideology", "state media vs opposition media split", "Iran alliance solidarity", "US sanctions and regime change threats", "Bolivarian revolution framing"]
+  },
+  "United States": {
+    "context": "Principal actor in Middle East military operations, with deeply polarized domestic media ecosystem producing wildly different framings of same events. Conservative media (Fox, talk radio) tends toward hawkish support for military action especially against Iran, while progressive outlets emphasize civilian casualties and question strategic rationale. Post-Iraq media environment includes greater skepticism than pre-2003 but rally-round-the-flag effects still apply at conflict onset.",
+    "region": "North America",
+    "relationship_to_us_military": "self",
+    "key_framing_factors": ["deeply polarized media ecosystem", "conservative-progressive framing split", "post-Iraq skepticism", "rally-round-the-flag at conflict onset", "military-industrial complex influence", "veteran community perspective"]
+  },
+  "Canada": {
+    "context": "Closest US ally and Five Eyes member that notably declined to join Iraq 2003 coalition, establishing precedent for independent assessment of US military rationales. Canadian media is professional and publicly funded (CBC) alongside private outlets, tending toward multilateral framing and emphasis on international law. Canada's multicultural society includes large Middle Eastern diaspora communities whose perspectives influence coverage.",
+    "region": "North America",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Five Eyes member but Iraq 2003 refusal precedent", "CBC public media independence", "multilateral and international law emphasis", "large Middle Eastern diaspora influence", "peacekeeping national identity"]
+  },
+  "Russia": {
+    "context": "Strategic adversary to US with direct military presence in Syria supporting Assad and growing alliance with Iran including drone and defense cooperation. Russian state media frames US military action as illegal aggression by declining hegemon, contrasting it with Russian military operations presented as legitimate. Coverage serves strategic objective of undermining US global credibility and strengthening multipolar world narrative.",
+    "region": "Other",
+    "relationship_to_us_military": "adversarial",
+    "key_framing_factors": ["state media control", "Syria military presence", "Iran defense cooperation", "declining hegemon narrative", "multipolar world framing", "strategic adversary positioning"]
+  },
+  "Ukraine": {
+    "context": "Existentially dependent on US military aid for survival against Russian invasion, making Ukrainian media reflexively supportive of demonstrations of American military power. Ukrainian coverage frames US military capability as guarantee of rules-based order that protects small states from predatory neighbors. Any suggestion of US military overextension in Middle East triggers anxiety about reduced commitment to Ukraine defense.",
+    "region": "Other",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["existential dependence on US military aid", "rules-based order as survival framework", "anxiety about US overextension", "wartime media environment", "framing through Ukraine defense lens"]
+  },
+  "Azerbaijan": {
+    "context": "Secular Muslim-majority state with strategic energy resources and close Turkey alliance, maintaining pragmatic relationships with both US and Russia while purchasing Israeli military technology. Azerbaijani media is state-controlled under Aliyev regime, producing coverage aligned with government's multi-vector foreign policy. Oil wealth and Caspian energy transit role give Azerbaijan strategic relevance but coverage avoids strong positions that might alienate any major power.",
+    "region": "Other",
+    "relationship_to_us_military": "neutral",
+    "key_framing_factors": ["state media control", "multi-vector foreign policy", "Israeli military cooperation", "Turkey alliance", "energy transit strategic value", "avoids alienating major powers"]
+  },
+  "Australia": {
+    "context": "Five Eyes member and treaty ally that has joined every major US military operation from Vietnam to Iraq to Afghanistan, with deep intelligence and defense integration. Australian media is dominated by Murdoch outlets that tend toward pro-alliance hawkish framing, alongside ABC public broadcaster providing more independent analysis. AUKUS submarine deal deepened US dependency, but public war fatigue from Iraq and Afghanistan creates growing skepticism.",
+    "region": "Other",
+    "relationship_to_us_military": "allied",
+    "key_framing_factors": ["Five Eyes and AUKUS integration", "Murdoch media dominance", "joined all major US operations", "ABC public broadcaster independence", "growing post-Iraq/Afghanistan war fatigue"]
+  },
+  "New Zealand": {
+    "context": "Five Eyes member with nuclear-free tradition that declined to join Iraq 2003 coalition, maintaining alliance while preserving independent foreign policy reputation. New Zealand media is small-market but professional, with coverage emphasizing international law and humanitarian dimensions of military action. Nuclear-free policy and Christchurch response established national identity around principled internationalism rather than military alliance solidarity.",
+    "region": "Other",
+    "relationship_to_us_military": "complicated",
+    "key_framing_factors": ["nuclear-free tradition", "declined Iraq 2003", "Five Eyes but independent foreign policy", "international law emphasis", "small professional media market", "principled internationalism identity"]
+  }
+}
