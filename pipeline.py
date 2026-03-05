@@ -15,6 +15,7 @@ design principles:
 - absence is analyzed at corpus level after all articles processed
 """
 
+import argparse
 import json
 import logging
 import os
@@ -23,6 +24,10 @@ import time
 import hashlib
 import urllib.request
 import urllib.error
+
+from db import get_session, Event, Source, Article, Analysis, Cluster, ClusterMembership, CoverageGap
+from translate import TranslationEngine
+from seed_sources import COUNTRY_CODES
 
 # ── config ────────────────────────────────────────────────────────
 LLM_URL = "http://boron:11434"  # llama-server with OpenAI-compatible API
@@ -33,6 +38,15 @@ ANALYSIS_DIR = "analysis"
 CACHE_DIR = "cache"
 LOG_FILE = "logs/pipeline.log"
 LLM_TIMEOUT = 180  # seconds per LLM call
+
+# all ISO 3166-1 alpha-2 codes for coverage gap detection
+ALL_COUNTRY_CODES = set(COUNTRY_CODES.values())
+ALL_COUNTRY_CODES.update([
+    "AF", "AL", "AM", "AZ", "BH", "BY", "BO", "CL", "CU", "CY", "EC", "GE",
+    "GT", "HN", "HU", "IS", "JM", "KW", "KZ", "LY", "MM", "MN", "MZ",
+    "NA", "NE", "NI", "OM", "PA", "PE", "QA", "RS", "SD", "SN", "SO",
+    "SY", "TJ", "TM", "TT", "UY", "UZ", "VE", "XK", "YE", "ZM", "ZW",
+])
 
 # top world languages by speaker count for coverage audit
 TOP_LANGUAGES = [
@@ -235,11 +249,16 @@ def extract_original_framing(model, text, language):
     return parse_llm_json(raw)
 
 
-# ── translation ───────────────────────────────────────────────────
-def translate_text(model, text):
-    """translate non-English text to English."""
-    prompt = f"Translate to English. Output translation only.\n\n{text[:3000]}"
-    return llm_generate(model, prompt)
+# ── translation (Helsinki-NLP, not LLM) ─────────────────────────
+# global translation engine, initialized lazily
+_translator = None
+
+def get_translator():
+    """get or create the translation engine singleton."""
+    global _translator
+    if _translator is None:
+        _translator = TranslationEngine()
+    return _translator
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -420,9 +439,180 @@ def generate_absence_report(model, results, cluster_data):
     return parse_llm_json(raw)
 
 
+# ── DB helpers ────────────────────────────────────────────────────
+def find_or_create_source(session, domain, article_data, outlet_domains):
+    """find source by domain match, or create a minimal source record."""
+    url = f"https://{domain}" if domain else article_data.get("url", "")
+
+    # try domain match against existing sources
+    source = session.query(Source).filter(
+        Source.url.ilike(f"%{domain}%")
+    ).first() if domain else None
+
+    if source:
+        return source
+
+    country = article_data.get("sourcecountry", "")
+    country_code = COUNTRY_CODES.get(country, "")
+    lang = article_data.get("sourcelang", "English")
+    lang_code = get_translator().lang_name_to_code(lang) or "en"
+
+    outlet_info = outlet_domains.get(domain, {})
+    source = Source(
+        name=outlet_info.get("name", domain),
+        url=f"https://{domain}",
+        country_code=country_code,
+        language_code=lang_code,
+        source_type="gdelt_discovered",
+        editorial_language=lang,
+        tier="C",
+        is_state_adjacent=False,
+    )
+    session.add(source)
+    session.flush()
+    log.warning(f"  new source not in seed list: {domain}")
+    return source
+
+
+def write_article_to_db(session, event_id, source, url, title, lang, raw_text,
+                        translated_text, original_terms, absence_flags):
+    """write article record to DB. returns Article or None if duplicate."""
+    existing = session.query(Article).filter_by(url=url).first()
+    if existing:
+        log.info(f"  duplicate: {url[:60]}")
+        return existing
+
+    is_english = lang.lower() in ("english", "eng", "en")
+    article = Article(
+        event_id=event_id,
+        source_id=source.id,
+        url=url,
+        title=title,
+        original_language=lang if not is_english else "English",
+        translation_language="English" if not is_english and translated_text else None,
+        raw_text=raw_text,
+        translated_text=translated_text if translated_text else (raw_text if is_english else None),
+        original_language_terms=original_terms,
+        absence_flags=absence_flags,
+    )
+    session.add(article)
+    session.flush()
+    return article
+
+
+def write_analysis_to_db(session, article_id, event_id, model_name, analysis_data):
+    """write analysis record to DB."""
+    positions = analysis_data.get("key_framing_language", [])
+    tension_text = analysis_data.get("internal_tensions")
+    internal_tensions = []
+    if tension_text:
+        internal_tensions = [{"description": tension_text}] if isinstance(tension_text, str) else tension_text
+
+    unspeakable = []
+    for v in analysis_data.get("whose_voice_is_absent", []):
+        unspeakable.append(f"voice absent: {v}")
+
+    record = Analysis(
+        article_id=article_id,
+        event_id=event_id,
+        model_used=model_name,
+        primary_frame=analysis_data.get("framing_description", analysis_data.get("one_sentence_summary", "")),
+        positions=positions,
+        internal_tensions=internal_tensions,
+        absence_flags=analysis_data.get("absence_flags", []),
+        unspeakable_positions=unspeakable,
+        raw_llm_output=analysis_data,
+    )
+    session.add(record)
+    return record
+
+
+def write_clusters_to_db(session, event_id, cluster_data, results, url_to_article_id):
+    """write clusters and memberships to DB after pass 2."""
+    if not cluster_data or "emergent_clusters" not in cluster_data:
+        return 0, 0
+
+    clusters_written = 0
+    memberships_written = 0
+
+    for c in cluster_data["emergent_clusters"]:
+        indices = c.get("member_indices", [])
+        geo_sig = {}
+        for idx in indices:
+            if 0 <= idx < len(results):
+                country = results[idx].get("sourcecountry", "unknown")
+                geo_sig[country] = geo_sig.get(country, 0) + 1
+
+        cluster = Cluster(
+            event_id=event_id,
+            label=c.get("cluster_name", ""),
+            article_count=len(indices),
+            geographic_signature=geo_sig,
+        )
+        session.add(cluster)
+        session.flush()
+        clusters_written += 1
+
+        for idx in indices:
+            if 0 <= idx < len(results):
+                url = results[idx].get("url", "")
+                article_id = url_to_article_id.get(url)
+                if article_id:
+                    session.add(ClusterMembership(
+                        article_id=article_id,
+                        cluster_id=cluster.id,
+                    ))
+                    memberships_written += 1
+
+    # singletons as individual clusters
+    for s in cluster_data.get("singletons", []):
+        idx = s.get("index", -1)
+        if 0 <= idx < len(results):
+            url = results[idx].get("url", "")
+            article_id = url_to_article_id.get(url)
+            title_frag = results[idx].get("title", "")[:60]
+            cluster = Cluster(
+                event_id=event_id,
+                label=f"Singleton: {title_frag}",
+                article_count=1,
+                geographic_signature={results[idx].get("sourcecountry", "unknown"): 1},
+            )
+            session.add(cluster)
+            session.flush()
+            clusters_written += 1
+            if article_id:
+                session.add(ClusterMembership(
+                    article_id=article_id, cluster_id=cluster.id, distance_from_centroid=0.0,
+                ))
+                memberships_written += 1
+
+    return clusters_written, memberships_written
+
+
+def write_coverage_gaps_to_db(session, event_id, covered_country_codes):
+    """seed coverage_gaps for countries with zero articles."""
+    gaps = 0
+    for code in sorted(ALL_COUNTRY_CODES - covered_country_codes):
+        session.add(CoverageGap(
+            event_id=event_id,
+            country_code=code,
+            source_type="all",
+            gap_description="no sources in current corpus",
+            attempted=False,
+            retrieved=False,
+        ))
+        gaps += 1
+    return gaps
+
+
 # ── main pipeline ─────────────────────────────────────────────────
-def run_pipeline(limit=None):
-    """run the full two-pass analysis pipeline."""
+def run_pipeline(limit=None, event_id=None):
+    """run the full two-pass analysis pipeline.
+
+    args:
+        limit: max number of articles to process
+        event_id: existing event ID to add articles to. if None, creates new event.
+    """
     with open(ARTICLES_FILE, "r", encoding="utf-8") as f:
         articles = json.load(f)
 
@@ -447,12 +637,38 @@ def run_pipeline(limit=None):
             outlets = json.load(f)
         outlet_domains = {o["domain"]: o for o in outlets}
 
+    # initialize translation engine
+    translator = get_translator()
+    log.info(f"translation engine ready (device={translator._device})")
+
+    # open DB session
+    db_session = get_session()
+
+    # create or find event
+    if event_id:
+        event = db_session.query(Event).get(event_id)
+        if not event:
+            log.error(f"event_id {event_id} not found in DB")
+            db_session.close()
+            sys.exit(1)
+        log.info(f"adding articles to existing event: {event.title} (id={event.id})")
+    else:
+        event = Event(
+            title="US-Israeli Military Strikes on Iran",
+            event_type="military",
+            primary_actors=["United States", "Israel", "Iran"],
+            geographic_scope="regional",
+        )
+        db_session.add(event)
+        db_session.flush()
+        log.info(f"created new event: id={event.id}")
+
     # ── PASS 1: per-article analysis ──────────────────────────────
     log.info(f"\n{'─'*60}")
     log.info(f"PASS 1: per-article framing extraction (no predefined categories)")
     log.info(f"{'─'*60}")
 
-    # resume support: load previously processed results
+    # resume support: load previously processed results (JSON side)
     results = []
     existing_results = {}
     combined_path_check = os.path.join(ANALYSIS_DIR, "all_results.json")
@@ -466,9 +682,22 @@ def run_pipeline(limit=None):
         except (json.JSONDecodeError, KeyError):
             pass
 
+    # also check DB for already-ingested URLs
+    db_urls = set()
+    existing_articles = db_session.query(Article.url).filter_by(event_id=event.id).all()
+    db_urls = {a.url for a in existing_articles}
+    if db_urls:
+        log.info(f"  resume: {len(db_urls)} articles already in DB")
+
+    # track url -> article_id for cluster membership
+    url_to_article_id = {}
+    for a in db_session.query(Article).filter_by(event_id=event.id).all():
+        url_to_article_id[a.url] = a.id
+
     # track consecutive llm failures to detect boron going offline
     consecutive_llm_failures = 0
     MAX_CONSECUTIVE_FAILURES = 5
+    covered_country_codes = set()
 
     for i, article in enumerate(articles):
         url = article.get("url", "")
@@ -477,10 +706,20 @@ def run_pipeline(limit=None):
         lang = article.get("sourcelang", "English")
         country = article.get("sourcecountry", "unknown")
 
-        # resume: skip if already processed
+        # track country coverage
+        code = COUNTRY_CODES.get(country, "")
+        if code:
+            covered_country_codes.add(code)
+
+        # resume: skip if already processed (JSON side)
         if url in existing_results:
             results.append(existing_results[url])
             log.info(f"[{i+1}/{len(articles)}] {domain} — RESUME (already processed)")
+            continue
+
+        # resume: skip if already in DB
+        if url in db_urls:
+            log.info(f"[{i+1}/{len(articles)}] {domain} — RESUME (already in DB)")
             continue
 
         # bail out if boron appears to be offline
@@ -492,33 +731,45 @@ def run_pipeline(limit=None):
         log.info(f"[{i+1}/{len(articles)}] {domain} — {title[:60]}...")
 
         # step 1: fetch article text
-        text = fetch_article_text(url)
-        if not text:
+        raw_text = fetch_article_text(url)
+        if not raw_text:
             log.warning(f"  SKIP: could not fetch article text")
             continue
 
         original_framing = None
         translation_flag = None
+        translated_text = None
+        original_terms_data = []
         is_non_english = lang.lower() not in ("english", "eng", "en")
+        text = raw_text  # working copy for analysis
 
-        # step 2: if non-English, extract framing from ORIGINAL text first
+        # step 2: if non-English, extract original terms + translate with Helsinki-NLP
         if is_non_english:
-            log.info(f"  extracting original {lang} framing terms...")
-            original_framing = extract_original_framing(model, text, lang)
+            # extract original-language terms (regex-based, no LLM needed)
+            lang_code = translator.lang_name_to_code(lang) or translator.detect_language(raw_text)
+            terms = translator.extract_original_terms(raw_text[:2000], lang_code)
+            original_terms_data = terms.get("terms", [])
 
-            # step 3: translate
-            log.info(f"  translating from {lang}...")
-            translated = translate_text(model, text)
-            if translated and len(translated.strip()) > 50:
-                ratio = len(translated.strip()) / len(text.strip())
+            # also extract framing via LLM (preserves richer analysis)
+            log.info(f"  extracting original {lang} framing terms...")
+            original_framing = extract_original_framing(model, raw_text, lang)
+
+            # step 3: translate with Helsinki-NLP (NOT Qwen)
+            log.info(f"  translating from {lang} via Helsinki-NLP...")
+            helsinki_translated, detected_code = translator.translate(raw_text[:3000], source_lang=lang)
+
+            if helsinki_translated:
+                translated_text = helsinki_translated
+                ratio = len(translated_text.strip()) / len(raw_text.strip())
                 if ratio < 0.3:
                     translation_flag = f"translation is {ratio:.0%} the length of original — likely significant content loss"
                 elif ratio < 0.5:
                     translation_flag = f"translation is {ratio:.0%} the length of original — some content may be lost"
-                text = translated
+                text = translated_text
+                log.info(f"  translated: {len(translated_text)} chars ({ratio:.0%} ratio)")
             else:
-                log.warning(f"  translation failed, using original text")
-                translation_flag = "translation failed entirely — position extracted from original language text"
+                log.warning(f"  no Helsinki model for {lang} ({detected_code}) — using original text")
+                translation_flag = f"no Helsinki-NLP model for {detected_code} — analysis on original text"
 
         # step 4: pass 1 — open-ended framing analysis with country context
         country_ctx = get_country_context(country_contexts, country)
@@ -548,7 +799,34 @@ def run_pipeline(limit=None):
         if translation_flag:
             analysis["translation_warning"] = translation_flag
 
-        # enrich with metadata
+        # ── write to DB ──────────────────────────────────────────
+        source = find_or_create_source(db_session, domain, article, outlet_domains)
+        absence_flags = analysis.get("absence_flags", [])
+
+        # build structured original_language_terms for DB
+        orig_terms = analysis.get("original_framing_terms", [])
+        eng_approx = analysis.get("english_approximations", [])
+        terms_structured = []
+        for j, term in enumerate(orig_terms):
+            entry = {"term": term}
+            if j < len(eng_approx):
+                entry["english"] = eng_approx[j]
+            terms_structured.append(entry)
+        # also add regex-extracted terms
+        for t in original_terms_data:
+            if t not in [x.get("term") for x in terms_structured]:
+                terms_structured.append({"term": t})
+
+        db_article = write_article_to_db(
+            db_session, event.id, source, url, title, lang,
+            raw_text, translated_text, terms_structured, absence_flags,
+        )
+        url_to_article_id[url] = db_article.id
+
+        write_analysis_to_db(db_session, db_article.id, event.id, model, analysis)
+        db_session.commit()  # commit per article for resume safety
+
+        # ── also write JSON (parallel output) ────────────────────
         outlet_info = outlet_domains.get(domain, {})
         result = {
             "url": url,
@@ -572,10 +850,10 @@ def run_pipeline(limit=None):
             json.dump(result, f, indent=2, ensure_ascii=False)
 
         desc = analysis.get("framing_description", analysis.get("one_sentence_summary", ""))[:80]
-        tensions = "⚡ HAS TENSIONS" if analysis.get("internal_tensions") else ""
-        log.info(f"  ✓ {desc} {tensions}")
+        tensions = "HAS TENSIONS" if analysis.get("internal_tensions") else ""
+        log.info(f"  done: {desc} {tensions}")
 
-    # save pass 1 results
+    # save pass 1 results (JSON side)
     combined_path = os.path.join(ANALYSIS_DIR, "all_results.json")
     with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
@@ -583,7 +861,10 @@ def run_pipeline(limit=None):
     log.info(f"\n  pass 1 complete: {len(results)}/{len(articles)} articles processed")
 
     # ── PASS 2: emergent clustering ───────────────────────────────
-    if len(results) >= 3:  # need at least a few articles to cluster
+    cluster_data = None
+    absence_data = None
+
+    if len(results) >= 3:
         log.info(f"\n{'─'*60}")
         log.info(f"PASS 2: emergent clustering of {len(results)} framing descriptions")
         log.info(f"{'─'*60}")
@@ -603,7 +884,6 @@ def run_pipeline(limit=None):
                             results[idx]["analysis"].setdefault("emergent_cluster_assignments", [])
                             results[idx]["analysis"]["emergent_cluster_assignments"].append(name)
 
-                # tag singletons
                 for singleton in cluster_data.get("singletons", []):
                     idx = singleton.get("index", -1)
                     if 0 <= idx < len(results):
@@ -614,21 +894,14 @@ def run_pipeline(limit=None):
             log.info(f"  emergent clusters found:")
             for c in cluster_data.get("emergent_clusters", []):
                 conventional = c.get("maps_to_conventional_category")
-                mapped = f" (≈ {conventional})" if conventional else " [NOVEL]"
-                log.info(f"    • {c['cluster_name']}{mapped}: {len(c.get('member_indices', []))} articles")
-                log.info(f"      {c.get('geographic_pattern', '')}")
+                mapped = f" (= {conventional})" if conventional else " [NOVEL]"
+                log.info(f"    {c['cluster_name']}{mapped}: {len(c.get('member_indices', []))} articles")
 
-            singletons = cluster_data.get("singletons", [])
-            if singletons:
-                log.info(f"  singletons (resist clustering): {len(singletons)}")
-                for s in singletons:
-                    idx = s.get("index", -1)
-                    if 0 <= idx < len(results):
-                        log.info(f"    • {results[idx]['domain']}: {s.get('why_unique', '')[:80]}")
-
-            meta = cluster_data.get("meta_observation", "")
-            if meta:
-                log.info(f"  meta-observation: {meta[:200]}")
+            # write clusters to DB
+            c_count, m_count = write_clusters_to_db(
+                db_session, event.id, cluster_data, results, url_to_article_id)
+            db_session.commit()
+            log.info(f"  DB: {c_count} clusters, {m_count} memberships written")
         else:
             log.warning("  pass 2 clustering failed — saving pass 1 results only")
             cluster_data = None
@@ -643,30 +916,29 @@ def run_pipeline(limit=None):
             absence_path = os.path.join(ANALYSIS_DIR, "absence_report.json")
             with open(absence_path, "w", encoding="utf-8") as f:
                 json.dump(absence_data, f, indent=2, ensure_ascii=False)
-
             log.info(f"  unrepresented actors: {absence_data.get('unrepresented_actors', [])[:5]}")
-            log.info(f"  unmade arguments: {len(absence_data.get('unmade_arguments', []))}")
-            log.info(f"  voiceless populations: {absence_data.get('voiceless_populations', [])[:5]}")
-            assessment = absence_data.get("overall_assessment", "")
-            if assessment:
-                log.info(f"  assessment: {assessment[:200]}")
         else:
             log.warning("  absence analysis failed")
             absence_data = None
-    else:
-        log.info("  too few articles for pass 2 clustering — skipping")
-        cluster_data = None
-        absence_data = None
+
+    # write coverage gaps to DB
+    gaps = write_coverage_gaps_to_db(db_session, event.id, covered_country_codes)
+    db_session.commit()
+    log.info(f"  coverage gaps seeded: {gaps}")
 
     # save final enriched results (with cluster tags)
     with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # coverage gaps report
+    # coverage gaps report (JSON side)
     generate_coverage_report(results, articles)
 
     # final summary
     print_summary(results, articles, cluster_data)
+
+    # close DB
+    db_session.close()
+    log.info(f"  event_id: {event.id}")
 
     return results
 
@@ -772,11 +1044,10 @@ def generate_coverage_report(results, articles):
 
 
 if __name__ == "__main__":
-    limit = None
-    if len(sys.argv) > 1:
-        try:
-            limit = int(sys.argv[1])
-        except ValueError:
-            print(f"usage: {sys.argv[0]} [limit]")
-            sys.exit(1)
-    run_pipeline(limit=limit)
+    parser = argparse.ArgumentParser(description="NewsKaleidoscope analysis pipeline")
+    parser.add_argument("limit", nargs="?", type=int, default=None,
+                        help="max articles to process")
+    parser.add_argument("--event-id", type=int, default=None,
+                        help="existing event ID to add articles to")
+    args = parser.parse_args()
+    run_pipeline(limit=args.limit, event_id=args.event_id)
