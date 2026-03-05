@@ -25,14 +25,14 @@ import urllib.request
 import urllib.error
 
 # ── config ────────────────────────────────────────────────────────
-OLLAMA_URL = "http://boron:11434"
+LLM_URL = "http://boron:11434"  # llama-server with OpenAI-compatible API
 ARTICLES_FILE = "articles.json"
 OUTLETS_FILE = "outlets.json"
 CONTEXTS_FILE = "country_contexts.json"
 ANALYSIS_DIR = "analysis"
 CACHE_DIR = "cache"
 LOG_FILE = "logs/pipeline.log"
-OLLAMA_TIMEOUT = 180  # seconds per LLM call
+LLM_TIMEOUT = 180  # seconds per LLM call
 
 # top world languages by speaker count for coverage audit
 TOP_LANGUAGES = [
@@ -59,27 +59,22 @@ log = logging.getLogger("pipeline")
 
 # ── model discovery ───────────────────────────────────────────────
 def find_best_model():
-    """find the best available model on boron."""
+    """check llama-server on boron is reachable, return model name."""
     try:
-        req = urllib.request.Request(f"{OLLAMA_URL}/api/tags")
+        req = urllib.request.Request(f"{LLM_URL}/v1/models")
         with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read().decode("utf-8"))
+        models = data.get("data", [])
+        if models:
+            name = models[0].get("id", "unknown")
+            log.info(f"llama-server model: {name}")
+            return name
     except Exception as e:
-        log.error(f"cannot reach Ollama on boron: {e}")
+        log.error(f"cannot reach llama-server on boron: {e}")
         sys.exit(1)
 
-    models = data.get("models", [])
-    if not models:
-        log.error("no models available on boron")
-        sys.exit(1)
-
-    names = [m["name"] for m in models]
-    if "qwen2.5:72b" in names:
-        return "qwen2.5:72b"
-
-    best = max(models, key=lambda m: m.get("size", 0))
-    log.info(f"qwen2.5:72b not found, using fallback: {best['name']}")
-    return best["name"]
+    log.error("no model loaded on llama-server")
+    sys.exit(1)
 
 
 # ── article fetching ──────────────────────────────────────────────
@@ -125,21 +120,20 @@ def fetch_article_text(url):
     return None
 
 
-# ── ollama calls ──────────────────────────────────────────────────
-def ollama_generate(model, prompt, timeout=OLLAMA_TIMEOUT):
-    """send a prompt to Ollama on boron. returns response text."""
+# ── llm calls (OpenAI-compatible API via llama-server) ───────────
+def llm_generate(model, prompt, timeout=LLM_TIMEOUT):
+    """send a prompt to llama-server on boron. returns response text.
+    uses OpenAI-compatible /v1/chat/completions endpoint.
+    for qwen3, content has the answer and reasoning_content has the thinking."""
     payload = json.dumps({
         "model": model,
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "temperature": 0.3,
-            "num_predict": 3072,
-        }
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.3,
+        "max_tokens": 3072,
     }).encode("utf-8")
 
     req = urllib.request.Request(
-        f"{OLLAMA_URL}/api/generate",
+        f"{LLM_URL}/v1/chat/completions",
         data=payload,
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -148,12 +142,21 @@ def ollama_generate(model, prompt, timeout=OLLAMA_TIMEOUT):
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             result = json.loads(resp.read().decode("utf-8"))
-            return result.get("response", "")
+            # extract content (answer), ignore reasoning_content (thinking)
+            choices = result.get("choices", [])
+            if choices:
+                msg = choices[0].get("message", {})
+                content = msg.get("content", "")
+                if content:
+                    return content
+                # fallback: some models put everything in reasoning_content
+                return msg.get("reasoning_content", "")
+            return ""
     except urllib.error.URLError as e:
-        log.error(f"  ollama connection error: {e}")
+        log.error(f"  llm connection error: {e}")
         return None
     except Exception as e:
-        log.error(f"  ollama error: {e}")
+        log.error(f"  llm error: {e}")
         return None
 
 
@@ -228,7 +231,7 @@ Article excerpt:
 def extract_original_framing(model, text, language):
     """extract key framing language from original (non-English) text before translation."""
     prompt = FRAMING_EXTRACT_PROMPT.format(language=language, text=text[:2000])
-    raw = ollama_generate(model, prompt)
+    raw = llm_generate(model, prompt)
     return parse_llm_json(raw)
 
 
@@ -236,7 +239,7 @@ def extract_original_framing(model, text, language):
 def translate_text(model, text):
     """translate non-English text to English."""
     prompt = f"Translate to English. Output translation only.\n\n{text[:3000]}"
-    return ollama_generate(model, prompt)
+    return llm_generate(model, prompt)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -292,7 +295,7 @@ def pass1_extract(model, text, country_context=""):
         article_text=truncated,
         country_context=country_context
     )
-    raw = ollama_generate(model, prompt)
+    raw = llm_generate(model, prompt)
     return parse_llm_json(raw)
 
 
@@ -342,17 +345,14 @@ IMPORTANT: Output ONLY valid JSON, no other text."""
 def pass2_cluster(model, results):
     """pass 2: cluster all framing descriptions into emergent categories."""
     # build descriptions summary for clustering prompt
+    # use one_sentence_summary to keep prompt within context window
     descriptions = []
     for i, r in enumerate(results):
         analysis = r.get("analysis", {})
-        desc = analysis.get("framing_description", analysis.get("one_sentence_summary", ""))
+        desc = analysis.get("one_sentence_summary", analysis.get("framing_description", ""))[:120]
         country = r.get("sourcecountry", "unknown")
         domain = r.get("domain", "unknown")
-        tensions = analysis.get("internal_tensions", "")
-        line = f"[{i}] {domain} ({country}): {desc}"
-        if tensions:
-            line += f" TENSIONS: {tensions}"
-        descriptions.append(line)
+        descriptions.append(f"[{i}] {domain} ({country}): {desc}")
 
     n_countries = len(set(r.get("sourcecountry", "") for r in results))
     prompt = PASS2_CLUSTER_PROMPT.format(
@@ -360,7 +360,7 @@ def pass2_cluster(model, results):
         n_countries=n_countries,
         descriptions="\n".join(descriptions)
     )
-    raw = ollama_generate(model, prompt, timeout=300)  # longer timeout for corpus-level reasoning
+    raw = llm_generate(model, prompt, timeout=300)  # longer timeout for corpus-level reasoning
     return parse_llm_json(raw)
 
 
@@ -416,7 +416,7 @@ def generate_absence_report(model, results, cluster_data):
         lang_list=", ".join(langs),
         cluster_summary=cluster_summary or "(clustering not available)"
     )
-    raw = ollama_generate(model, prompt, timeout=300)
+    raw = llm_generate(model, prompt, timeout=300)
     return parse_llm_json(raw)
 
 
@@ -452,13 +452,42 @@ def run_pipeline(limit=None):
     log.info(f"PASS 1: per-article framing extraction (no predefined categories)")
     log.info(f"{'─'*60}")
 
+    # resume support: load previously processed results
     results = []
+    existing_results = {}
+    combined_path_check = os.path.join(ANALYSIS_DIR, "all_results.json")
+    if os.path.exists(combined_path_check):
+        try:
+            with open(combined_path_check, "r", encoding="utf-8") as f:
+                prev_results = json.load(f)
+            existing_results = {r["url"]: r for r in prev_results}
+            if existing_results:
+                log.info(f"  resume: found {len(existing_results)} previously processed articles")
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    # track consecutive llm failures to detect boron going offline
+    consecutive_llm_failures = 0
+    MAX_CONSECUTIVE_FAILURES = 5
+
     for i, article in enumerate(articles):
         url = article.get("url", "")
         domain = article.get("domain", "unknown")
         title = article.get("title", "untitled")
         lang = article.get("sourcelang", "English")
         country = article.get("sourcecountry", "unknown")
+
+        # resume: skip if already processed
+        if url in existing_results:
+            results.append(existing_results[url])
+            log.info(f"[{i+1}/{len(articles)}] {domain} — RESUME (already processed)")
+            continue
+
+        # bail out if boron appears to be offline
+        if consecutive_llm_failures >= MAX_CONSECUTIVE_FAILURES:
+            log.error(f"  {MAX_CONSECUTIVE_FAILURES} consecutive llm failures — llama-server on boron not responding, stopping pass 1")
+            log.error(f"  re-run pipeline to resume from where it left off")
+            break
 
         log.info(f"[{i+1}/{len(articles)}] {domain} — {title[:60]}...")
 
@@ -497,7 +526,11 @@ def run_pipeline(limit=None):
         analysis = pass1_extract(model, text, country_context=country_ctx)
         if not analysis:
             log.warning(f"  SKIP: framing extraction failed")
+            consecutive_llm_failures += 1
             continue
+
+        # reset failure counter on success
+        consecutive_llm_failures = 0
 
         # merge original framing data
         if original_framing and not original_framing.get("raw_response"):

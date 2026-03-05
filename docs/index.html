@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewsKaleidoscope — Iran Strikes Epistemic Map</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,600;1,300&family=JetBrains+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0f1419; --surface: #1a1f2e; --surface2: #232838;
+    --text: #e8e6e3; --text-dim: #9ca3af; --accent: #60a5fa;
+    --border: #2d3348; --warn: #fbbf24; --tension: #f472b6;
+  }
+  body { font-family: 'Newsreader', Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header { text-align: center; padding: 3rem 1rem 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  header h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  header h2 { font-family: 'Newsreader', serif; font-size: 2.2rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.75rem; }
+  header .meta { font-size: 0.9rem; color: var(--text-dim); font-style: italic; }
+  .section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .meta-observation { background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; font-size: 0.95rem; line-height: 1.6; font-style: italic; }
+  .cluster-header { display: flex; align-items: baseline; gap: 0.75rem; margin: 2rem 0 0.5rem; flex-wrap: wrap; }
+  .cluster-name { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 4px; color: white; }
+  .cluster-meta { font-size: 0.8rem; color: var(--text-dim); }
+  .cluster-desc { font-size: 0.9rem; color: var(--text-dim); margin: 0.25rem 0 0.75rem; padding-left: 0.5rem; border-left: 2px solid var(--border); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .card-flag { font-size: 1.3rem; }
+  .card-outlet { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+  .card-country { font-size: 0.75rem; color: var(--text-dim); margin-left: auto; }
+  .card-summary { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem; }
+  .card-tension { font-size: 0.85rem; color: var(--tension); background: rgba(244, 114, 182, 0.08); padding: 0.5rem 0.6rem; border-radius: 4px; margin-bottom: 0.6rem; border: 1px solid rgba(244, 114, 182, 0.2); line-height: 1.4; }
+  .card-authority { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem; font-style: italic; }
+  .register-tag { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim); margin-bottom: 0.5rem; }
+  .framing-section { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; margin-bottom: 0.4rem; }
+  .framing-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-dim); margin-right: 0.2rem; }
+  .frame-tag { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dim); }
+  .frame-tag.original { border-color: var(--accent); color: var(--accent); background: rgba(96, 165, 250, 0.08); cursor: help; }
+  .frame-tag.absence { border-color: #e76f51; color: #e76f51; background: rgba(231, 111, 81, 0.08); }
+  .contested-note { font-size: 0.7rem; color: var(--warn); margin: 0.2rem 0; font-family: 'JetBrains Mono', monospace; }
+  .translation-warn { font-size: 0.7rem; color: var(--warn); margin: 0.3rem 0; font-family: 'JetBrains Mono', monospace; }
+  .singleton-badge { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: rgba(199, 125, 255, 0.15); border: 1px solid #c77dff; color: #c77dff; margin-bottom: 0.5rem; }
+  .corpus-warning { background: rgba(231, 111, 81, 0.1); border: 2px solid #e76f51; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.5; }
+  .corpus-warning strong { color: #e76f51; }
+  .unspeakable-section { background: var(--surface); border: 2px solid var(--warn); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+  .unspeakable-item { padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; line-height: 1.6; }
+  .unspeakable-item:last-child { border-bottom: none; }
+  .tension-breakdown { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+  .tension-type { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  .tension-type:last-child { border-bottom: none; }
+  .tension-count { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--tension); min-width: 2.5rem; text-align: right; }
+  .tension-name { font-size: 0.9rem; font-weight: 600; }
+  .tension-desc { font-size: 0.8rem; color: var(--text-dim); }
+  .absence-section, .gaps-section, .transparency-section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+  .absence-item { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .absence-item:last-child { border-bottom: none; }
+  .absence-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--warn); margin-right: 0.5rem; }
+  .gap-item { padding: 0.4rem 0; font-size: 0.85rem; color: var(--text-dim); }
+  .gap-item strong { color: var(--text); }
+  .gap-warn { color: #e76f51; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
+  .transparency-item { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; line-height: 1.5; }
+  .transparency-item:last-child { border-bottom: none; }
+  .claims-section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+  .claim-item { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .claim-item:last-child { border-bottom: none; }
+  .claim-status { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--warn); margin-right: 0.5rem; }
+  footer { text-align: center; padding: 2rem 1rem; margin-top: 3rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim); }
+  footer a { color: var(--accent); text-decoration: none; }
+  @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } header h2 { font-size: 1.5rem; } .container { padding: 1rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>NewsKaleidoscope</h1>
+    <h2>US-Israel Strikes on Iran: Global Epistemic Map</h2>
+    <p class="meta">
+      87 outlets analyzed across 45 countries and 18 languages
+      &middot; 85 articles with internal tensions
+      &middot; Generated 2026-03-05 09:42
+    </p>
+  </header>
+  <div class="section-title">Internal Tensions — 85/87 articles (98%)</div>
+  <div class="meta-observation">The most prevalent contradiction reflects a strategic dissonance between diplomatic rhetoric and military posturing, suggesting a lack of coherent policy. Other tensions reveal broader themes of hypocrisy, inconsistent actor portrayals, and conflicting legal/political obligations. These patterns underscore the complexity of framing U.S.-Israel actions as both conflict-averse and escalatory.</div>
+  <div class="tension-breakdown">
+    <div class="tension-type"><span class="tension-count">16</span><div><span class="tension-name">Diplomacy vs. Military Escalation</span><br><span class="tension-desc">Articles simultaneously promote diplomatic solutions while describing military preparations or actions, creating a contradiction between stated intentions and practical steps.</span></div></div>
+    <div class="tension-type"><span class="tension-count">7</span><div><span class="tension-name">Avoiding Conflict vs. Preparing for War</span><br><span class="tension-desc">Articles juxtapose rhetoric about avoiding conflict (e.g., minimizing casualties) with descriptions of military mobilization or readiness, framing escalation as inevitable.</span></div></div>
+    <div class="tension-type"><span class="tension-count">8</span><div><span class="tension-name">Stated Goals vs. Skepticism</span><br><span class="tension-desc">Articles highlight stated objectives (e.g., 'forcing concessions') while expressing doubt about their feasibility or effectiveness.</span></div></div>
+    <div class="tension-type"><span class="tension-count">5</span><div><span class="tension-name">Normalizing Military Action vs. Critiquing It</span><br><span class="tension-desc">Articles describe military actions as routine responses while implicitly or explicitly critiquing their destabilizing consequences.</span></div></div>
+    <div class="tension-type"><span class="tension-count">5</span><div><span class="tension-name">Contradictory Portrayals of Actors</span><br><span class="tension-desc">Articles depict actors (e.g., Iran, Hezbollah) as both rational negotiators and potential aggressors, creating tension in their characterization.</span></div></div>
+    <div class="tension-type"><span class="tension-count">5</span><div><span class="tension-name">International Law vs. NATO Obligations</span><br><span class="tension-desc">Articles implicitly or explicitly tension adherence to international law (e.g., prohibition of aggression) with NATO commitments or military alliances.</span></div></div>
+    <div class="tension-type"><span class="tension-count">4</span><div><span class="tension-name">Past vs. Present Actions</span><br><span class="tension-desc">Articles contrast historical support for military interventions (e.g., Iraq War) with current critiques of similar actions, highlighting inconsistent stances.</span></div></div>
+    <div class="tension-type"><span class="tension-count">2</span><div><span class="tension-name">Mixed Signals on Regime Change</span><br><span class="tension-desc">Articles acknowledge U.S. interest in regime change in Iran while emphasizing efforts to avoid direct support for such outcomes.</span></div></div>
+  </div>
+  <div class="section-title">Emergent Framing Clusters</div>
+  <div class="meta-observation">The clustering reveals stark global divides in framing the U.S.-Israel-Iran conflict. Western-aligned nations predominantly justify military action as necessary, while non-Western and Iran-aligned voices frame it as illegitimate or destabilizing. Diplomatic mediation emerges as a distinct, though less dominant, narrative, particularly in Europe. Iran’s self-defense rhetoric is tightly concentrated within its own media, highlighting the conflict’s role as a focal point for national identity and sovereignty. These patterns underscore how geopolitical alliances and regional interests shape public discourse, with overlapping themes of legitimacy, sovereignty, and escalation risk emerging across clusters.</div>
+
+  <div class="cluster-header">
+    <span class="cluster-name" style="background:#457b9d">Justified US-Israel Military Action as Calculated Necessity</span>
+    <span class="cluster-meta">20 outlets</span>
+     <span class="cluster-meta">(≈ Endorsement)</span>
+  </div>
+  <div class="cluster-desc">Articles frame U.S.-Israel military posturing or strikes as a necessary, calculated response to Iran's nuclear ambitions or regional destabilization, often emphasizing strategic timing, legitimacy, or risk mitigation. <em>(Concentrated in Western-aligned countries (U.S., UK, Australia, Europe, and allied nations like Japan, South Korea).)</em></div>
+  <div class="cards">
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇦🇱</span>
+        <span class="card-outlet">kohajone.com</span>
+        <span class="card-country">Albania</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran nuclear talks as a process of 'significant progress' mediated by Oman, while highlighting Trump's military buildup as a counterbalance to Iran's 'peaceful purposes' nuclear program. It positions the US and Israel as legitimate actors countering Iran's 'threats' and 'terrorist sponsorship,' with Iran's concessions framed as conditional on sanctions relief.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes diplomatic progress and military escalation, framing both as complementary rather than contradictory.</div>
+      <div class="card-authority">The US, Israel, and Oman are granted legitimacy to act; Iran is implicitly denied legitimacy in its nuclear claims and regional influence.</div>
+      <span class="register-tag">diplomatic</span>
+      <div class="framing-section"><span class="framing-label">original (Albanian):</span>
+        <span class="frame-tag original" title="significant progress">përparim i madh</span>
+        <span class="frame-tag original" title="uncertain">e pasigurt</span>
+        <span class="frame-tag original" title="the President's threats">kërcënimet e Presidentit</span>
+        <span class="frame-tag original" title="largest military buildup">grumbullimin më të madh ushtarak</span>
+        <span class="frame-tag original" title="pledged to respond with force">zotuar të përgjigjet me forcë</span>
+        <span class="frame-tag original" title="development of nuclear weapons">zhvillimin e armëve bërthamore</span>
+      </div>
+      <div class="contested-note">⚠ 'përparim i madh' and 'përparim të rëndësishëm' both translate to 'significant progress,' but the former emphasizes magnitude while the latter emphasizes importance. The distinction is lost in English. 'Zotuar të përgjigjet me forcë' implies a formal commitment to retaliate, which 'pledged to respond with force' captures but lacks the Albanian phrase's connotation of premeditated readiness.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">significant progress</span>
+        <span class="frame-tag">peaceful purposes</span>
+        <span class="frame-tag">number one terrorist sponsor</span>
+        <span class="frame-tag">military fleet</span>
+        <span class="frame-tag">rescue for the clerical leaders</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Humanitarian impact of sanctions</span>
+        <span class="frame-tag absence">2015 nuclear deal context</span>
+        <span class="frame-tag absence">Albanian public opinion on Kosovo intervention's relevance</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways beyond US-Iran negotiations</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇦🇿</span>
+        <span class="card-outlet">haqqin.az</span>
+        <span class="card-country">Azerbaijan</span>
+      </div>
+      <div class="card-summary">The article frames the potential military action as a strategic calculus involving U.S. and Israeli actors leveraging Iranian retaliation to justify broader operations, emphasizing preemptive strikes, public opinion dynamics, and military logistics. It portrays the U.S. administration and Israeli leadership as central to decision-making, with Iran depicted as a destabilizing force requiring containment.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes the desire to avoid U.S. casualties and the inevitability of military escalation, while advocating preemptive strikes while acknowledging the risks of Iranian retaliation.</div>
+      <div class="card-authority">The U.S. administration and Israeli leadership are granted legitimacy to act; Iran is implicitly denied legitimacy as a rational actor, framed as a provocateur requiring preemptive measures.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">provoke Iran into retaliating</span>
+        <span class="frame-tag">bomb them</span>
+        <span class="frame-tag">public support for an attack</span>
+        <span class="frame-tag">regime change level strike</span>
+        <span class="frame-tag">political risk</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Azerbaijani energy transit role</span>
+        <span class="frame-tag absence">Turkey-Israel-U.S. strategic alignment</span>
+        <span class="frame-tag absence">Russian or Chinese diplomatic mediation efforts</span>
+        <span class="frame-tag absence">Regional economic interdependencies</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇧🇬</span>
+        <span class="card-outlet">focus-news.net</span>
+        <span class="card-country">Bulgaria</span>
+      </div>
+      <div class="card-summary">The article frames the potential US-Israel military action against Iran as a calculated political strategy to align public support with strategic objectives, emphasizing the role of preemptive Israeli aggression as a catalyst for US intervention. It positions military strikes as a response to Iran's perceived threat and a means to achieve regime change while avoiding direct US casualties.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article implicitly tensions the desire for regime change in Iran with the explicit goal of avoiding US casualties, suggesting a contradiction between military action as a tool for political change and the need to minimize domestic backlash.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Israel as the primary actors with the right to act, implicitly denying legitimacy to Iran as the aggressor. The White House and Trump are portrayed as the ultimate decision-makers.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">regime change</span>
+        <span class="frame-tag">military operation</span>
+        <span class="frame-tag">politically advantageous</span>
+        <span class="frame-tag">avoid casualties</span>
+        <span class="frame-tag">joint operation</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Iran's perspective on its nuclear program</span>
+        <span class="frame-tag absence">Alternative diplomatic solutions</span>
+        <span class="frame-tag absence">Impact on regional stability or civilian populations</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇭🇷</span>
+        <span class="card-outlet">advance.hr</span>
+        <span class="card-country">Croatia</span>
+      </div>
+      <div class="card-summary">The article frames a potential US military strike against Iran as a calculated, non-repetitive action to avoid past Middle Eastern conflicts while maintaining the capacity to act decisively. It emphasizes balancing historical caution with pragmatic intervention.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article balances skepticism toward foreign intervention with a refusal to 'overlearn' from past mistakes, creating tension between restraint and readiness to act.</div>
+      <div class="card-authority">The US government (via JD Vance) is granted legitimacy to act; Iran is implicitly denied legitimacy as a target for preemptive action.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">eternal war</span>
+        <span class="frame-tag">past mistakes</span>
+        <span class="frame-tag">paralyzed</span>
+        <span class="frame-tag">no chance</span>
+        <span class="frame-tag">overlearn</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Potential consequences for Iran</span>
+        <span class="frame-tag absence">Regional diplomatic efforts</span>
+        <span class="frame-tag absence">Perspectives from non-Western actors</span>
+        <span class="frame-tag absence">Analysis of civilian impact</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇱🇹</span>
+        <span class="card-outlet">lrt.lt</span>
+        <span class="card-country">Lithuania</span>
+      </div>
+      <div class="card-summary">The article frames the U.S. and Israel as justified in their military readiness and skepticism toward Iran, emphasizing Iran's refusal to 'say those golden words' about nuclear renunciation and its support for Hamas. It positions U.S. military buildup as a proportional response to Iran's 'excessive demands' and 'unsatisfactory' negotiations, while implicitly ruling out diplomatic compromise as viable.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article invokes U.S. skepticism about Iran's nuclear intentions while acknowledging U.S. intelligence has found no evidence of Iran's nuclear weaponization, creating a contradiction between stated doubts and empirical claims.</div>
+      <div class="card-authority">The U.S. government (via Trump) and Oman as mediators are granted legitimacy to act; Iran is implicitly denied legitimacy in its nuclear claims and negotiation stance.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">nuclear weapons</span>
+        <span class="frame-tag">excessive demands</span>
+        <span class="frame-tag">golden words</span>
+        <span class="frame-tag">regime change</span>
+        <span class="frame-tag">unsatisfactory negotiations</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Russian influence in the region</span>
+        <span class="frame-tag absence">Impact of U.S.-Israel actions on regional stability</span>
+        <span class="frame-tag absence">Iran's perspective on its nuclear program</span>
+        <span class="frame-tag absence">Role of international law in military actions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇳🇴</span>
+        <span class="card-outlet">vg.no</span>
+        <span class="card-country">Norway</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a welcomed intervention by some Iranian civilians, emphasizing internal dissent against the Iranian regime as a legitimizing factor. It positions civilian hatred of the regime as a rationale for external action, while avoiding explicit endorsement of the actors conducting the strikes.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article implicitly tensions Norway's commitment to international law (which prohibits aggression) with its NATO obligations (which might imply support for US actions). It also contrasts humanitarian framing with militaristic outcomes.</div>
+      <div class="card-authority">Legitimacy is granted to Iranian civilians expressing anti-regime sentiment; the Iranian regime is implicitly denied legitimacy. The article does not explicitly name the US or Israel as authoritative actors.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Norwegian):</span>
+        <span class="frame-tag original" title="war welcome">krigen velkommen</span>
+        <span class="frame-tag original" title="hatred towards the regime">hatet mot regimet</span>
+        <span class="frame-tag original" title="American war">amerikansk krig</span>
+        <span class="frame-tag original" title="complex views">kompliserte syn</span>
+        <span class="frame-tag original" title="civilian Iranians">sivile iranere</span>
+      </div>
+      <div class="contested-note">⚠ 'krigen velkommen' loses the active agency framing in English; the Norwegian phrase implies deliberate acceptance of war as a solution, while 'welcome war' sounds more passive. 'Kompliserte syn' could be better translated as 'nuanced perspectives' to capture the layered nature of the views.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">Our only hope</span>
+        <span class="frame-tag">hatred towards the regime</span>
+        <span class="frame-tag">welcomed the war</span>
+        <span class="frame-tag">complex view</span>
+        <span class="frame-tag">Iranian civilians</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Legal justification for military action</span>
+        <span class="frame-tag absence">Potential civilian casualties</span>
+        <span class="frame-tag absence">Iran's stated reasons for regime resilience</span>
+        <span class="frame-tag absence">Norwegian government's official position</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇸🇬</span>
+        <span class="card-outlet">zaobao.com.sg</span>
+        <span class="card-country">Singapore</span>
+      </div>
+      <div class="card-summary">The article frames U.S. military action against Iran as a strategic, cost-effective measure to pressure Iran into nuclear negotiations, emphasizing the deployment of Kamikaze drones as a tool for targeting vulnerable infrastructure while avoiding prolonged conflict. It positions the U.S. as a rational actor balancing military capability with diplomatic mediation, while highlighting Iran's refusal to compromise on nuclear rights.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the U.S. as avoiding prolonged war while acknowledging its largest military buildup in the region since 2003, creating tension between the rhetoric of restraint and the reality of escalation.</div>
+      <div class="card-authority">The U.S. military and administration are granted legitimacy to act through their deployment of drones and diplomatic mediation. Iran is implicitly denied legitimacy in its refusal to transfer enriched uranium or accept sanctions relief, while Israel's potential role is mentioned but not explicitly endorsed.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Chinese):</span>
+        <span class="frame-tag original" title="Kamikaze">神风</span>
+        <span class="frame-tag original" title="Task Force Scorpion">蝎子特遣队</span>
+        <span class="frame-tag original" title="low-cost drones">低成本无人机</span>
+        <span class="frame-tag original" title="one-way attack">单向攻击</span>
+        <span class="frame-tag original" title="prolonged war">旷日持久的战争</span>
+      </div>
+      <div class="contested-note">⚠ 神风: The term 'Kamikaze' carries specific historical connotations of Japanese suicide attacks during WWII, which may not fully capture the original Chinese term's implication of autonomous, expendable drones. The emotional weight of historical sacrifice is lost in translation.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">Kamikaze drone fleet</span>
+        <span class="frame-tag">one-way attack</span>
+        <span class="frame-tag">vulnerable and dispersed objectives</span>
+        <span class="frame-tag">limited strikes</span>
+        <span class="frame-tag">mediator Oman</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Impact on Strait of Malacca shipping routes</span>
+        <span class="frame-tag absence">Singapore's economic vulnerabilities</span>
+        <span class="frame-tag absence">Regional geopolitical dynamics beyond U.S.-Iran tensions</span>
+        <span class="frame-tag absence">Humanitarian consequences of strikes</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇸🇰</span>
+        <span class="card-outlet">dennikn.sk</span>
+        <span class="card-country">Slovak Republic</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military planning against Iran as a calculated, high-stakes operation led by Trump and General Caine, emphasizing military readiness and strategic ambiguity. It portrays Iran’s nuclear program as a threat requiring preemptive action, while highlighting internal US military concerns about defensive capabilities.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes military readiness with uncertainty about Trump’s intentions and the lack of defensive capabilities, creating tension between preparedness and vulnerability.</div>
+      <div class="card-authority">Trump and General Caine are granted legitimacy as planners of the operation; Iran’s leadership is implicitly denied legitimacy through the framing of their nuclear program as a threat requiring 'bad things' to happen if ignored.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">bad things will happen</span>
+        <span class="frame-tag">highest-ranking official</span>
+        <span class="frame-tag">ready for action</span>
+        <span class="frame-tag">first to attack</span>
+        <span class="frame-tag">lacking defensive missiles</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Diplomatic efforts to resolve tensions</span>
+        <span class="frame-tag absence">Iran’s stated position on its nuclear program</span>
+        <span class="frame-tag absence">Regional consequences of military action</span>
+        <span class="frame-tag absence">Slovak public opinion or policy context</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇰🇷</span>
+        <span class="card-outlet">newspim.com</span>
+        <span class="card-country">South Korea</span>
+      </div>
+      <div class="card-summary">The article frames the U.S. military action against Iran as a unilateral decision-making process led by President Trump, dismissing military officials' concerns as false and emphasizing Trump's authority to act. It positions Trump's threats of escalation as a direct response to Iran's nuclear program, while downplaying logistical and diplomatic challenges.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously asserts Trump's preference for a nuclear agreement while framing military escalation as inevitable if negotiations fail, creating a contradiction between diplomatic and coercive approaches.</div>
+      <div class="card-authority">President Trump is granted legitimacy as the sole decision-maker; General Dunford and critical media reports are implicitly denied legitimacy as 'fake news' and 'intentionally distorted'.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">I am the one who makes the decisions</span>
+        <span class="frame-tag">fake news</span>
+        <span class="frame-tag">bad day for that country</span>
+        <span class="frame-tag">limited strike</span>
+        <span class="frame-tag">intentionally distorted</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Impact on South Korea's energy security</span>
+        <span class="frame-tag absence">Perspectives of U.S. allies</span>
+        <span class="frame-tag absence">Iran's stated position on nuclear negotiations</span>
+        <span class="frame-tag absence">Economic consequences of military action</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇬🇧</span>
+        <span class="card-outlet">aol.co.uk</span>
+        <span class="card-country">United Kingdom</span>
+      </div>
+      <div class="card-summary">The article frames Iran's missile development as an existential threat to the US, emphasizing preemptive military readiness and diplomatic negotiations as dual pillars of response. It positions the US and its allies as legitimate actors countering Iran's 'sinister' ambitions, while framing Iranian officials' statements as evasive or conciliatory.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays negotiations as 'positive' and 'disappointing,' while advocating military readiness and diplomacy as complementary strategies.</div>
+      <div class="card-authority">The US government, including Trump and Rubio, is granted legitimacy to act preemptively. Iran is implicitly denied legitimacy, portrayed as a destabilizing force with 'sinister nuclear ambitions.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">designed solely to strike America</span>
+        <span class="frame-tag">sinister nuclear ambitions</span>
+        <span class="frame-tag">meaningful deal</span>
+        <span class="frame-tag">intercontinental ballistic missiles</span>
+        <span class="frame-tag">serious rounds</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Regional dynamics (e.g., Gulf states' perspectives)</span>
+        <span class="frame-tag absence">Economic sanctions' role</span>
+        <span class="frame-tag absence">Humanitarian impacts</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-outlet">abcnews.com</span>
+        <span class="card-country">United States</span>
+      </div>
+      <div class="card-summary">The article frames the potential U.S.-Israel military action against Iran as a necessary response to Iran's nuclear ambitions, emphasizing U.S. and Israeli preparedness while highlighting the uncertainty of Trump's final decision. It positions military readiness and preemptive strikes as justified by Iran's refusal to abandon nuclear capabilities, contrasting with Iran's claims of peaceful intent.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes U.S. military buildup and ongoing Geneva negotiations, while also acknowledging the 'uncertainty' of Trump's decision, creating tension between readiness for conflict and diplomatic ambiguity.</div>
+      <div class="card-authority">The U.S. and Israel are granted legitimacy to act through their military preparations and diplomatic negotiations, while Iran is implicitly denied legitimacy due to its refusal to abandon nuclear development and its historical crackdown on protesters.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">huge military build-up</span>
+        <span class="frame-tag">set back Iran’s offensive capabilities</span>
+        <span class="frame-tag">nuclear weapon</span>
+        <span class="frame-tag">acceptable agreement</span>
+        <span class="frame-tag">gaps in the U.S. and Iranian positions</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Impact on civilian populations</span>
+        <span class="frame-tag absence">Role of international law or multilateral institutions</span>
+        <span class="frame-tag absence">Alternative diplomatic solutions beyond Geneva talks</span>
+        <span class="frame-tag absence">Iran's stated rationale for nuclear program</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇦🇺</span>
+        <span class="card-outlet">theage.com.au</span>
+        <span class="card-country">Australia</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel-Iran tensions as a conflict between legitimate authority (the US administration) and Iranian deception, emphasizing military readiness and diplomatic engagement as dual pillars of response. It positions Iran’s nuclear program as an existential threat to the US and its allies, while dismissing Iranian counterclaims as disinformation.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously advocates diplomacy ('mutual interests') while normalizing military threats ('unleash the military'), and frames Iran as both a negotiating partner and a 'craziest and worst regime'.</div>
+      <div class="card-authority">The US administration (Trump, Rubio, Vance) is granted legitimacy to act on security threats; Iran is denied legitimacy, with its officials portrayed as propagandists spreading 'big lies'.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">big lies</span>
+        <span class="frame-tag">craziest and worst regime</span>
+        <span class="frame-tag">disinformation and misinformation campaign</span>
+        <span class="frame-tag">mutual interests</span>
+        <span class="frame-tag">threaten the United States</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Impact on regional stability</span>
+        <span class="frame-tag absence">Australian or Five Eyes ally perspectives</span>
+        <span class="frame-tag absence">Historical context of US-Israel-Iran relations</span>
+        <span class="frame-tag absence">Alternative interpretations of Iran’s nuclear program</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇪🇬</span>
+        <span class="card-outlet">dostor.org</span>
+        <span class="card-country">Egypt</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Israel military planning against Iran as a strategic calculation to minimize political costs and public backlash in the U.S., emphasizing the role of 'political calculations' and 'justifications' for action. It positions Israel as a proxy actor to trigger Iranian retaliation, which would then legitimize broader U.S. intervention.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article implicitly tensions the U.S. desire for 'regime change' in Iran with the need to avoid American casualties, and the preference for Israeli action to reduce political costs versus the risk of Iranian retaliation against U.S. assets.</div>
+      <div class="card-authority">The U.S. administration and Israel are granted legitimacy to act, while Iran is implicitly denied legitimacy as an aggressor. The article assumes the U.S. government's authority to decide on military action and its right to prioritize political survival over public sentiment.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">political calculations</span>
+        <span class="frame-tag">justifications</span>
+        <span class="frame-tag">regime change</span>
+        <span class="frame-tag">public support</span>
+        <span class="frame-tag">ammonition reserves</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Egypt's military aid dependency and media constraints</span>
+        <span class="frame-tag absence">Camp David's role in regional stability</span>
+        <span class="frame-tag absence">Domestic Egyptian public sentiment</span>
+        <span class="frame-tag absence">Alternative diplomatic solutions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇮🇳</span>
+        <span class="card-outlet">livemint.com</span>
+        <span class="card-country">India</span>
+      </div>
+      <div class="card-summary">The article frames the US as having legitimate authority to counter Iran's 'very grave threat' through military readiness and diplomacy, while portraying Iran's nuclear program and military capabilities as destabilizing and hostile to US interests. It positions the US as acting in self-defense and regional stability, contrasting with Iran's 'conventional weapons designed to attack America.'</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes diplomacy as a 'last-ditch effort' while describing extensive US military mobilization, creating tension between the rhetoric of de-escalation and the reality of escalation.</div>
+      <div class="card-authority">The US government (via Rubio and Trump) is granted legitimacy to act; Iran is implicitly denied legitimacy in its nuclear program and military posturing.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">very grave threat</span>
+        <span class="frame-tag">nuclear ambitions</span>
+        <span class="frame-tag">limited strike</span>
+        <span class="frame-tag">last-ditch effort</span>
+        <span class="frame-tag">armada</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">India's non-aligned stance and historical ties to Iran</span>
+        <span class="frame-tag absence">Impact on Muslim communities in the region</span>
+        <span class="frame-tag absence">Alternative energy security frameworks beyond US-Iran dynamics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇮🇹</span>
+        <span class="card-outlet">ilpost.it</span>
+        <span class="card-country">Italy</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Iran negotiations as a critical diplomatic effort to prevent Iran's nuclear weapon development, emphasizing U.S. military readiness as a necessary counterbalance. It positions Iran's nuclear program as inherently suspect due to its hydrocarbon wealth, framing civilian nuclear claims as disingenuous. The U.S. is portrayed as seeking a temporary suspension of Iranian nuclear activities to secure a long-term strategic advantage.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays diplomacy as the preferred path while normalizing the U.S. military buildup as a 'credible threat,' creating tension between stated commitment to dialogue and implicit endorsement of coercion.</div>
+      <div class="card-authority">The U.S. is granted legitimacy to act through its military presence and diplomatic proposals; Iran is implicitly denied legitimacy in its nuclear claims due to its status as a 'principal supporter of terrorism' and its hydrocarbon resources.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Italian):</span>
+        <span class="frame-tag original" title="imposing armada">armada imponente</span>
+        <span class="frame-tag original" title="supporter of terrorism">sostenitore del terrorismo</span>
+        <span class="frame-tag original" title="reduce the tension">ridurre la tensione</span>
+        <span class="frame-tag original" title="right to use nuclear technology">diritto a utilizzare la tecnologia nucleare</span>
+        <span class="frame-tag original" title="talks with the aim of finding an agreement">colloqui con l’obiettivo di trovare un accordo</span>
+      </div>
+      <div class="contested-note">⚠ 'armada imponente' loses the specific naval/military force connotation; 'sostenitore del terrorismo' retains the accusation but lacks Trump's direct framing as 'principal supporter'; 'ridurre la tensione' simplifies the complex geopolitical context of de-escalation</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">principal supporter of terrorism</span>
+        <span class="frame-tag">impressive armada</span>
+        <span class="frame-tag">civilian purposes</span>
+        <span class="frame-tag">hydrocarbon producer</span>
+        <span class="frame-tag">credible threat</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Italy's strategic interests in the Mediterranean</span>
+        <span class="frame-tag absence">Vatican's humanitarian concerns</span>
+        <span class="frame-tag absence">Regional energy dynamics beyond U.S.-Iran</span>
+        <span class="frame-tag absence">Impact on Gulf states' security</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇽🇰</span>
+        <span class="card-outlet">telegrafi.com</span>
+        <span class="card-country">Kosovo</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a calculated political strategy to secure public support for potential US intervention, emphasizing the role of preemptive strikes by Israel to provoke Iranian aggression and justify broader American action. It positions the US nuclear program and diplomatic negotiations as secondary to the optics of who initiates the conflict.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes diplomatic efforts (e.g., Geneva negotiations) while acknowledging internal US political pressure for military action, creating tension between stated diplomacy and implied aggression.</div>
+      <div class="card-authority">The article grants legitimacy to the US administration and Israeli leadership as primary actors, implicitly denying legitimacy to Iran and its regional allies. The White House and Israeli Prime Minister are presented as authoritative decision-makers, while Iranian actions are framed as unprovoked and destabilizing.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">political calculation</span>
+        <span class="frame-tag">public support</span>
+        <span class="frame-tag">nuclear program</span>
+        <span class="frame-tag">provoked aggression</span>
+        <span class="frame-tag">optics of action</span>
+      </div>
+      <div class="translation-warn">⚠ translation failed entirely — position extracted from original language text</div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Kosovo's historical context of US intervention</span>
+        <span class="frame-tag absence">regional actors beyond Israel and Iran</span>
+        <span class="frame-tag absence">critiques of US imperialism or militarism</span>
+        <span class="frame-tag absence">analysis of civilian impacts</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇬🇧</span>
+        <span class="card-outlet">BBC News</span>
+        <span class="card-country">United Kingdom</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli military actions as a decisive and justified response to Iranian aggression, emphasizing infrastructure disruptions in Iran and the collapse of Khamenei's funeral plans as evidence of systemic destabilization. It positions the US and Israel as acting with strategic superiority while portraying Iran's retaliatory strikes as chaotic and self-inflicted.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the US-Israeli actions as 'never meant to be a fair fight' while acknowledging Iran's retaliatory missile launches as causing civilian casualties, creating tension between claims of overwhelming force and the reality of reciprocal violence.</div>
+      <div class="card-authority">The US and Israel are granted legitimacy as actors with 'total aerial superiority' and 'appropriate facilities' to manage crises, while Iran's government is implicitly denied legitimacy through its inability to secure infrastructure or hold state rituals amid the bombardment.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">total aerial superiority</span>
+        <span class="frame-tag">quiet death</span>
+        <span class="frame-tag">unjust war</span>
+        <span class="frame-tag">appropriate facilities</span>
+        <span class="frame-tag">punching them while they're down</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">UN Security Council reactions</span>
+        <span class="frame-tag absence">economic impacts of the conflict</span>
+        <span class="frame-tag absence">Iranian public opinion beyond state media</span>
+        <span class="frame-tag absence">historical parallels to the Iraq War</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇬🇧</span>
+        <span class="card-outlet">BBC News</span>
+        <span class="card-country">United Kingdom</span>
+      </div>
+      <div class="card-summary">The article frames the US submarine sinking of the Iranian warship as a decisive and justified military action by the US, emphasizing its historical significance as the first such event since World War Two. It juxtaposes US claims of targeting an 'enemy ship' in 'international waters' with Sri Lanka's account of responding to a distress call, implicitly casting doubt on the latter while validating the former.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the US as acting in 'international waters' while acknowledging Sri Lanka's 'search and rescue region' obligations, creating tension between sovereignty claims and humanitarian duties.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Israel as actors with the right to use force, while implicitly denying legitimacy to Iran and its military operations. Sri Lanka's role is portrayed as reactive and secondary.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">enemy ship</span>
+        <span class="frame-tag">international waters</span>
+        <span class="frame-tag">quiet death</span>
+        <span class="frame-tag">security headquarters</span>
+        <span class="frame-tag">Nato defences</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">No mention of UN Security Council involvement or international law</span>
+        <span class="frame-tag absence">No analysis of regional geopolitical implications</span>
+        <span class="frame-tag absence">No discussion of civilian casualties or environmental impact</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇧🇷</span>
+        <span class="card-outlet">Folha de São Paulo</span>
+        <span class="card-country">Brazil</span>
+      </div>
+      <div class="card-summary">The article frames the U.S. military action as a decisive and justified escalation in a broader campaign against Iran, emphasizing U.S. authority and technological capability. It portrays the attack as a calculated move to disrupt Iranian operations in international waters, with Sri Lanka’s involvement framed as a collateral consequence of the conflict’s geographic expansion.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes U.S. military triumphalism with Sri Lanka’s historically close ties to Iran, creating tension between the U.S. framing of the attack as routine and the potential regional destabilization for Sri Lanka.</div>
+      <div class="card-authority">The U.S. government (via Pete Hegseth) is granted legitimacy to act militarily, while Iran is implicitly denied legitimacy as an aggressor. Sri Lanka’s government is portrayed as neutral but complicit in responding to the Iranian ship’s distress.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">America is winning decisively, devastatingly, and mercilessly</span>
+        <span class="frame-tag">international waters</span>
+        <span class="frame-tag">distress signal</span>
+        <span class="frame-tag">bilateral ties</span>
+        <span class="frame-tag">microcosm of broader relationship</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Iran’s stated position on the attack</span>
+        <span class="frame-tag absence">International law or UN Security Council references</span>
+        <span class="frame-tag absence">Analysis of U.S.-Sri Lanka strategic tensions</span>
+        <span class="frame-tag absence">Perspectives from Global South or BRICS allies</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #457b9d">
+      <div class="card-header">
+        <span class="card-flag">🇨🇦</span>
+        <span class="card-outlet">The Globe and Mail</span>
+        <span class="card-country">Canada</span>
+      </div>
+      <div class="card-summary">The article frames the U.S. military action as a direct and escalatory move by Washington against Iran, emphasizing the sinking of the warship as a strategic expansion of U.S. naval pursuit. It positions the U.S. defense authority as the sole legitimate actor while omitting alternative perspectives or legal justifications.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article implicitly accepts U.S. unilateral military action while ignoring potential contradictions with principles of sovereignty and international law.</div>
+      <div class="card-authority">The U.S. Department of Defense is granted legitimacy to act; the Iranian navy is implicitly denied legitimacy as a target of lethal force.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">U.S. sub sinks Iranian warship</span>
+        <span class="frame-tag">Washington's pursuit of the Iranian navy</span>
+        <span class="frame-tag">dramatically widens</span>
+        <span class="frame-tag">killed dozens of sailors</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Sri Lankan territorial sovereignty implications</span>
+        <span class="frame-tag absence">International legal framework analysis</span>
+        <span class="frame-tag absence">Iranian military justification or response</span>
+        <span class="frame-tag absence">Multilateral diplomatic responses</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cluster-header">
+    <span class="cluster-name" style="background:#2d6a4f">Destabilizing US-Israel Actions as Illegal or Reckless Escalation</span>
+    <span class="cluster-meta">26 outlets</span>
+     <span class="cluster-meta">(≈ Opposition)</span>
+  </div>
+  <div class="cluster-desc">Articles criticize U.S.-Israel military planning as destabilizing, imperialist, or illegal, often highlighting civilian harm, regional chaos, or violations of international law. <em>(Dispersed globally, with concentration in China, Iran, and parts of Europe and the Global South.)</em></div>
+  <div class="cards">
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇨🇳</span>
+        <span class="card-outlet">news.china.com</span>
+        <span class="card-country">China</span>
+      </div>
+      <div class="card-summary">The article frames U.S.-Israel military posturing against Iran as a calculated escalation driven by Trump's advisors, emphasizing the risk of exhausting U.S. military resources and creating opportunities for 'military unification' in China. It portrays diplomatic efforts in Geneva as a facade for inevitable military action, with Israel's preemptive strike framed as a strategic tool to generate public support for U.S. intervention.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays diplomatic negotiations as 'notable progress' while framing them as a delaying tactic for inevitable military action, creating tension between the stated goals of diplomacy and the implied inevitability of war.</div>
+      <div class="card-authority">The U.S. administration and Israel are granted legitimacy to act; Iran is implicitly denied legitimacy as a rational actor, while the American public is framed as a passive force whose support is contingent on avoiding casualties.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">military unification</span>
+        <span class="frame-tag">asymmetric retaliation</span>
+        <span class="frame-tag">preemptive strike</span>
+        <span class="frame-tag">public support</span>
+        <span class="frame-tag">exhausting U.S. military ammunition reserves</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Chinese economic interests in the Middle East</span>
+        <span class="frame-tag absence">Impact on Belt and Road projects</span>
+        <span class="frame-tag absence">Regional stability implications</span>
+        <span class="frame-tag absence">Alternative diplomatic solutions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇭🇰</span>
+        <span class="card-outlet">hkcna.hk</span>
+        <span class="card-country">Hong Kong</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Iran negotiations as a critical moment where the U.S. is portrayed as an aggressor through sanctions and military posturing, while Iran is depicted as seeking peace but prepared to retaliate if attacked. The outcome is framed as a choice between 'peace or war,' with Iran's diplomatic openness contrasted against U.S. 'contradictory actions.'</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Iran as committed to 'dignified diplomatic mediation' while threatening a 'retaliatory strike,' creating tension between its peaceful and confrontational framing. It also cites U.S. officials in negotiations but frames U.S. actions as inherently 'contradictory.'</div>
+      <div class="card-authority">Legitimacy is granted to Iran and the U.S. as primary negotiators, with Iran's parliament and foreign ministry framed as representing national resolve. The U.S. is implicitly denied legitimacy in its military actions, which are labeled as 'hegemonic overreach.'</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Chinese):</span>
+        <span class="frame-tag original" title="decisive round">決定性回合</span>
+        <span class="frame-tag original" title="holding their breath in anticipation">屏息等待</span>
+        <span class="frame-tag original" title="iron fist">鐵拳</span>
+        <span class="frame-tag original" title="historic opportunity">歷史性機遇</span>
+        <span class="frame-tag original" title="neither war nor peace">非戰非和</span>
+        <span class="frame-tag original" title="win-win agreement">雙贏協議</span>
+      </div>
+      <div class="contested-note">⚠ 「鐵拳」 loses the metaphorical connotation of a powerful, potentially violent response; 「非戰非和」 captures the limbo state but may be better rendered as 'a state of neither war nor peace' to emphasize the tense stalemate</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">decisive round</span>
+        <span class="frame-tag">iron fist of the Iranian people</span>
+        <span class="frame-tag">unprecedented openness</span>
+        <span class="frame-tag">retaliatory strike</span>
+        <span class="frame-tag">contradictory actions</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Israel's role in regional tensions</span>
+        <span class="frame-tag absence">Details of U.S.-Israel military coordination</span>
+        <span class="frame-tag absence">Iran's domestic political opposition to nuclear policies</span>
+        <span class="frame-tag absence">Alternative regional security frameworks</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇳</span>
+        <span class="card-outlet">indianexpress.com</span>
+        <span class="card-country">India</span>
+      </div>
+      <div class="card-summary">The article frames US-Israel military action against Iran as a strategic but ambiguous response to perceived nuclear and missile threats, emphasizing the lack of clear objectives and the symbolic value of strikes. It critiques the Trump administration's failure to articulate a rationale for military engagement while acknowledging the operational risks and limitations of such actions.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously supports the strategic logic of strikes while highlighting their operational limitations and risks. It critiques Trump's lack of clarity but assumes military action is the default response. It acknowledges symbolic goals (military victory) while doubting their strategic value.</div>
+      <div class="card-authority">The US and Israel are granted legitimacy to act against Iran's nuclear and missile capabilities, while the Trump administration is implicitly denied legitimacy due to its failure to justify the strikes or seek congressional approval. Iran is portrayed as a destabilizing force but not explicitly denied legitimacy.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">secret words</span>
+        <span class="frame-tag">obliterated</span>
+        <span class="frame-tag">war of choice</span>
+        <span class="frame-tag">military victory</span>
+        <span class="frame-tag">force concessions</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">India's non-aligned stance and energy import dependency</span>
+        <span class="frame-tag absence">Impact on Shia Muslim communities in India</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways</span>
+        <span class="frame-tag absence">Regional geopolitical dynamics beyond US-Israel-Iran</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇯🇵</span>
+        <span class="card-outlet">attackofthefanboy.com</span>
+        <span class="card-country">Japan</span>
+      </div>
+      <div class="card-summary">The article frames the Iranian missile deal with China as a destabilizing escalation in a regional 'battlefield' between the US and a coalition of China and Russia, emphasizing the threat to US naval forces and the violation of UN embargoes. It positions the US military buildup and Trump’s warnings as necessary responses to Iran’s acquisition of advanced weaponry.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article invokes the UN embargo as a normative standard while simultaneously framing US military action as a necessary response, creating tension between legal compliance and realpolitik.</div>
+      <div class="card-authority">The article grants legitimacy to the US and its military actions, the UN weapons embargo, and Chinese state statements denying the missile deal. It implicitly denies legitimacy to Iran and China for violating the UN embargo and to Russia for aligning with Iran.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">gamechanger</span>
+        <span class="frame-tag">battlefield</span>
+        <span class="frame-tag">safeguarding sovereignty</span>
+        <span class="frame-tag">complete threat level</span>
+        <span class="frame-tag">weeks-long military operations</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Japan’s energy security concerns</span>
+        <span class="frame-tag absence">analysis of regional economic or humanitarian impacts</span>
+        <span class="frame-tag absence">Iran’s stated strategic rationale for the missile acquisition</span>
+        <span class="frame-tag absence">alternative perspectives on the UN embargo’s legitimacy</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇨🇳</span>
+        <span class="card-outlet">world.qianlong.com</span>
+        <span class="card-country">China</span>
+      </div>
+      <div class="card-summary">The article frames the U.S. military buildup as a destabilizing escalation of hegemonic overreach, contrasting it with the stability of economic development and diplomacy. It emphasizes the scale of U.S. force deployments as a threat to regional balance, implicitly linking them to historical patterns of Western military intervention.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the U.S. as both a rational actor (preparing for negotiations) and an irrational aggressor (escalating military deployment), creating tension between its diplomatic and militaristic framing.</div>
+      <div class="card-authority">The U.S. is granted legitimacy to act unilaterally through its military capabilities, but implicitly denied legitimacy to dictate regional security outcomes. Iran and China are implicitly positioned as legitimate actors whose interests are disrupted by U.S. actions.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">hegemonic overreach</span>
+        <span class="frame-tag">destabilizing escalation</span>
+        <span class="frame-tag">final piece of military buildup</span>
+        <span class="frame-tag">limited strike</span>
+        <span class="frame-tag">high-intensity airstrikes</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">China's Belt and Road investments in the region</span>
+        <span class="frame-tag absence">Iran's economic or strategic responses</span>
+        <span class="frame-tag absence">Alternative non-military solutions to the crisis</span>
+        <span class="frame-tag absence">Domestic Chinese public opinion or policy debates</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇭🇰</span>
+        <span class="card-outlet">hkcna.hk</span>
+        <span class="card-country">Hong Kong</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Iran negotiations as a pivotal moment where Iran's diplomatic openness is contrasted with U.S. 'contradictory actions and positions,' including military escalation. It emphasizes Iran's conditional willingness to negotiate and its readiness for 'dignified diplomatic mediation' or 'retaliatory strike' if provoked, while portraying U.S. military posturing as destabilizing.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Iran as a rational negotiator and a potential aggressor, while framing U.S. military actions as both provocative and predictable.</div>
+      <div class="card-authority">Iran is granted legitimacy as a rational actor seeking diplomatic solutions and self-defense; the U.S. is implicitly denied legitimacy due to its 'contradictory actions' and military buildup. The IAEA and Oman are presented as neutral facilitators.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">'contradictory actions and positions'</span>
+        <span class="frame-tag">'iron fist of the Iranian people'</span>
+        <span class="frame-tag">'dignified diplomatic mediation'</span>
+        <span class="frame-tag">'retaliatory strike that makes enemies regret'</span>
+        <span class="frame-tag">'unprecedented openness'</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Analysis of U.S. strategic interests in the region</span>
+        <span class="frame-tag absence">Impact of sanctions on Iran's economy</span>
+        <span class="frame-tag absence">Role of non-state actors in regional tensions</span>
+        <span class="frame-tag absence">Perspectives from European or Gulf states</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇳🇴</span>
+        <span class="card-outlet">tv2.no</span>
+        <span class="card-country">Norway</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a conflict rooted in the US's non-negotiable demands on Iran's nuclear program, emphasizing legal and humanitarian principles. It highlights the tension between the US's military escalation and the irreconcilable positions over uranium enrichment rights under the Non-Proliferation Treaty, while questioning the legitimacy of unilateral pressure.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously critiques the US's military escalation as destabilizing while acknowledging its potential to 'eliminate' Iran's missile/nuclear infrastructure, creating tension between legal/humanitarian principles and realpolitik.</div>
+      <div class="card-authority">The article grants legitimacy to Iran's right to low-enrichment under the Non-Proliferation Treaty but denies legitimacy to the US's zero-enrichment demand, framing it as legally arbitrary. The US is portrayed as having de facto military authority but lacking legal justification for its demands.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Norwegian):</span>
+        <span class="frame-tag original" title="high stakes">høyt spill</span>
+        <span class="frame-tag original" title="costly">kostbar</span>
+        <span class="frame-tag original" title="military conflict">militær konflikt</span>
+        <span class="frame-tag original" title="zero enrichment requirement">krav om nullanriking</span>
+        <span class="frame-tag original" title="sanctions">sanksjoner</span>
+      </div>
+      <div class="contested-note">⚠ 'høyt spill' as 'high stakes' loses the idiomatic nuance of a high-risk game; 'kostbar' as 'costly' misses the political-economic connotation of burden-bearing</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">Non-Proliferation Treaty</span>
+        <span class="frame-tag">zero enrichment</span>
+        <span class="frame-tag">military motivation</span>
+        <span class="frame-tag">sanctions relief</span>
+        <span class="frame-tag">ballistic missiles</span>
+      </div>
+      <div class="translation-warn">⚠ translation is 35% the length of original — some content may be lost</div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Israeli military coordination</span>
+        <span class="frame-tag absence">Regional alliances (e.g., Gulf Cooperation Council)</span>
+        <span class="frame-tag absence">Civilian impact assessments</span>
+        <span class="frame-tag absence">Iran's counterarguments beyond legal rights</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇶🇦</span>
+        <span class="card-outlet">Al Jazeera</span>
+        <span class="card-country">Qatar</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a reckless escalation driven by Trump’s inconsistent justifications and lack of congressional oversight, with Democrats positioning themselves as the legitimate authority to constrain executive overreach. It emphasizes the absence of clear evidence for Iran’s threats and draws parallels to the 2003 Iraq invasion to underscore the perceived danger of unchecked military deployment.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article critiques Trump’s shifting narratives while simultaneously relying on Democratic claims about Iran’s capabilities, which may contradict the earlier assertion of 'zero clarity' from the administration.</div>
+      <div class="card-authority">Legitimate authority is granted to the US Congress (specifically Democrats) to act as a check on executive power; the Trump administration and its military actions are implicitly denied legitimacy due to their perceived recklessness and lack of transparency.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">rein in</span>
+        <span class="frame-tag">boots on the ground</span>
+        <span class="frame-tag">zero clarity</span>
+        <span class="frame-tag">surrounded by 'yes' men</span>
+        <span class="frame-tag">precisely what the American people fear</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Iran’s perspective on the conflict</span>
+        <span class="frame-tag absence">Qatari or regional mediation efforts</span>
+        <span class="frame-tag absence">Alternative justifications for US-Israeli actions</span>
+        <span class="frame-tag absence">Analysis of Israel’s role beyond indirect mentions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🌐</span>
+        <span class="card-outlet">Al-Monitor</span>
+        <span class="card-country">USA</span>
+      </div>
+      <div class="card-summary">The article frames the event as a violation of Turkey's sovereignty by Iran, with the U.S. positioning itself as a defender of this sovereignty through diplomatic and military support. The U.S. is portrayed as a legitimate actor responding to an unacceptable act of aggression, while Iran is implicitly denied legitimacy in its actions.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">The U.S. and Turkey are granted legitimacy to act as defenders of sovereignty; Iran is implicitly denied legitimacy for its missile attack.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">full support</span>
+        <span class="frame-tag">sovereign territory</span>
+        <span class="frame-tag">unacceptable</span>
+        <span class="frame-tag">NATO air defenses</span>
+        <span class="frame-tag">pledged</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Context about U.S.-Israel relations</span>
+        <span class="frame-tag absence">Analysis of Iran's stated or implied motives</span>
+        <span class="frame-tag absence">Discussion of potential escalation or regional consequences</span>
+        <span class="frame-tag absence">Perspectives from non-aligned or opposing actors</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇪🇸</span>
+        <span class="card-outlet">El País</span>
+        <span class="card-country">Spain</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a chaotic and legitimacy-deficient operation, emphasizing the administration's shifting justifications and public disapproval. It positions the conflict as a 'war of choice' lacking clear objectives, contrasting with historical precedents of US Middle East interventions.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article critiques the administration's 'coherent narrative' claims while simultaneously analyzing the administration's internal contradictions, creating tension between exposing disorganization and implicitly validating the need for narrative coherence.</div>
+      <div class="card-authority">The US administration (Trump, Rubio) is granted authority to act, while the public, Democratic lawmakers, and Iran are implicitly denied legitimacy to shape the narrative.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Spanish):</span>
+        <span class="frame-tag original" title="war of choice">guerra de elección</span>
+        <span class="frame-tag original" title="preventive attack">ataque preventivo</span>
+        <span class="frame-tag original" title="neutralize the missile program">neutralizar el programa de misiles</span>
+        <span class="frame-tag original" title="outrage">indignación</span>
+        <span class="frame-tag original" title="operation with strong disapproval">operación con fuerte desaprobación</span>
+      </div>
+      <div class="contested-note">⚠ guerra de elección loses the nuance of 'optional conflict' implying lack of necessity; 'ataque preventivo' could imply preemptive self-defense rather than aggressive action</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">war of choice</span>
+        <span class="frame-tag">forever wars</span>
+        <span class="frame-tag">coherent narrative</span>
+        <span class="frame-tag">real economic costs</span>
+        <span class="frame-tag">lack of clarity about what we want to achieve</span>
+      </div>
+      <div class="translation-warn">⚠ translation is 36% the length of original — some content may be lost</div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Iran's stated strategic goals</span>
+        <span class="frame-tag absence">Regional alliances or counterweights to US/Iran actions</span>
+        <span class="frame-tag absence">Long-term geopolitical implications beyond US domestic politics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇬🇧</span>
+        <span class="card-outlet">The Guardian</span>
+        <span class="card-country">United Kingdom</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli military action against Iran as an illegitimate and colonial-style exercise of power, emphasizing global south condemnation of the targeting of a sovereign state's leader and the failure to pursue diplomatic negotiations. It positions the conflict as a continuation of Western interventions in the Middle East, drawing parallels to past wars of regime change.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article critiques the US for cajoling countries through the Abraham Accords while simultaneously urging the US to avoid further entanglement, creating a tension between diplomatic influence and calls for non-intervention.</div>
+      <div class="card-authority">The article grants legitimacy to global south nations and international law as arbiters of legality, while implicitly denying legitimacy to the US and Israel for bypassing negotiations and violating sovereignty.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">blatantly kill the leader of a sovereign state</span>
+        <span class="frame-tag">pre-emptive justification</span>
+        <span class="frame-tag">military solution to political problems</span>
+        <span class="frame-tag">colonial-style exercise of might</span>
+        <span class="frame-tag">only viable path to peace</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">US-Israeli rationale for the military action</span>
+        <span class="frame-tag absence">Details of the Iran nuclear negotiations</span>
+        <span class="frame-tag absence">Iran's perspective on the attacks</span>
+        <span class="frame-tag absence">Regional security dynamics in the Gulf</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇬🇧</span>
+        <span class="card-outlet">The Guardian</span>
+        <span class="card-country">United Kingdom</span>
+      </div>
+      <div class="card-summary">The article frames the Hormuz Strait closure as a consequence of US-Israeli military action against Iran, emphasizing economic disruption and global trade vulnerability. It highlights China’s call for de-escalation and the immediate economic fallout, positioning the conflict as a destabilizing force with cascading effects on energy markets and regional stability.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the US-Israeli actions as the root cause of the crisis while acknowledging the global economic consequences, creating tension between attributing responsibility and emphasizing collective vulnerability.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Israel as the initial actors in military operations, implicitly denying legitimacy to Iran’s retaliatory actions. China is portrayed as a neutral mediator advocating for de-escalation.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">escalating Iran conflict</span>
+        <span class="frame-tag">safeguard the safety of navigation</span>
+        <span class="frame-tag">triggering energy shortages</span>
+        <span class="frame-tag">effective closure</span>
+        <span class="frame-tag">few alternative export routes</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The political rationale for US-Israeli military action</span>
+        <span class="frame-tag absence">Diplomatic efforts to resolve the conflict</span>
+        <span class="frame-tag absence">The UK’s role or public opinion in the UK</span>
+        <span class="frame-tag absence">Long-term geopolitical implications beyond economic impact</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇳</span>
+        <span class="card-outlet">The Hindu</span>
+        <span class="card-country">India</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran's nuclear facilities as a reckless escalation that prioritizes short-term security over long-term stability, emphasizing the humanitarian, environmental, and diplomatic costs of physical destruction. It positions the IAEA and international law as legitimate authorities while criticizing the US and Israel for ignoring risks to global safety.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article critiques military action for destroying diplomatic frameworks while acknowledging Iran's 'shift to clandestine facilities'—a consequence of such strikes—without addressing how this reinforces the need for alternative strategies.</div>
+      <div class="card-authority">The IAEA and the Geneva Conventions are granted legitimacy as arbiters of nuclear safety and international law. The US and Israel are implicitly denied legitimacy for violating these norms and endangering 'dangerous forces.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">'dangerous forces'</span>
+        <span class="frame-tag">'intractable' humanitarian effects</span>
+        <span class="frame-tag">'diplomatic and verification frameworks'</span>
+        <span class="frame-tag">'obliterated' (as a contested claim)</span>
+        <span class="frame-tag">'asymmetric retaliation'</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Geopolitical motivations of the U.S. and Israel</span>
+        <span class="frame-tag absence">Technical details of Iran's nuclear program</span>
+        <span class="frame-tag absence">Perspectives of regional actors like Saudi Arabia or Gulf states</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇭🇰</span>
+        <span class="card-outlet">South China Morning Post</span>
+        <span class="card-country">Hong Kong</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli strikes on Iran as a destabilizing event that disrupted global air travel, emphasizing the relief of Hong Kong residents returning home. It portrays the conflict as a source of chaos, with Iran's retaliation against US military bases in the UAE cited as a direct consequence.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">The article implicitly grants legitimacy to Dubai and the UAE as authorities managing the resumption of air operations. The US and Israel are not explicitly denied legitimacy but are framed as actors whose actions caused disruption. Iran is portrayed as a reactive force, not an aggressor.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">stranded Hongkongers</span>
+        <span class="frame-tag">disrupted global air links</span>
+        <span class="frame-tag">retaliation</span>
+        <span class="frame-tag">missiles flying through the air</span>
+        <span class="frame-tag">finally be somewhere safe</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Geopolitical motivations behind the strikes</span>
+        <span class="frame-tag absence">International diplomatic responses</span>
+        <span class="frame-tag absence">Economic or strategic implications of the conflict</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇿🇦</span>
+        <span class="card-outlet">Daily Maverick</span>
+        <span class="card-country">South Africa</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran through the lens of its destabilizing economic and geopolitical consequences, emphasizing disruptions to South African business interests and the entanglement of MTN in Iran's state-controlled telecom infrastructure. It positions the conflict as a 'geopolitical headache' that directly impacts regional economic stability.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays MTN as a victim of geopolitical forces while acknowledging its entanglement in Iran's theocratic state infrastructure, creating tension between corporate vulnerability and complicity in state control.</div>
+      <div class="card-authority">The article grants legitimacy to MTN and the Iranian state as actors with operational authority, while implicitly denying legitimacy to the US and Israel by framing their actions (sanctions, missile strikes) as destabilizing and obstructive to business and governance.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">frozen asset</span>
+        <span class="frame-tag">geopolitical headache</span>
+        <span class="frame-tag">impossible to repatriate</span>
+        <span class="frame-tag">flexes its muscle</span>
+        <span class="frame-tag">decapitated</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Analysis of the missile strike's military or strategic rationale</span>
+        <span class="frame-tag absence">Perspectives on the humanitarian impact in Iran</span>
+        <span class="frame-tag absence">Broader implications for South Africa's foreign policy</span>
+        <span class="frame-tag absence">Discussion of the ICJ genocide case against Israel</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇿🇦</span>
+        <span class="card-outlet">Daily Maverick</span>
+        <span class="card-country">South Africa</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a catalytic event triggering regional escalation, emphasizing the death of Iran's Supreme Leader and retaliatory strikes as central to a cycle of violence. It positions the US and Israel as initiators of a 'state of emergency' while portraying Iran's response as a destabilizing reaction, with imagery of civilian impact and international protests underscoring the human and geopolitical toll.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes images of civilian casualties and mourning with celebratory protests, implicitly normalizing military escalation while highlighting its human cost—a tension unresolved in the framing.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Israel as actors initiating military action, implicitly denying legitimacy to Iran's retaliatory measures by framing them as destabilizing. The Lebanese Ministry of Public Health is cited as an authoritative source for casualty reports.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">joint attack</span>
+        <span class="frame-tag">state of emergency</span>
+        <span class="frame-tag">retaliation</span>
+        <span class="frame-tag">targeting Hezbollah infrastructure</span>
+        <span class="frame-tag">confirmed killed</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The ICJ's 2024 genocide case against Israel</span>
+        <span class="frame-tag absence">Analysis of the legality of the US-Israel strike under international law</span>
+        <span class="frame-tag absence">Perspectives from Global South nations or African Union institutions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇻🇦</span>
+        <span class="card-outlet">Vatican News</span>
+        <span class="card-country">Vatican</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action as an abrupt disruption to the fragile hope for tourism recovery in Jerusalem, emphasizing the Benedictine monks' experience of communal solidarity and interfaith unity during the crisis. It portrays the conflict as a temporary setback to economic and spiritual stability, with the monks' response centered on prayer and shared humanity.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes the 'fragile hope' of economic recovery with the abrupt violence of military action, yet resolves this tension by framing the monks' resilience as proof of hope's endurance despite external forces.</div>
+      <div class="card-authority">The article implicitly grants legitimacy to the US and Israel as actors initiating military action, while denying legitimacy to Iran (referred to only as a target of prayers). The monks and local employees are positioned as passive victims of external forces.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">fragile hope</span>
+        <span class="frame-tag">community of strangers</span>
+        <span class="frame-tag">prayed in different languages</span>
+        <span class="frame-tag">common hope</span>
+        <span class="frame-tag">miraculous multiplication of the loaves</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Geopolitical motivations for the military action</span>
+        <span class="frame-tag absence">Iran's perspective on the conflict</span>
+        <span class="frame-tag absence">Broader economic impacts beyond tourism</span>
+        <span class="frame-tag absence">Long-term implications for interfaith relations</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇻🇦</span>
+        <span class="card-outlet">Vatican News</span>
+        <span class="card-country">Vatican</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action against Iran as a violation of international law and a dangerous escalation rooted in a shift from 'the force of law' to 'the law of force.' It emphasizes the Vatican's concern over the erosion of diplomatic norms established post-World War II, positioning multilateral diplomacy and the UN Charter as the legitimate framework for conflict resolution.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article invokes the UN Charter's principles while implicitly accepting the existence of a 'multipolarism marked by the primacy of power,' which contradicts its advocacy for diplomacy over force. It also critiques 'preventive wars' but does not address the potential legitimacy of preemptive self-defense under international law.</div>
+      <div class="card-authority">The article grants legitimacy to the United Nations and multilateral diplomacy as the sole authorities for resolving conflicts. It implicitly denies legitimacy to the US and Israel for bypassing UN mechanisms and resorting to unilateral military action.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">preventive wars</span>
+        <span class="frame-tag">law of force</span>
+        <span class="frame-tag">multilateral bodies</span>
+        <span class="frame-tag">diplomacy exercised within multilateral bodies</span>
+        <span class="frame-tag">the force of law has been replaced by the law of force</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The specific reasons or evidence cited by the US and Israel for the attack</span>
+        <span class="frame-tag absence">Analysis of Iran's actions or capabilities that might justify the attack</span>
+        <span class="frame-tag absence">Discussion of regional security dynamics or alliances</span>
+        <span class="frame-tag absence">Perspectives from non-Western or non-Christian religious actors</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-outlet">Christianity Today</span>
+        <span class="card-country">United States</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel-Iran conflict as a moment of moral and personal reckoning, emphasizing the psychological and societal impacts of war rather than geopolitical strategy. It positions the conflict as a test of individual and collective morality, cautioning against the normalization of violence and the erosion of ethical reflection.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously acknowledges past support for wars (e.g., Iraq) while critiquing the moral complacency of such support, creating tension between historical justification and present-day ethical scrutiny.</div>
+      <div class="card-authority">The United States and Israel are granted legitimacy as actors in the conflict, while Iran is implicitly denied legitimacy through its portrayal as a destabilizing force. The author’s own past support for military actions (e.g., Iraq War) is invoked as a counterpoint to current caution.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">bloodlust</span>
+        <span class="frame-tag">just war</span>
+        <span class="frame-tag">moral options</span>
+        <span class="frame-tag">personal revenge</span>
+        <span class="frame-tag">moral implications</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Strategic rationale for the current conflict</span>
+        <span class="frame-tag absence">Civilians' experiences in Iran</span>
+        <span class="frame-tag absence">Diplomatic alternatives to military action</span>
+        <span class="frame-tag absence">Economic or regional implications</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🌐</span>
+        <span class="card-outlet">Iran International</span>
+        <span class="card-country">Iran (diaspora)</span>
+      </div>
+      <div class="card-summary">The article frames Mansoureh Khojasteh Bagherzadeh’s life as a private, symbolic figure shaped by religious tradition and political culture, emphasizing her role as a supportive spouse to Supreme Leader Khamenei and the constraints of her invisibility in public life.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">The Supreme Leader (Khamenei) and the Revolutionary Guards are granted legitimacy to act; the media is implicitly denied legitimacy for its failure to accurately represent her public image.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">invisible</span>
+        <span class="frame-tag">lived in the shadows</span>
+        <span class="frame-tag">traditional family-arranged ceremony</span>
+        <span class="frame-tag">full hijab</span>
+        <span class="frame-tag">private figures</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The article does not address the US-Israel military action against Iran, the political implications of her role, or the current Supreme Leader’s family dynamics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames Iran's military actions as a justified and overwhelming retaliatory response to US aggression, emphasizing the sophistication and effectiveness of Iranian strikes while portraying US casualties as inevitable consequences of imperialist expansion.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays US casualties as inevitable consequences of aggression while claiming Iranian strikes were 'natural' and proportionate, which may conflict with international norms about proportionality in warfare.</div>
+      <div class="card-authority">The Islamic Revolution Guards Corps (IRGC) and Iranian Armed Forces are granted legitimacy as defenders of national sovereignty, while the US military is implicitly denied legitimacy as an aggressor and imperialist force.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">retaliatory</span>
+        <span class="frame-tag">imperialist aggression</span>
+        <span class="frame-tag">unbelievable strike power</span>
+        <span class="frame-tag">crushing</span>
+        <span class="frame-tag">defend the country</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Verification of casualty numbers</span>
+        <span class="frame-tag absence">US military statements</span>
+        <span class="frame-tag absence">International diplomatic reactions</span>
+        <span class="frame-tag absence">Context about prior US-Iran military interactions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the IRGC's destruction of a U.S. radar system in Qatar as a retaliatory 'defensive measure' against 'unprovoked aggression' by the U.S. and Israel, emphasizing Iran's sovereignty and resistance to foreign military threats.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article claims attacks were 'defensive' while targeting U.S. bases, which could be seen as contradictory to non-interventionist principles.</div>
+      <div class="card-authority">The IRGC and Iran's Foreign Minister are granted legitimacy to act as defenders of sovereignty, while the U.S. and Israel are implicitly denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked aggression</span>
+        <span class="frame-tag">defensive measure</span>
+        <span class="frame-tag">completely annihilated</span>
+        <span class="frame-tag">retaliatory attacks</span>
+        <span class="frame-tag">military personnel killed/injured</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Civilian casualties in targeted regions</span>
+        <span class="frame-tag absence">International legal or diplomatic responses</span>
+        <span class="frame-tag absence">Details of the 'unprovoked aggression' by the U.S. and Israel</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action as an illegal act of aggression violating Iran’s sovereignty and the UN Charter, positioning Iran as a victim defending its territorial integrity through lawful self-defense under Article 51. It emphasizes Iran’s historical resistance to foreign domination and calls for international condemnation and collective action to restore regional security.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article claims Iran re-entered negotiations with the US to 'prove Iran’s legitimate position' while simultaneously preparing for war, creating tension between diplomatic engagement and militaristic readiness.</div>
+      <div class="card-authority">Legitimacy is granted to Iran’s government, the UN Charter, and the international community (particularly the UN Secretary General and Security Council). The US and Israeli regimes are denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">military aggression</span>
+        <span class="frame-tag">violation of sovereignty</span>
+        <span class="frame-tag">self-defense under Article 51</span>
+        <span class="frame-tag">criminal act</span>
+        <span class="frame-tag">decisive response</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">US/Israeli justifications for the strikes</span>
+        <span class="frame-tag absence">Casualty or damage assessments</span>
+        <span class="frame-tag absence">Potential for further escalation or diplomatic alternatives</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames US-Israeli military action as unprovoked aggression against Iran, positioning Iran’s retaliatory measures as sovereign self-defense. It emphasizes non-targeting of civilians and neighboring interests while asserting Iran’s resolve to protect its sovereignty against persistent 'hostile powers.'</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously claims Iran 'is not seeking war or escalation' while describing ongoing retaliatory attacks, creating tension between defensive restraint and active military engagement.</div>
+      <div class="card-authority">Legitimate authority is granted to Iran’s ambassador and its military forces as defenders of sovereignty. The US and Israel are implicitly denied legitimacy, framed as aggressors initiating 'unprovoked war.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked war of aggression</span>
+        <span class="frame-tag">self-defense</span>
+        <span class="frame-tag">sovereignty</span>
+        <span class="frame-tag">retaliatory attacks</span>
+        <span class="frame-tag">hostile powers</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Lack of engagement with potential Iranian provocations or escalatory actions; no mention of international legal frameworks (e.g., UN Charter) or third-party mediation.</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli military action as an unprovoked 'war of aggression' against Iran, positioning Iran's defensive response as a legitimate and necessary reaction to protect its sovereignty. It emphasizes Iran's historical resilience and the illegitimacy of 'regime change' efforts, while portraying US actions as destabilizing and hypocritical.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Iran as engaging in 'defensive' military action while participating in nuclear diplomacy, which could imply a contradiction between escalation and negotiation. However, this is framed as a response to US hypocrisy ('engaging in diplomacy and then attacking').</div>
+      <div class="card-authority">Iran’s Foreign Minister Abbas Araghchi is granted legitimacy as the spokesperson for Iran’s stance. The US and Israel are implicitly denied legitimacy, framed as aggressors engaging in 'regime change' and 'economic warfare.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked war of aggression</span>
+        <span class="frame-tag">defensive measure</span>
+        <span class="frame-tag">regime change</span>
+        <span class="frame-tag">great nation with a magnificent civilization</span>
+        <span class="frame-tag">occupied territories</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Analysis of proportionality in Iran’s retaliation</span>
+        <span class="frame-tag absence">Perspectives from Persian Gulf countries</span>
+        <span class="frame-tag absence">International legal frameworks governing the conflict</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #2d6a4f">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames US-Israeli military threats as 'open aggression' and positions Iran's defensive readiness as a sovereign right. It emphasizes Iran's legal and historical justification for its nuclear program, portraying US actions as destabilizing and economically coercive.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously presents nuclear talks as a 'good beginning' while framing them as inherently limited by US preconditions, suggesting both cautious optimism and skepticism about diplomatic outcomes.</div>
+      <div class="card-authority">Iran's government and military are granted legitimacy to act defensively; the US and Israel are implicitly denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">open aggression</span>
+        <span class="frame-tag">inalienable right to enrich uranium</span>
+        <span class="frame-tag">defensive matter</span>
+        <span class="frame-tag">bad faith</span>
+        <span class="frame-tag">tangible economic benefits</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Regional alliances (e.g., Gulf Cooperation Council)</span>
+        <span class="frame-tag absence">Impact of sanctions on Iranian civilians</span>
+        <span class="frame-tag absence">Non-nuclear security concerns</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways beyond nuclear talks</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cluster-header">
+    <span class="cluster-name" style="background:#e76f51">Diplomatic Efforts as Fragile Counterbalance to Conflict</span>
+    <span class="cluster-meta">13 outlets</span>
+     <span class="cluster-meta">(≈ Neutral/Constructive)</span>
+  </div>
+  <div class="cluster-desc">Articles emphasize U.S.-Iran negotiations or multilateral diplomacy as critical to averting war, often balancing cautious optimism with warnings about Trump's policies or market instability. <em>(Concentrated in Europe (France, Germany, Spain) and some Global South voices.)</em></div>
+  <div class="cards">
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇧🇪</span>
+        <span class="card-outlet">lalibre.be</span>
+        <span class="card-country">Belgium</span>
+      </div>
+      <div class="card-summary">The article frames the Iranian nuclear issue as a technical and institutional challenge requiring urgent verification by the IAEA, while implicitly linking recent military escalations by the US-Israel alliance to the breakdown of diplomatic access to Iranian nuclear sites.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes calls for 'technical discussions' with descriptions of US military buildup, implying both diplomacy and force are justified, despite their inherent contradiction.</div>
+      <div class="card-authority">The IAEA and the US-Israel military alliance are granted legitimacy to act; Iran is implicitly denied legitimacy due to its refusal to cooperate with inspections and its accumulation of enriched uranium.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">technical discussions</span>
+        <span class="frame-tag">extreme urgency</span>
+        <span class="frame-tag">compliance issue</span>
+        <span class="frame-tag">loss of continuity of knowledge</span>
+        <span class="frame-tag">constructive cooperation</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Iran's stated rationale for its nuclear program</span>
+        <span class="frame-tag absence">Impact of colonial histories on Western intervention narratives</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways beyond US-Israel-Iran triad</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇧🇷</span>
+        <span class="card-outlet">cbn.globo.com</span>
+        <span class="card-country">Brazil</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Iran nuclear negotiations as a critical diplomatic effort to avoid escalation, emphasizing the need for 'fair, balanced, and equitable' dialogue. It highlights the U.S. military threat under Trump as a destabilizing force, contrasting it with Iran's insistence on its 'right to peaceful nuclear technology' and the mediation role of Oman. The text underscores the tension between diplomatic resolution and the looming possibility of unilateral military action.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays U.S. troop concentration in the Middle East as a military escalation while advocating for diplomatic solutions, creating a contradiction between preparation for conflict and pursuit of peace.</div>
+      <div class="card-authority">The U.S. and Iran are granted legitimacy as primary actors in negotiations, while Trump's military threats are implicitly criticized. Oman is positioned as a neutral mediator. Iran's sovereignty in nuclear matters is partially acknowledged, but U.S. accusations of Iranian nuclear ambitions are presented as counterpoints.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">fair, balanced, and equitable dialogue</span>
+        <span class="frame-tag">diplomacy is prioritized</span>
+        <span class="frame-tag">final military objective</span>
+        <span class="frame-tag">gaining time</span>
+        <span class="frame-tag">concentrate troops</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Brazil's own foreign policy stance</span>
+        <span class="frame-tag absence">Regional actors (e.g., Israel, Saudi Arabia)</span>
+        <span class="frame-tag absence">Economic or humanitarian impacts of potential conflict</span>
+        <span class="frame-tag absence">Historical U.S.-Iran relations beyond the nuclear issue</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇫🇷</span>
+        <span class="card-outlet">zonebourse.com</span>
+        <span class="card-country">France</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran negotiations as a critical diplomatic effort to prevent conflict, emphasizing the US's military readiness as a backdrop to diplomacy. It presents Iran's nuclear program as a contentious issue requiring resolution through dialogue, while acknowledging the US's strategic deployment of forces as a deterrent.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes the US's emphasis on diplomacy with its simultaneous military buildup, creating tension between the stated preference for dialogue and the implicit endorsement of force as a contingency.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Iran as primary actors in negotiations, implicitly questioning the US's unilateral military authority by highlighting Iran's vow to retaliate and the historical context of the 2003 Iraq invasion.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">long-standing nuclear dispute</span>
+        <span class="frame-tag">prevent further US strikes</span>
+        <span class="frame-tag">military buildup</span>
+        <span class="frame-tag">diplomatic route</span>
+        <span class="frame-tag">vow to retaliate</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">France's historical colonial ties to the Levant</span>
+        <span class="frame-tag absence">Impact of US-Israeli actions on regional stability</span>
+        <span class="frame-tag absence">Role of European allies in mediating</span>
+        <span class="frame-tag absence">Details on Iran's nuclear program specifics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇮🇪</span>
+        <span class="card-outlet">rte.ie</span>
+        <span class="card-country">Ireland</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran negotiations as a critical diplomatic effort to avert military escalation, emphasizing Oman's role as mediator and the urgency of resolving longstanding nuclear disputes. It highlights progress in talks but underscores the looming threat of US military action under Trump, framing the situation as a race between diplomacy and potential conflict.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes 'significant progress' in talks and the 'imminent prospects for US President Donald Trump to carry out a threatened attack,' creating tension between optimism about diplomacy and fear of unilateral action.</div>
+      <div class="card-authority">Oman is granted legitimacy as the mediator; the US and Iran are treated as legitimate actors in the negotiations. The article implicitly denies legitimacy to unilateral US military threats by framing them as destabilizing and contingent on unresolved diplomatic gaps.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">significant progress</span>
+        <span class="frame-tag">imminent prospects for US President Donald Trump to carry out a threatened attack</span>
+        <span class="frame-tag">fears grow of a Middle East conflagration</span>
+        <span class="frame-tag">creative and positive ideas</span>
+        <span class="frame-tag">gaps still had to be narrowed</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Israel's potential involvement in military planning</span>
+        <span class="frame-tag absence">impact on regional populations</span>
+        <span class="frame-tag absence">role of other international actors (e.g., EU, Russia)</span>
+        <span class="frame-tag absence">historical context of US-Iran relations beyond nuclear issues</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇵🇭</span>
+        <span class="card-outlet">bworldonline.com</span>
+        <span class="card-country">Philippines</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran negotiations as a critical but unresolved diplomatic effort to avert war, emphasizing technical progress and mediator Oman’s role while highlighting Trump’s looming threat of military action as a destabilizing force. It portrays the talks as 'serious' and 'creative' but underscores persistent gaps, framing the situation as a last-chance opportunity to prevent regional escalation.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the talks as 'significant progress' and 'no breakthrough,' while framing Trump’s military buildup as both a threat and a potential catalyst for resolution.</div>
+      <div class="card-authority">The US and Iran are granted legitimacy as primary actors in negotiations, with Oman as the neutral mediator. Israel is implicitly denied explicit legitimacy in the framing, as its potential military role is not directly addressed.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">'progress in negotiation'</span>
+        <span class="frame-tag">'no breakthrough'</span>
+        <span class="frame-tag">'last chance before war'</span>
+        <span class="frame-tag">'creative and positive ideas'</span>
+        <span class="frame-tag">'fears of US strikes'</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Colonial history of the Philippines</span>
+        <span class="frame-tag absence">Mindanao Muslim insurgency context</span>
+        <span class="frame-tag absence">Filipino diaspora labor concerns</span>
+        <span class="frame-tag absence">Regional security dynamics beyond US-Iran</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇨🇭</span>
+        <span class="card-outlet">srf.ch</span>
+        <span class="card-country">Switzerland</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran negotiations as a critical juncture where diplomatic resolution is prioritized over military escalation, emphasizing the US military buildup as a coercive tool and Iran's strategic calculus of resisting concessions to avoid internal weakness. It underscores the role of international travel warnings and geopolitical tensions as indicators of the situation's gravity.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article acknowledges the US military buildup as both a coercive tool and a temporary, costly endeavor, while simultaneously framing diplomatic talks as the primary solution—a tension between force and dialogue.</div>
+      <div class="card-authority">The article grants legitimacy to the US to act through its military buildup and diplomatic pressure, while implicitly denying legitimacy to Iran's refusal to make concrete concessions in negotiations, framing it as intransigence.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">military buildup</span>
+        <span class="frame-tag">diplomatic agreement</span>
+        <span class="frame-tag">loss of face</span>
+        <span class="frame-tag">survive these</span>
+        <span class="frame-tag">heightened travel warnings</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Switzerland's institutional role in mediating conflicts</span>
+        <span class="frame-tag absence">Humanitarian implications of potential military action</span>
+        <span class="frame-tag absence">Regional dynamics beyond US-Iran relations</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇧🇷</span>
+        <span class="card-outlet">cbn.globo.com</span>
+        <span class="card-country">Brazil</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran nuclear negotiations as a critical diplomatic opportunity to resolve tensions through dialogue, emphasizing Iran's right to peaceful nuclear technology and the necessity of prioritizing diplomacy over military threats. It positions Iran's insistence on exclusive nuclear issue discussions as reasonable and the US's military posturing under Trump as destabilizing and counterproductive.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article implicitly tensions the US's stated commitment to diplomacy with its simultaneous military buildup (troop concentration in the Middle East) and Trump's pending decision to attack, suggesting hypocrisy in prioritizing 'diplomacy' while preparing for war.</div>
+      <div class="card-authority">Iran's Foreign Minister Abbas Araghchi and the US envoys (Steve Witkoff, Jared Kushner) are granted legitimacy to act as negotiators. The article implicitly denies legitimacy to US military threats, particularly Trump's potential attack, by framing them as destabilizing and disconnected from diplomatic processes.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">peaceful nuclear technology</span>
+        <span class="frame-tag">diplomacy prioritized</span>
+        <span class="frame-tag">final military objective</span>
+        <span class="frame-tag">gaining time</span>
+        <span class="frame-tag">destabilizing</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Brazil's role or perspective in the conflict</span>
+        <span class="frame-tag absence">Regional actors (e.g., Israel, Saudi Arabia) or their interests</span>
+        <span class="frame-tag absence">Analysis of how US military action might affect Global South dynamics</span>
+        <span class="frame-tag absence">Discussion of Iran's regional alliances or nuclear capabilities</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇧🇬</span>
+        <span class="card-outlet">focus-news.net</span>
+        <span class="card-country">Bulgaria</span>
+      </div>
+      <div class="card-summary">The article frames Iran's increased oil loading at Hark Island as a strategic economic response to the threat of military strikes, emphasizing preparation for potential disruptions to revenue. It positions this action as a calculated move to maximize profit before possible restrictions, drawing parallels to past attacks.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">Bloomberg's satellite data and historical precedents are granted legitimacy as evidence of Iran's actions. The article implicitly denies legitimacy to unnamed external actors (likely US-Israel) by framing their potential strikes as the catalyst for Iran's defensive economic measures.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">maximum profit</span>
+        <span class="frame-tag">previous attacks</span>
+        <span class="frame-tag">revenue from oil sales</span>
+        <span class="frame-tag">potential attack</span>
+        <span class="frame-tag">increased loading</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">geopolitical motivations behind potential US-Israel strikes</span>
+        <span class="frame-tag absence">Iran's stated strategic goals beyond economic preparation</span>
+        <span class="frame-tag absence">regional alliances or countermeasures</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇫🇷</span>
+        <span class="card-outlet">zonebourse.com</span>
+        <span class="card-country">France</span>
+      </div>
+      <div class="card-summary">The article frames the US-Iran tensions as a precarious negotiation process where military pressure and market anxieties intersect, emphasizing the fragility of diplomatic efforts amid historical precedents of US military interventions in the region.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays U.S. military pressure as both a credible deterrent and an irrational risk, while analysts downplay escalation as 'not the most likely' outcome despite describing it as 'nervous' and 'catastrophic' if it occurs.</div>
+      <div class="card-authority">The article grants legitimacy to the US and Iran as primary actors in negotiations, implicitly denying legitimacy to unilateral military escalation by framing it as a last-resort 'catastrophic scenario' rather than a rational outcome.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">military pressure</span>
+        <span class="frame-tag">excessive demands</span>
+        <span class="frame-tag">nervous market</span>
+        <span class="frame-tag">catastrophic scenario</span>
+        <span class="frame-tag">no chance of prolonged war</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">France's colonial history in the Levant</span>
+        <span class="frame-tag absence">French nuclear autonomy or diplomatic initiatives</span>
+        <span class="frame-tag absence">long-term geopolitical consequences for Europe</span>
+        <span class="frame-tag absence">non-state actors in the Middle East</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇫🇷</span>
+        <span class="card-outlet">Le Monde</span>
+        <span class="card-country">France</span>
+      </div>
+      <div class="card-summary">The article frames the situation as a regional escalation requiring diplomatic restraint and non-military solutions, emphasizing France's role in mediating between Israel and Lebanon while highlighting Ukraine's indirect support for stability. It positions military action as a last resort and underscores the need to prevent broader conflict.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously emphasizes France's diplomatic authority while acknowledging ongoing Israeli military actions, creating tension between restraint and active conflict.</div>
+      <div class="card-authority">France (via Macron) is granted legitimacy to mediate and urge restraint; Israel is implicitly denied legitimacy for its military strikes. Lebanon's leadership is acknowledged as a key interlocutor.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">refrain from a ground offensive</span>
+        <span class="frame-tag">dismantled infrastructure</span>
+        <span class="frame-tag">prioritizing customers</span>
+        <span class="frame-tag">safe navigation</span>
+        <span class="frame-tag">prevent the war from spreading</span>
+      </div>
+      <div class="translation-warn">⚠ translation is 11% the length of original — likely significant content loss</div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">US-Israel military coordination</span>
+        <span class="frame-tag absence">Iran's strategic motivations</span>
+        <span class="frame-tag absence">Regional alliances (e.g., Arab states)</span>
+        <span class="frame-tag absence">Economic impacts of the conflict</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇫🇷</span>
+        <span class="card-outlet">Le Monde</span>
+        <span class="card-country">France</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action as a catalyst for economic disruption in the Strait of Hormuz, emphasizing Iran's retaliatory measures and their global economic consequences. It positions Iran's response as a destabilizing force, with the global economy as the primary casualty.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">The United States and Israel are implicitly granted legitimacy to act as aggressors, while Iran is denied legitimacy as a destabilizing actor whose threats and attacks on shipping and infrastructure are portrayed as harmful to global commerce.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">&quot;bears the cost&quot;</span>
+        <span class="frame-tag">&quot;set fire&quot;</span>
+        <span class="frame-tag">&quot;independently confirm&quot;</span>
+        <span class="frame-tag">&quot;significant amounts&quot;</span>
+        <span class="frame-tag">&quot;global economy&quot;</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The article does not engage with the legality or justification of the US-Israel attack.</span>
+        <span class="frame-tag absence">No discussion of Iran's stated motivations for its response.</span>
+        <span class="frame-tag absence">No mention of international diplomatic efforts or multilateral reactions.</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇮🇳</span>
+        <span class="card-outlet">The Hindu</span>
+        <span class="card-country">India</span>
+      </div>
+      <div class="card-summary">The article frames Spain's defiance of U.S. military demands as a principled stand against 'war' and 'complicity' in actions deemed harmful to global interests, contrasting Spain's 'no to the war' rhetoric with U.S. threats of trade retaliation and historical U.S.-Spain military cooperation.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes Spain's current anti-war stance with its historical role as a U.S. ally (e.g., Iraq War) and ongoing base agreements, implicitly critiquing past cooperation while defending present defiance.</div>
+      <div class="card-authority">Spain's government (Sanchez, Albares) is granted legitimacy to resist U.S. pressure; the U.S. administration (Trump, Leavitt) is implicitly denied legitimacy for its 'threats' and 'military aggression.' Iran and EU allies are framed as legitimate supporters of Spain's stance.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">no to the war</span>
+        <span class="frame-tag">complicit in something harmful</span>
+        <span class="frame-tag">flagrant human rights violations</span>
+        <span class="frame-tag">responsible conduct</span>
+        <span class="frame-tag">five percent of GDP</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Details of the U.S.-Israeli strikes on Iran</span>
+        <span class="frame-tag absence">Iran's strategic rationale for the conflict</span>
+        <span class="frame-tag absence">Impact of the conflict on regional energy security</span>
+        <span class="frame-tag absence">Spain's economic reliance on U.S. defense partnerships</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #e76f51">
+      <div class="card-header">
+        <span class="card-flag">🇳🇬</span>
+        <span class="card-outlet">Punch Nigeria</span>
+        <span class="card-country">Nigeria</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli military action against Iran as a violation of international norms and Spanish sovereignty, emphasizing Spain’s principled opposition to war and its alignment with European unity against US unilateralism. It positions Spain’s refusal to cooperate as a defense of 'values and interests' against coercive diplomacy.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Spain as a principled actor opposing war while acknowledging its historical role in US-led conflicts (e.g., Iraq invasion), creating a tension between past complicity and current defiance.</div>
+      <div class="card-authority">Spain’s government and the EU are granted legitimacy to act as moral and diplomatic counterweights to US-Israeli aggression. The US is implicitly denied legitimacy in its military and economic threats.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">No to the war</span>
+        <span class="frame-tag">responsible conduct</span>
+        <span class="frame-tag">terrible ally</span>
+        <span class="frame-tag">complicate any bid to impose trade restrictions</span>
+        <span class="frame-tag">flagrant human rights violations</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Nigeria’s perspective or African Union stance</span>
+        <span class="frame-tag absence">Analysis of Iran’s military actions or motivations</span>
+        <span class="frame-tag absence">Impact on global south economies</span>
+        <span class="frame-tag absence">Discussion of US-Israeli strategic justifications for strikes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cluster-header">
+    <span class="cluster-name" style="background:#7b2cbf">Iran's Self-Defense Narrative as Moral and Legal Right</span>
+    <span class="cluster-meta">9 outlets</span>
+     <span class="cluster-meta">(≈ Opposition)</span>
+  </div>
+  <div class="cluster-desc">Articles frame Iran as a victim of U.S. aggression, asserting its sovereign right to self-defense and nuclear development under international law, often highlighting retaliation or resistance. <em>(Concentrated in Iran and diaspora outlets.)</em></div>
+  <div class="cards">
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇭🇰</span>
+        <span class="card-outlet">hkcna.hk</span>
+        <span class="card-country">Hong Kong</span>
+      </div>
+      <div class="card-summary">The article frames the U.S.-Iran negotiations as a critical moment where the U.S. is portrayed as an aggressor through sanctions and military posturing, while Iran is depicted as seeking peace but prepared to retaliate if attacked. The outcome is framed as a choice between 'peace or war,' with Iran's diplomatic openness contrasted against U.S. 'contradictory actions.'</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Iran as committed to 'dignified diplomatic mediation' while threatening a 'retaliatory strike,' creating tension between its peaceful and confrontational framing. It also cites U.S. officials in negotiations but frames U.S. actions as inherently 'contradictory.'</div>
+      <div class="card-authority">Legitimacy is granted to Iran and the U.S. as primary negotiators, with Iran's parliament and foreign ministry framed as representing national resolve. The U.S. is implicitly denied legitimacy in its military actions, which are labeled as 'hegemonic overreach.'</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Chinese):</span>
+        <span class="frame-tag original" title="decisive round">決定性回合</span>
+        <span class="frame-tag original" title="holding their breath in anticipation">屏息等待</span>
+        <span class="frame-tag original" title="iron fist">鐵拳</span>
+        <span class="frame-tag original" title="historic opportunity">歷史性機遇</span>
+        <span class="frame-tag original" title="neither war nor peace">非戰非和</span>
+        <span class="frame-tag original" title="win-win agreement">雙贏協議</span>
+      </div>
+      <div class="contested-note">⚠ 「鐵拳」 loses the metaphorical connotation of a powerful, potentially violent response; 「非戰非和」 captures the limbo state but may be better rendered as 'a state of neither war nor peace' to emphasize the tense stalemate</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">decisive round</span>
+        <span class="frame-tag">iron fist of the Iranian people</span>
+        <span class="frame-tag">unprecedented openness</span>
+        <span class="frame-tag">retaliatory strike</span>
+        <span class="frame-tag">contradictory actions</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Israel's role in regional tensions</span>
+        <span class="frame-tag absence">Details of U.S.-Israel military coordination</span>
+        <span class="frame-tag absence">Iran's domestic political opposition to nuclear policies</span>
+        <span class="frame-tag absence">Alternative regional security frameworks</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇸🇾</span>
+        <span class="card-outlet">naharnet.com</span>
+        <span class="card-country">Syria</span>
+      </div>
+      <div class="card-summary">The article frames U.S. military threats against Iran as a provocation that could escalate regional tensions, with Hezbollah positioning itself as a conditional defender of Iran and its leadership. It emphasizes the Lebanese government’s fear of a chain reaction involving Israel and portrays U.S. actions as destabilizing.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Hezbollah as a restrained actor and a potential aggressor, while framing U.S. military presence as both a threat and a catalyst for regional stability.</div>
+      <div class="card-authority">Hezbollah is granted legitimacy to act in defense of Iran’s regime or its supreme leader, while the U.S. and Israel are implicitly denied legitimacy in their military posturing. Lebanese officials and Hezbollah leaders are cited as authoritative voices.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">limited U.S. strikes</span>
+        <span class="frame-tag">red line</span>
+        <span class="frame-tag">defensive position</span>
+        <span class="frame-tag">chain reaction</span>
+        <span class="frame-tag">restraint has limits</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Syrian government’s perspective</span>
+        <span class="frame-tag absence">Kurdish SDF’s role in eastern Syria</span>
+        <span class="frame-tag absence">U.S.-Israel alliance dynamics</span>
+        <span class="frame-tag absence">Iran’s nuclear program specifics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🌐</span>
+        <span class="card-outlet">Iran International</span>
+        <span class="card-country">Iran (diaspora)</span>
+      </div>
+      <div class="card-summary">The article frames Mansoureh Khojasteh Bagherzadeh’s life as a private, symbolic figure shaped by religious tradition and political culture, emphasizing her role as a supportive spouse to Supreme Leader Khamenei and the constraints of her invisibility in public life.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> null</div>
+      <div class="card-authority">The Supreme Leader (Khamenei) and the Revolutionary Guards are granted legitimacy to act; the media is implicitly denied legitimacy for its failure to accurately represent her public image.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">invisible</span>
+        <span class="frame-tag">lived in the shadows</span>
+        <span class="frame-tag">traditional family-arranged ceremony</span>
+        <span class="frame-tag">full hijab</span>
+        <span class="frame-tag">private figures</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">The article does not address the US-Israel military action against Iran, the political implications of her role, or the current Supreme Leader’s family dynamics</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames Iran's military actions as a justified and overwhelming retaliatory response to US aggression, emphasizing the sophistication and effectiveness of Iranian strikes while portraying US casualties as inevitable consequences of imperialist expansion.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays US casualties as inevitable consequences of aggression while claiming Iranian strikes were 'natural' and proportionate, which may conflict with international norms about proportionality in warfare.</div>
+      <div class="card-authority">The Islamic Revolution Guards Corps (IRGC) and Iranian Armed Forces are granted legitimacy as defenders of national sovereignty, while the US military is implicitly denied legitimacy as an aggressor and imperialist force.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">retaliatory</span>
+        <span class="frame-tag">imperialist aggression</span>
+        <span class="frame-tag">unbelievable strike power</span>
+        <span class="frame-tag">crushing</span>
+        <span class="frame-tag">defend the country</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Verification of casualty numbers</span>
+        <span class="frame-tag absence">US military statements</span>
+        <span class="frame-tag absence">International diplomatic reactions</span>
+        <span class="frame-tag absence">Context about prior US-Iran military interactions</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the IRGC's destruction of a U.S. radar system in Qatar as a retaliatory 'defensive measure' against 'unprovoked aggression' by the U.S. and Israel, emphasizing Iran's sovereignty and resistance to foreign military threats.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article claims attacks were 'defensive' while targeting U.S. bases, which could be seen as contradictory to non-interventionist principles.</div>
+      <div class="card-authority">The IRGC and Iran's Foreign Minister are granted legitimacy to act as defenders of sovereignty, while the U.S. and Israel are implicitly denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked aggression</span>
+        <span class="frame-tag">defensive measure</span>
+        <span class="frame-tag">completely annihilated</span>
+        <span class="frame-tag">retaliatory attacks</span>
+        <span class="frame-tag">military personnel killed/injured</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Civilian casualties in targeted regions</span>
+        <span class="frame-tag absence">International legal or diplomatic responses</span>
+        <span class="frame-tag absence">Details of the 'unprovoked aggression' by the U.S. and Israel</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israel military action as an illegal act of aggression violating Iran’s sovereignty and the UN Charter, positioning Iran as a victim defending its territorial integrity through lawful self-defense under Article 51. It emphasizes Iran’s historical resistance to foreign domination and calls for international condemnation and collective action to restore regional security.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article claims Iran re-entered negotiations with the US to 'prove Iran’s legitimate position' while simultaneously preparing for war, creating tension between diplomatic engagement and militaristic readiness.</div>
+      <div class="card-authority">Legitimacy is granted to Iran’s government, the UN Charter, and the international community (particularly the UN Secretary General and Security Council). The US and Israeli regimes are denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">military aggression</span>
+        <span class="frame-tag">violation of sovereignty</span>
+        <span class="frame-tag">self-defense under Article 51</span>
+        <span class="frame-tag">criminal act</span>
+        <span class="frame-tag">decisive response</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">US/Israeli justifications for the strikes</span>
+        <span class="frame-tag absence">Casualty or damage assessments</span>
+        <span class="frame-tag absence">Potential for further escalation or diplomatic alternatives</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames US-Israeli military action as unprovoked aggression against Iran, positioning Iran’s retaliatory measures as sovereign self-defense. It emphasizes non-targeting of civilians and neighboring interests while asserting Iran’s resolve to protect its sovereignty against persistent 'hostile powers.'</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously claims Iran 'is not seeking war or escalation' while describing ongoing retaliatory attacks, creating tension between defensive restraint and active military engagement.</div>
+      <div class="card-authority">Legitimate authority is granted to Iran’s ambassador and its military forces as defenders of sovereignty. The US and Israel are implicitly denied legitimacy, framed as aggressors initiating 'unprovoked war.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked war of aggression</span>
+        <span class="frame-tag">self-defense</span>
+        <span class="frame-tag">sovereignty</span>
+        <span class="frame-tag">retaliatory attacks</span>
+        <span class="frame-tag">hostile powers</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Lack of engagement with potential Iranian provocations or escalatory actions; no mention of international legal frameworks (e.g., UN Charter) or third-party mediation.</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames the US-Israeli military action as an unprovoked 'war of aggression' against Iran, positioning Iran's defensive response as a legitimate and necessary reaction to protect its sovereignty. It emphasizes Iran's historical resilience and the illegitimacy of 'regime change' efforts, while portraying US actions as destabilizing and hypocritical.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Iran as engaging in 'defensive' military action while participating in nuclear diplomacy, which could imply a contradiction between escalation and negotiation. However, this is framed as a response to US hypocrisy ('engaging in diplomacy and then attacking').</div>
+      <div class="card-authority">Iran’s Foreign Minister Abbas Araghchi is granted legitimacy as the spokesperson for Iran’s stance. The US and Israel are implicitly denied legitimacy, framed as aggressors engaging in 'regime change' and 'economic warfare.'</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">unprovoked war of aggression</span>
+        <span class="frame-tag">defensive measure</span>
+        <span class="frame-tag">regime change</span>
+        <span class="frame-tag">great nation with a magnificent civilization</span>
+        <span class="frame-tag">occupied territories</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Analysis of proportionality in Iran’s retaliation</span>
+        <span class="frame-tag absence">Perspectives from Persian Gulf countries</span>
+        <span class="frame-tag absence">International legal frameworks governing the conflict</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #7b2cbf">
+      <div class="card-header">
+        <span class="card-flag">🇮🇷</span>
+        <span class="card-outlet">Press TV</span>
+        <span class="card-country">Iran</span>
+      </div>
+      <div class="card-summary">The article frames US-Israeli military threats as 'open aggression' and positions Iran's defensive readiness as a sovereign right. It emphasizes Iran's legal and historical justification for its nuclear program, portraying US actions as destabilizing and economically coercive.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously presents nuclear talks as a 'good beginning' while framing them as inherently limited by US preconditions, suggesting both cautious optimism and skepticism about diplomatic outcomes.</div>
+      <div class="card-authority">Iran's government and military are granted legitimacy to act defensively; the US and Israel are implicitly denied legitimacy as aggressors.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">open aggression</span>
+        <span class="frame-tag">inalienable right to enrich uranium</span>
+        <span class="frame-tag">defensive matter</span>
+        <span class="frame-tag">bad faith</span>
+        <span class="frame-tag">tangible economic benefits</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Regional alliances (e.g., Gulf Cooperation Council)</span>
+        <span class="frame-tag absence">Impact of sanctions on Iranian civilians</span>
+        <span class="frame-tag absence">Non-nuclear security concerns</span>
+        <span class="frame-tag absence">Alternative diplomatic pathways beyond nuclear talks</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-title">Singletons — Framings That Resist Clustering</div>
+  <div class="cards">
+    <div class="card" style="border-left: 3px solid #c77dff">
+      <div class="card-header">
+        <span class="card-flag">🇨🇿</span>
+        <span class="card-outlet">lidovky.cz</span>
+        <span class="card-country">Czech Republic</span>
+      </div>
+      <span class="singleton-badge">singleton</span>
+      <div class="card-authority">Why unique: Focuses on data-driven advertising ethics, unrelated to U.S.-Israel-Iran conflict framing.</div>
+      <div class="card-summary">The article frames the event through the lens of user consent and data processing policies, emphasizing the technical and legal mechanisms governing targeted advertising rather than geopolitical conflict.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously promotes user choice while structuring options to favor commercial interests, creating tension between 'freedom' and 'default compliance'.</div>
+      <div class="card-authority">The article grants legitimacy to MAFRA, a.s., and its advertising partners as authorities over data processing, while implicitly denying legitimacy to users who might resist profiling or targeted advertising.</div>
+      <span class="register-tag">neutral_analytical</span>
+      <div class="framing-section"><span class="framing-label">original (Czech):</span>
+        <span class="frame-tag original" title="targeted ads">cílené reklamy</span>
+        <span class="frame-tag original" title="profiling your habits and interests">profilování Vašich zvyků a zájmů</span>
+        <span class="frame-tag original" title="consent for ad targeting">souhlas s cílením reklamy</span>
+        <span class="frame-tag original" title="invited to switch to iDNES Premium without ads">vyzváni k přechodu na iDNES Premium bez reklam</span>
+        <span class="frame-tag original" title="legitimate interest">oprávněného zájmu</span>
+      </div>
+      <div class="contested-note">⚠ None of the terms lose critical meaning in translation, though 'oprávněného zájmu' (legitimate interest) carries specific legal connotations under GDPR that are preserved in the translation.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">targeted advertising</span>
+        <span class="frame-tag">legitimate interest</span>
+        <span class="frame-tag">personalized content</span>
+        <span class="frame-tag">consent</span>
+        <span class="frame-tag">processing of data</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Geopolitical context of US-Israel-Iran relations</span>
+        <span class="frame-tag absence">Public discourse on data privacy</span>
+        <span class="frame-tag absence">Alternative business models without targeted advertising</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #c77dff">
+      <div class="card-header">
+        <span class="card-flag">🇹🇼</span>
+        <span class="card-outlet">newtalk.tw</span>
+        <span class="card-country">Taiwan</span>
+      </div>
+      <span class="singleton-badge">singleton</span>
+      <div class="card-authority">Why unique: Empty or incomplete description, no discernible framing pattern.</div>
+      <div class="card-summary"></div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Chinese):</span>
+        <span class="frame-tag original" title="limited military strike">有限度的軍事打擊</span>
+        <span class="frame-tag original" title="largest in over two decades">逾二十年來最大</span>
+        <span class="frame-tag original" title="air traffic notice (NOTAM)">航空通告（NOTAM）</span>
+        <span class="frame-tag original" title="ballistic missile drills">彈道飛彈演習</span>
+        <span class="frame-tag original" title="red line">紅線</span>
+        <span class="frame-tag original" title="violent suppression of protests">暴力鎮壓抗議活動</span>
+      </div>
+      <div class="contested-note">⚠ 紅線: 'red line' carries strong political/cultural connotations in Chinese context that aren't fully captured in English</div>
+      <div class="contested-note">⚠ 航空通告: 'air traffic notice' loses the strategic military implication of NOTAMs in this context</div>
+    </div>
+    <div class="card" style="border-left: 3px solid #c77dff">
+      <div class="card-header">
+        <span class="card-flag">🇪🇸</span>
+        <span class="card-outlet">El País</span>
+        <span class="card-country">Spain</span>
+      </div>
+      <span class="singleton-badge">singleton</span>
+      <div class="card-authority">Why unique: Uses a personal story to critique U.S. immigration and military policy, diverging from conflict-specific framing.</div>
+      <div class="card-summary">The article frames the U.S.-Israel military action against Iran through the personal narrative of an Iranian woman adopted by an American military officer, emphasizing the human cost of deportation orders and the destabilizing effects of war. It positions the conflict as exacerbating the vulnerability of individuals with tenuous legal status, while implicitly criticizing the U.S. government for failing to recognize their lived reality as de facto citizens.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article juxtaposes the U.S.'s claim of sovereignty over immigration policy with the humanitarian imperative to protect individuals who have contributed to American society, creating tension between legal formalism and moral responsibility.</div>
+      <div class="card-authority">The article grants legitimacy to the adopted woman and her adoptive family as moral authorities, while implicitly denying legitimacy to the U.S. government and military for enforcing deportation and initiating conflict.</div>
+      <span class="register-tag">alarmed</span>
+      <div class="framing-section"><span class="framing-label">original (Spanish):</span>
+        <span class="frame-tag original" title="U.S. and Israeli attack">ataque de Estados Unidos e Israel</span>
+        <span class="frame-tag original" title="more dangerous">más peligroso</span>
+        <span class="frame-tag original" title="women's rights stripped">derechos de las mujeres arrebatados</span>
+        <span class="frame-tag original" title="armed conflict initiated by the Trump administration">conflicto armado iniciado por la administración Trump</span>
+        <span class="frame-tag original" title="send someone to a country being bombed">enviar a alguien a un país bombardeado</span>
+      </div>
+      <div class="contested-note">⚠ 'ataque de Estados Unidos e Israel' loses the specific geopolitical framing of U.S.-Israel coordination; 'conflicto armado iniciado por la administración Trump' implies direct U.S. responsibility for escalation</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">'The war makes it even more dangerous'</span>
+        <span class="frame-tag">'stripped of their rights'</span>
+        <span class="frame-tag">'turning its back on me'</span>
+        <span class="frame-tag">'surreal'</span>
+        <span class="frame-tag">'repercussions throughout the Middle East'</span>
+      </div>
+      <div class="translation-warn">⚠ translation is 31% the length of original — some content may be lost</div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Legal pathways for adoption citizenship</span>
+        <span class="frame-tag absence">Iran's response to the woman's case</span>
+        <span class="frame-tag absence">Broader U.S. immigration policy context</span>
+        <span class="frame-tag absence">International law on statelessness</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #c77dff">
+      <div class="card-header">
+        <span class="card-flag">🇳🇬</span>
+        <span class="card-outlet">Punch Nigeria</span>
+        <span class="card-country">Nigeria</span>
+      </div>
+      <span class="singleton-badge">singleton</span>
+      <div class="card-authority">Why unique: Focuses on Spain's defiance of U.S. military demands as a sovereignty issue, not directly tied to U.S.-Israel-Iran dynamics.</div>
+      <div class="card-summary">The article frames the US-Israeli military action against Iran as a violation of international norms and Spanish sovereignty, emphasizing Spain’s principled opposition to war and its alignment with European unity against US unilateralism. It positions Spain’s refusal to cooperate as a defense of 'values and interests' against coercive diplomacy.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays Spain as a principled actor opposing war while acknowledging its historical role in US-led conflicts (e.g., Iraq invasion), creating a tension between past complicity and current defiance.</div>
+      <div class="card-authority">Spain’s government and the EU are granted legitimacy to act as moral and diplomatic counterweights to US-Israeli aggression. The US is implicitly denied legitimacy in its military and economic threats.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">No to the war</span>
+        <span class="frame-tag">responsible conduct</span>
+        <span class="frame-tag">terrible ally</span>
+        <span class="frame-tag">complicate any bid to impose trade restrictions</span>
+        <span class="frame-tag">flagrant human rights violations</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Nigeria’s perspective or African Union stance</span>
+        <span class="frame-tag absence">Analysis of Iran’s military actions or motivations</span>
+        <span class="frame-tag absence">Impact on global south economies</span>
+        <span class="frame-tag absence">Discussion of US-Israeli strategic justifications for strikes</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #c77dff">
+      <div class="card-header">
+        <span class="card-flag">🇳🇬</span>
+        <span class="card-outlet">Punch Nigeria</span>
+        <span class="card-country">Nigeria</span>
+      </div>
+      <span class="singleton-badge">singleton</span>
+      <div class="card-authority">Why unique: Analyzes Iranian political succession, unrelated to military action framing.</div>
+      <div class="card-summary">The article frames Mojtaba Khamenei's potential succession as a hereditary transition within the Islamic Republic, juxtaposed against the system's historical rejection of monarchy. It links his father's death to a US-Israeli missile strike, positioning this as a catalyst for leadership uncertainty, while emphasizing his ties to the Revolutionary Guards and US sanctions as evidence of his influence and contested legitimacy.</div>
+      <div class="card-tension">⚡ <strong>Internal tension:</strong> The article simultaneously portrays the Islamic Republic as having rejected hereditary rule in 1979 and presents Mojtaba Khamenei as a hereditary contender, creating tension between institutional principles and practical power dynamics.</div>
+      <div class="card-authority">The Assembly of Experts is granted legitimacy to select the next leader, while Mojtaba Khamenei is implicitly denied legitimacy due to his father's explicit rejection of hereditary succession. The US Treasury and Bloomberg are cited as authorities on his financial and political activities.</div>
+      <div class="framing-section"><span class="framing-label">key framing:</span>
+        <span class="frame-tag">hereditary transition</span>
+        <span class="frame-tag">destabilising regional ambitions</span>
+        <span class="frame-tag">oppressive domestic objectives</span>
+        <span class="frame-tag">Assembly of Experts</span>
+        <span class="frame-tag">sanctions</span>
+      </div>
+      <div class="framing-section"><span class="framing-label">absent frames:</span>
+        <span class="frame-tag absence">Broader implications of US-Israeli military action in the region</span>
+        <span class="frame-tag absence">Current Iranian public opinion on succession</span>
+        <span class="frame-tag absence">Nigeria's own diplomatic stance on the conflict</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-title">Positions the Global Media Corpus Refuses to Articulate</div>
+  <div class="unspeakable-section">
+    <div class="unspeakable-item">Justification of Iranian nuclear program as regional parity</div>
+    <div class="unspeakable-item">Critique of US military presence in Middle East as destabilizing</div>
+    <div class="unspeakable-item">Comparison of Israeli/Palestinian conflict to Iran-Israel tensions</div>
+    <div class="unspeakable-item">Acknowledgment of US corporate interests in Persian Gulf oil</div>
+    <div class="unspeakable-item">Denial of Iranian state sponsorship of regional militias</div>
+  </div>
+  <div class="section-title">What This Corpus Doesn't Say</div>
+  <div class="absence-section">
+    <div class="absence-item"><span class="absence-label">UNREPRESENTED ACTORS:</span> Iranian domestic media (beyond state-aligned outlets); Kurdish regional media; Hezbollah or Hamas affiliated outlets; Religious authorities in Shia/Sunni communities; Non-state actors like Houthi movement representatives</div>
+    <div class="absence-item"><span class="absence-label">UNMADE ARGUMENTS:</span> Long-term economic implications for global energy markets; Ethical analysis of civilian casualties in potential strikes; Comparative analysis of US/Israel military doctrines vs. Iranian deterrence strategies; Impact on nuclear non-proliferation treaties; Historical parallels to 2003 Iraq invasion</div>
+    <div class="absence-item"><span class="absence-label">VOICELESS POPULATIONS:</span> Iranian civilians in border regions; Refugees from previous Iran-Israel conflicts; Displaced persons in Syria/Iraq caught between powers; Afghanistan's regional security stakeholders; Pacific Island nations with oil dependencies</div>
+    <div class="absence-item"><span class="absence-label">TIER 3 PREDICTIONS:</span> Grassroots anti-war protests in Shia-majority communities; WhatsApp misinformation chains about 'Zionist plots'; Radio broadcasts from Iranian border towns; Sermons framing conflict through Shia religious jurisprudence; Oral histories from Lebanon's 2006 war survivors</div>
+    <div class="absence-item" style="font-style:italic; margin-top: 0.5rem">The corpus reveals a structural bias toward Western and state-aligned media perspectives, with minimal representation of non-English, non-state, and non-Western viewpoints. Critical absences include regional actors directly impacted by conflict spillover, marginalized religious voices, and grassroots narratives. The lack of Tier 3 sources suggests underrepresentation of immediate, emotional, and community-specific framings. Politically unspeakable positions remain largely unspoken, reflecting media self-censorship around powerful geopolitical actors. This highlights the global media's role in amplifying dominant power structures while silencing peripheral and vulnerable perspectives.</div>
+  </div>
+  <div class="section-title">Factual Claims Under Verification</div>
+  <div class="claims-section">
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> US military buildup in the Middle East is the largest since 2003</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran has enriched uranium to near weapons-grade levels</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Trump ordered airstrikes against Iranian nuclear sites in 2023</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran seeks sanctions relief in exchange for 3-5 year enrichment suspension</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Rafael Grossi attended the Geneva talks</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Three Iranian nuclear facilities were not destroyed in 2019 attacks but are not operational</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran has enriched uranium for intelligence officials to 'mock'</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> U.S. bombers and Tomahawks could damage Iranian missiles but not eliminate them</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran expanded missile launch bases since 2019</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Israel's Iron Dome and bunker network reduce casualties during conflicts</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran is developing intercontinental ballistic missiles</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Trump warned Iran's missiles could soon threaten the US</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Third round of US-Iran talks under Omani mediation is occurring in Geneva</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Vance stated Trump would decide how to prevent Iran from having nuclear weapons</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iranian officials labeled US claims as 'big lies'</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> U.S. officials prefer Israel to strike Iran first to provoke retaliation</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Recent U.S. strikes targeted Iranian nuclear sites in June</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Israeli Prime Minister Netanyahu emphasized disrupting Iran's nuclear program</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> U.S. ammunition supplies and casualty risks are key operational concerns</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran's leadership structure includes contingency plans for replacing fallen leaders</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> US authorized departure of non-essential workers from Israel</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Two carrier strike groups were assembled by Trump</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iranian parliament passed a law banning IAEA cooperation in July 2023</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Oman’s foreign minister flew to Washington after inconclusive Geneva talks</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> IAEA technical discussions are scheduled for March 2, 2026</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran's 60% enriched uranium reserves increased to 440.9 kg by June 13, 2026</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> IAEA inspectors have not accessed Fordo and Natanz since June 13, 2026</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> US advised non-essential embassy staff in Jerusalem to leave on February 27, 2026</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> The negotiations are in Geneva, mediated by Oman</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Trump will decide on an attack after Thursday's talks</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Iran's Foreign Minister stated the country will not abandon its 'right to peaceful nuclear technology'</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> U.S. Vice President JD Vance accused Iran of rebuilding its nuclear program</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> A recent survey shows Republican support for regime change in Iran without US casualties</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Politico sources predict a likely joint US-Israel military strike</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> The White House states only Trump knows his decision on Iran</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> The US has deployed two aircraft carrier strike groups to the Middle East</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> The Abraham Lincoln carrier group includes 5,700 service members</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Ali Vaez warns of inevitable all-out conflict if Iran retaliates</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Trump has threatened military action over Iran's nuclear program and 2019 protests</div>
+    <div class="claim-item"><span class="claim-status">[UNVERIFIED]</span> Two aircraft carrier strike groups deployed to the Middle East</div>
+  </div>
+  <div class="section-title">Coverage Gaps</div>
+  <div class="gaps-section">
+    <div class="gap-item"><span class="gap-warn">⚠ MISSING REGIONS:</span> <strong>Central Asia, Oceania</strong></div>
+    <div class="gap-item"><span class="gap-warn">⚠ TOP LANGUAGES ABSENT:</span> <strong>Hindi, Bengali, Swahili, Hausa, Japanese, Turkish</strong></div>
+    <div class="gap-item">Source breakdown: 49 from gdelt, 29 from rss_curated, 9 from iranian_targeted</div>
+  </div>
+  <div class="section-title">Methodological Transparency</div>
+  <div class="transparency-section">
+    <div class="transparency-item"><strong>Western infrastructure analyzing non-Western sources.</strong> This system was built with English-language tools, a Western-trained LLM (Qwen 32B), and categories that emerged from an initial English-language analytical frame. That is itself a perspective, not a neutral vantage point.</div>
+    <div class="transparency-item"><strong>Translation destroys framing evidence.</strong> Original-language terms are preserved where possible, and contested translations are flagged. But interpretation across languages is inherently approximate. Key distinctions (e.g., Arabic العدوان "aggression" vs. الضربة "strike") may be flattened.</div>
+    <div class="transparency-item"><strong>Tier 3 is entirely absent.</strong> Oral media, radio, WhatsApp forwards, sermons, mosque and church networks, bazaar conversations — the channels through which most of the world actually forms opinions about geopolitics — are invisible to this system. What you see is the digitally legible fraction of global discourse.</div>
+    <div class="transparency-item"><strong>Clustering reflects builder choices.</strong> The two-pass method lets categories emerge from data rather than being imposed. But the prompts, the LLM, and the corpus selection still shape what can emerge. Alternative methods would produce different patterns.</div>
+    <div class="transparency-item"><strong>GDELT over-represents the legible.</strong> GDELT indexes web-published text, heavily skewing toward English-language and digitally accessible outlets. Direct RSS pulls from curated outlets partially compensate, but significant gaps remain in sub-Saharan Africa, Central Asia, and indigenous-language media.</div>
+  </div>
+
+  <footer>
+    <p>NewsKaleidoscope &middot; Epistemic Mapping System</p>
+    <p>Two-pass analysis: open-ended framing extraction → emergent clustering.
+       Categories emerged from data, not imposed on it.</p>
+    <p>Data sources: <a href="https://www.gdeltproject.org/">GDELT Project</a> + curated RSS feeds</p>
+  </footer>
+</div>
+</body>
+</html>

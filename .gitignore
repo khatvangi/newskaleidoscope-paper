@@ -8,6 +8,10 @@ logs/
 analysis/*
 !analysis/.gitkeep
 
+# tier 3 audio/transcripts (large, re-fetchable)
+sources/tier3/audio/
+sources/tier3/transcripts/
+
 # python
 __pycache__/
 *.pyc

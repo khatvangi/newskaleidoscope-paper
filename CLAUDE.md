@@ -9,9 +9,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture
 
 ```
+# tier 1+2: text sources
 gdelt_pull.py → articles.json     (GDELT + geographic diversity)
 rss_supplement.py → articles.json (appends curated outlet articles)
 outlet_curator.py → outlets.json
+
+# tier 3: oral/informal sources
+youtube_ingest.py → articles.json (YouTube → Whisper transcription on boron)
+podcast_ingest.py → articles.json (podcast RSS → Whisper transcription)
+telegram_ingest.py → articles.json (public Telegram channels via web preview)
+sermon_harvester.py → articles.json (Friday sermon archives)
+radio_ingest.py → articles.json   (international broadcast transcripts)
+
+# analysis + output
 pipeline.py → analysis/*.json     (two-pass: framing → clustering)
 output_generator.py → docs/index.html (Cloudflare Pages)
 ```
@@ -31,12 +41,21 @@ output_generator.py → docs/index.html (Cloudflare Pages)
 ## Commands
 
 ```bash
-# full pipeline run
+# tier 1+2 ingestion
 python3 gdelt_pull.py                 # fetch GDELT articles → articles.json
 python3 rss_supplement.py             # add curated outlet articles → articles.json
 python3 outlet_curator.py             # generate outlet registry → outlets.json
+
+# tier 3 ingestion (run AFTER pipeline completes — shares boron GPU)
+python3 youtube_ingest.py             # YouTube channels → Whisper → articles.json
+python3 podcast_ingest.py             # podcast RSS → Whisper → articles.json
+python3 telegram_ingest.py            # Telegram public channels → articles.json
+python3 sermon_harvester.py           # religious institution archives → articles.json
+python3 radio_ingest.py               # broadcast service transcripts → articles.json
+
+# analysis
 python3 pipeline.py 10                # analyze 10 articles (test run)
-python3 pipeline.py                   # analyze all articles
+python3 pipeline.py                   # analyze all articles (~3-5 hours)
 python3 output_generator.py           # render HTML → docs/index.html
 
 # verify boron connectivity
@@ -48,10 +67,12 @@ curl http://boron:11434/api/tags      # list available models
 
 ## Key Directories
 
-- `cache/` — raw article text (auto-cached by URL hash, excluded from git)
+- `cache/` — raw article text + Whisper transcripts (auto-cached by URL hash, excluded from git)
 - `analysis/` — per-article JSON results + `all_results.json` + `emergent_clusters.json` + `absence_report.json` + `coverage_gaps.json`
 - `docs/` — static HTML output for deployment
 - `logs/` — `pipeline.log` with timestamped progress
+- `sources/tier3/audio/` — downloaded audio files for Whisper transcription
+- `sources/tier3/transcripts/` — cached Whisper transcript JSONs
 
 ## Two-Pass Analysis Pipeline
 
@@ -82,3 +103,5 @@ English articles skip steps 2-3. Pass 2 clustering and absence report run once a
 - Geographic diversity: round-robin selection, max 3 articles per country, target 60 total
 - RSS supplement adds ~30-40 curated flagship outlet articles on top of GDELT pool
 - Outlets have tier 1 (flagship) and tier 2 (religious/institutional) classification
+- Tier 3 Whisper transcription: faster-whisper large-v3 on boron GPU. Do NOT run while Ollama pipeline is active — both compete for VRAM
+- YouTube/podcast audio goes to `sources/tier3/audio/`, transcripts cached to `cache/` (same hash scheme as articles)

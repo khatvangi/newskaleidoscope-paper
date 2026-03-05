@@ -14,6 +14,7 @@ ANALYSIS_FILE = "analysis/all_results.json"
 CLUSTERS_FILE = "analysis/emergent_clusters.json"
 ABSENCE_FILE = "analysis/absence_report.json"
 COVERAGE_FILE = "analysis/coverage_gaps.json"
+TENSION_FILE = "analysis/tension_analysis.json"
 OUTPUT_DIR = "docs"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
 
@@ -133,7 +134,7 @@ def render_card(r, color="#457b9d"):
     return html
 
 
-def generate_html(results, clusters=None, absence=None, coverage=None):
+def generate_html(results, clusters=None, absence=None, coverage=None, tensions=None):
     """generate the full HTML page."""
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
     n_countries = len(set(r.get("sourcecountry", "") for r in results))
@@ -185,6 +186,17 @@ def generate_html(results, clusters=None, absence=None, coverage=None):
   .contested-note {{ font-size: 0.7rem; color: var(--warn); margin: 0.2rem 0; font-family: 'JetBrains Mono', monospace; }}
   .translation-warn {{ font-size: 0.7rem; color: var(--warn); margin: 0.3rem 0; font-family: 'JetBrains Mono', monospace; }}
   .singleton-badge {{ display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: rgba(199, 125, 255, 0.15); border: 1px solid #c77dff; color: #c77dff; margin-bottom: 0.5rem; }}
+  .corpus-warning {{ background: rgba(231, 111, 81, 0.1); border: 2px solid #e76f51; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.5; }}
+  .corpus-warning strong {{ color: #e76f51; }}
+  .unspeakable-section {{ background: var(--surface); border: 2px solid var(--warn); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }}
+  .unspeakable-item {{ padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; line-height: 1.6; }}
+  .unspeakable-item:last-child {{ border-bottom: none; }}
+  .tension-breakdown {{ background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }}
+  .tension-type {{ display: flex; align-items: baseline; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }}
+  .tension-type:last-child {{ border-bottom: none; }}
+  .tension-count {{ font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--tension); min-width: 2.5rem; text-align: right; }}
+  .tension-name {{ font-size: 0.9rem; font-weight: 600; }}
+  .tension-desc {{ font-size: 0.8rem; color: var(--text-dim); }}
   .absence-section, .gaps-section, .transparency-section {{ background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }}
   .absence-item {{ padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }}
   .absence-item:last-child {{ border-bottom: none; }}
@@ -215,6 +227,28 @@ def generate_html(results, clusters=None, absence=None, coverage=None):
     </p>
   </header>
 """
+
+    # ── corpus gap warning — Iranian sources ─────────────────────
+    # check if Iran is represented in the corpus
+    iran_count = sum(1 for r in results if "Iran" in r.get("sourcecountry", ""))
+    if iran_count == 0:
+        html += '  <div class="corpus-warning"><strong>⚠ Critical gap:</strong> This corpus analyzes an event <em>about</em> Iran but contains zero Iranian domestic sources. Press TV, ISNA, Kayhan, Shargh — the outlets through which Iranians actually process this event — are structurally inaccessible to automated ingestion or excluded by GDELT. Every position map below is missing the position of the country being struck.</div>\n'
+    elif iran_count < 5:
+        html += f'  <div class="corpus-warning"><strong>⚠ Limited Iranian representation:</strong> Only {iran_count} article{"s" if iran_count != 1 else ""} from Iranian sources in a corpus analyzing an event primarily about Iran. Regime-side outlets (Kayhan, ISNA) and reformist press (Shargh) remain underrepresented relative to their analytical importance.</div>\n'
+
+    # ── tension type breakdown ─────────────────────────────────────
+    if tensions and "tension_types" in tensions:
+        modal = tensions.get("modal_contradiction", "")
+        modal_count = tensions.get("modal_count", "")
+        analysis_text = tensions.get("analysis", "")
+
+        html += f'  <div class="section-title">Internal Tensions — {n_tensions}/{len(results)} articles ({round(100*n_tensions/len(results))}%)</div>\n'
+        if analysis_text:
+            html += f'  <div class="meta-observation">{esc(analysis_text)}</div>\n'
+        html += '  <div class="tension-breakdown">\n'
+        for t in tensions["tension_types"]:
+            html += f'    <div class="tension-type"><span class="tension-count">{t["count"]}</span><div><span class="tension-name">{esc(t["type_name"])}</span><br><span class="tension-desc">{esc(t["description"])}</span></div></div>\n'
+        html += '  </div>\n'
 
     # ── emergent clusters ─────────────────────────────────────────
     if clusters and "emergent_clusters" in clusters:
@@ -277,6 +311,14 @@ def generate_html(results, clusters=None, absence=None, coverage=None):
             html += render_card(r)
         html += '  </div>\n'
 
+    # ── unspeakable positions — promoted to first-class section ──
+    if absence and absence.get("unspeakable_positions"):
+        html += '  <div class="section-title">Positions the Global Media Corpus Refuses to Articulate</div>\n'
+        html += '  <div class="unspeakable-section">\n'
+        for pos in absence["unspeakable_positions"]:
+            html += f'    <div class="unspeakable-item">{esc(pos)}</div>\n'
+        html += '  </div>\n'
+
     # ── corpus-level absence report ───────────────────────────────
     if absence:
         html += '  <div class="section-title">What This Corpus Doesn\'t Say</div>\n'
@@ -287,7 +329,6 @@ def generate_html(results, clusters=None, absence=None, coverage=None):
             ("UNMADE ARGUMENTS", "unmade_arguments"),
             ("VOICELESS POPULATIONS", "voiceless_populations"),
             ("TIER 3 PREDICTIONS", "tier3_predictions"),
-            ("UNSPEAKABLE POSITIONS", "unspeakable_positions"),
         ]:
             items = absence.get(key, [])
             if items:
@@ -380,7 +421,12 @@ def main():
         with open(COVERAGE_FILE, "r", encoding="utf-8") as f:
             coverage = json.load(f)
 
-    html = generate_html(results, clusters, absence, coverage)
+    tensions = None
+    if os.path.exists(TENSION_FILE):
+        with open(TENSION_FILE, "r", encoding="utf-8") as f:
+            tensions = json.load(f)
+
+    html = generate_html(results, clusters, absence, coverage, tensions)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
