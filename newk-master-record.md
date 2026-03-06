@@ -180,6 +180,35 @@ Vocabulary gap: Iran receives 0.19 points more condemnatory framing than US/Isra
 
 US articles: 38% attribution rate vs. 11% non-US (p=0.003). Heavy attribution is a stylistic convention of US journalism — not a mechanism of ambiguity, but a signature of the technical_strategic register.
 
+### 4.10 Session 5 — Presupposition Extraction Findings
+
+15 articles analyzed, 87 presuppositions extracted. Article 81 (Christianity Today) failed on JSON parse — retry in future session.
+
+Presupposition distribution by beneficiary:
+- Iran favored: 15 (BBC, SCMP, Press TV)
+- United States favored: 10 (Irish, Italian, US outlets)
+- Stati Uniti / US in Italian: 10 (ilpost.it)
+- Iranian opposition: ~6 (Iran International)
+- Holy See/Vatican: ~4 (Vatican News)
+- Israel: 3
+
+**KEY FINDING 1 — The implicit_question field:** Every article treats one question as THE question about the event. This agenda-setting choice is invisible to every other analytical layer. Examples:
+- ABC News (article 37): "How can we stop Iran?" Presupposes Iran HAS a weapons program, that it must be stopped, that stop means military action. None of this is argued. All assumed. 8 presuppositions — most of any US article.
+- RTE Ireland: same implicit question, same presuppositional structure, different outlet.
+- Press TV (article 85): "How effective was Iran's retaliation?" — no other question exists. Mirror image of ABC News's framing architecture.
+
+**KEY FINDING 2 — BBC structural contradiction:** Article 59 (BBC News): 10 presuppositions, highest in corpus. Contains BOTH pro-US AND pro-Iran presuppositions in different sections of the same article. This is not ambiguity — it is structural contradiction. This explains the CONTESTED council rating: three models disagreed because the article embeds incompatible background assumptions. Sophisticated outlets embed MORE presuppositions, not fewer. Anticipatory obfuscation confirmed at the presuppositional level.
+
+**KEY FINDING 3 — Cross-language structural transfer:** Italian articles (ilpost.it) produce identical presuppositions to ABC News in English. "Programma nucleare iraniano" carries the same unargued assumption as "Iran's nuclear weapons program." The presupposition crosses language boundaries because it is structural, not lexical. This rules out translation artifacts — the epistemic stance is in the framing, not the words.
+
+**SESSION 5 MASTER FINDING (combining 4.9 and 4.10):** Syntax layer (Session 5, Tasks 1-4) showed that balanced elaboration and symmetric vocabulary DEFEAT model consensus (r=-0.29, r=-0.31). Presupposition layer (Task 5) shows WHY: the position has migrated entirely into background assumptions that syntax cannot see. The balance is the concealment mechanism. The two findings validate each other at completely different analytical levels.
+
+DB state after Session 5:
+- syntactic_features: 94 rows, run_id session_005
+- actor_framing: 215 rows, run_id session_005
+- presuppositions: 87 rows, run_id session_005
+- JSON backups: analysis/session5_*.json
+
 ---
 
 ## 5. Covert Bias Techniques — What the Pipeline Must Catch
@@ -365,11 +394,11 @@ The Mirror Gap feature: US self-perception vs. world perception, side by side, n
 | Qwen anchoring effect in council | HIGH | Randomize prompt order across models, prevent Qwen from always going first | Unstarted |
 | Cluster stability not fully validated | HIGH | Run same corpus twice, measure cluster overlap score | Partial |
 | Event typing not implemented | HIGH | Add event_type field, build domain-specific frameworks for each type | Unstarted |
-| Syntactic analysis layer missing | HIGH | Build syntax_analyzer.py with spaCy — passive voice, attribution, elaboration | Unstarted |
-| Vocabulary asymmetry matrix | HIGH | Build actor_framing table, seed sanitizing/condemnatory lexicon | Unstarted |
+| Syntactic analysis layer missing | HIGH | Build syntax_analyzer.py with spaCy — passive voice, attribution, elaboration | DONE (Session 5) |
+| Vocabulary asymmetry matrix | HIGH | Build actor_framing table, seed sanitizing/condemnatory lexicon | DONE (Session 5) |
 | 37 unassigned articles — register analysis done, frame clustering incomplete | MEDIUM | Session 5: cluster on register + embedded assumptions vectors | Partial |
 | Speed: 89 min for 94 articles through council | MEDIUM | Helsinki-NLP for all translation, Qwen only for analysis — saves 40-50% | Partial fix done |
-| Presupposition extraction not implemented | MEDIUM | Add to Pass 2 prompt for technical_strategic register articles | Unstarted |
+| Presupposition extraction not implemented | MEDIUM | LLM extraction on targeted high-ambiguity articles | PARTIAL (15/16 articles, Christianity Today retry pending) |
 | Paywalled sources — 20 articles skipped | MEDIUM | Accept limitation, document which outlets are inaccessible, note in UI | Accepted |
 | Iranian domestic press absent from corpus | MEDIUM | Add Iran International, Press TV, Kayhan, Shargh, ISNA to outlets.json | Unstarted |
 | UN Security Council transcripts not ingested | MEDIUM | Free, structured XML — build parser, high analytical value | Unstarted |
@@ -448,15 +477,13 @@ The Mirror Gap is the feature that needs to open every event page. Two columns. 
 
 ## 12. Build Sequence — Next Sessions
 
-| Session | Goal | Key Deliverables |
-|---|---|---|
-| Session 5 | Syntactic analysis layer | syntax_analyzer.py with spaCy — passive voice, attribution, elaboration ratio, concessive detection |
-| Session 6 | Vocabulary asymmetry + presupposition | actor_framing table, lexicon seeded, presupposition extraction prompt, run on 94 articles |
-| Session 7 | UN + parliamentary ingestion | UN Security Council transcript parser, 2-3 parliamentary sources |
-| Session 8 | Tier 3 completion | Whisper pipeline stable, sermon harvester working, podcast RSS ingestion, all feeding DB |
-| Session 9 | US Mirror Gap module | domestic_ratio scoring, absent_subjects, mirror_gap_report generation |
-| Session 10 | Output design implementation | After design discussion — report generator, visualization layer, Cloudflare deployment |
-| Ongoing | New events | One event per week, full pipeline, comparative analysis building over time |
+| Session | Goal | Key Deliverables | Status |
+|---|---|---|---|
+| Session 5 | Syntactic analysis + presupposition | syntax_analyzer.py, vocabulary_asymmetry.py, presupposition_extractor.py, correlation_analysis.py — 94 articles syntactically analyzed, 215 actor-framing rows, 87 presuppositions extracted | COMPLETE |
+| Session 6 | Production pipeline + output | pipeline_run.py (10-stage orchestrator), mirror_gap.py, absence_report.py, render.py, deploy.py, topics_queue.json — HTML report generated (42K bytes, 7 sections) | IN PROGRESS |
+| Session 7 | UN + parliamentary ingestion | UN Security Council transcript parser, 2-3 parliamentary sources | Unstarted |
+| Session 8 | Tier 3 completion | Whisper pipeline stable, sermon harvester working, podcast RSS ingestion, all feeding DB | Unstarted |
+| Ongoing | New events | One event per week, full pipeline, comparative analysis building over time | |
 
 ---
 
