@@ -95,6 +95,38 @@ English articles skip steps 2-3. Pass 2 clustering and absence report run once a
 
 `country_contexts.json` contains 2-3 sentence context per country (58 countries) covering: relationship to US military action, regional position, domestic media framing factors. Injected into Pass 1 prompts to compensate for LLM Western training bias.
 
+## Immutability Rules (MANDATORY — every session)
+
+**NEVER overwrite or delete analytical data. The DB is a lab notebook, not a dashboard.**
+
+### Files
+- **analysis/** — NEVER overwrite. Append or version only.
+- Before touching any existing JSON in analysis/, rename it with timestamp:
+  `emergent_clusters.json` → `emergent_clusters_20260305.json`
+- New output gets new filename with run_id or timestamp.
+
+### Database
+- **NEVER UPDATE or DELETE rows** in: articles, analyses, llm_council_verdicts, clusters, cluster_memberships
+- Only additive INSERTs allowed. New analytical runs produce NEW rows alongside old ones.
+- Every analytical run gets a `run_id` (timestamp or session-based, e.g. "session_001").
+- All DB inserts include run_id where the schema supports it.
+- Comparison between runs is a feature, not a problem.
+
+### Clusters specifically
+- New clustering run = new cluster rows with new run_id and method label.
+- Old clusters stay. Mark them with method ("llm_pass2", "sentence_embedding", etc.).
+- NEVER replace old clusters with new ones.
+
+### Before touching existing data
+1. Report what currently exists (row counts, file names).
+2. State explicitly what you will ADD vs. what you will PRESERVE.
+3. Wait for confirmation if any destructive action is needed.
+
+### Why
+Every run, attempt, and failure is part of the research record. The sentence embedding
+mega-cluster failure belongs in the methodology paper as "what we tried and why it failed."
+Deleting it loses that evidence. Analytical progress is cumulative.
+
 ## Constraints
 
 - GDELT API: rate limited to 1 request per 5 seconds, retry with backoff. Falls back to fetching via boron if nitrogen IP is blocked.

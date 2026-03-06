@@ -164,11 +164,16 @@ class Cluster(Base):
 
     id = Column(Integer, primary_key=True)
     event_id = Column(Integer, ForeignKey("events.id"), nullable=True)
+    run_id = Column(String(50), nullable=True)  # e.g. "session_001", "session_003"
+    method = Column(String(100), nullable=True)  # "llm_pass2", "sentence_embedding", etc.
+    valid = Column(Boolean, default=True)  # false = known-bad run, preserved for record
     label = Column(String(500))  # emergent, not imposed
+    description = Column(Text, nullable=True)  # longer cluster description
     article_count = Column(Integer, default=0)
     geographic_signature = Column(JSONB)
     stability_score = Column(Float, nullable=True)
     is_singleton = Column(Boolean, default=False)
+    maps_to_conventional = Column(String(200), nullable=True)  # political science label
     created_at = Column(DateTime, default=datetime.utcnow)
 
     event = relationship("Event", back_populates="clusters")
