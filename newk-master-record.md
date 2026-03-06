@@ -40,8 +40,8 @@ This is not a bias-rating tool. It is not a news aggregator. It is an **epistemi
 - Cloudflare Pages — public deployment from git
 - GDELT API — gap-fill ingestion (free, no key)
 - spaCy — syntactic analysis (passive voice, attribution, elaboration)
-- Deployment: thebeakers.com/newskaleidoscope (interim domain, dedicated domain TBD)
-- GitHub: khatvangi/thebeakers (Cloudflare Pages auto-deploys from main branch)
+- Deployment: news.thebeakers.com (Cloudflare Pages, auto-deploys from main)
+- GitHub: khatvangi/newskaleidoscope (deploy repo — static HTML only)
 
 ---
 
