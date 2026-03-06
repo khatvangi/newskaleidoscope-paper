@@ -19,14 +19,6 @@ from datetime import datetime
 import spacy
 from sqlalchemy import create_engine, text
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("logs/syntax_analyzer.log"),
-    ],
-)
 log = logging.getLogger("syntax")
 
 DB_URL = "postgresql://newskal:newskal_dev@localhost:5432/newskaleidoscope"
@@ -580,6 +572,14 @@ def print_report(results, conn):
 
 
 def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler("logs/syntax_analyzer.log"),
+        ],
+    )
     log.info("loading spaCy en_core_web_lg...")
     nlp = load_nlp()
     log.info("spaCy loaded")

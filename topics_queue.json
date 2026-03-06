@@ -1,0 +1,12 @@
+[
+  {
+    "topic": "US-Israeli Military Strikes on Iran",
+    "event_date": "2026-03-01",
+    "event_type": "military",
+    "event_id": 2,
+    "search_terms": ["Iran", "strike", "nuclear", "military"],
+    "status": "complete",
+    "completed_at": "2026-03-05",
+    "notes": "94 articles, 42 countries, 17 languages. Sessions 1-5 complete."
+  }
+]

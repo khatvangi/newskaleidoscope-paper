@@ -21,14 +21,6 @@ from datetime import datetime
 import spacy
 from sqlalchemy import create_engine, text
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("logs/vocabulary_asymmetry.log"),
-    ],
-)
 log = logging.getLogger("vocab")
 
 DB_URL = "postgresql://newskal:newskal_dev@localhost:5432/newskaleidoscope"
@@ -292,6 +284,14 @@ def print_report(all_results, articles):
 
 
 def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler("logs/vocabulary_asymmetry.log"),
+        ],
+    )
     log.info("loading spaCy en_core_web_lg...")
     nlp = load_nlp()
     log.info("spaCy loaded")

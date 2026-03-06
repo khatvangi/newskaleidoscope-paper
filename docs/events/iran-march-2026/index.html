@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US-Israeli Military Strikes on Iran — NewsKaleidoscope</title>
+    <meta name="description" content="Epistemic mapping: how the world frames US-Israeli Military Strikes on Iran">
+    <meta property="og:title" content="US-Israeli Military Strikes on Iran — NewsKaleidoscope">
+    <meta property="og:type" content="article">
+    <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        line-height: 1.6; color: #1a1a1a; background: #fafafa;
+        max-width: 1100px; margin: 0 auto; padding: 1rem;
+    }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #1a3a5c; }
+    h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #1a3a5c;
+         border-bottom: 2px solid #e8f0f8; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+    p { margin-bottom: 0.75rem; }
+    a { color: #1a3a5c; }
+
+    .meta { color: #666; font-size: 0.85rem; margin-bottom: 2rem; }
+    .section { margin-bottom: 3rem; }
+
+    /* mirror gap */
+    .mirror-gap { display: flex; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+    .mirror-col {
+        flex: 1; min-width: 280px; padding: 1.5rem; border-radius: 8px;
+    }
+    .mirror-us { background: #e8f0f8; border-left: 4px solid #1a3a5c; }
+    .mirror-world { background: #f0f8e8; border-left: 4px solid #3a5c1a; }
+    .mirror-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+                     color: #666; margin-bottom: 0.5rem; }
+    .mirror-8words { font-size: 1.3rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.75rem; }
+    .mirror-detail { font-size: 0.9rem; color: #444; }
+
+    /* cluster cards */
+    .cluster-card {
+        background: white; border: 1px solid #e0e0e0; border-radius: 8px;
+        padding: 1.25rem; margin-bottom: 1rem;
+    }
+    .cluster-header { display: flex; justify-content: space-between; align-items: baseline;
+                       flex-wrap: wrap; gap: 0.5rem; }
+    .cluster-name { font-weight: 700; font-size: 1.05rem; }
+    .cluster-count { font-size: 0.8rem; color: #666; }
+    .cluster-geo { font-size: 0.8rem; color: #888; margin-top: 0.3rem; }
+    .cluster-desc { margin-top: 0.5rem; font-size: 0.9rem; }
+
+    /* confidence badges */
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px;
+             font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+    .badge-high { background: #d4edda; color: #155724; }
+    .badge-medium { background: #fff3cd; color: #856404; }
+    .badge-contested { background: #f8d7da; color: #721c24; }
+
+    /* tables */
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #eee; }
+    th { font-weight: 600; background: #f8f8f8; }
+
+    /* asymmetry colors */
+    .score-pos { color: #155724; }
+    .score-neg { color: #721c24; }
+
+    /* absence */
+    .coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+                      gap: 3px; margin: 1rem 0; }
+    .coverage-cell { padding: 0.3rem; text-align: center; font-size: 0.65rem; font-weight: 600;
+                      border-radius: 3px; }
+    .cell-present { background: #d4edda; color: #155724; }
+    .cell-absent { background: #f8f8f8; color: #ccc; }
+
+    /* warnings */
+    .warning { background: #fff3cd; border: 1px solid #ffc107; padding: 1rem;
+               border-radius: 6px; margin: 1rem 0; font-size: 0.85rem; }
+
+    /* quote box */
+    .quote { border-left: 3px solid #1a3a5c; padding-left: 1rem; margin: 0.75rem 0;
+             font-style: italic; color: #444; }
+
+    /* presupposition cards */
+    .presup-card { background: #fff8f0; border: 1px solid #ffe0b2; border-radius: 6px;
+                    padding: 1rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+    .presup-carrier { font-style: italic; color: #666; margin-top: 0.3rem; }
+    .presup-favors { font-size: 0.75rem; color: #888; margin-top: 0.25rem; }
+
+    /* confidence section */
+    .conf-item { margin-bottom: 0.5rem; padding: 0.5rem; border-radius: 4px; }
+    .conf-high { background: #d4edda; }
+    .conf-medium { background: #fff3cd; }
+    .conf-low { background: #f8d7da; }
+
+    @media print {
+        body { max-width: 100%; padding: 0; }
+        .section { page-break-inside: avoid; }
+        .mirror-gap { page-break-inside: avoid; }
+    }
+    @media (max-width: 600px) {
+        h1 { font-size: 1.5rem; }
+        .mirror-gap { flex-direction: column; }
+        table { font-size: 0.75rem; }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>US-Israeli Military Strikes on Iran</h1>
+        <div class="meta">
+            NewsKaleidoscope — Epistemic Mapping System<br>
+            Event date: 2026-03-01 |
+            Type: military |
+            Generated: 2026-03-05 21:28
+        </div>
+    </header>
+
+    
+    <div class="section">
+        <div class="mirror-gap">
+            <div class="mirror-col mirror-us">
+                <div class="mirror-label">US Frame (4 sources)</div>
+                <div class="mirror-8words">US-Israel military response, Iran&#x27;s nuclear threat, sovereignty defense, internal upheaval, moral reckoning, preparedness, diplomatic support, psychological impact</div>
+                <div class="mirror-detail">The collective framing positions U.S.-Israel military action against Iran as a justified response to nuclear threats and sovereignty violations, highlighting internal Iranian political fragmentation and moral-societal consequences. Coverage emphasizes U.S. preparedness, diplomatic support for Turkey, and the psychological toll of conflict, while downplaying broader geopolitical strategy.</div>
+            </div>
+            <div class="mirror-col mirror-world">
+                <div class="mirror-label">World Frame (90 sources)</div>
+                <div class="mirror-8words">diplomatic efforts, military posturing, nuclear tensions, strategic calculus, preemptive measures, regional instability, mediation attempts, existential threats</div>
+                <div class="mirror-detail">Non-US global media collectively frame the US-Iran nuclear tensions as a volatile mix of diplomatic efforts and military posturing, emphasizing strategic calculations by the US and Israel, Iran&#x27;s ambiguous nuclear intentions, and the role of mediators like Oman. Coverage highlights risks of escalation, symbolic military actions, and divergent portrayals of Iran as either a destabilizing force or a peace-seeking actor.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Corpus Overview</h2>
+        <table>
+            <tr><td>Articles analyzed</td><td><strong>94</strong></td></tr>
+            <tr><td>Countries</td><td><strong>44</strong></td></tr>
+            <tr><td>Languages</td><td><strong>18</strong></td></tr>
+            <tr><td>Council consensus</td>
+                <td><span class="badge badge-high">HIGH 2</span>
+                    <span class="badge badge-medium">MEDIUM 37</span>
+                    <span class="badge badge-contested">CONTESTED 55</span></td></tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Epistemic Clusters</h2>
+        
+        <div class="cluster-card">
+            <div class="cluster-header">
+                <span class="cluster-name">Regional and Ethical Criticisms</span>
+                <span class="cluster-count">20 articles</span>
+            </div>
+            <div class="cluster-geo">BR: 1, CA: 1, GB: 2, IN: 2, IR: 6, NO: 1, QA: 2, ZA: 2</div>
+            <div class="cluster-desc">Articles frame U.S.-Israel actions as ethically or legally flawed, emphasizing civilian harm, regional instability, or violations of international law. Often highlights Iran&#x27;s &#x27;right to self-defense.&#x27;</div>
+            <div style="margin-top:0.5rem">
+                <span class="badge badge-high">H:1</span>
+                <span class="badge badge-medium">M:10</span>
+                <span class="badge badge-contested">C:9</span>
+            </div>
+        </div>
+        <div class="cluster-card">
+            <div class="cluster-header">
+                <span class="cluster-name">Strategic Necessity of US-Israeli Military Action</span>
+                <span class="cluster-count">11 articles</span>
+            </div>
+            <div class="cluster-geo">AL: 1, AZ: 1, BG: 1, EG: 1, ES: 1, HR: 2, LT: 1, SK: 1, UA: 1, XK: 1</div>
+            <div class="cluster-desc">Articles frame U.S.-Israel military planning as a calculated, time-sensitive strategy to address existential threats, legitimize political agendas, or preempt Iranian retaliation. Emphasizes military escalation as a &#x27;necessary risk&#x27; or &#x27;strategic imperative.&#x27;</div>
+            <div style="margin-top:0.5rem">
+                <span class="badge badge-high">H:0</span>
+                <span class="badge badge-medium">M:5</span>
+                <span class="badge badge-contested">C:6</span>
+            </div>
+        </div>
+        <div class="cluster-card">
+            <div class="cluster-header">
+                <span class="cluster-name">Critique of US Hegemony and Destabilization</span>
+                <span class="cluster-count">8 articles</span>
+            </div>
+            <div class="cluster-geo">CN: 2, HK: 3, IR: 1, JP: 1, PK: 1</div>
+            <div class="cluster-desc">Articles position U.S. military actions as destabilizing, hegemonic, or economically exploitative. Contrasts U.S. &#x27;aggression&#x27; with Iran&#x27;s &#x27;rational&#x27; or &#x27;peace-seeking&#x27; behavior.</div>
+            <div style="margin-top:0.5rem">
+                <span class="badge badge-high">H:0</span>
+                <span class="badge badge-medium">M:4</span>
+                <span class="badge badge-contested">C:4</span>
+            </div>
+        </div>
+        <div class="cluster-card">
+            <div class="cluster-header">
+                <span class="cluster-name">Diplomatic and Technical Resolution Focus</span>
+                <span class="cluster-count">8 articles</span>
+            </div>
+            <div class="cluster-geo">BE: 1, BR: 1, CH: 1, FR: 3, IE: 1, PH: 1</div>
+            <div class="cluster-desc">Articles prioritize multilateral diplomacy, IAEA verification, or economic negotiations as the primary path to conflict resolution. Downplays military action as a last resort.</div>
+            <div style="margin-top:0.5rem">
+                <span class="badge badge-high">H:0</span>
+                <span class="badge badge-medium">M:2</span>
+                <span class="badge badge-contested">C:6</span>
+            </div>
+        </div>
+        <div class="cluster-card">
+            <div class="cluster-header">
+                <span class="cluster-name">Legitimacy of US-Israeli Defensive Actions</span>
+                <span class="cluster-count">7 articles</span>
+            </div>
+            <div class="cluster-geo">BR: 1, CA: 1, IL: 2, VA: 1</div>
+            <div class="cluster-desc">Articles justify U.S.-Israel military readiness as a moral or legal right to counter Iranian aggression, framing it as a &#x27;justified response&#x27; to nuclear threats or regional destabilization. Often cites sovereignty or self-defense.</div>
+            <div style="margin-top:0.5rem">
+                <span class="badge badge-high">H:0</span>
+                <span class="badge badge-medium">M:2</span>
+                <span class="badge badge-contested">C:5</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>The Double Standard</h2>
+        <h3>Actor Framing Scores</h3>
+        <p style="font-size:0.8rem;color:#666">Positive = sanitized language. Negative = condemnatory language.</p>
+        <table>
+            <tr><th>Actor</th><th>Avg Score</th><th>Articles</th></tr>
+            <tr><td>IDF</td><td class="score-pos">+0.45</td><td>11</td></tr><tr><td>IRGC</td><td class="score-pos">+0.27</td><td>26</td></tr><tr><td>Hezbollah</td><td class="score-neg">-0.20</td><td>20</td></tr><tr><td>US</td><td class="score-neg">-0.33</td><td>153</td></tr><tr><td>Israel</td><td class="score-neg">-0.76</td><td>123</td></tr><tr><td>Iran</td><td class="score-neg">-0.92</td><td>153</td></tr>
+        </table>
+
+        <h3>Outlet Asymmetry</h3>
+        <p style="font-size:0.8rem;color:#666">Ranked by gap between US/Israel framing and Iran framing.</p>
+        <table>
+            <tr><th>Outlet</th><th>US/Israel</th><th>Iran</th><th>Gap</th></tr>
+            <tr><td>world.qianlong.com</td><td>+26.0</td><td>+12.0</td><td class="score-pos">+14.0</td></tr><tr><td>winnipegfreepress.com</td><td>+2.5</td><td>+9.0</td><td class="score-neg">-6.5</td></tr><tr><td>dostor.org</td><td>+3.0</td><td>-2.0</td><td class="score-pos">+5.0</td></tr><tr><td>Clarín</td><td>-2.0</td><td>-7.0</td><td class="score-pos">+5.0</td></tr><tr><td>Dawn</td><td>-0.8</td><td>-5.0</td><td class="score-pos">+4.2</td></tr><tr><td>indianexpress.com</td><td>+4.5</td><td>+8.0</td><td class="score-neg">-3.5</td></tr><tr><td>Christianity Today</td><td>+0.0</td><td>-3.0</td><td class="score-pos">+3.0</td></tr><tr><td>aol.co.uk</td><td>+2.0</td><td>+5.0</td><td class="score-neg">-3.0</td></tr><tr><td>abcnews.com</td><td>-0.3</td><td>-3.0</td><td class="score-pos">+2.7</td></tr><tr><td>haqqin.az</td><td>-2.5</td><td>-5.0</td><td class="score-pos">+2.5</td></tr><tr><td>Al Jazeera</td><td>-3.0</td><td>-5.5</td><td class="score-pos">+2.5</td></tr><tr><td>diariodeburgos.es</td><td>-0.8</td><td>-3.0</td><td class="score-pos">+2.2</td></tr><tr><td>tv2.no</td><td>-5.5</td><td>-3.2</td><td class="score-neg">-2.2</td></tr><tr><td>Folha de São Paulo</td><td>-0.8</td><td>-3.0</td><td class="score-pos">+2.2</td></tr><tr><td>livemint.com</td><td>-4.0</td><td>-2.0</td><td class="score-neg">-2.0</td></tr>
+        </table>
+
+        <h3>Direct Quote Distribution</h3>
+        <table>
+            <tr><th>Speaker Type</th><th>Quotes</th></tr>
+            <tr><td>us_israeli_official</td><td>423</td></tr><tr><td>iranian_official</td><td>78</td></tr><tr><td>other</td><td>64</td></tr><tr><td>unnamed_official</td><td>13</td></tr><tr><td>international</td><td>9</td></tr><tr><td>civilian</td><td>3</td></tr>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Presuppositional Framing</h2>
+        <p>Claims embedded as background fact rather than argued positions.
+           Identified via LLM analysis of articles with highest strategic ambiguity scores.</p>
+        
+            <h3>lalibre.be (BE) — 5 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Nucléaire iranien : des discussions techniques à Vienne la s&quot;</p>
+            
+            <div class="presup-card">
+                <div>L&#x27;Iran est en violation des obligations du Traité de non-prolifération nucléaire (TNP) en n&#x27;autorisant pas les inspections de l&#x27;AIEA.</div>
+                <div class="presup-carrier">"la quantité de matière fissile, que l&#x27;AIEA n&#x27;a pas pu vérifier ces derniers mois, &#x27;est une source de préoccupation sérieuse et une question de conformité à l&#x27;accord de garanties&#x27; du TNP"</div>
+                <div class="presup-favors">Favors: États-Unis et pays occidentaux</div>
+            </div>
+            <div class="presup-card">
+                <div>L&#x27;enrichissement de l&#x27;uranium à 60% par l&#x27;Iran est une étape directe vers la fabrication d&#x27;armes nucléaires.</div>
+                <div class="presup-carrier">"le total des réserves iraniennes d&#x27;uranium enrichi à 60%, - seuil proche des 90% nécessaires pour fabriquer une arme nucléaire -"</div>
+                <div class="presup-favors">Favors: États-Unis et alliés</div>
+            </div>
+            <div class="presup-card">
+                <div>L&#x27;absence d&#x27;accès des inspecteurs de l&#x27;AIEA à Fordo et Natanz est une preuve de non-coopération de l&#x27;Iran.</div>
+                <div class="presup-carrier">"les inspecteurs de l&#x27;AIEA n&#x27;ont pas été autorisés à accéder à des sites nucléaires cruciaux tels que Fordo et Natanz"</div>
+                <div class="presup-favors">Favors: États-Unis et AIEA</div>
+            </div>
+            <h3>indianexpress.com (IN) — 5 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;For Trump , military strike in Iran could serve symbolic pur&quot;</p>
+            
+            <div class="presup-card">
+                <div>Iran is the world&#x27;s leading sponsor of terrorism</div>
+                <div class="presup-carrier">"I will never allow the world’s No. 1 sponsor of terror, which they are by far, to have a nuclear weapon"</div>
+                <div class="presup-favors">Favors: U.S. administration</div>
+            </div>
+            <div class="presup-card">
+                <div>Iran&#x27;s nuclear program is inherently hostile and requires military action to stop</div>
+                <div class="presup-carrier">"the purpose... would be to force the Iranians to negotiate"</div>
+                <div class="presup-favors">Favors: U.S. military-industrial complex</div>
+            </div>
+            <div class="presup-card">
+                <div>U.S. military strikes on Iran would be justified and effective</div>
+                <div class="presup-carrier">"Trump declared that Iran’s three most important nuclear sites were ‘obliterated’ in US strikes last year"</div>
+                <div class="presup-favors">Favors: U.S. administration</div>
+            </div>
+            <h3>rte.ie (IE) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;  Significant progres in talks between US and Iran&quot;</p>
+            
+            <div class="presup-card">
+                <div>Iran is developing nuclear weapons</div>
+                <div class="presup-carrier">"Iran&#x27;s nuclear weapons program"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <div class="presup-card">
+                <div>Iran is the aggressor in regional tensions</div>
+                <div class="presup-carrier">"Washington&#x27;s large-scale military build up in the Middle East"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <div class="presup-card">
+                <div>Iran&#x27;s missile program is inherently threatening</div>
+                <div class="presup-carrier">"Iran&#x27;s arsenal of ballistic missiles and its support for armed groups in the region"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <h3>ilpost.it (IT) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Per negoziare sullIran c  è sempre meno tempo&quot;</p>
+            
+            <div class="presup-card">
+                <div>L&#x27;Iran ha un programma nucleare con scopi militari</div>
+                <div class="presup-carrier">"programma nucleare iraniano"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <div class="presup-card">
+                <div>L&#x27;Iran è il principale sostenitore del terrorismo mondiale</div>
+                <div class="presup-carrier">"principale sostenitore del terrorismo nel mondo"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <div class="presup-card">
+                <div>Gruppi come Hamas e Hezbollah sono organizzazioni terroristiche</div>
+                <div class="presup-carrier">"gruppi armati, come Hamas nella Striscia di Gaza o Hezbollah in Libano, che hanno compiuto attacchi terroristici"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <h3>newtalk.tw (TW) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot; ( 影 ） 若美 「 有限 」 打擊伊 真主黨將不介入 ! 伊示威升溫 軍隊入校園鎮壓 | 國際&quot;</p>
+            
+            <div class="presup-card">
+                <div>伊朗政府的合法性是既定事實，反對者只是需要被鎮壓的群體</div>
+                <div class="presup-carrier">"支持與反對政府的群體之間爆發衝突"</div>
+                <div class="presup-favors">Favors: 伊朗政府</div>
+            </div>
+            <div class="presup-card">
+                <div>美國軍事行動的合法性與必要性不需證明</div>
+                <div class="presup-carrier">"美國正加強在伊朗周邊的軍事部署，總統川普表示，正考慮對伊朗發動有限度的軍事打擊"</div>
+                <div class="presup-favors">Favors: 美國</div>
+            </div>
+            <div class="presup-card">
+                <div>中東盟邦對美軍行動的支持是基於共同價值觀</div>
+                <div class="presup-carrier">"埃及、約旦與阿拉伯聯合大公國（UAE）允許美軍自其領土對伊朗發動攻擊"</div>
+                <div class="presup-favors">Favors: 美國與盟邦</div>
+            </div>
+            <h3>abcnews.com (US) — 8 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Middle East braces for another conflict but uncertainty rema&quot;</p>
+            
+            <div class="presup-card">
+                <div>The U.S. military buildup in the Middle East is inherently destabilizing and increases the likelihood of war.</div>
+                <div class="presup-carrier">"a huge military build-up of U.S. forces in the Middle East has the region bracing for a second major war in under a year"</div>
+                <div class="presup-favors">Favors: Iran or critics of U.S. military intervention</div>
+            </div>
+            <div class="presup-card">
+                <div>Iran&#x27;s nuclear program is inherently hostile and must be prevented at all costs.</div>
+                <div class="presup-carrier">"President Donald Trump reiterated that Iran cannot be allowed to have a nuclear weapon"</div>
+                <div class="presup-favors">Favors: U.S. and Israeli positions</div>
+            </div>
+            <div class="presup-card">
+                <div>War with Iran represents a strategic opportunity for Israel to weaken its regional rival.</div>
+                <div class="presup-carrier">"war with Iran represents an opportunity to set back Iran’s offensive capabilities"</div>
+                <div class="presup-favors">Favors: Israeli security establishment</div>
+            </div>
+            <h3>ilpost.it (IT) — 5 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Per negoziare sullIran c  è sempre meno tempo&quot;</p>
+            
+            <div class="presup-card">
+                <div>L&#x27;Iran ha un programma nucleare con scopi militari</div>
+                <div class="presup-carrier">"programma nucleare iraniano"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <div class="presup-card">
+                <div>L&#x27;Iran sostiene gruppi terroristici</div>
+                <div class="presup-carrier">"principale sostenitore del terrorismo nel mondo"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <div class="presup-card">
+                <div>L&#x27;Iran non ha bisogno di energia nucleare civile</div>
+                <div class="presup-carrier">"l’Iran è un produttore di idrocarburi e non ha bisogno del nucleare per produrre energia elettrica"</div>
+                <div class="presup-favors">Favors: Stati Uniti</div>
+            </div>
+            <h3>Al-Monitor (US) — 3 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Rubio spoke with Turkish foreign minister and pledged full U&quot;</p>
+            
+            <div class="presup-card">
+                <div>The missile attacks originated from Iran and targeted Turkey</div>
+                <div class="presup-carrier">"missile attacks from Iran"</div>
+                <div class="presup-favors">Favors: United States and Turkey</div>
+            </div>
+            <div class="presup-card">
+                <div>The US position of &#x27;full support&#x27; is neutral/justified</div>
+                <div class="presup-carrier">"pledged full support from the United States"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <div class="presup-card">
+                <div>The attacks on Turkey were unjustified</div>
+                <div class="presup-carrier">"attacks on Turkey’s sovereign territory were unacceptable"</div>
+                <div class="presup-favors">Favors: United States and Turkey</div>
+            </div>
+            <h3>Al-Monitor (US) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Iran&#x27;s supreme leader gone, but opposition still at war with&quot;</p>
+            
+            <div class="presup-card">
+                <div>The US and Israel started a war on Iran by killing its supreme leader</div>
+                <div class="presup-carrier">"The US and Israel began their war on Iran by killing its most powerful figure"</div>
+                <div class="presup-favors">Favors: US and Israel</div>
+            </div>
+            <div class="presup-card">
+                <div>The US operation &#x27;Epic Fury&#x27; is a legitimate or justified action</div>
+                <div class="presup-carrier">"Operation Epic Fury"</div>
+                <div class="presup-favors">Favors: US</div>
+            </div>
+            <div class="presup-card">
+                <div>Regime change is Washington&#x27;s goal in Iran</div>
+                <div class="presup-carrier">"whether regime change is Washington&#x27;s goal"</div>
+                <div class="presup-favors">Favors: US</div>
+            </div>
+            <h3>BBC News (GB) — 10 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Iran postpones Khamenei funeral as US-Israeli bombardment co&quot;</p>
+            
+            <div class="presup-card">
+                <div>The US and Israel are the aggressors in the conflict, and their actions are framed as a &#x27;bombardment&#x27; and &#x27;assault&#x27;.</div>
+                <div class="presup-carrier">"US-Israeli bombardment continues"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>Khamenei&#x27;s death was caused by a US-Israeli strike, not by an internal or accidental event.</div>
+                <div class="presup-carrier">"killed in a strike at the start of the US and Israeli assault"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>The US submarine sinking an Iranian frigate is a justified or routine action.</div>
+                <div class="presup-carrier">"a US submarine sank an Iranian navy frigate"</div>
+                <div class="presup-favors">Favors: US</div>
+            </div>
+            <h3>BBC News (GB) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;US sub sinks Iranian warship in Indian Ocean, Hegseth says&quot;</p>
+            
+            <div class="presup-card">
+                <div>The US submarine sank the Iranian warship</div>
+                <div class="presup-carrier">"US sub sinks Iranian warship"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <div class="presup-card">
+                <div>The Iranian ship was an &#x27;enemy&#x27; of the US</div>
+                <div class="presup-carrier">"enemy ship"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <div class="presup-card">
+                <div>The US action was the &#x27;first sinking of an enemy ship by a torpedo since World War Two&#x27;</div>
+                <div class="presup-carrier">"first sinking of an enemy ship by a torpedo since World War Two"</div>
+                <div class="presup-favors">Favors: United States</div>
+            </div>
+            <h3>South China Morning Post (HK) — 3 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Relief, joy as first flight back from Dubai brings stranded &quot;</p>
+            
+            <div class="presup-card">
+                <div>The US-Israeli strikes on Iran are the primary cause of the global air link disruptions and the conflict in the Middle East.</div>
+                <div class="presup-carrier">"US-Israeli strikes on Iran disrupted global air links"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>Iran&#x27;s targeting of US military bases in the UAE and Gulf countries is a justified &#x27;retaliation&#x27; rather than an unprovoked attack.</div>
+                <div class="presup-carrier">"Iran retaliating by targeting US military bases"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>The conflict in the Middle East originated from US-Israeli aggression rather than being a mutual escalation.</div>
+                <div class="presup-carrier">"the conflict broke out, with Iran retaliating"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <h3>Vatican News (VA) — 5 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Cardinal Parolin: Preventive wars risk setting the world abl&quot;</p>
+            
+            <div class="presup-card">
+                <div>The US and Israeli attack on Iran is a &#x27;preventive war&#x27; that violates international law</div>
+                <div class="presup-carrier">"the US and Israeli attack on Iran"</div>
+                <div class="presup-favors">Favors: Holy See/Vatican</div>
+            </div>
+            <div class="presup-card">
+                <div>International law is being systematically eroded by powerful states acting unilaterally</div>
+                <div class="presup-carrier">"the erosion of international law is truly worrying: justice has given way to force; the force of law has been replaced by the law of force"</div>
+                <div class="presup-favors">Favors: Multilateral institutions and the Holy See&#x27;s vision of international order</div>
+            </div>
+            <div class="presup-card">
+                <div>Iranian street demonstrations represent legitimate aspirations that must be protected</div>
+                <div class="presup-carrier">"the aspirations of peoples must be taken into consideration and guaranteed within the legal framework"</div>
+                <div class="presup-favors">Favors: Iranian protesters and the Holy See&#x27;s human rights agenda</div>
+            </div>
+            <h3>Iran International (IR) — 7 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;Iran’s invisible &#x27;First Lady&#x27;: Who Was Khamenei’s wife?&quot;</p>
+            
+            <div class="presup-card">
+                <div>The Islamic Republic is an oppressive regime that must be overthrown for Iranians to achieve democracy.</div>
+                <div class="presup-carrier">"assuring the fall of the Islamic Republic and the institution of a democracy"</div>
+                <div class="presup-favors">Favors: Iranian opposition groups and Western critics of the Islamic Republic</div>
+            </div>
+            <div class="presup-card">
+                <div>Iranian public celebrations of US-Israeli strikes represent genuine popular support for these actions.</div>
+                <div class="presup-carrier">"Iranians will use any opportunity to bypass the Islamic Republic to assure the fall of the Islamic Republic"</div>
+                <div class="presup-favors">Favors: Iranian opposition groups and Western media framing the Islamic Republic as universally despised</div>
+            </div>
+            <div class="presup-card">
+                <div>The Islamic Republic is responsible for all violence in Iran, including the assassination attempt on Khamenei.</div>
+                <div class="presup-carrier">"the regime responsible for killing scores of Iranians, with demonstrators holding images of the now-former Supreme Leader"</div>
+                <div class="presup-favors">Favors: Iranian opposition groups and critics of the Islamic Republic</div>
+            </div>
+            <h3>Press TV (IR) — 6 presuppositions</h3>
+            <p style="font-size:0.75rem;color:#888;margin-top:-0.3rem"> — &quot;IRGC: 650 casualties for US military in two days as Iran mis&quot;</p>
+            
+            <div class="presup-card">
+                <div>Iran&#x27;s military actions are justified as retaliation against US aggression</div>
+                <div class="presup-carrier">"retaliatory Operation True Promise 4 by Iranian Armed Forces against US military installations"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>IRGC casualty figures are accurate and unchallenged facts</div>
+                <div class="presup-carrier">"650 American troops were killed and wounded"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+            <div class="presup-card">
+                <div>US military denial of casualties is evidence of concealment</div>
+                <div class="presup-carrier">"it was natural for the US military to deny or conceal the casualties"</div>
+                <div class="presup-favors">Favors: Iran</div>
+            </div>
+    </div>
+    
+    <div class="section">
+        <h2>What Nobody Said</h2>
+
+        <h3>Geographic Coverage</h3>
+        <div class="coverage-grid"><div class="coverage-cell cell-absent">AE</div><div class="coverage-cell cell-present">AL</div><div class="coverage-cell cell-absent">AM</div><div class="coverage-cell cell-present">AR</div><div class="coverage-cell cell-absent">AT</div><div class="coverage-cell cell-present">AZ</div><div class="coverage-cell cell-present">BD</div><div class="coverage-cell cell-present">BE</div><div class="coverage-cell cell-present">BG</div><div class="coverage-cell cell-absent">BH</div><div class="coverage-cell cell-absent">BO</div><div class="coverage-cell cell-present">BR</div><div class="coverage-cell cell-absent">BY</div><div class="coverage-cell cell-present">CA</div><div class="coverage-cell cell-present">CH</div><div class="coverage-cell cell-absent">CL</div><div class="coverage-cell cell-absent">CO</div><div class="coverage-cell cell-absent">CU</div><div class="coverage-cell cell-present">CZ</div><div class="coverage-cell cell-present">DE</div><div class="coverage-cell cell-absent">EC</div><div class="coverage-cell cell-present">EG</div><div class="coverage-cell cell-present">ES</div><div class="coverage-cell cell-absent">ET</div><div class="coverage-cell cell-present">FR</div><div class="coverage-cell cell-present">GB</div><div class="coverage-cell cell-absent">GE</div><div class="coverage-cell cell-absent">GH</div><div class="coverage-cell cell-present">HR</div><div class="coverage-cell cell-absent">HU</div><div class="coverage-cell cell-absent">ID</div><div class="coverage-cell cell-present">IE</div><div class="coverage-cell cell-present">IL</div><div class="coverage-cell cell-present">IN</div><div class="coverage-cell cell-absent">IQ</div><div class="coverage-cell cell-present">IR</div><div class="coverage-cell cell-present">IT</div><div class="coverage-cell cell-absent">JO</div><div class="coverage-cell cell-present">KE</div><div class="coverage-cell cell-absent">KW</div><div class="coverage-cell cell-absent">KZ</div><div class="coverage-cell cell-absent">LB</div><div class="coverage-cell cell-absent">LK</div><div class="coverage-cell cell-present">LT</div><div class="coverage-cell cell-absent">MM</div><div class="coverage-cell cell-absent">MX</div><div class="coverage-cell cell-absent">MY</div><div class="coverage-cell cell-absent">MZ</div><div class="coverage-cell cell-absent">NA</div><div class="coverage-cell cell-present">NG</div><div class="coverage-cell cell-absent">NL</div><div class="coverage-cell cell-present">NO</div><div class="coverage-cell cell-absent">NP</div><div class="coverage-cell cell-absent">OM</div><div class="coverage-cell cell-absent">PE</div><div class="coverage-cell cell-present">PH</div><div class="coverage-cell cell-present">PK</div><div class="coverage-cell cell-absent">PL</div><div class="coverage-cell cell-absent">PT</div><div class="coverage-cell cell-present">QA</div><div class="coverage-cell cell-present">RO</div><div class="coverage-cell cell-absent">RS</div><div class="coverage-cell cell-absent">SA</div><div class="coverage-cell cell-present">SK</div><div class="coverage-cell cell-absent">SN</div><div class="coverage-cell cell-present">SY</div><div class="coverage-cell cell-absent">TH</div><div class="coverage-cell cell-absent">TJ</div><div class="coverage-cell cell-absent">TM</div><div class="coverage-cell cell-absent">TZ</div><div class="coverage-cell cell-present">UA</div><div class="coverage-cell cell-present">US</div><div class="coverage-cell cell-absent">UZ</div><div class="coverage-cell cell-absent">VE</div><div class="coverage-cell cell-absent">VN</div><div class="coverage-cell cell-present">XK</div><div class="coverage-cell cell-absent">YE</div><div class="coverage-cell cell-present">ZA</div><div class="coverage-cell cell-absent">ZM</div><div class="coverage-cell cell-absent">ZW</div></div>
+        <p style="font-size:0.8rem;color:#666">
+            Green = represented. Grey = absent from corpus.</p>
+
+        <h3>Missing Languages</h3>
+        <p>Hindi, Bengali, Japanese, Turkish, Vietnamese, Thai, Swahili, Hausa, Yoruba, Amharic</p>
+
+        <h3>Positions Absent from Corpus</h3><ul><li>Perspectives of non-aligned Global South nations on balancing U.S.-Israel-Iran dynamics</li><li>Iranian state narratives justifying nuclear advancements as defensive measures</li><li>Economic impacts on neutral regional trade partners (e.g., Turkey, Oman)</li><li>Long-term ecological consequences of military strikes on Persian Gulf ecosystems</li><li>Cultural/historical framing of the conflict through pre-colonial Middle Eastern geopolitical memory</li></ul>
+        <h3>Structurally Unspeakable</h3><ul><li>Explicit advocacy for Iranian nuclear weaponization as a counterbalance to U.S.-Israel military dominance</li><li>Acknowledgment of U.S. military-industrial complex profiteering from regional destabilization</li><li>Conspiracy theories implicating Western intelligence agencies in orchestrating Iranian provocations</li></ul>
+        <h3>Voiceless Populations</h3><ul><li>Iranian civilian populations in strike-affected border regions</li><li>Refugees from Yemen and Iraq caught in proxy war dynamics</li><li>Iranian nuclear scientists under targeted sanctions and surveillance</li><li>Palestinian communities in Gaza facing indirect consequences of regional escalation</li><li>Afghanistan&#x27;s rural populations experiencing supply chain disruptions from regional conflict</li></ul>
+    </div>
+    
+    <div class="section">
+        <h2>Confidence &amp; Methodology</h2>
+
+        <div class="conf-item conf-high">
+            <strong>HIGH confidence:</strong> 2 articles where three independent LLM models
+            (Qwen3-32B, Gemma-3-27B, Mistral-Small-3.1-24B) agreed on the article's epistemic position.
+        </div>
+        <div class="conf-item conf-medium">
+            <strong>MEDIUM confidence:</strong> Two of three models agreed. The dissenting model's
+            reading is preserved in the database.
+        </div>
+        <div class="conf-item conf-low">
+            <strong>CONTESTED:</strong> 55 articles where no two models agreed.
+            These are genuinely ambiguous — the position is not a stable textual property.
+        </div>
+
+        <h3>Pipeline</h3>
+        <table>
+            <tr><td>Corpus</td><td>94 articles, 44 countries</td></tr>
+            <tr><td>Translation</td><td>Helsinki-NLP + NLLB-200</td></tr>
+            <tr><td>LLM analysis</td><td>Qwen3-32B via llama-server (two-pass)</td></tr>
+            <tr><td>Council</td><td>3-model consensus with sentence-transformer similarity</td></tr>
+            <tr><td>Syntactic</td><td>spaCy en_core_web_lg — passive voice, attribution, elaboration</td></tr>
+            <tr><td>Vocabulary</td><td>Proximity-based sanitizing/condemnatory term detection</td></tr>
+            <tr><td>Presupposition</td><td>LLM extraction on targeted high-ambiguity articles</td></tr>
+        </table>
+
+        <div class="warning">
+            <strong>This system has limitations.</strong> LLM analysis reflects model training biases.
+            Translation may lose nuance. Syntactic features are unreliable on translated text.
+            The 5:1 quote asymmetry reflects structural access patterns, not solely editorial choice.
+            All findings require validation across additional events.
+        </div>
+    </div>
+
+    <footer style="margin-top:3rem; padding-top:1rem; border-top:1px solid #eee;
+                    font-size:0.75rem; color:#999;">
+        NewsKaleidoscope | run_id: render_20260305_212827 |
+        <a href="https://github.com/newskaleidoscope">methodology</a>
+    </footer>
+</body>
+</html>

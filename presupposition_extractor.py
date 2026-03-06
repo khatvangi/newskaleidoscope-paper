@@ -21,14 +21,6 @@ from datetime import datetime
 
 from sqlalchemy import create_engine, text
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("logs/presupposition_extractor.log"),
-    ],
-)
 log = logging.getLogger("presupposition")
 
 DB_URL = "postgresql://newskal:newskal_dev@localhost:5432/newskaleidoscope"
@@ -143,6 +135,14 @@ def parse_json_array(raw):
 
 
 def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler("logs/presupposition_extractor.log"),
+        ],
+    )
     engine = create_engine(DB_URL)
 
     with engine.connect() as conn:
