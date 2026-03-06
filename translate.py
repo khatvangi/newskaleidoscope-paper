@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-translate.py — Helsinki-NLP translation engine for NewsKaleidoscope.
+translate.py — translation engine for NewsKaleidoscope.
 
-uses MarianMT models for translation, langdetect for language detection.
-models are lazy-loaded on first use and cached in memory.
-qwen is NEVER used for translation — only Helsinki-NLP models.
+translation hierarchy:
+  1. Helsinki-NLP MarianMT — fast (~2s), high quality for 20+ European/Asian pairs
+  2. NLLB-200 (Meta) — slower (~4s), covers 200 languages including Persian, Swahili, etc.
+  3. flag as untranslated — only if both fail
+
+qwen is NEVER used for translation. models are lazy-loaded and cached.
 """
 
 import re
@@ -41,6 +44,54 @@ HELSINKI_MODELS = {
     "nb": "Helsinki-NLP/opus-mt-gmq-en",  # norwegian bokmal
     "nn": "Helsinki-NLP/opus-mt-gmq-en",  # norwegian nynorsk
     "lt": "Helsinki-NLP/opus-mt-sla-en",  # lithuanian via slavic group (approximate)
+}
+
+# NLLB-200 fallback for languages Helsinki doesn't cover
+# uses FLORES-200 language codes
+NLLB_MODEL = "facebook/nllb-200-distilled-600M"
+NLLB_LANG_CODES = {
+    "fa": "pes_Arab",   # persian/farsi
+    "sw": "swh_Latn",   # swahili
+    "ha": "hau_Latn",   # hausa
+    "am": "amh_Ethi",   # amharic
+    "yo": "yor_Latn",   # yoruba
+    "ig": "ibo_Latn",   # igbo
+    "zu": "zul_Latn",   # zulu
+    "hi": "hin_Deva",   # hindi
+    "bn": "ben_Beng",   # bengali
+    "ja": "jpn_Jpan",   # japanese
+    "th": "tha_Thai",   # thai
+    "vi": "vie_Latn",   # vietnamese
+    "ms": "zsm_Latn",   # malay
+    "he": "heb_Hebr",   # hebrew
+    "pl": "pol_Latn",   # polish
+    "nl": "nld_Latn",   # dutch
+    "sv": "swe_Latn",   # swedish
+    "da": "dan_Latn",   # danish
+    "fi": "fin_Latn",   # finnish
+    # can also serve as backup for Helsinki languages
+    "ar": "arb_Arab",
+    "zh": "zho_Hans",
+    "ru": "rus_Cyrl",
+    "tr": "tur_Latn",
+    "fr": "fra_Latn",
+    "de": "deu_Latn",
+    "es": "spa_Latn",
+    "pt": "por_Latn",
+    "ko": "kor_Hang",
+    "it": "ita_Latn",
+    "ro": "ron_Latn",
+    "hr": "hrv_Latn",
+    "bg": "bul_Cyrl",
+    "cs": "ces_Latn",
+    "sk": "slk_Latn",
+    "sq": "sqi_Latn",
+    "uk": "ukr_Cyrl",
+    "no": "nob_Latn",
+    "nb": "nob_Latn",
+    "lt": "lit_Latn",
+    "ur": "urd_Arab",
+    "id": "ind_Latn",
 }
 
 # group models need a prefix token to specify source language
@@ -120,11 +171,69 @@ class TranslationEngine:
         return None
 
     def has_model(self, lang_code):
-        """check if a helsinki model exists for this language -> english."""
-        return lang_code in HELSINKI_MODELS
+        """check if any translation model exists for this language -> english."""
+        return lang_code in HELSINKI_MODELS or lang_code in NLLB_LANG_CODES
+
+    def _load_nllb(self):
+        """lazy-load NLLB-200 model for fallback translation."""
+        if NLLB_MODEL in self._models:
+            return self._models[NLLB_MODEL]
+
+        log.info(f"loading NLLB-200 fallback model: {NLLB_MODEL}")
+        t0 = time.time()
+
+        from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+        tokenizer = AutoTokenizer.from_pretrained(NLLB_MODEL)
+        model = AutoModelForSeq2SeqLM.from_pretrained(NLLB_MODEL).to(self._device)
+        model.eval()
+
+        elapsed = time.time() - t0
+        log.info(f"  loaded {NLLB_MODEL} in {elapsed:.1f}s")
+
+        self._models[NLLB_MODEL] = (model, tokenizer)
+        return model, tokenizer
+
+    def _translate_nllb(self, text, lang_code):
+        """translate using NLLB-200. returns translated text or None."""
+        flores_code = NLLB_LANG_CODES.get(lang_code)
+        if not flores_code:
+            return None
+
+        try:
+            model, tokenizer = self._load_nllb()
+        except Exception as e:
+            log.error(f"  failed to load NLLB model: {e}")
+            return None
+
+        import torch
+
+        # set source language for tokenizer
+        tokenizer.src_lang = flores_code
+
+        paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+        translated_parts = []
+
+        for para in paragraphs:
+            chunks = self._split_into_chunks(para, max_chars=400)
+            for chunk in chunks:
+                inputs = tokenizer(chunk, return_tensors="pt",
+                                   max_length=512, truncation=True).to(self._device)
+                with torch.no_grad():
+                    outputs = model.generate(
+                        **inputs,
+                        forced_bos_token_id=tokenizer.convert_tokens_to_ids("eng_Latn"),
+                        max_length=512,
+                    )
+                result = tokenizer.decode(outputs[0], skip_special_tokens=True)
+                translated_parts.append(result)
+            translated_parts.append("")
+
+        return "\n".join(translated_parts).strip()
 
     def translate(self, text, source_lang=None):
-        """translate text to english using helsinki-nlp.
+        """translate text to english.
+
+        hierarchy: Helsinki-NLP -> NLLB-200 -> None
 
         args:
             text: source text
@@ -132,7 +241,7 @@ class TranslationEngine:
 
         returns:
             (translated_text, detected_lang_code)
-            if no model available: (None, detected_lang_code)
+            if both engines fail: (None, detected_lang_code)
         """
         if not text or not text.strip():
             return (None, "en")
@@ -150,32 +259,40 @@ class TranslationEngine:
         if lang_code == "en":
             return (text, "en")
 
-        # check if we have a model for this language
+        # tier 1: try Helsinki-NLP (fast, high quality for supported pairs)
         model_name = HELSINKI_MODELS.get(lang_code)
-        if not model_name:
-            log.warning(f"  no helsinki model for {lang_code} -> en")
-            return (None, lang_code)
+        if model_name:
+            try:
+                model, tokenizer = self._load_model(model_name)
+                translated = self._translate_helsinki(text, lang_code, model, tokenizer, model_name)
+                if translated:
+                    return (translated, lang_code)
+            except Exception as e:
+                log.warning(f"  helsinki failed for {lang_code}: {e}, trying NLLB fallback")
 
-        try:
-            model, tokenizer = self._load_model(model_name)
-        except Exception as e:
-            log.error(f"  failed to load model {model_name}: {e}")
-            return (None, lang_code)
+        # tier 2: try NLLB-200 (slower, but covers 200 languages)
+        if lang_code in NLLB_LANG_CODES:
+            log.info(f"  using NLLB-200 for {lang_code} -> en")
+            translated = self._translate_nllb(text, lang_code)
+            if translated:
+                return (translated, lang_code)
 
+        log.warning(f"  no translation model available for {lang_code} -> en")
+        return (None, lang_code)
+
+    def _translate_helsinki(self, text, lang_code, model, tokenizer, model_name):
+        """translate using a Helsinki MarianMT model."""
         # add group model prefix if needed
         prefix = ""
         prefixes = GROUP_MODEL_PREFIXES.get(model_name, {})
         if prefixes and lang_code in prefixes:
             prefix = prefixes[lang_code] + " "
 
-        # translate in chunks (MarianMT has ~512 token limit)
-        # split text into paragraphs, translate each
         paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
         translated_parts = []
 
         import torch
         for para in paragraphs:
-            # further split long paragraphs into sentences
             chunks = self._split_into_chunks(para, max_chars=400)
             for chunk in chunks:
                 input_text = prefix + chunk
@@ -185,10 +302,9 @@ class TranslationEngine:
                     outputs = model.generate(**inputs, max_length=512)
                 result = tokenizer.decode(outputs[0], skip_special_tokens=True)
                 translated_parts.append(result)
-            translated_parts.append("")  # paragraph break
+            translated_parts.append("")
 
-        translated = "\n".join(translated_parts).strip()
-        return (translated, lang_code)
+        return "\n".join(translated_parts).strip()
 
     def _split_into_chunks(self, text, max_chars=400):
         """split text into sentence-level chunks for translation."""

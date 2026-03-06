@@ -92,6 +92,7 @@ class Article(Base):
     ingested_at = Column(DateTime, default=datetime.utcnow)
     original_language_terms = Column(JSONB, default=list)  # pre-translation terms
     absence_flags = Column(JSONB, default=list)
+    needs_human_review = Column(Boolean, default=False)
 
     event = relationship("Event", back_populates="articles")
     source = relationship("Source", back_populates="articles")
@@ -167,6 +168,7 @@ class Cluster(Base):
     article_count = Column(Integer, default=0)
     geographic_signature = Column(JSONB)
     stability_score = Column(Float, nullable=True)
+    is_singleton = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     event = relationship("Event", back_populates="clusters")
