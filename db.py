@@ -257,6 +257,72 @@ class MirrorGap(Base):
     event = relationship("Event", back_populates="mirror_gaps")
 
 
+# ── syntactic features ────────────────────────────────────────────
+class SyntacticFeature(Base):
+    __tablename__ = "syntactic_features"
+
+    id = Column(Integer, primary_key=True)
+    article_id = Column(Integer, ForeignKey("articles.id"), nullable=False)
+    run_id = Column(String(50), nullable=False)
+    passive_voice_ratio = Column(Float, nullable=True)
+    attribution_rate = Column(Float, nullable=True)
+    opening_subject = Column(Text, nullable=True)
+    direct_quotes_by_actor = Column(JSONB, default=dict)
+    precision_asymmetry = Column(JSONB, default=dict)
+    casualty_specificity = Column(JSONB, default=dict)
+    elaboration_ratio = Column(Float, nullable=True)
+    tokenism_flag = Column(Boolean, default=False)
+    severe_tokenism_flag = Column(Boolean, default=False)
+    subordinated_positions = Column(JSONB, default=list)
+    concessive_constructions = Column(JSONB, default=list)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        Index("ix_syntactic_run", "run_id"),
+    )
+
+
+# ── actor framing ────────────────────────────────────────────────
+class ActorFraming(Base):
+    __tablename__ = "actor_framing"
+
+    id = Column(Integer, primary_key=True)
+    article_id = Column(Integer, ForeignKey("articles.id"), nullable=False)
+    event_id = Column(Integer, ForeignKey("events.id"), nullable=True)
+    outlet_domain = Column(String(300), nullable=True)
+    actor = Column(String(100), nullable=False)
+    sanitizing_terms = Column(JSONB, default=list)
+    condemnatory_terms = Column(JSONB, default=list)
+    neutral_terms = Column(JSONB, default=list)
+    framing_score = Column(Float, nullable=True)
+    run_id = Column(String(50), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        Index("ix_actor_framing_run", "run_id"),
+        Index("ix_actor_framing_actor", "actor"),
+    )
+
+
+# ── presuppositions ──────────────────────────────────────────────
+class Presupposition(Base):
+    __tablename__ = "presuppositions"
+
+    id = Column(Integer, primary_key=True)
+    article_id = Column(Integer, ForeignKey("articles.id"), nullable=False)
+    run_id = Column(String(50), nullable=False)
+    presupposition = Column(Text)
+    carrier_phrase = Column(Text)
+    favors_actor = Column(Text)
+    consistency_check = Column(Text)
+    would_be_contested_by = Column(Text)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        Index("ix_presuppositions_run", "run_id"),
+    )
+
+
 # ── utility ───────────────────────────────────────────────────────
 def get_session():
     """get a new database session."""
