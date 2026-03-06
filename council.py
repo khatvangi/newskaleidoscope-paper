@@ -364,16 +364,25 @@ class LLMCouncil:
 
         log.info(f"council: {len(articles)} articles for event_id={event_id}")
 
+        # skip articles that already have council verdicts (immutability)
+        existing_verdict_ids = set()
+        for v in session.query(LLMCouncilVerdict.article_id).all():
+            existing_verdict_ids.add(v.article_id)
+        if existing_verdict_ids:
+            log.info(f"  {len(existing_verdict_ids)} articles already have verdicts — skipping")
+
         # prepare article text — use translated_text if available, else raw_text
         articles_data = []
         for art in articles:
+            if art.id in existing_verdict_ids:
+                continue
             text = art.translated_text or art.raw_text or ""
             if text.strip():
                 articles_data.append((art.id, text))
             else:
                 log.warning(f"  article {art.id} has no text, skipping")
 
-        log.info(f"  {len(articles_data)} articles with text")
+        log.info(f"  {len(articles_data)} new articles to process")
 
         # run each model across all articles
         all_readings = {}

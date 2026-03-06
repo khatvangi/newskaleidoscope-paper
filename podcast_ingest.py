@@ -190,11 +190,21 @@ def transcribe_on_boron(audio_path, language="en"):
         with open(transcript_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    py_script = f'''
-import json
+    # scp audio to boron (storage is NOT shared between machines)
+    subprocess.run(["ssh", "boron", "mkdir", "-p", "/tmp/nk-whisper"],
+                    capture_output=True, timeout=10)
+    remote_audio = f"/tmp/nk-whisper/{os.path.basename(audio_path)}"
+    scp = subprocess.run(["scp", "-q", audio_path, f"boron:{remote_audio}"],
+                          capture_output=True, text=True, timeout=120)
+    if scp.returncode != 0:
+        print(f"scp failed: {scp.stderr[:100]}")
+        return None
+
+    lang_arg = f'"{language}"' if language != "auto" else "None"
+    script = f'''import json
 from faster_whisper import WhisperModel
 model = WhisperModel("{WHISPER_MODEL}", device="cuda", compute_type="float16")
-segments, info = model.transcribe("{audio_path}", beam_size=5, language="{language}" if "{language}" != "auto" else None)
+segments, info = model.transcribe("{remote_audio}", beam_size=5, language={lang_arg})
 result = {{"language": info.language, "language_probability": info.language_probability, "duration": info.duration, "segments": []}}
 full_text = []
 for segment in segments:
@@ -203,10 +213,12 @@ for segment in segments:
 result["full_text"] = " ".join(full_text)
 print(json.dumps(result))
 '''
+    subprocess.run(["ssh", "boron", "cat > /tmp/nk-whisper/_job.py"],
+                    input=script, capture_output=True, text=True, timeout=10)
 
     try:
         proc = subprocess.run(
-            ["ssh", "boron", "python3", "-c", py_script],
+            ["ssh", "boron", "python3", "/tmp/nk-whisper/_job.py"],
             capture_output=True, text=True, timeout=600,
         )
         if proc.returncode == 0 and proc.stdout.strip():

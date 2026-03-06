@@ -50,6 +50,9 @@ SEED_CHANNELS = [
 # search terms for filtering relevant videos
 SEARCH_TERMS = ["iran", "tehran", "strike", "nuclear", "bombing", "missile", "isfahan", "natanz"]
 
+# ensure deno is in PATH for yt-dlp JS runtime
+os.environ["PATH"] = os.path.expanduser("~/.deno/bin") + ":" + os.environ.get("PATH", "")
+
 
 def ensure_dirs():
     """create output directories."""
@@ -93,18 +96,19 @@ def find_channel_videos(channel_id, lookback_days=LOOKBACK_DAYS):
             continue
 
         # filter: skip long videos
+        dur_sec = None
         try:
-            dur_sec = int(duration) if duration != "NA" else 0
+            dur_sec = int(float(duration)) if duration != "NA" else 0
             if dur_sec > MAX_VIDEO_MINUTES * 60:
                 continue
-        except ValueError:
-            pass
+        except (ValueError, TypeError):
+            dur_sec = None
 
         videos.append({
             "id": vid_id,
             "title": title,
             "upload_date": upload_date,
-            "duration_sec": dur_sec if duration != "NA" else None,
+            "duration_sec": dur_sec,
             "url": f"https://www.youtube.com/watch?v={vid_id}",
         })
 
@@ -119,26 +123,33 @@ def download_audio(video_id, output_dir=AUDIO_DIR):
     if os.path.exists(output_path):
         return output_path
 
+    # use format 18 (muxed 360p mp4) — audio-only formats get 403 from YouTube
+    template = os.path.join(output_dir, f"{video_id}.%(ext)s")
     cmd = [
         "yt-dlp",
-        "-x",                          # extract audio
-        "--audio-format", "wav",        # wav for whisper compatibility
-        "--audio-quality", "0",         # best quality
-        "-o", output_path,
+        "-f", "18",                    # muxed mp4 (avoids SABR 403 on audio-only)
+        "-x",                          # extract audio after download
+        "--audio-format", "wav",       # wav for whisper
+        "--no-playlist",
+        "--max-filesize", "100M",
+        "-o", template,
         f"https://www.youtube.com/watch?v={video_id}",
     ]
 
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
-        if result.returncode == 0 and os.path.exists(output_path):
+        if os.path.exists(output_path):
             return output_path
-        # yt-dlp sometimes adds .wav.wav — check for that
-        alt_path = output_path + ".wav"
-        if os.path.exists(alt_path):
-            os.rename(alt_path, output_path)
-            return output_path
+        # check if it landed with a different name
+        import glob as _glob
+        candidates = _glob.glob(os.path.join(output_dir, f"{video_id}.*"))
+        for c in candidates:
+            if c.endswith('.wav'):
+                return c
+        if result.returncode != 0:
+            print(f"FAILED (yt-dlp: {result.stderr[:100].strip()})", end=" ")
     except subprocess.TimeoutExpired:
-        pass
+        print("FAILED (timeout)", end=" ")
 
     return None
 
@@ -146,11 +157,8 @@ def download_audio(video_id, output_dir=AUDIO_DIR):
 def transcribe_on_boron(audio_path, language="en"):
     """transcribe audio using faster-whisper on boron via ssh.
 
-    sends a python snippet to boron that loads faster-whisper,
-    transcribes the audio file (accessible via shared /storage),
-    and returns the transcript as JSON.
+    copies audio to boron /tmp (storage is NOT shared), runs whisper on GPU.
     """
-    # the audio file is on shared storage, so boron can access it directly
     transcript_hash = hashlib.md5(audio_path.encode()).hexdigest()
     transcript_path = os.path.join(TRANSCRIPT_DIR, f"{transcript_hash}.json")
 
@@ -159,43 +167,42 @@ def transcribe_on_boron(audio_path, language="en"):
         with open(transcript_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    # build python script for boron to execute
-    # uses faster-whisper with GPU acceleration
-    py_script = f'''
-import json
+    # ensure boron temp dir
+    subprocess.run(["ssh", "boron", "mkdir", "-p", "/tmp/nk-whisper"],
+                    capture_output=True, timeout=10)
+
+    # scp audio to boron
+    remote_audio = f"/tmp/nk-whisper/{os.path.basename(audio_path)}"
+    scp = subprocess.run(["scp", "-q", audio_path, f"boron:{remote_audio}"],
+                          capture_output=True, text=True, timeout=120)
+    if scp.returncode != 0:
+        print(f"scp failed: {scp.stderr[:100]}")
+        return None
+
+    # write whisper script to boron via ssh
+    lang_arg = f'"{language}"' if language != "auto" else "None"
+    script = f'''import json
 from faster_whisper import WhisperModel
-
 model = WhisperModel("{WHISPER_MODEL}", device="cuda", compute_type="float16")
-segments, info = model.transcribe("{audio_path}", beam_size=5, language="{language}" if "{language}" != "auto" else None)
-
-result = {{
-    "language": info.language,
-    "language_probability": info.language_probability,
-    "duration": info.duration,
-    "segments": []
-}}
-
+segments, info = model.transcribe("{remote_audio}", beam_size=5, language={lang_arg})
+result = {{"language": info.language, "language_probability": info.language_probability, "duration": info.duration, "segments": []}}
 full_text = []
 for segment in segments:
-    result["segments"].append({{
-        "start": segment.start,
-        "end": segment.end,
-        "text": segment.text,
-    }})
+    result["segments"].append({{"start": segment.start, "end": segment.end, "text": segment.text}})
     full_text.append(segment.text)
-
 result["full_text"] = " ".join(full_text)
 print(json.dumps(result))
 '''
+    subprocess.run(["ssh", "boron", "cat > /tmp/nk-whisper/_job.py"],
+                    input=script, capture_output=True, text=True, timeout=10)
 
     try:
         proc = subprocess.run(
-            ["ssh", "boron", "python3", "-c", py_script],
-            capture_output=True, text=True, timeout=600,  # 10 min max
+            ["ssh", "boron", "python3", "/tmp/nk-whisper/_job.py"],
+            capture_output=True, text=True, timeout=600,
         )
         if proc.returncode == 0 and proc.stdout.strip():
             transcript = json.loads(proc.stdout.strip())
-            # cache transcript
             with open(transcript_path, "w", encoding="utf-8") as f:
                 json.dump(transcript, f, indent=2, ensure_ascii=False)
             return transcript

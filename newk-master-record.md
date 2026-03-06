@@ -408,27 +408,130 @@ The Mirror Gap feature: US self-perception vs. world perception, side by side, n
 
 ---
 
-## 10. Research Arc — Papers
+## 10. Research Output — Single Paper, Three Case Studies
 
-### Paper 1 — Methodology
-Two-axis epistemic mapping framework. The pipeline itself as contribution to computational journalism / media studies.
+One paper. Target: Digital Journalism, Computational Communication Research, or Journal of Communication. Alternatively: arXiv preprint first to establish priority, then journal submission.
 
-> Central argument: Current media bias analysis operates on a single axis — political position. This is insufficient because (1) it cannot detect position encoded in register rather than content, and (2) it cannot capture epistemic diversity of global media operating in modes — legal, spiritual, economic, strategic — that don't map onto Western political categories.
+> **Core argument:** Separate papers let reviewers dismiss each finding as event-specific. One paper with three case studies — structurally different event types — forces the conclusion that the framework generalizes. If the two-axis system, the presupposition finding, and the balance-predicts-disagreement result hold across a military event, an economic event, and a political event, across different cluster structures, different registers, different verification demands, that is a methodological claim that cannot be dismissed as an artifact of one corpus.
 
-### Paper 2 — The Mirror Gap
-Systematic measurement of US self-perception vs. world perception across multiple events. Longitudinal if pipeline runs long enough. Finding: the gap between how America narrates itself and how the world narrates America is one of the most consequential epistemic facts in contemporary geopolitics and is currently invisible to the people inside it.
+### Paper Structure
 
-### Paper 3 — The Sermon Corpus
-First systematic analysis of Islamic institutional response to geopolitical events. Al-Azhar vs. Diyanet (Turkey) vs. MUI (Indonesia) vs. ISNA (North America) — same event, different registers. The Friday after the Iran strike, indexed by date, across denominations and geographies.
+```
+Title: Beyond Left-Right: A Two-Axis Framework
+       for Global Media Epistemic Mapping
 
-### Paper 4 — Absence as Data
-Unspeakable positions as structural phenomenon in global media. What the corpus collectively refuses to articulate — Iranian nuclear program as self-defense, US presence as colonial — are not fringe positions. They are held by significant portions of the world population and structurally excluded from legible media.
+Abstract
 
-### Paper 5 — Internal Tensions
-97% internal contradiction rate across 87 articles. What does it mean that almost no outlet holds a coherent position on a major military event? What are the most common tension types? Hypothesis: outlets simultaneously invoking international law and accepting US exceptionalism to it.
+1. Introduction
+   The single-axis problem
+   What this paper does
 
-### Paper 6 — Algorithmic Anticipation
-How sophisticated media organizations adapt framing to defeat automated bias detection. Technical-strategic register as the dominant Western epistemic mode — performs objectivity by presenting political assumptions as technical facts. Vocabulary asymmetry documented across multiple events.
+2. Framework and Methods
+   Two-axis model (position × register)
+   Pipeline architecture
+   LLM council design
+   Syntactic and presuppositional analysis
+   Primary data verification layer (new in CS2)
+   Limitations of the approach
+
+3. Case Study 1 — Military Event
+   US-Israel-Iran Strike, March 2026
+   Corpus: 106 articles, 46 countries, 18 languages
+
+   3.1 Emergent cluster structure
+   3.2 The 2.1% consensus finding
+   3.3 Technical-strategic register as concealment mechanism
+   3.4 Syntactic balance predicts disagreement
+   3.5 Presupposition crosses language boundaries
+   3.6 Internal contradictions (97%)
+   3.7 Quote asymmetry and structural access
+
+4. Case Study 2 — Economic Policy Event
+   US Reciprocal Tariffs, April 2026
+
+   4.1 Corpus and time windows
+   4.2 Cluster structure — comparison with CS1
+       (what generalizes, what is event-specific)
+   4.3 Verifiable claims vs. framing claims
+       (the data verification layer)
+   4.4 Drift across four time windows
+       (framing shift as policy changed)
+   4.5 The absence finding —
+       Vietnam/Bangladesh coverage gap
+   4.6 Presupposition in economic framing
+       ("trade deficit" as presuppositional construction)
+
+5. Case Study 3 — Political Event [TBD]
+   2026 US Midterm Elections, November 2026
+
+   5.1 Corpus
+   5.2 What the framework finds
+   5.3 What does not replicate and why
+
+6. Cross-Case Analysis
+   What generalizes across all three events:
+     - Balance predicts disagreement
+     - Technical-strategic register as dominant Western mode
+     - Presupposition crosses language boundaries
+     - 5:1 quote asymmetry (structural, not editorial)
+
+   What is event-specific:
+     - Cluster structure (different every time)
+     - Register distribution
+     - Which countries are absent
+
+   This distinction IS the methodological contribution:
+   the framework is stable, the findings are event-specific.
+   That is how it should work.
+
+7. Discussion
+   What this means for automated bias detection
+   The arms race — balance as concealment
+   What adequate detection requires
+
+8. Conclusion
+
+Appendix A: Pipeline technical specification
+Appendix B: Full prompt library
+Appendix C: Database schema
+Appendix D: Case Study 1 full cluster data
+Appendix E: Case Study 2 verification table
+```
+
+### Case Study Status
+
+| Case Study | Event | Status | Data Location |
+|---|---|---|---|
+| CS1 — Military | US-Israel-Iran Strike, March 2026 | **COMPLETE** — all data in DB, 106 articles, 9 clusters, 87 presuppositions, mirror gap, absence report, HTML deployed | `analysis/`, `docs/events/iran-march-2026/` |
+| CS2 — Economic | US Reciprocal Tariffs, April 2026 | **IN QUEUE** — Session 8 target. Requires: GDELT pull, 4 time windows, data verification layer, tariff-specific outlet curation | `docs/events/tariffs-april-2026/` (planned) |
+| CS3 — Political | 2026 US Midterm Elections | **PLANNED** — November 2026 event. Electoral framing activates biographical/domestic-political registers absent from CS1 and CS2 | TBD |
+
+### Timeline
+
+- **March–June 2026:** CS2 tariff data collection across 4 time windows (announcement → pause → reimposition → retaliation)
+- **Summer 2026:** CS2 analysis complete, cross-case comparison with CS1 written
+- **November 2026:** CS3 election data collection
+- **December 2026:** CS3 analysis, full cross-case chapter, paper writable
+- **January 2027:** arXiv preprint → journal submission
+
+### What the Individual Findings Become
+
+The six original paper concepts are now sections, not separate publications:
+
+| Original Paper | Becomes |
+|---|---|
+| Methodology paper | Section 2 (Framework and Methods) |
+| Mirror Gap paper | Longitudinal thread through CS2 Section 4.4 + Cross-Case Section 6 |
+| Sermon corpus paper | Tier 3 subsection of whichever CS has most Tier 3 data |
+| Absence as Data paper | CS1 Section 3.7 + CS2 Section 4.5 + Cross-Case |
+| Internal Tensions paper | Reported in both CS1 (3.6) and CS2, compared in Cross-Case |
+| Algorithmic Anticipation paper | Section 7 (Discussion) — the arms race argument |
+
+### Working Paper Draft
+
+`NewsKaleidoscope_Methodology_Paper.md` — currently covers CS1 methods and results only. Will expand as CS2 and CS3 complete.
+
+> The framework generalizes if and only if the core findings replicate across structurally different event types. Two case studies is suggestive. Three is the claim.
 
 ---
 
@@ -482,8 +585,9 @@ The Mirror Gap is the feature that needs to open every event page. Two columns. 
 |---|---|---|---|
 | Session 5 | Syntactic analysis + presupposition | syntax_analyzer.py, vocabulary_asymmetry.py, presupposition_extractor.py, correlation_analysis.py — 94 articles syntactically analyzed, 215 actor-framing rows, 87 presuppositions extracted | COMPLETE |
 | Session 6 | Production pipeline + output | pipeline_run.py (10-stage orchestrator), mirror_gap.py, absence_report.py, render.py, deploy.py — deployed to thebeakers.com/newskaleidoscope (48.5K bytes, 7 sections, all LLM sections populated) | COMPLETE |
-| Session 7 | UN + parliamentary ingestion | UN Security Council transcript parser, 2-3 parliamentary sources | Unstarted |
-| Session 8 | Tier 3 completion | Whisper pipeline stable, sermon harvester working, podcast RSS ingestion, all feeding DB | Unstarted |
+| Session 7 | Tier 3 ingestion + data export | YouTube ingest (9 videos, 3 channels), podcast ingest (2 CFR episodes), pipeline analysis of 12 new articles, council on 12, mirror gap + absence report refresh, complete data dump for report generation (224KB JSON) | COMPLETE |
+| Session 8 | CS2 — Tariff event setup | Event creation, GDELT pull for tariff coverage, outlet curation for economic sources, time window architecture, data verification layer | Next |
+| Session 9+ | CS2 analysis + CS3 planning | Full pipeline on tariff corpus, cross-case comparison framework, CS3 event selection confirmed | Planned |
 | Ongoing | New events | One event per week, full pipeline, comparative analysis building over time | |
 
 ---
