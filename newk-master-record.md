@@ -166,6 +166,20 @@ These frames are orthogonal to the 5 clusters — not variations, but genuinely 
 
 74 of 76 articles (97%) hold contradictory positions simultaneously. This is not a pipeline artifact. It is a finding about how geopolitical events are processed by media globally. Almost no outlet has a clean, coherent position — they are all navigating competing allegiances, economic interests, historical grievances, and audience expectations simultaneously.
 
+### 4.9 Session 5 — The Strategic Ambiguity Finding
+
+Hypothesis tested: passive voice ratio and attribution rate predict model disagreement. Result: Both failed (r=-0.03, p=0.79; r=-0.08, p=0.43).
+
+Confirmed finding: elaboration ratio NEGATIVELY correlates with CONTESTED confidence (r=-0.29, p=0.014). Vocabulary framing gap also negatively correlates (r=-0.31, p=0.011). Balance defeats classification. One-sided articles are easy to classify. Symmetrical articles defeat three-model consensus.
+
+Implication: sophisticated bias has migrated entirely out of detectable structure into presuppositional framing. The balanced surface is the concealment mechanism. This inverts the premise of every existing media bias tool — asymmetry is readable, symmetry is where the sophisticated bias hides. Presupposition extraction is the critical remaining analytical layer.
+
+Structural finding: 308 direct quotes for US/Israeli officials vs. 62 for Iranian officials (5:1 ratio) across 94 articles — structural outcome of sourcing access patterns, with editorial reinforcement. 2 civilian quotes in entire corpus. The quote ratio is access bias; the civilian absence is editorial choice about whose experience of an airstrike counts as quotable.
+
+Vocabulary gap: Iran receives 0.19 points more condemnatory framing than US/Israel across corpus. "Strike" (62 uses near US/Israel) vs. "attack" (85 uses near Iran). "Forces" (44) vs. "regime" (45).
+
+US articles: 38% attribution rate vs. 11% non-US (p=0.003). Heavy attribution is a stylistic convention of US journalism — not a mechanism of ambiguity, but a signature of the technical_strategic register.
+
 ---
 
 ## 5. Covert Bias Techniques — What the Pipeline Must Catch
