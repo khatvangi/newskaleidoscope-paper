@@ -40,7 +40,8 @@ This is not a bias-rating tool. It is not a news aggregator. It is an **epistemi
 - Cloudflare Pages — public deployment from git
 - GDELT API — gap-fill ingestion (free, no key)
 - spaCy — syntactic analysis (passive voice, attribution, elaboration)
-- Domains: thebeakes.com (current), dedicated domain TBD
+- Deployment: thebeakers.com/newskaleidoscope (interim domain, dedicated domain TBD)
+- GitHub: khatvangi/thebeakers (Cloudflare Pages auto-deploys from main branch)
 
 ---
 
@@ -480,7 +481,7 @@ The Mirror Gap is the feature that needs to open every event page. Two columns. 
 | Session | Goal | Key Deliverables | Status |
 |---|---|---|---|
 | Session 5 | Syntactic analysis + presupposition | syntax_analyzer.py, vocabulary_asymmetry.py, presupposition_extractor.py, correlation_analysis.py — 94 articles syntactically analyzed, 215 actor-framing rows, 87 presuppositions extracted | COMPLETE |
-| Session 6 | Production pipeline + output | pipeline_run.py (10-stage orchestrator), mirror_gap.py, absence_report.py, render.py, deploy.py, topics_queue.json — HTML report generated (42K bytes, 7 sections) | IN PROGRESS |
+| Session 6 | Production pipeline + output | pipeline_run.py (10-stage orchestrator), mirror_gap.py, absence_report.py, render.py, deploy.py — deployed to thebeakers.com/newskaleidoscope (48.5K bytes, 7 sections, all LLM sections populated) | COMPLETE |
 | Session 7 | UN + parliamentary ingestion | UN Security Council transcript parser, 2-3 parliamentary sources | Unstarted |
 | Session 8 | Tier 3 completion | Whisper pipeline stable, sermon harvester working, podcast RSS ingestion, all feeding DB | Unstarted |
 | Ongoing | New events | One event per week, full pipeline, comparative analysis building over time | |
