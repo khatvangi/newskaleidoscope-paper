@@ -108,7 +108,8 @@ def load_event_data(event_id, run_id):
 
         # presuppositions
         rows = conn.execute(text("""
-            SELECT article_id, presupposition, carrier_phrase, favors_actor
+            SELECT article_id, presupposition, carrier_phrase,
+                   favors_actor, would_be_contested_by
             FROM presuppositions
             WHERE article_id IN (SELECT id FROM articles WHERE event_id = :eid)
         """), {"eid": event_id})
@@ -458,11 +459,12 @@ def render_presuppositions(data):
 
         items = ""
         for p in plist[:3]:  # show max 3 per article
+            contested_by = p.get('would_be_contested_by', '')
             items += f"""
             <div class="presup-card">
-                <div>{e(p.get('presupposition', ''))}</div>
                 <div class="presup-carrier">"{e(p.get('carrier_phrase', ''))}"</div>
-                <div class="presup-favors">Favors: {e(p.get('favors_actor', ''))}</div>
+                <div style="margin-top:0.4rem"><strong>Presupposes:</strong> {e(p.get('presupposition', ''))}</div>
+                {"<div class='presup-favors'>Contested by: " + e(contested_by[:150]) + "</div>" if contested_by else ""}
             </div>"""
 
         cards.append(f"""
@@ -473,7 +475,9 @@ def render_presuppositions(data):
     return f"""
     <div class="section">
         <h2>Presuppositional Framing</h2>
-        <p>Claims embedded as background fact rather than argued positions.
+        <p>These are claims treated as background fact rather than argued positions.
+           The carrier phrase (quoted text) embeds an assumption that is never explicitly
+           defended. "Contested by" names who would reject that assumption.
            Identified via LLM analysis of articles with highest strategic ambiguity scores.</p>
         {''.join(cards)}
     </div>"""
