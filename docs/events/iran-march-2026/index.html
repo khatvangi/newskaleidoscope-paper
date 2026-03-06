@@ -1,1077 +1,1352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US-Israeli Military Strikes on Iran — NewsKaleidoscope</title>
-    <meta name="description" content="106 articles. 46 countries. 18 languages. Text, video, and podcast. How the world framed the same event — and what nobody said.">
-    <meta property="og:title" content="US-Israeli Strikes on Iran — NewsKaleidoscope">
-    <meta property="og:type" content="article">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-    <style>
-    :root {
-        --bg: #080810;
-        --bg-card: #0f0f1a;
-        --bg-card-hover: #141425;
-        --text: #d4d0c8;
-        --text-dim: #807c74;
-        --text-bright: #ede9df;
-        --accent-gold: #c8a84e;
-        --accent-red: #b84233;
-        --accent-green: #4a7c59;
-        --accent-blue: #3a6a8a;
-        --border: #1e1e30;
-        --border-light: #2a2a40;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The War the World Saw Differently — NewsKaleidoscope</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+  :root {
+    --ink: #0d0d14;
+    --paper: #f4f1eb;
+    --paper-dim: #e8e4db;
+    --gold: #c9a84c;
+    --gold-dim: #8a6d2a;
+    --red: #b83232;
+    --red-dim: #7a1f1f;
+    --green: #2a7a4b;
+    --muted: #5a5a6e;
+    --rule: rgba(13,13,20,0.12);
+    --rule-gold: rgba(201,168,76,0.35);
+    --serif: 'Playfair Display', Georgia, serif;
+    --body: 'Source Serif 4', Georgia, serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  [data-theme="dark"] {
+    --ink: #e8e4db;
+    --paper: #0d0d14;
+    --paper-dim: #151520;
+    --rule: rgba(232,228,219,0.12);
+    --muted: #8a8a9e;
+  }
 
-    html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-        font-family: 'Newsreader', Georgia, serif;
-        font-size: 18px;
-        line-height: 1.72;
-        color: var(--text);
-        background: var(--bg);
-        -webkit-font-smoothing: antialiased;
-    }
+  html { scroll-behavior: smooth; font-size: 18px; }
 
-    /* --- layout --- */
-    .container { max-width: 920px; margin: 0 auto; padding: 0 1.5rem; }
-    .wide { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.75;
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
 
-    /* --- typography --- */
-    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; color: var(--text-bright); }
-    .mono { font-family: 'IBM Plex Mono', monospace; }
+  /* ── THEME TOGGLE ── */
+  #theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 1000;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0.4rem 0.85rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  #theme-toggle:hover { opacity: 1; }
 
-    /* --- hero / mirror gap --- */
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4rem 0;
-        position: relative;
-    }
-    .hero::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 120px;
-        background: linear-gradient(transparent, var(--bg));
-        pointer-events: none;
-    }
+  /* ── PROGRESS BAR ── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--gold);
+    width: 0%;
+    z-index: 999;
+    transition: width 0.1s;
+  }
 
-    .hero-kicker {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.72rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--accent-gold);
-        margin-bottom: 1.5rem;
-    }
+  /* ── NAV DOTS ── */
+  #nav-dots {
+    position: fixed;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .nav-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s, background 0.3s;
+  }
+  .nav-dot.active { opacity: 1; transform: scale(1.4); background: var(--gold); }
 
-    .hero h1 {
-        font-size: clamp(2.4rem, 5vw, 3.8rem);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 1rem;
-        font-variation-settings: 'opsz' 144;
-    }
+  /* ── NAMEPLATE ── */
+  #nameplate {
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .tagline {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .issue-meta {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
 
-    .hero-sub {
-        font-size: 1.15rem;
-        color: var(--text-dim);
-        max-width: 600px;
-        margin-bottom: 3rem;
-    }
+  /* ── SECTIONS ── */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  section.visible { opacity: 1; transform: translateY(0); }
+  section.full-bleed {
+    max-width: 100%;
+    padding-left: 0; padding-right: 0;
+  }
 
-    .mirror-gap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--border);
-        border: 1px solid var(--border);
-        margin-bottom: 2.5rem;
-    }
-    @media (max-width: 640px) {
-        .mirror-gap { grid-template-columns: 1fr; }
-    }
+  /* ── TYPOGRAPHY ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
 
-    .mirror-col {
-        padding: 2rem 2.2rem;
-        background: var(--bg-card);
-    }
-    .mirror-label {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-dim);
-        margin-bottom: 0.8rem;
-    }
-    .mirror-label .count {
-        color: var(--accent-gold);
-        font-weight: 500;
-    }
-    .mirror-text {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.25rem;
-        font-weight: 600;
-        line-height: 1.4;
-        color: var(--text-bright);
-        font-variation-settings: 'opsz' 48;
-    }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
 
-    .hero-stat {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.78rem;
-        color: var(--text-dim);
-        border-top: 1px solid var(--border);
-        padding-top: 1.2rem;
-    }
-    .hero-stat strong {
-        color: var(--accent-gold);
-        font-weight: 500;
-    }
+  p { margin-bottom: 1.4rem; max-width: 680px; }
+  p:last-child { margin-bottom: 0; }
 
-    /* --- pull quote --- */
-    .pull-quote {
-        border-left: 3px solid var(--accent-gold);
-        padding: 1.5rem 0 1.5rem 2rem;
-        margin: 3rem 0;
-    }
-    .pull-quote p {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.4rem;
-        font-weight: 300;
-        font-style: italic;
-        line-height: 1.5;
-        color: var(--text-bright);
-        font-variation-settings: 'opsz' 72;
-    }
-    .pull-quote .source {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.72rem;
-        color: var(--text-dim);
-        margin-top: 0.8rem;
-        font-style: normal;
-    }
+  .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
 
-    /* --- section structure --- */
-    .section {
-        padding: 5rem 0;
-        border-top: 1px solid var(--border);
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  .pullquote {
+    border-left: 3px solid var(--gold);
+    margin: 2.5rem 0;
+    padding: 1rem 0 1rem 1.75rem;
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+    max-width: 640px;
+  }
 
-    .section-num {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--accent-gold);
-        margin-bottom: 0.6rem;
-    }
+  .stat-callout {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 2rem 0;
+  }
+  .stat-big {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 200px;
+    line-height: 1.4;
+  }
 
-    .section h2 {
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        font-weight: 700;
-        margin-bottom: 1rem;
-        font-variation-settings: 'opsz' 96;
-    }
+  /* ── MIRROR GAP HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    padding: 0;
+    border-bottom: 1px solid var(--rule-gold);
+    background: var(--paper);
+    position: relative;
+  }
 
-    .section-intro {
-        font-size: 1.05rem;
-        color: var(--text-dim);
-        max-width: 680px;
-        margin-bottom: 2.5rem;
-    }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+    width: 100%;
+  }
 
-    /* --- positions / clusters --- */
-    .position-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        padding: 1.8rem 2rem;
-        margin-bottom: 1rem;
-        transition: border-color 0.3s, background 0.3s;
-    }
-    .position-card:hover {
-        border-color: var(--border-light);
-        background: var(--bg-card-hover);
-    }
+  .mirror-gap-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
 
-    .position-belief {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.15rem;
-        font-weight: 500;
-        color: var(--text-bright);
-        line-height: 1.4;
-        margin-bottom: 0.8rem;
-        font-variation-settings: 'opsz' 48;
-    }
-    .position-belief::before {
-        content: '\201C';
-        color: var(--accent-gold);
-        font-size: 1.5rem;
-        margin-right: 0.1rem;
-    }
-    .position-belief::after {
-        content: '\201D';
-        color: var(--accent-gold);
-        font-size: 1.5rem;
-        margin-left: 0.1rem;
-    }
+  .mirror-gap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0 3rem;
+    margin: 3rem 0;
+    align-items: start;
+  }
 
-    .position-meta {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.72rem;
-        color: var(--text-dim);
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
+  .mirror-divider {
+    background: var(--rule-gold);
+    align-self: stretch;
+  }
 
-    .tag {
-        display: inline-block;
-        padding: 0.15rem 0.5rem;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.05em;
-        border: 1px solid;
-    }
-    .tag-endorse { color: var(--accent-green); border-color: var(--accent-green); }
-    .tag-oppose { color: var(--accent-red); border-color: var(--accent-red); }
-    .tag-neutral { color: var(--accent-blue); border-color: var(--accent-blue); }
+  .mirror-frame { }
+  .mirror-frame-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mirror-frame-label.us { color: var(--red); }
+  .mirror-frame-label.world { color: var(--green); }
 
-    /* --- scatter plot --- */
-    .scatter-wrap {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        padding: 1.5rem;
-        margin: 2rem 0;
-    }
-    .scatter-wrap svg text { font-family: 'IBM Plex Mono', monospace; }
+  .mirror-summary {
+    font-family: var(--serif);
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
 
-    /* --- absence / what nobody said --- */
-    .absence-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--border);
-        border: 1px solid var(--border);
-        margin: 2rem 0;
-    }
-    @media (max-width: 640px) {
-        .absence-grid { grid-template-columns: 1fr; }
-    }
-    .absence-cell {
-        background: var(--bg-card);
-        padding: 1.5rem 1.8rem;
-    }
-    .absence-cell h3 {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--accent-gold);
-        margin-bottom: 0.8rem;
-    }
-    .absence-cell p, .absence-cell li {
-        font-size: 0.92rem;
-        color: var(--text);
-        line-height: 1.6;
-    }
-    .absence-cell ul {
-        list-style: none;
-        padding: 0;
-    }
-    .absence-cell li {
-        padding: 0.3rem 0;
-        border-bottom: 1px solid var(--border);
-    }
-    .absence-cell li:last-child { border-bottom: none; }
+  .mirror-absent {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+  .mirror-absent-label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .mirror-absent-item {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
 
-    /* --- vocabulary / bar chart --- */
-    .vocab-bar {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    .vocab-label {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.75rem;
-        color: var(--text-dim);
-        width: 80px;
-        text-align: right;
-        flex-shrink: 0;
-    }
-    .vocab-track {
-        flex: 1;
-        height: 28px;
-        background: var(--bg);
-        position: relative;
-        overflow: hidden;
-    }
-    .vocab-fill {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding-left: 0.6rem;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.68rem;
-        color: var(--bg);
-        font-weight: 500;
-        transition: width 1.2s ease;
-    }
-    .vocab-fill.san { background: var(--accent-green); }
-    .vocab-fill.cond { background: var(--accent-red); }
+  .hero-deck {
+    max-width: 680px;
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 2rem;
+    font-style: italic;
+  }
 
-    /* --- presuppositions --- */
-    .presup-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        padding: 1.5rem 1.8rem;
-        margin-bottom: 1rem;
-    }
-    .presup-carrier {
-        font-family: 'Newsreader', Georgia, serif;
-        font-style: italic;
-        font-size: 1rem;
-        color: var(--text-bright);
-        margin-bottom: 0.6rem;
-    }
-    .presup-detail {
-        font-size: 0.88rem;
-        color: var(--text-dim);
-        line-height: 1.6;
-    }
-    .presup-detail strong {
-        color: var(--text);
-        font-weight: 500;
-    }
-    .presup-outlet {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.65rem;
-        color: var(--accent-gold);
-        margin-bottom: 0.5rem;
-        letter-spacing: 0.05em;
-    }
+  /* ── QUOTE ASYMMETRY VIZ ── */
+  .quote-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    height: 220px;
+    margin: 2.5rem 0;
+  }
+  .quote-bar-wrap { display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%; justify-content: flex-end; }
+  .quote-bar {
+    width: 100%;
+    transition: height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .quote-bar-count {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+  .quote-bar-name {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    text-align: center;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    max-width: 80px;
+    line-height: 1.3;
+  }
 
-    /* --- quotes visual --- */
-    .quote-visual {
-        display: flex;
-        align-items: flex-end;
-        gap: 2.5rem;
-        justify-content: center;
-        padding: 2rem 0;
-        margin: 2rem 0;
-    }
-    .quote-col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    .quote-bar {
-        width: 60px;
-        transition: height 1.2s ease;
-    }
-    .quote-num {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 2rem;
-        font-weight: 800;
-        font-variation-settings: 'opsz' 144;
-    }
-    .quote-who {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.68rem;
-        color: var(--text-dim);
-        text-align: center;
-    }
+  /* ── CLUSTERS ── */
+  .cluster-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .cluster-card {
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-dim);
+    transition: border-color 0.2s;
+  }
+  .cluster-card:hover { border-color: var(--gold); }
+  .cluster-stance {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .stance-endorsement { color: var(--red); }
+  .stance-opposition { color: var(--green); }
+  .stance-neutral { color: var(--gold); }
+  .cluster-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .cluster-count {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .cluster-belief {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink);
+    font-style: italic;
+    border-left: 2px solid var(--rule-gold);
+    padding-left: 0.75rem;
+  }
+  .cluster-geo {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    letter-spacing: 0.04em;
+  }
 
-    /* --- map --- */
-    .map-wrap {
-        margin: 2rem 0;
-        border: 1px solid var(--border);
-        background: var(--bg-card);
-        overflow: hidden;
-    }
-    .map-wrap svg { display: block; }
+  /* ── ACTOR FRAMING ── */
+  .actor-framing-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+  .actor-framing-table th {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .actor-framing-table td {
+    padding: 0.7rem 0.75rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+  .actor-name { font-family: var(--serif); font-weight: 700; }
+  .score-bar-wrap { width: 140px; }
+  .score-bar-track {
+    height: 6px;
+    background: var(--rule);
+    position: relative;
+    border-radius: 3px;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .score-val {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .term-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .term-pill {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .pill-san { background: rgba(184,50,50,0.12); color: var(--red); }
+  .pill-cond { background: rgba(42,122,75,0.12); color: var(--green); }
 
-    /* --- footer --- */
-    footer {
-        border-top: 1px solid var(--border);
-        padding: 3rem 0;
-        margin-top: 3rem;
-    }
-    footer p {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.7rem;
-        color: var(--text-dim);
-        line-height: 1.8;
-    }
-    footer a { color: var(--accent-gold); text-decoration: none; }
+  /* ── PRESUPPOSITIONS ── */
+  .presup-card {
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+    background: var(--paper-dim);
+    margin: 1.5rem 0;
+  }
+  .presup-carrier {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.55;
+  }
+  .presup-carrier em { color: var(--ink); font-style: normal; font-weight: 600; }
+  .presup-chain { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 0.75rem; align-items: baseline; }
+  .presup-key {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+  .presup-val { font-size: 0.85rem; line-height: 1.5; color: var(--ink); }
+  .presup-outlet {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
+  }
 
-    /* --- nav dots --- */
-    .nav-dots {
-        position: fixed;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        z-index: 100;
-    }
-    @media (max-width: 900px) { .nav-dots { display: none; } }
-    .nav-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--border-light);
-        cursor: pointer;
-        transition: background 0.3s, transform 0.3s;
-    }
-    .nav-dot.active {
-        background: var(--accent-gold);
-        transform: scale(1.4);
-    }
+  /* ── COVERAGE MAP ── */
+  #coverage-map-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 2rem 0;
+    background: var(--paper-dim);
+    position: relative;
+  }
+  #coverage-map-container svg { display: block; }
+  .map-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.4rem 0.7rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+    z-index: 50;
+  }
 
-    /* --- responsive --- */
-    @media (max-width: 640px) {
-        body { font-size: 16px; }
-        .hero h1 { font-size: 2rem; }
-        .position-card { padding: 1.2rem; }
-        .quote-visual { gap: 1.2rem; }
-        .quote-bar { width: 40px; }
-    }
-    </style>
+  /* ── TOKENISM SECTION ── */
+  .tokenism-visual {
+    display: flex;
+    gap: 0.4rem;
+    align-items: stretch;
+    margin: 2rem 0;
+    height: 90px;
+  }
+  .tok-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 0.5rem;
+    line-height: 1.3;
+  }
+  .tok-dominant {
+    flex: 7.5;
+    background: rgba(184,50,50,0.15);
+    border: 1px solid rgba(184,50,50,0.3);
+    color: var(--red);
+  }
+  .tok-counter {
+    flex: 1;
+    background: rgba(42,122,75,0.1);
+    border: 1px solid rgba(42,122,75,0.2);
+    color: var(--green);
+    font-size: 0.52rem;
+  }
+
+  /* ── METHODOLOGY ── */
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .method-item { }
+  .method-key {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .method-val { font-size: 0.85rem; line-height: 1.5; color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .footer-note {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── COUNCIL VERDICT ── */
+  .verdict-bars {
+    display: flex;
+    gap: 0.35rem;
+    margin: 1.5rem 0;
+    align-items: flex-end;
+    height: 80px;
+  }
+  .verdict-bar-wrap { display: flex; flex-direction: column; align-items: center; flex: 1; justify-content: flex-end; }
+  .verdict-bar { width: 100%; }
+  .verdict-label { font-family: var(--mono); font-size: 0.58rem; text-align: center; margin-top: 0.35rem; color: var(--muted); letter-spacing: 0.04em; }
+  .verdict-count { font-family: var(--mono); font-size: 0.68rem; text-align: center; margin-bottom: 0.25rem; }
+
+  /* ── LANGUAGE BAR ── */
+  .lang-grid { margin: 1.5rem 0; }
+  .lang-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .lang-name { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); width: 80px; text-align: right; letter-spacing: 0.04em; }
+  .lang-bar-track { flex: 1; height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+  .lang-bar-fill { height: 100%; border-radius: 3px; background: var(--gold); transition: width 1s cubic-bezier(0.16,1,0.3,1); }
+  .lang-count { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); width: 30px; }
+
+  /* ── ABSENCE ── */
+  .absence-card {
+    background: var(--paper-dim);
+    border: 1px solid var(--rule);
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+  }
+  .absence-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--muted);
+    opacity: 0.3;
+  }
+  .absence-title { font-family: var(--serif); font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
+  .absence-text { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  /* responsive */
+  @media (max-width: 700px) {
+    .mirror-gap-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .mirror-divider { display: none; }
+    .cluster-grid { grid-template-columns: 1fr; }
+    .methodology-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.25rem; }
+    .hero-inner { padding: 3rem 1.25rem; }
+    #nameplate { padding: 1rem 1.25rem; }
+    h1 { font-size: 2.2rem; }
+  }
+</style>
 </head>
 <body>
 
-<!-- nav dots -->
-<nav class="nav-dots" id="navDots"></nav>
+<div id="progress-bar"></div>
+<button id="theme-toggle">◑ DARK</button>
 
-<!-- S0: HERO — MIRROR GAP -->
-<section class="hero" id="sec-mirror" data-nav="Mirror Gap">
-<div class="container">
-    <div class="hero-kicker">NewsKaleidoscope &mdash; Epistemic Mapping</div>
-    <h1>The Same Week.<br>Two Different Wars.</h1>
-    <p class="hero-sub">In March 2026, US and Israeli forces struck Iran. 106&nbsp;articles from 46&nbsp;countries &mdash; newspapers, broadcasts, podcasts, and YouTube &mdash; described what happened. They did not describe the same event.</p>
-
-    <div class="mirror-gap">
-        <div class="mirror-col">
-            <div class="mirror-label">What America told itself <span class="count">&mdash; 6 sources</span></div>
-            <div class="mirror-text">A justified response to nuclear threats and sovereignty violations. Emphasis on US preparedness, regime instability, and the moral reckoning of conflict.</div>
-        </div>
-        <div class="mirror-col">
-            <div class="mirror-label">What the world saw <span class="count">&mdash; 100 sources</span></div>
-            <div class="mirror-text">A volatile mix of diplomatic efforts and military posturing. Strategic calculations, Iran's ambiguous intentions, and mediators like Oman trying to prevent escalation.</div>
-        </div>
-    </div>
-
-    <div class="hero-stat">
-        <strong>84%</strong> of framing language in US sources was self-referential &mdash; describing American actions, American readiness, American moral stakes. The rest of the world was watching something else entirely.
-    </div>
+<div id="nav-dots">
+  <div class="nav-dot active" data-target="hero" title="Mirror Gap"></div>
+  <div class="nav-dot" data-target="finding" title="The Finding"></div>
+  <div class="nav-dot" data-target="positions" title="Five Positions"></div>
+  <div class="nav-dot" data-target="vocabulary" title="Vocabulary"></div>
+  <div class="nav-dot" data-target="presuppositions" title="Presuppositions"></div>
+  <div class="nav-dot" data-target="coverage" title="Coverage"></div>
+  <div class="nav-dot" data-target="absence" title="Absence"></div>
+  <div class="nav-dot" data-target="methodology" title="Methodology"></div>
 </div>
-</section>
 
-<!-- S1: THE 2.1% FINDING -->
-<section class="section" id="sec-consensus" data-nav="Consensus">
-<div class="container">
-    <div class="section-num">01 &mdash; Council Consensus</div>
-    <h2>Three AI Models Read Every Article. They Agreed on Two.</h2>
+<!-- NAMEPLATE -->
+<header id="nameplate">
+  <span class="brand">NewsKaleidoscope</span>
+  <span class="tagline">Global Epistemic Mapping</span>
+  <span class="issue-meta">Event Report #001 · March 2026</span>
+</header>
 
-    <p class="section-intro">We ran each article through three independent language models &mdash; Qwen&nbsp;3, Gemma&nbsp;3, and Mistral&nbsp;Small &mdash; and asked them to classify the framing. Out of 106&nbsp;articles, only&nbsp;2 produced unanimous agreement.</p>
+<!-- ══ SECTION 1: MIRROR GAP HERO ══ -->
+<section id="hero" class="full-bleed visible">
+  <div class="hero-inner">
+    <div class="mirror-gap-label">Mirror Gap · Iran Crisis · February–March 2026</div>
 
-    <div class="pull-quote">
-        <p>When three models trained on different data, by different teams, in different countries can only agree 1.9% of the time &mdash; the disagreement is the finding.</p>
-        <div class="source">61 articles rated CONTESTED &middot; 43 MEDIUM &middot; 2 HIGH confidence</div>
+    <h1>The War the World<br>Saw Differently</h1>
+
+    <div class="mirror-gap-grid">
+      <div class="mirror-frame">
+        <div class="mirror-frame-label us">🇺🇸 US Frame — 6 sources</div>
+        <div class="mirror-summary">
+          Military action against Iran as a justified response to nuclear threats. Iran as the actor of record. The question asked: <em>Will the US strike?</em> Iran's internal fractures are documented; US casualties remain hypothetical.
+        </div>
+        <div class="mirror-absent">
+          <div class="mirror-absent-label">Absent from US frame</div>
+          <div class="mirror-absent-item">Iranian civilian population · Regional actors (Saudi Arabia, Gulf states) · UN as independent authority</div>
+        </div>
+      </div>
+      <div class="mirror-divider"></div>
+      <div class="mirror-frame">
+        <div class="mirror-frame-label world">🌍 World Frame — 90 sources, 44 countries</div>
+        <div class="mirror-summary">
+          Diplomatic efforts and military posturing in volatile equilibrium. Strategic calculations by the US and Israel as external forces. Iran as a regional actor with interests. Mediation, not inevitability. The question asked: <em>What happens to the region if they do?</em>
+        </div>
+        <div class="mirror-absent">
+          <div class="mirror-absent-label">Absent from world frame</div>
+          <div class="mirror-absent-item">Iranian civil society · Russia and China as actors · IAEA as independent body · Non-state armed groups</div>
+        </div>
+      </div>
     </div>
 
-    <p>This isn't a flaw in the models. It's a measurement of how genuinely ambiguous geopolitical framing is. The same sentence, read by architectures trained on different slices of human text, produces different readings &mdash; because the framing itself is doing work that resists stable classification.</p>
-</div>
-</section>
-
-<!-- S2: FIVE POSITIONS -->
-<section class="section" id="sec-positions" data-nav="Positions">
-<div class="container">
-    <div class="section-num">02 &mdash; Five Positions</div>
-    <h2>What 54 Articles Actually Believe</h2>
-    <p class="section-intro">Five epistemic clusters emerged from the corpus. Not assigned &mdash; discovered. Each represents a genuinely different understanding of what happened and why. Stated here as first-person beliefs, because that's what framing is.</p>
-
-    <div class="position-card">
-        <div class="position-belief">This is an existential threat, and military action is the only rational response. Iran's nuclear program leaves no room for half-measures.</div>
-        <div class="position-meta">
-            <span class="tag tag-endorse">Endorsement</span>
-            <span>11 articles</span>
-            <span>AL, AZ, BG, EG, ES, HR, LT, SK, UA, XK</span>
-        </div>
-    </div>
-
-    <div class="position-card">
-        <div class="position-belief">We have the right to defend ourselves. The strikes are a legal and moral response to Iranian aggression, not an act of war.</div>
-        <div class="position-meta">
-            <span class="tag tag-endorse">Endorsement</span>
-            <span>7 articles</span>
-            <span>BR, CA, IL, VA, UN</span>
-        </div>
-    </div>
-
-    <div class="position-card">
-        <div class="position-belief">This is American hegemony dressed up as security. The US destabilizes regions and calls it peacekeeping.</div>
-        <div class="position-meta">
-            <span class="tag tag-oppose">Opposition</span>
-            <span>8 articles</span>
-            <span>CN, HK, IR, JP, PK</span>
-        </div>
-    </div>
-
-    <div class="position-card">
-        <div class="position-belief">The solution is diplomacy, IAEA verification, and economic negotiation &mdash; not bombs. Military action is the last resort, and we haven't exhausted the alternatives.</div>
-        <div class="position-meta">
-            <span class="tag tag-neutral">Neutral/Constructive</span>
-            <span>8 articles</span>
-            <span>BE, BR, CH, FR, IE, PH</span>
-        </div>
-    </div>
-
-    <div class="position-card">
-        <div class="position-belief">These strikes kill civilians, violate international law, and destabilize an entire region. Iran has a right to defend itself.</div>
-        <div class="position-meta">
-            <span class="tag tag-oppose">Opposition</span>
-            <span>20 articles</span>
-            <span>BR, CA, GB, IN, IR, NO, QA, ZA, UN</span>
-        </div>
-    </div>
-
-    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">37 articles did not cluster &mdash; their framing was too ambiguous or hybrid to assign. 4 singletons (advertising ethics, Australia as cautionary voice, Pakistan nuclear energy, one empty) are excluded.</p>
-</div>
-</section>
-
-<!-- S3: SCATTER PLOT -->
-<section class="section" id="sec-scatter" data-nav="Scatter">
-<div class="wide">
-    <div class="section-num">03 &mdash; Position Map</div>
-    <h2>Where Each Source Stands</h2>
-    <p class="section-intro">Each dot is an article. X-axis: political position (endorsement &rarr; opposition). Y-axis: epistemic register (state-aligned &rarr; independent). Color: council confidence level.</p>
-
-    <div class="scatter-wrap">
-        <div id="scatter"></div>
-    </div>
-</div>
-</section>
-
-<!-- S4: WHAT NOBODY SAID -->
-<section class="section" id="sec-absence" data-nav="Absences">
-<div class="container">
-    <div class="section-num">04 &mdash; What Nobody Said</div>
-    <h2>The Structural Silences</h2>
-    <p class="section-intro">After mapping what was said, we asked: what positions exist in the logical space of this event but appear in zero articles? Some are genuinely absent. Some are unspeakable.</p>
-
-    <div class="absence-grid">
-        <div class="absence-cell" style="grid-column: 1 / -1;">
-            <h3>Positions That Exist But Were Never Published</h3>
-            <ul>
-                <li>The perspective of non-aligned Global South nations trying to balance US-Israel-Iran dynamics without choosing sides</li>
-                <li>Iranian state narratives framing nuclear development as a purely defensive measure</li>
-                <li>Economic analysis of how neutral trade partners &mdash; Turkey, Oman &mdash; absorb the costs of other nations' wars</li>
-                <li>Long-term ecological consequences of military strikes on Persian Gulf ecosystems</li>
-                <li>The conflict read through pre-colonial Middle Eastern geopolitical memory, not Cold War categories</li>
-            </ul>
-        </div>
-        <div class="absence-cell">
-            <h3>Unspeakable Positions</h3>
-            <p>These positions are logically coherent but structurally unpublishable in mainstream media:</p>
-            <ul>
-                <li>Explicit advocacy for Iranian nuclear weapons as a counterbalance to US-Israeli military dominance</li>
-                <li>Naming military-industrial complex profiteering as a motive for regional destabilization</li>
-                <li>Theories implicating Western intelligence in orchestrating Iranian provocations</li>
-            </ul>
-        </div>
-        <div class="absence-cell">
-            <h3>Voiceless Populations</h3>
-            <p>People directly affected by this event who were quoted by zero outlets:</p>
-            <ul>
-                <li>Iranian civilians in strike-affected border regions</li>
-                <li>Yemeni and Iraqi refugees caught in proxy war dynamics</li>
-                <li>Iranian nuclear scientists under targeted sanctions</li>
-                <li>Palestinians in Gaza facing indirect consequences of regional escalation</li>
-                <li>Afghans experiencing supply chain collapse from regional conflict</li>
-            </ul>
-        </div>
-    </div>
-</div>
-</section>
-
-<!-- S5: VOCABULARY ASYMMETRY -->
-<section class="section" id="sec-vocab" data-nav="Vocabulary">
-<div class="container">
-    <div class="section-num">05 &mdash; Vocabulary Asymmetry</div>
-    <h2>The Words That Do the Work</h2>
-    <p class="section-intro">Across 486 actor-framing instances, we extracted every sanitizing term (softening language) and condemnatory term (sharpening language) applied to each major actor. The asymmetry tells you who the global media ecosystem treats as the protagonist and who as the threat.</p>
-
-    <div style="margin: 2rem 0;">
-        <div style="margin-bottom: 2rem;">
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.5rem;">IRAN &mdash; avg framing score: -0.92 (strongly negative)</div>
-            <div class="vocab-bar">
-                <div class="vocab-label">sanitizing</div>
-                <div class="vocab-track"><div class="vocab-fill san" style="width: 0%;" data-target="43.5%">476</div></div>
-            </div>
-            <div class="vocab-bar">
-                <div class="vocab-label">condemn.</div>
-                <div class="vocab-track"><div class="vocab-fill cond" style="width: 0%;" data-target="56.5%">617</div></div>
-            </div>
-        </div>
-        <div style="margin-bottom: 2rem;">
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.5rem;">UNITED STATES &mdash; avg framing score: -0.33 (mildly negative)</div>
-            <div class="vocab-bar">
-                <div class="vocab-label">sanitizing</div>
-                <div class="vocab-track"><div class="vocab-fill san" style="width: 0%;" data-target="46.9%">384</div></div>
-            </div>
-            <div class="vocab-bar">
-                <div class="vocab-label">condemn.</div>
-                <div class="vocab-track"><div class="vocab-fill cond" style="width: 0%;" data-target="53.0%">434</div></div>
-            </div>
-        </div>
-        <div style="margin-bottom: 2rem;">
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.5rem;">ISRAEL &mdash; avg framing score: -0.76 (strongly negative)</div>
-            <div class="vocab-bar">
-                <div class="vocab-label">sanitizing</div>
-                <div class="vocab-track"><div class="vocab-fill san" style="width: 0%;" data-target="38.4%">156</div></div>
-            </div>
-            <div class="vocab-bar">
-                <div class="vocab-label">condemn.</div>
-                <div class="vocab-track"><div class="vocab-fill cond" style="width: 0%;" data-target="61.6%">250</div></div>
-            </div>
-        </div>
-    </div>
-
-    <p style="font-size: 0.9rem; color: var(--text-dim);">Iran receives 3x more condemnatory language than sanitizing. The US gets nearly balanced treatment. Israel lands in between. The global media consensus &mdash; measured by word choice, not editorial opinion &mdash; treats Iran as the destabilizer and the US as a complex actor with legitimate motives.</p>
-</div>
-</section>
-
-<!-- S6: PRESUPPOSITIONS -->
-<section class="section" id="sec-presup" data-nav="Presuppositions">
-<div class="container">
-    <div class="section-num">06 &mdash; Hidden Assumptions</div>
-    <h2>87 Claims Smuggled in as Fact</h2>
-    <p class="section-intro">A presupposition is a claim that a sentence treats as already settled &mdash; not argued for, just assumed. We extracted 87 of them across 15 high-ambiguity articles. The BBC alone contributed 10, several of which contradict each other within the same piece.</p>
-
-    <div class="presup-card">
-        <div class="presup-outlet">BBC (GB)</div>
-        <div class="presup-carrier">"President Donald Trump reiterated that Iran cannot be allowed to have a nuclear weapon"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> Iran's nuclear program is inherently hostile and must be prevented at all costs.<br>
-            <strong>Contested by:</strong> Iranian officials arguing their program is for civilian energy; JCPOA signatories who accepted enrichment under monitoring.
-        </div>
-    </div>
-
-    <div class="presup-card">
-        <div class="presup-outlet">BBC (GB)</div>
-        <div class="presup-carrier">"More than 7,000 people have been killed by the Iranian regime in their crackdown against nationwide protests"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> The Iranian government's internal violence delegitimizes its external claims.<br>
-            <strong>Contested by:</strong> Iran, which frames internal security as sovereign; states with comparable protest responses who reject the linkage.
-        </div>
-    </div>
-
-    <div class="presup-card">
-        <div class="presup-outlet">Press TV (IR)</div>
-        <div class="presup-carrier">"The Islamic Republic has consistently stated that its nuclear program is entirely peaceful"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> Iran's declared peaceful intent is a settled fact, not a claim requiring evidence.<br>
-            <strong>Contested by:</strong> IAEA reports documenting undeclared nuclear activities; Western intelligence assessments.
-        </div>
-    </div>
-
-    <div class="presup-card">
-        <div class="presup-outlet">Al Jazeera (QA)</div>
-        <div class="presup-carrier">"Washington's military buildup in the Middle East has the region bracing for conflict"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> US military presence is the cause of regional tension, not a response to it.<br>
-            <strong>Contested by:</strong> US officials who frame the buildup as deterrence; analysts who cite Iranian proxies as the initial provocation.
-        </div>
-    </div>
-
-    <div class="presup-card">
-        <div class="presup-outlet">The Hindu (IN)</div>
-        <div class="presup-carrier">"India's strategic autonomy requires balancing ties with both Washington and Tehran"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> India is a neutral actor whose interests are served by non-alignment rather than taking sides.<br>
-            <strong>Contested by:</strong> Analysts who argue India's energy dependence on Iran makes neutrality impossible; US officials seeking unambiguous alignment.
-        </div>
-    </div>
-
-    <div class="presup-card">
-        <div class="presup-outlet">Dawn (PK)</div>
-        <div class="presup-carrier">"Pakistan's nuclear program has always been under strict civilian oversight and IAEA cooperation"</div>
-        <div class="presup-detail">
-            <strong>Presupposes:</strong> Pakistan's nuclear governance is a settled success story, not an ongoing concern.<br>
-            <strong>Contested by:</strong> Proliferation researchers citing A.Q. Khan network history; Indian security analysts.
-        </div>
-    </div>
-
-    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">The BBC finding is striking: 10 presuppositions in a single article, several structurally contradictory. The same piece assumes both that Iran is an irrational actor and that deterrence (which requires rational calculation) will work. This isn't bias &mdash; it's the texture of how complex events get compressed into narrative.</p>
-</div>
-</section>
-
-<!-- S7: WHO GETS QUOTED -->
-<section class="section" id="sec-quotes" data-nav="Quotes">
-<div class="container">
-    <div class="section-num">07 &mdash; Who Gets to Speak</div>
-    <h2>752 vs 131 vs 5</h2>
-    <p class="section-intro">Across the entire corpus, we counted every direct quote attributed to an identifiable actor. The asymmetry is not subtle.</p>
-
-    <div class="quote-visual">
-        <div class="quote-col">
-            <div class="quote-num" style="color: var(--accent-blue);">752</div>
-            <div class="quote-bar" style="height: 0px; background: var(--accent-blue);" data-target="300"></div>
-            <div class="quote-who">US & Israeli<br>officials</div>
-        </div>
-        <div class="quote-col">
-            <div class="quote-num" style="color: var(--accent-red);">131</div>
-            <div class="quote-bar" style="height: 0px; background: var(--accent-red);" data-target="52"></div>
-            <div class="quote-who">Iranian<br>officials</div>
-        </div>
-        <div class="quote-col">
-            <div class="quote-num" style="color: var(--text-dim);">179</div>
-            <div class="quote-bar" style="height: 0px; background: var(--text-dim);" data-target="71"></div>
-            <div class="quote-who">All other<br>actors</div>
-        </div>
-    </div>
-
-    <p style="font-size: 0.9rem; color: var(--text-dim);">US and Israeli officials are quoted 5.7x more than Iranian officials across global media &mdash; including media in countries opposed to the strikes. When the world reports on a US-Iran conflict, it overwhelmingly uses American and Israeli voices to tell the story, even when the editorial position is critical.</p>
-</div>
-</section>
-
-<!-- S8: WORLD MAP -->
-<section class="section" id="sec-map" data-nav="Map">
-<div class="wide">
-    <div class="section-num">08 &mdash; Coverage Map</div>
-    <h2>46 Countries. 10 Missing Languages.</h2>
-    <p class="section-intro">Gold = covered. Dark = absent. The Middle East &mdash; the region most directly affected &mdash; has the lowest coverage ratio at 36%. Southeast Asia, Latin America, and Central Asia are nearly silent.</p>
-
-    <div class="map-wrap">
-        <div id="worldmap"></div>
-    </div>
-
-    <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem;">
-        <div>
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--text-dim); margin-bottom: 0.4rem;">MISSING LANGUAGES</div>
-            <p style="font-size: 0.88rem;">Hindi, Bengali, Japanese, Turkish, Vietnamese, Thai, Swahili, Hausa, Yoruba, Amharic</p>
-        </div>
-        <div>
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--text-dim); margin-bottom: 0.4rem;">LOWEST REGIONAL COVERAGE</div>
-            <p style="font-size: 0.88rem;">Central Asia 14% &middot; Southeast Asia 17% &middot; Latin America 20% &middot; Africa 27% &middot; Middle East 36%</p>
-        </div>
-    </div>
-</div>
-</section>
-
-<!-- S9: METHOD -->
-<section class="section" id="sec-method" data-nav="Method">
-<div class="container">
-    <div class="section-num">09 &mdash; Method</div>
-    <h2>How This Was Made</h2>
-
-    <p>106 articles were collected via GDELT API, curated RSS feeds, YouTube channels, and podcast RSS from outlets across 46 countries. Non-English articles (42 of 106, in 18 languages) were translated using Helsinki-NLP and NLLB-200 models running locally. 11 oral sources &mdash; 9 YouTube broadcasts and 2 podcast episodes &mdash; were transcribed using faster-whisper large-v3 on GPU, adding 222 minutes of audio analysis to the corpus.</p>
-
-    <p>Each article was analyzed by a three-model LLM council &mdash; Qwen&nbsp;3 32B (Alibaba), Gemma&nbsp;3 27B (Google), and Mistral Small 3.1 24B (Mistral) &mdash; running sequentially on two TITAN RTX GPUs via llama.cpp. Models were given no predefined categories. Clustering emerged from the corpus, not from the researchers.</p>
-
-    <p>Presupposition extraction used targeted analysis of 15 high-ambiguity articles selected by council disagreement scores. Vocabulary asymmetry was measured across 486 actor-framing instances. Quote attribution was counted from syntactic feature extraction.</p>
-
-    <p>No external APIs were used. All inference ran on local hardware. The source corpus, analytical outputs, and council verdicts are preserved as an immutable research record.</p>
-
-    <p style="margin-top: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--text-dim);">
-        Sources: 61 GDELT-discovered + 37 curated flagships + 5 UN transcripts + 3 state wires + 9 YouTube (Whisper) + 2 podcasts (Whisper) = 106<br>
-        Pipeline: GDELT + curated RSS + YouTube + podcast RSS &rarr; trafilatura / faster-whisper extraction &rarr; Helsinki-NLP / NLLB-200 translation &rarr; 3-model LLM council &rarr; emergent clustering &rarr; absence analysis<br>
-        Infrastructure: nitrogen (pipeline orchestration) + boron (2&times; TITAN RTX 48GB, LLM inference)<br>
-        Models: qwen3-32b-q4km &middot; gemma-3-27b-it-Q4_K_M &middot; mistral-small-3.1-24b-Q4_K_M<br>
-        Built by <a href="https://thebeakers.com" style="color: var(--accent-gold); text-decoration: none;">The Beakers</a>
+    <p class="hero-deck">
+      94 articles. 45 countries. 18 languages. One event. This report maps how the world split — not along left/right lines, but along deeper fractures of civilizational assumption, historical memory, and epistemic register.
     </p>
-</div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2: THE FINDING ══ -->
+<section id="finding">
+  <div class="section-label">The Finding</div>
+  <h2>752 to 131</h2>
+
+  <p class="lead">
+    That is the ratio of official quotes in global coverage of the Iran crisis. For every one time an Iranian official was quoted directly, US and Israeli officials were quoted nearly six times. This is not a claim about what is true. It is a measurement of whose voice was treated as the default record of events.
+  </p>
+
+  <!-- Quote asymmetry visual -->
+  <div class="quote-bars" id="quote-bars">
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count" id="qb-us">752</div>
+      <div class="quote-bar" id="bar-us" style="height:0%; background:var(--red); min-height:4px;"></div>
+      <div class="quote-bar-name">US &amp; Israeli Officials</div>
+    </div>
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count" id="qb-ir">131</div>
+      <div class="quote-bar" id="bar-ir" style="height:0%; background:var(--green); min-height:4px;"></div>
+      <div class="quote-bar-name">Iranian Officials</div>
+    </div>
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count">133</div>
+      <div class="quote-bar" id="bar-oth" style="height:0%; background:var(--gold); min-height:4px;"></div>
+      <div class="quote-bar-name">Other Sources</div>
+    </div>
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count">24</div>
+      <div class="quote-bar" id="bar-anon" style="height:0%; background:var(--muted); min-height:4px;"></div>
+      <div class="quote-bar-name">Unnamed Officials</div>
+    </div>
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count">17</div>
+      <div class="quote-bar" id="bar-intl" style="height:0%; background:rgba(201,168,76,0.4); min-height:4px;"></div>
+      <div class="quote-bar-name">International Bodies</div>
+    </div>
+    <div class="quote-bar-wrap">
+      <div class="quote-bar-count">5</div>
+      <div class="quote-bar" id="bar-civ" style="height:0%; background:var(--muted); opacity:0.5; min-height:4px;"></div>
+      <div class="quote-bar-name">Civilians</div>
+    </div>
+  </div>
+
+  <p>
+    The asymmetry goes further than source selection. Of 188 articles analyzed for syntactic structure, 73 displayed measurable tokenism — the practice of acknowledging a counter-argument in one clause while devoting multiple paragraphs, named sources, and causal evidence to the dominant frame. Forty-five of those cases were flagged as severe: an elaboration ratio exceeding 8 to 1. The average elaboration ratio across all analyzed articles was 42.3 to 1.
+  </p>
+
+  <div class="pullquote">
+    The position is no longer in the words. It is in the architecture of whose words get buildings and whose get doorways.
+  </div>
+
+  <!-- Tokenism visual -->
+  <h3>The Shape of Tokenism</h3>
+  <p style="font-size:0.9rem; color:var(--muted);">Proportional representation of dominant vs. counter-frame in a typical "balanced" article:</p>
+  <div class="tokenism-visual">
+    <div class="tok-block tok-dominant">Named officials quoted<br>directly · Multiple paragraphs<br>· Causal explanation<br>· Active voice</div>
+    <div class="tok-block tok-counter">Critics say...</div>
+  </div>
+  <p style="font-size:0.82rem; color:var(--muted); font-style:italic; margin-top:0.5rem;">
+    Measured at 42:1 average elaboration ratio. An article passes a surface audit for "balance" while encoding a dominant frame through structure alone.
+  </p>
+
+  <p>
+    Then there is what the pipeline called the consensus problem. Three independent language models — Qwen3:32B, Gemma-3-27B, and Mistral-Small — read each article and attempted to agree on its epistemic position. They agreed fully on just 2 of 94 articles. On 55 of them — 58.5 percent of the corpus — all three models reached different conclusions. This is not a calibration failure. It means that epistemic position in political journalism is not a stable property of a text. It is a reading produced by the interaction between text and interpreter. Every automated bias tool currently deployed assumes otherwise.
+  </p>
+
+  <!-- Council verdict bars -->
+  <div class="verdict-bars">
+    <div class="verdict-bar-wrap">
+      <div class="verdict-count" style="color:var(--green)">2</div>
+      <div class="verdict-bar" style="height:4%; background:var(--green); opacity:0.7;"></div>
+      <div class="verdict-label">HIGH<br>Consensus<br>2.1%</div>
+    </div>
+    <div class="verdict-bar-wrap">
+      <div class="verdict-count" style="color:var(--gold)">37</div>
+      <div class="verdict-bar" style="height:40%; background:var(--gold); opacity:0.7;"></div>
+      <div class="verdict-label">MEDIUM<br>2-of-3 agree<br>39.4%</div>
+    </div>
+    <div class="verdict-bar-wrap">
+      <div class="verdict-count" style="color:var(--red)">55</div>
+      <div class="verdict-bar" style="height:58%; background:var(--red); opacity:0.7;"></div>
+      <div class="verdict-label">CONTESTED<br>No consensus<br>58.5%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3: FIVE POSITIONS ══ -->
+<section id="positions">
+  <div class="section-label">Five Positions</div>
+  <h2>How the World Split</h2>
+
+  <p class="lead">
+    The corpus did not produce a spectrum from "pro-Iran" to "pro-US." It produced five distinct epistemic positions — each internally coherent, each reflecting a different set of assumptions about who has legitimate authority, what counts as aggression, and whose history is the relevant backdrop.
+  </p>
+
+  <p>
+    Thirty-six articles resisted classification. They were not centrist. They occupied a different register entirely — what this analysis calls technical-strategic: the presentation of political assumptions as technical facts. More on that below.
+  </p>
+
+  <div class="cluster-grid">
+    <div class="cluster-card">
+      <div class="cluster-stance stance-endorsement">Endorsement · 11 articles</div>
+      <div class="cluster-name">Strategic Necessity</div>
+      <div class="cluster-count">Albania · Bulgaria · Croatia · Lithuania · Slovakia · Ukraine · Egypt · Spain</div>
+      <div class="cluster-belief">"The strike was not a choice. Iran's nuclear program crossed a threshold that made military action the least bad option. The alternative — a nuclear-armed Iran — was worse than the strike."</div>
+      <div class="cluster-geo">Eastern Europe dominant · Strong NATO-alignment pattern</div>
+    </div>
+
+    <div class="cluster-card">
+      <div class="cluster-stance stance-endorsement">Endorsement · 7 articles</div>
+      <div class="cluster-name">Legitimate Defense</div>
+      <div class="cluster-count">UN Security Council (US/UK/allied) · Western-aligned outlets</div>
+      <div class="cluster-belief">"The legal framework exists. The precedent exists. What is being called aggression is actually defense, and the framing as aggression reflects a double standard applied selectively to democratic states."</div>
+      <div class="cluster-geo">Invokes self-defense law · Does not engage with occupation as legal context</div>
+    </div>
+
+    <div class="cluster-card">
+      <div class="cluster-stance stance-opposition">Opposition · 8 articles</div>
+      <div class="cluster-name">Hegemony Critique</div>
+      <div class="cluster-count">China · Hong Kong · South Africa · Iran International · Pakistan</div>
+      <div class="cluster-belief">"This is not about Iran's nuclear program. This is about who controls the Middle East. The US has conducted four military interventions in the region since 2001. The pattern is not ambiguous."</div>
+      <div class="cluster-geo">Global South + Chinese state-adjacent media · Sanctions framed as the primary weapon</div>
+    </div>
+
+    <div class="cluster-card">
+      <div class="cluster-stance stance-neutral">Constructive · 8 articles</div>
+      <div class="cluster-name">Diplomatic Resolution</div>
+      <div class="cluster-count">Belgium · Switzerland · France · Brazil · Pakistan (Dawn)</div>
+      <div class="cluster-belief">"Military force has not resolved this conflict in twenty years. Every bomb dropped makes negotiated verification harder. The only durable path is multilateral — and we are watching it close."</div>
+      <div class="cluster-geo">European and Commonwealth press · Le Monde, SRF, La Libre, Dawn</div>
+    </div>
+
+    <div class="cluster-card" style="grid-column: 1 / -1;">
+      <div class="cluster-stance stance-opposition">Opposition · 20 articles — largest cluster</div>
+      <div class="cluster-name">Regional and Ethical Criticism</div>
+      <div class="cluster-count">Iran · Norway · Qatar (Al Jazeera) · UK (Guardian, Guardian Business) · India (The Hindu) · Brazil (Folha) · Canada (Globe and Mail) · South Africa (Daily Maverick) · UN Secretary-General</div>
+      <div class="cluster-belief">"7,000 Iranian casualties named and counted. US and Israeli casualties described as 'potential.' The implicit question in Western coverage is whether the US should strike Iran. The question never asked is what it is like to be struck. That omission is not neutral. It is a position."</div>
+      <div class="cluster-geo">Most geographically diverse cluster · Includes UN SG emergency statement · Spain denied claims of cooperation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 4: VOCABULARY ASYMMETRY ══ -->
+<section id="vocabulary">
+  <div class="section-label">Vocabulary Asymmetry</div>
+  <h2>What Words Do to Actors</h2>
+
+  <p class="lead">
+    The same military action, described in different words, produces different moral universes. The pipeline tracked how every major actor was characterized across the full corpus — which sanitizing terms (strike, operation, response) and condemnatory terms (attack, aggression, bombing) attached to which actors, and whether the ratio was consistent.
+  </p>
+
+  <p>
+    It was not consistent. Iran receives a condemnatory-to-sanitizing ratio of approximately 1.3 to 1. The US receives a ratio of 1.1 to 1. The IDF receives a ratio of 0.5 to 1 — more sanitizing than condemnatory. These are aggregate numbers across the full corpus including hostile sources. The gap is meaningful.
+  </p>
+
+  <table class="actor-framing-table" id="actor-table">
+    <thead>
+      <tr>
+        <th>Actor</th>
+        <th>Framing Score</th>
+        <th>Top Sanitizing Terms</th>
+        <th>Top Condemnatory Terms</th>
+        <th>Mentions</th>
+      </tr>
+    </thead>
+    <tbody id="actor-table-body"></tbody>
+  </table>
+
+  <p style="font-size:0.82rem; color:var(--muted); font-style:italic;">
+    Framing score: negative = more condemnatory language applied to this actor; positive = more sanitizing language. Measured across 94 articles. Score reflects aggregate characterization across all sources — including hostile ones. The asymmetry persists after controlling for source alignment.
+  </p>
+
+  <p>
+    The most consequential vocabulary asymmetry is not in the framing scores. It is in the question that organizes the article. An ABC News analysis led with: "Will the US strike Iran?" — not "What happens to Iran if the US strikes?" The subject of history is the decision-maker. Iran exists as an object of that decision. Nothing needs to be asserted. The asymmetry lives in what is treated as real versus what is treated as speculative.
+  </p>
+</section>
+
+<!-- ══ SECTION 5: PRESUPPOSITIONS ══ -->
+<section id="presuppositions">
+  <div class="section-label">Presuppositional Framing</div>
+  <h2>What Goes Without Saying</h2>
+
+  <p class="lead">
+    The hardest bias to detect is embedded in noun phrases — claims presented as background fact requiring no argument. The carrier phrase encodes the position before any assertion is made. A reader must actively resist the presupposition to notice it. Most readers do not.
+  </p>
+
+  <p>
+    The following are drawn from a single ABC News article analyzed in depth. This is not an atypical article. It is a representative one.
+  </p>
+
+  <div id="presup-cards"></div>
+
+  <div class="pullquote">
+    The neutrality is the ideology. Western press does not perform objectivity. It performs technocracy — the presentation of political assumptions as technical facts. This is harder to read precisely because it is more sophisticated concealment.
+  </div>
+
+  <p>
+    Of 94 articles, 81 percent of those that resisted political classification were operating in what we call technical-strategic register: military assets, casualty ratios, strike coordinates, alliance dynamics. No moral claim stated. No political position taken — except in the choice of whose actions require justification, whose casualties are named, whose question organizes the piece.
+  </p>
+
+  <p>
+    The "view from nowhere" does not exist. What looks like it, under analysis, dissolves into a view from inside the assumptions of the actor whose actions require the least justification. In the Iran corpus, that actor is the United States.
+  </p>
+</section>
+
+<!-- ══ SECTION 6: COVERAGE MAP ══ -->
+<section id="coverage" class="full-bleed" style="max-width:100%; padding: 5rem 0;">
+  <div style="max-width:860px; margin:0 auto; padding:0 2.5rem;">
+    <div class="section-label">Coverage Geography</div>
+    <h2>45 Countries. What 20 Missing Languages Mean.</h2>
+
+    <p class="lead">
+      The coverage map shows where the pipeline reached. It does not show where opinion exists. Those are different maps, and the gap between them is one of the most important findings of this analysis.
+    </p>
+  </div>
+
+  <div id="coverage-map-container">
+    <div class="map-tooltip" id="map-tooltip"></div>
+    <svg id="world-map"></svg>
+  </div>
+
+  <div style="max-width:860px; margin:0 auto; padding:0 2.5rem;">
+    <p style="font-size:0.82rem; color:var(--muted); font-style:italic; margin-top:1rem;">
+      Gold = covered. Dark = absent. Each country scaled by article count, not area.
+    </p>
+
+    <p>
+      The Middle East — the region most directly struck — had the lowest coverage ratio in this corpus. Arabic-language press largely sits behind paywalls or requires authentication. Iranian domestic press (Kayhan, ISNA, Shargh) was entirely absent: not because Iran did not cover its own bombardment, but because the pipeline had not yet built Persian RSS ingestion at time of this run. That is a pipeline failure, not a silence, and it will be corrected.
+    </p>
+
+    <p>
+      Southeast Asia — Indonesia (world's largest Muslim population), Malaysia, Vietnam, Thailand — present in source metadata but zero full-text articles retrieved. The framing exists. The pipeline could not reach it. Latin America contributed four articles from two countries for 650 million people. Central Asia, where Russian-language state press covers the event extensively, was not attempted.
+    </p>
+
+    <p>
+      What this means for every finding in this report: it is biased toward English, toward Western-aligned wire services, toward outlets legible to automated discovery. The five clusters are not a map of global opinion. They are a map of what is currently accessible to an automated English-centric pipeline. That is a meaningful result in itself — it maps the structure of global media legibility — but it must not be mistaken for completeness.
+    </p>
+
+    <h3 style="margin-top:2.5rem;">Languages in Corpus</h3>
+    <div class="lang-grid" id="lang-grid"></div>
+  </div>
+</section>
+
+<!-- ══ SECTION 7: ABSENCE ══ -->
+<section id="absence">
+  <div class="section-label">Absence as Data</div>
+  <h2>What Nobody Said</h2>
+
+  <p class="lead">
+    The corpus has two kinds of silences. One is absence of coverage — regions and languages that weren't reached. The other is deeper: positions that are structurally unspeakable in legible media, regardless of language or geography. Absence of the second kind is not a gap in the pipeline. It is a finding about what global media collectively refuses to articulate.
+  </p>
+
+  <div class="absence-card">
+    <div class="absence-title">Iran's nuclear program as legitimate self-defense</div>
+    <div class="absence-text">No outlet in the corpus — including Iranian state media — framed Iran's nuclear development as a rational response to documented US-Israeli capacity for regime change. This position is held by significant portions of the Iranian political class and the global non-aligned movement. It does not appear.</div>
+  </div>
+
+  <div class="absence-card">
+    <div class="absence-title">US presence in the region as structurally colonial</div>
+    <div class="absence-text">The framing of five US military bases within strike range of Iran as colonial infrastructure — analogous to how British basing in the 1950s was described at the time — does not appear in any article, including Al Jazeera and Press TV. The vocabulary of colonialism applies to past events; it is not applied to current US military geography.</div>
+  </div>
+
+  <div class="absence-card">
+    <div class="absence-title">Israeli nuclear capability as regional destabilizer</div>
+    <div class="absence-text">Israel's undeclared nuclear arsenal — estimated at 80–400 warheads, not subject to IAEA inspection, acknowledged by no formal treaty — does not appear as context in any article framing Iran's program as an "existential threat." The asymmetry in inspection regimes is structurally unmentionable in Western media and absent from most Global South coverage as well.</div>
+  </div>
+
+  <div class="absence-card">
+    <div class="absence-title">Iranian civilian population as a subject</div>
+    <div class="absence-text">The people who would live inside a bombed country appear in five articles, in one quote each. Civilians are not absent from the corpus because nothing happened to them. They are absent because the organizing question of Western coverage — "will the US strike?" — positions Iranians as the object of a decision being made elsewhere.</div>
+  </div>
+
+  <p>
+    These are not fringe positions. They are held by significant portions of the world's population and routinely articulate in oral and semi-public discourse — in mosques, in vernacular YouTube, in political organizing — that automated analysis cannot yet reach. The pipeline's Tier 3 expansion (Friday sermons, podcast ingestion, Telegram channel monitoring) is designed specifically to surface what Tier 1 media structurally excludes. These findings will be revisited when that ingestion is complete.
+  </p>
+</section>
+
+<!-- ══ SECTION 8: METHODOLOGY ══ -->
+<section id="methodology">
+  <div class="section-label">Methodology</div>
+  <h2>How This Was Built and What It Cannot Do</h2>
+
+  <p>
+    This report is honest about its own epistemic constraints. The system that produced it is not a neutral measurement instrument. It is an automated analysis pipeline with specific blind spots, which it attempts to document rather than conceal.
+  </p>
+
+  <div class="methodology-grid">
+    <div class="method-item">
+      <div class="method-key">Corpus</div>
+      <div class="method-val">94 articles, 45 countries, 18 languages. Primarily English-language (64 articles, 68%). February 26 – March 4, 2026.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-key">Ingestion</div>
+      <div class="method-val">GDELT API (gap-fill), curated RSS feeds, UN Security Council transcripts (emergency session). No paywall access. 20 articles skipped due to access barriers.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-key">Analysis</div>
+      <div class="method-val">Three-model LLM council (Qwen3:32B + Gemma-3-27B + Mistral-Small-3.1-24B). Two-pass clustering: free-form framing extraction, then emergent grouping. No pre-defined categories imposed.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-key">Limitations</div>
+      <div class="method-val">English-centric. No Persian, Arabic, or Urdu domestic press. Tier 3 sources (sermons, podcasts, Telegram) not yet ingested. Qwen anchoring effect documented but not yet corrected.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-key">Confidence</div>
+      <div class="method-val">58.5% of articles produced no three-model consensus. Findings presented with explicit uncertainty. Database is immutable — all runs preserved for comparison.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-key">What this is not</div>
+      <div class="method-val">A bias rating. A claim about truth. A complete map of global opinion. It is a map of what automated English-centric analysis can reach — and the shape of what it cannot.</div>
+    </div>
+  </div>
+
+  <p style="font-size:0.85rem; color:var(--muted); margin-top:1.5rem;">
+    Primary data sources: GDELT Event Database, UN Security Council official transcripts (sc16307), BLS, FRED, World Bank, ACLED. Source code and database schema available on request. All findings from a single event corpus — validation across future events is ongoing.
+  </p>
 </section>
 
 <footer>
-<div class="container">
-    <p>NewsKaleidoscope &mdash; epistemic mapping system<br>
-    Not a bias detector. Not a fact-checker. A map of how the same event becomes different events depending on where you stand.<br>
-    <a href="https://news.thebeakers.com">news.thebeakers.com</a></p>
-</div>
+  <div class="footer-brand">NewsKaleidoscope</div>
+  <div class="footer-note">
+    If you want to understand what the world actually thinks, you have to go where the world actually gets its information. Event #001 of an ongoing project. Next: the sermon corpus — what Islamic institutional media said the Friday after the strikes.
+  </div>
 </footer>
 
 <script>
-// --- scroll reveal ---
-const sections = document.querySelectorAll('.section');
-const navDotsEl = document.getElementById('navDots');
-const allSections = document.querySelectorAll('[data-nav]');
+// ── DATA ──
+const DATA = {
+  quoteAsymmetry: { us_israeli: 752, iranian: 131, other: 133, unnamed: 24, international: 17, civilian: 5 },
+  actorFraming: [
+    { name: 'Iran', score: -1.356, san: ['strike','operation','retaliation','targeted','defensive'], cond: ['attack','regime','threat','bombing','aggression','invasion'], mentions: 153 },
+    { name: 'Israel', score: -1.362, san: ['strike','forces','operation','retaliation','defensive'], cond: ['attack','threat','regime','aggression','assault','illegal','occupation'], mentions: 123 },
+    { name: 'US', score: -0.515, san: ['strike','forces','operation','targeted','coalition','surgical'], cond: ['attack','threat','regime','aggression','invasion','bombing'], mentions: 153 },
+    { name: 'Hezbollah', score: -0.571, san: ['strike','forces','retaliation','respond'], cond: ['attack','aggression','violation','regime','illegal','proxy'], mentions: 20 },
+    { name: 'IRGC', score: 0.7, san: ['forces','assets','operation','targeted','deterrence'], cond: ['regime','attack','aggression'], mentions: 26 },
+    { name: 'IDF', score: 1.0, san: ['forces'], cond: ['violation','threat','regime'], mentions: 11 },
+  ],
+  presuppositions: [
+    {
+      carrier: 'a huge military build-up of U.S. forces in the Middle East has the region bracing for <em>a second major war in under a year</em>',
+      presupposes: 'The US military buildup is inherently destabilizing and increases the likelihood of war.',
+      favors: 'Critics of US military intervention',
+      contested: 'US defense officials who would argue the buildup is a deterrent and defensive measure',
+      outlet: 'ABC News · abcnews.com · United States'
+    },
+    {
+      carrier: 'President Donald Trump reiterated that <em>Iran cannot be allowed to have a nuclear weapon</em>',
+      presupposes: 'Iran\'s nuclear program is inherently hostile and must be prevented at all costs.',
+      favors: 'US and Israeli positions',
+      contested: 'Iranian officials who argue their program is for civilian energy — a claim subject to ongoing IAEA dispute but not settled',
+      outlet: 'ABC News · abcnews.com · United States'
+    },
+    {
+      carrier: 'war with Iran represents <em>an opportunity to set back Iran\'s offensive capabilities</em>',
+      presupposes: 'War with Iran is strategically advantageous for Israel. Iranian military capacity is by definition "offensive."',
+      favors: 'Israeli security establishment',
+      contested: 'Iranian officials and international law analysts who would argue this justifies preemptive strikes as self-defense',
+      outlet: 'ABC News · abcnews.com · United States'
+    },
+    {
+      carrier: 'To the Trump administration, <em>Iran retaining nuclear capability</em> may sound very similar to the deal the Obama administration reached',
+      presupposes: 'The Obama nuclear deal (JCPOA) was fundamentally flawed and needs to be replaced.',
+      favors: 'Trump administration framing',
+      contested: 'Supporters of the JCPOA who argue it was verifiably working when the US unilaterally withdrew in 2018',
+      outlet: 'ABC News · abcnews.com · United States'
+    }
+  ],
+  languages: [
+    { language: 'English', count: 64 },
+    { language: 'Chinese', count: 6 },
+    { language: 'French', count: 5 },
+    { language: 'Spanish', count: 4 },
+    { language: 'Portuguese', count: 4 },
+    { language: 'German', count: 3 },
+    { language: 'Albanian', count: 2 },
+    { language: 'Norwegian', count: 2 },
+    { language: 'Arabic', count: 2 },
+    { language: 'Italian', count: 2 },
+  ],
+  countries: [
+    { code: 'IR', count: 9 }, { code: 'GB', count: 8 }, { code: 'US', count: 6 },
+    { code: 'DE', count: 5 }, { code: 'QA', count: 5 }, { code: 'IN', count: 4 },
+    { code: 'FR', count: 4 }, { code: 'BR', count: 4 }, { code: 'HK', count: 4 },
+    { code: 'ES', count: 3 }, { code: 'CA', count: 3 }, { code: 'IT', count: 2 },
+    { code: 'PK', count: 2 }, { code: 'BG', count: 2 }, { code: 'NO', count: 2 },
+    { code: 'HR', count: 2 }, { code: 'NG', count: 2 }, { code: 'IL', count: 2 },
+    { code: 'CZ', count: 2 }, { code: 'VA', count: 2 }, { code: 'CN', count: 2 },
+    { code: 'ZA', count: 2 }, { code: 'AU', count: 2 }, { code: 'TW', count: 1 },
+    { code: 'AR', count: 1 }, { code: 'AZ', count: 1 }, { code: 'BD', count: 1 },
+    { code: 'BE', count: 1 }, { code: 'CH', count: 1 }, { code: 'EG', count: 1 },
+    { code: 'IE', count: 1 }, { code: 'JP', count: 1 }, { code: 'KR', count: 1 },
+    { code: 'LT', count: 1 }, { code: 'PH', count: 1 }, { code: 'RO', count: 1 },
+    { code: 'RU', count: 1 }, { code: 'SK', count: 1 }, { code: 'TR', count: 1 },
+    { code: 'UA', count: 1 }, { code: 'AL', count: 1 }, { code: 'XK', count: 1 },
+    { code: 'MX', count: 1 }, { code: 'NL', count: 1 }, { code: 'SE', count: 1 },
+  ]
+};
 
-// build nav dots
-allSections.forEach((sec, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
-    dot.title = sec.dataset.nav;
-    dot.onclick = () => sec.scrollIntoView({ behavior: 'smooth' });
-    navDotsEl.appendChild(dot);
+// ── THEME TOGGLE ──
+const btn = document.getElementById('theme-toggle');
+let dark = false;
+btn.addEventListener('click', () => {
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+  btn.textContent = dark ? '◑ LIGHT' : '◑ DARK';
 });
 
+// ── PROGRESS BAR ──
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  updateNavDots();
+});
+
+// ── NAV DOTS ──
+const sections = ['hero','finding','positions','vocabulary','presuppositions','coverage','absence','methodology'];
+const dots = document.querySelectorAll('.nav-dot');
+dots.forEach((d, i) => {
+  d.addEventListener('click', () => {
+    document.getElementById(sections[i]).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+function updateNavDots() {
+  let current = 0;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < window.innerHeight * 0.5) current = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
+
+// ── SCROLL REVEAL ──
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            // animate vocab bars
-            e.target.querySelectorAll('.vocab-fill[data-target]').forEach(bar => {
-                bar.style.width = bar.dataset.target;
-            });
-            // animate quote bars
-            e.target.querySelectorAll('.quote-bar[data-target]').forEach(bar => {
-                bar.style.height = bar.dataset.target + 'px';
-            });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // trigger animations
+      const id = entry.target.id;
+      if (id === 'finding') animateQuoteBars();
+      if (id === 'vocabulary') animateActorTable();
+      if (id === 'coverage') animateLangBars();
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('section:not(#hero)').forEach(s => observer.observe(s));
+
+// ── QUOTE BARS ──
+function animateQuoteBars() {
+  const maxVal = 752;
+  const bars = [
+    { id: 'bar-us', val: 752 },
+    { id: 'bar-ir', val: 131 },
+    { id: 'bar-oth', val: 133 },
+    { id: 'bar-anon', val: 24 },
+    { id: 'bar-intl', val: 17 },
+    { id: 'bar-civ', val: 5 },
+  ];
+  bars.forEach(b => {
+    const el = document.getElementById(b.id);
+    if (el) {
+      setTimeout(() => {
+        el.style.height = Math.max((b.val / maxVal) * 100, 2) + '%';
+        el.style.transition = 'height 1.2s cubic-bezier(0.16,1,0.3,1)';
+      }, 100);
+    }
+  });
+}
+
+// ── ACTOR TABLE ──
+function animateActorTable() {
+  const tbody = document.getElementById('actor-table-body');
+  if (!tbody || tbody.children.length > 0) return;
+  DATA.actorFraming.forEach(actor => {
+    const tr = document.createElement('tr');
+    const scoreMax = 1.5;
+    const normalized = Math.abs(actor.score) / scoreMax;
+    const color = actor.score < 0 ? 'var(--red)' : 'var(--green)';
+    const sanPills = actor.san.slice(0,3).map(t => `<span class="term-pill pill-san">${t}</span>`).join('');
+    const condPills = actor.cond.slice(0,3).map(t => `<span class="term-pill pill-cond">${t}</span>`).join('');
+    tr.innerHTML = `
+      <td><span class="actor-name">${actor.name}</span></td>
+      <td>
+        <div class="score-bar-wrap">
+          <div class="score-bar-track">
+            <div class="score-bar-fill" style="width:0%; background:${color};" data-w="${normalized*100}"></div>
+          </div>
+        </div>
+        <div class="score-val" style="color:${color}">${actor.score.toFixed(3)}</div>
+      </td>
+      <td><div class="term-pills">${sanPills}</div></td>
+      <td><div class="term-pills">${condPills}</div></td>
+      <td style="font-family:var(--mono);font-size:0.68rem;color:var(--muted)">${actor.mentions}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  // animate bars
+  setTimeout(() => {
+    document.querySelectorAll('.score-bar-fill').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+      el.style.transition = 'width 1s cubic-bezier(0.16,1,0.3,1)';
+    });
+  }, 200);
+}
+
+// ── PRESUPPOSITIONS ──
+function renderPresuppositions() {
+  const container = document.getElementById('presup-cards');
+  DATA.presuppositions.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'presup-card';
+    div.innerHTML = `
+      <div class="presup-carrier">&#8220;...${p.carrier}...&#8221;</div>
+      <div class="presup-chain">
+        <span class="presup-key">Presupposes</span><span class="presup-val">${p.presupposes}</span>
+        <span class="presup-key">Favors</span><span class="presup-val">${p.favors}</span>
+        <span class="presup-key">Contested by</span><span class="presup-val">${p.contested}</span>
+      </div>
+      <div class="presup-outlet">${p.outlet}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+renderPresuppositions();
+
+// ── LANGUAGE BARS ──
+function animateLangBars() {
+  const container = document.getElementById('lang-grid');
+  if (!container || container.children.length > 0) return;
+  const max = 64;
+  DATA.languages.forEach(l => {
+    const row = document.createElement('div');
+    row.className = 'lang-row';
+    row.innerHTML = `
+      <span class="lang-name">${l.language}</span>
+      <div class="lang-bar-track"><div class="lang-bar-fill" style="width:0%" data-w="${(l.count/max)*100}"></div></div>
+      <span class="lang-count">${l.count}</span>
+    `;
+    container.appendChild(row);
+  });
+  setTimeout(() => {
+    container.querySelectorAll('.lang-bar-fill').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+    });
+  }, 200);
+}
+
+// ── WORLD MAP ──
+async function buildMap() {
+  const container = document.getElementById('coverage-map-container');
+  const tooltip = document.getElementById('map-tooltip');
+  const width = container.offsetWidth;
+  const height = Math.round(width * 0.5);
+
+  const svg = d3.select('#world-map')
+    .attr('width', width)
+    .attr('height', height);
+
+  const countryMap = {};
+  DATA.countries.forEach(c => { countryMap[c.code] = c.count; });
+
+  // ISO numeric → alpha2 mapping (subset)
+  const isoMap = {
+    4:'AF',8:'AL',12:'DZ',24:'AO',32:'AR',36:'AU',40:'AT',50:'BD',56:'BE',76:'BR',
+    100:'BG',104:'MM',116:'KH',120:'CM',124:'CA',152:'CL',156:'CN',170:'CO',191:'HR',
+    192:'CU',196:'CY',203:'CZ',204:'BJ',208:'DK',214:'DO',231:'ET',246:'FI',250:'FR',
+    276:'DE',288:'GH',300:'GR',324:'GN',348:'HU',356:'IN',360:'ID',364:'IR',368:'IQ',
+    372:'IE',376:'IL',380:'IT',388:'JM',392:'JP',400:'JO',398:'KZ',404:'KE',410:'KR',
+    422:'LB',430:'LR',434:'LY',440:'LT',442:'LU',484:'MX',504:'MA',508:'MZ',516:'NA',
+    528:'NL',540:'NC',554:'NZ',566:'NG',578:'NO',586:'PK',604:'PE',608:'PH',616:'PL',
+    620:'PT',630:'PR',634:'QA',642:'RO',643:'RU',682:'SA',686:'SN',694:'SL',706:'SO',
+    710:'ZA',724:'ES',752:'SE',756:'CH',764:'TH',788:'TN',792:'TR',804:'UA',784:'AE',
+    826:'GB',840:'US',858:'UY',862:'VE',704:'VN',887:'YE',716:'ZW',288:'GH',400:'JO',
+  };
+
+  const projection = d3.geoNaturalEarth1()
+    .scale(width / 6.5)
+    .translate([width / 2, height / 2]);
+  const path = d3.geoPath().projection(projection);
+
+  try {
+    const topo = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+    const countries = topojson.feature(topo, topo.objects.countries);
+
+    const maxCount = Math.max(...DATA.countries.map(c => c.count));
+    const colorScale = d3.scaleSequential()
+      .domain([0, maxCount])
+      .interpolator(t => d3.interpolate('#1a1a28', '#c9a84c')(t));
+
+    svg.selectAll('path')
+      .data(countries.features)
+      .join('path')
+      .attr('d', path)
+      .attr('fill', d => {
+        const alpha2 = isoMap[+d.id];
+        const count = countryMap[alpha2] || 0;
+        return count > 0 ? colorScale(count) : (document.documentElement.getAttribute('data-theme') === 'dark' ? '#1a1a28' : '#e0ddd4');
+      })
+      .attr('stroke', '#ffffff')
+      .attr('stroke-width', 0.3)
+      .on('mousemove', (event, d) => {
+        const alpha2 = isoMap[+d.id];
+        const count = countryMap[alpha2] || 0;
+        if (count > 0) {
+          tooltip.style.opacity = '1';
+          tooltip.style.left = (event.offsetX + 12) + 'px';
+          tooltip.style.top = (event.offsetY - 30) + 'px';
+          tooltip.textContent = `${alpha2} · ${count} article${count > 1 ? 's' : ''}`;
+        } else {
+          tooltip.style.opacity = '0';
         }
-    });
-}, { threshold: 0.15 });
+      })
+      .on('mouseleave', () => { tooltip.style.opacity = '0'; });
+  } catch(e) {
+    // topojson not loaded, draw simple placeholder
+    svg.append('text')
+      .attr('x', width/2).attr('y', height/2)
+      .attr('text-anchor','middle')
+      .attr('font-family','var(--mono)')
+      .attr('font-size','0.75rem')
+      .attr('fill','var(--muted)')
+      .text('Map requires topojson — load from CDN');
+  }
+}
 
-sections.forEach(s => observer.observe(s));
+// Load topojson and build map
+const topoScript = document.createElement('script');
+topoScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js';
+topoScript.onload = buildMap;
+document.head.appendChild(topoScript);
 
-// update nav dots on scroll
-const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            const idx = Array.from(allSections).indexOf(e.target);
-            document.querySelectorAll('.nav-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === idx);
-            });
-        }
-    });
-}, { threshold: 0.3 });
-allSections.forEach(s => navObserver.observe(s));
-
-
-// --- D3 scatter plot ---
-(function() {
-    const data = [
-        // cluster 15: Strategic Necessity (Endorsement) — mapped to x ~ 0.2
-        {outlet:"kohajone.com",cc:"AL",lang:"Albanian",conf:"MEDIUM",cx:15,x:0.18,y:0.7},
-        {outlet:"haqqin.az",cc:"AZ",lang:"Russian",conf:"CONTESTED",cx:15,x:0.22,y:0.6},
-        {outlet:"focus-news.net",cc:"BG",lang:"Bulgarian",conf:"MEDIUM",cx:15,x:0.15,y:0.55},
-        {outlet:"dostor.org",cc:"EG",lang:"Arabic",conf:"CONTESTED",cx:15,x:0.25,y:0.4},
-        {outlet:"diariodeburgos.es",cc:"ES",lang:"Spanish",conf:"MEDIUM",cx:15,x:0.2,y:0.65},
-        {outlet:"index.hr",cc:"HR",lang:"Croatian",conf:"CONTESTED",cx:15,x:0.18,y:0.6},
-        {outlet:"advance.hr",cc:"HR",lang:"Croatian",conf:"CONTESTED",cx:15,x:0.22,y:0.55},
-        {outlet:"lrt.lt",cc:"LT",lang:"Lithuanian",conf:"CONTESTED",cx:15,x:0.15,y:0.7},
-        {outlet:"dennikn.sk",cc:"SK",lang:"Slovak",conf:"MEDIUM",cx:15,x:0.2,y:0.72},
-        {outlet:"sevastopol.su",cc:"UA",lang:"Russian",conf:"MEDIUM",cx:15,x:0.28,y:0.35},
-        {outlet:"telegrafi.com",cc:"XK",lang:"Albanian",conf:"CONTESTED",cx:15,x:0.16,y:0.68},
-        // cluster 16: Defensive Legitimacy (Endorsement) — x ~ 0.25
-        {outlet:"UN SC Press",cc:"UN",lang:"English",conf:"MEDIUM",cx:16,x:0.3,y:0.2},
-        {outlet:"UN SC Press",cc:"UN",lang:"English",conf:"MEDIUM",cx:16,x:0.28,y:0.22},
-        {outlet:"Folha de São Paulo",cc:"BR",lang:"Portuguese",conf:"CONTESTED",cx:16,x:0.32,y:0.6},
-        {outlet:"Globe and Mail",cc:"CA",lang:"English",conf:"CONTESTED",cx:16,x:0.22,y:0.75},
-        {outlet:"middleeastmonitor",cc:"IL",lang:"English",conf:"CONTESTED",cx:16,x:0.28,y:0.5},
-        {outlet:"bokra.net",cc:"IL",lang:"Arabic",conf:"CONTESTED",cx:16,x:0.3,y:0.45},
-        {outlet:"Vatican News",cc:"VA",lang:"English",conf:"CONTESTED",cx:16,x:0.35,y:0.3},
-        // cluster 17: Critique of Hegemony (Opposition) — x ~ 0.75
-        {outlet:"news.china.com",cc:"CN",lang:"Chinese",conf:"MEDIUM",cx:17,x:0.78,y:0.3},
-        {outlet:"qianlong.com",cc:"CN",lang:"Chinese",conf:"CONTESTED",cx:17,x:0.82,y:0.32},
-        {outlet:"SCMP",cc:"HK",lang:"English",conf:"MEDIUM",cx:17,x:0.72,y:0.7},
-        {outlet:"hkcna.hk",cc:"HK",lang:"Chinese",conf:"CONTESTED",cx:17,x:0.75,y:0.35},
-        {outlet:"SCMP",cc:"HK",lang:"English",conf:"CONTESTED",cx:17,x:0.7,y:0.72},
-        {outlet:"Iran International",cc:"IR",lang:"English",conf:"MEDIUM",cx:17,x:0.8,y:0.45},
-        {outlet:"attackofthefanboy",cc:"JP",lang:"English",conf:"CONTESTED",cx:17,x:0.68,y:0.8},
-        {outlet:"Dawn",cc:"PK",lang:"English",conf:"MEDIUM",cx:17,x:0.76,y:0.65},
-        // cluster 18: Diplomatic Resolution (Neutral) — x ~ 0.5
-        {outlet:"lalibre.be",cc:"BE",lang:"French",conf:"CONTESTED",cx:18,x:0.48,y:0.72},
-        {outlet:"cbn.globo.com",cc:"BR",lang:"Portuguese",conf:"MEDIUM",cx:18,x:0.52,y:0.6},
-        {outlet:"srf.ch",cc:"CH",lang:"German",conf:"CONTESTED",cx:18,x:0.45,y:0.78},
-        {outlet:"zonebourse.com",cc:"FR",lang:"French",conf:"MEDIUM",cx:18,x:0.55,y:0.55},
-        {outlet:"Le Monde",cc:"FR",lang:"French",conf:"CONTESTED",cx:18,x:0.48,y:0.82},
-        {outlet:"zonebourse.com",cc:"FR",lang:"French",conf:"CONTESTED",cx:18,x:0.53,y:0.52},
-        {outlet:"rte.ie",cc:"IE",lang:"English",conf:"CONTESTED",cx:18,x:0.5,y:0.75},
-        {outlet:"bworldonline",cc:"PH",lang:"English",conf:"CONTESTED",cx:18,x:0.52,y:0.58},
-        // cluster 19: Regional/Ethical Criticism (Opposition) — x ~ 0.8
-        {outlet:"UN SC Press",cc:"UN",lang:"English",conf:"CONTESTED",cx:19,x:0.72,y:0.18},
-        {outlet:"UN SC Press",cc:"UN",lang:"English",conf:"MEDIUM",cx:19,x:0.7,y:0.2},
-        {outlet:"UN SC Press",cc:"UN",lang:"English",conf:"CONTESTED",cx:19,x:0.74,y:0.15},
-        {outlet:"Folha de São Paulo",cc:"BR",lang:"Portuguese",conf:"CONTESTED",cx:19,x:0.82,y:0.58},
-        {outlet:"Globe and Mail",cc:"CA",lang:"English",conf:"CONTESTED",cx:19,x:0.78,y:0.73},
-        {outlet:"The Guardian",cc:"GB",lang:"English",conf:"MEDIUM",cx:19,x:0.85,y:0.85},
-        {outlet:"The Guardian",cc:"GB",lang:"English",conf:"MEDIUM",cx:19,x:0.83,y:0.82},
-        {outlet:"The Hindu",cc:"IN",lang:"English",conf:"MEDIUM",cx:19,x:0.8,y:0.7},
-        {outlet:"The Hindu",cc:"IN",lang:"English",conf:"MEDIUM",cx:19,x:0.78,y:0.68},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"MEDIUM",cx:19,x:0.9,y:0.3},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"CONTESTED",cx:19,x:0.88,y:0.32},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"MEDIUM",cx:19,x:0.92,y:0.28},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"MEDIUM",cx:19,x:0.86,y:0.35},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"HIGH",cx:19,x:0.91,y:0.25},
-        {outlet:"Press TV",cc:"IR",lang:"English",conf:"MEDIUM",cx:19,x:0.89,y:0.3},
-        {outlet:"tv2.no",cc:"NO",lang:"Norwegian",conf:"CONTESTED",cx:19,x:0.76,y:0.75},
-        {outlet:"Al Jazeera",cc:"QA",lang:"English",conf:"MEDIUM",cx:19,x:0.84,y:0.55},
-        {outlet:"Al Jazeera",cc:"QA",lang:"English",conf:"CONTESTED",cx:19,x:0.82,y:0.58},
-        {outlet:"Daily Maverick",cc:"ZA",lang:"English",conf:"CONTESTED",cx:19,x:0.8,y:0.78},
-        {outlet:"Daily Maverick",cc:"ZA",lang:"English",conf:"CONTESTED",cx:19,x:0.78,y:0.76}
-    ];
-
-    const w = Math.min(1060, window.innerWidth - 60);
-    const h = Math.min(500, w * 0.5);
-    const margin = {top: 30, right: 30, bottom: 50, left: 60};
-
-    const svg = d3.select('#scatter').append('svg')
-        .attr('width', w).attr('height', h)
-        .attr('viewBox', `0 0 ${w} ${h}`);
-
-    const xScale = d3.scaleLinear().domain([0, 1]).range([margin.left, w - margin.right]);
-    const yScale = d3.scaleLinear().domain([0, 1]).range([h - margin.bottom, margin.top]);
-
-    const confColor = d => d.conf === 'HIGH' ? '#c8a84e' : d.conf === 'MEDIUM' ? '#4a7c59' : '#b84233';
-
-    // axes
-    svg.append('g').attr('transform', `translate(0,${h - margin.bottom})`)
-        .call(d3.axisBottom(xScale).ticks(5).tickFormat(d => d <= 0.2 ? 'Endorsement' : d >= 0.8 ? 'Opposition' : d === 0.5 ? 'Neutral' : ''))
-        .selectAll('text').attr('fill', '#807c74').attr('font-size', '10px');
-
-    svg.append('g').attr('transform', `translate(${margin.left},0)`)
-        .call(d3.axisLeft(yScale).ticks(5).tickFormat(d => d <= 0.2 ? 'State-aligned' : d >= 0.8 ? 'Independent' : d === 0.5 ? '' : ''))
-        .selectAll('text').attr('fill', '#807c74').attr('font-size', '10px');
-
-    // style axis lines
-    svg.selectAll('.domain, .tick line').attr('stroke', '#1e1e30');
-
-    // grid
-    svg.selectAll('.hgrid').data(yScale.ticks(5)).enter().append('line')
-        .attr('x1', margin.left).attr('x2', w - margin.right)
-        .attr('y1', d => yScale(d)).attr('y2', d => yScale(d))
-        .attr('stroke', '#1e1e30').attr('stroke-dasharray', '2,4');
-
-    // dots
-    const tooltip = d3.select('body').append('div')
-        .style('position', 'fixed').style('display', 'none')
-        .style('background', '#141425').style('border', '1px solid #2a2a40')
-        .style('padding', '0.5rem 0.8rem').style('font-family', 'IBM Plex Mono, monospace')
-        .style('font-size', '0.7rem').style('color', '#d4d0c8').style('z-index', '1000')
-        .style('pointer-events', 'none');
-
-    svg.selectAll('circle').data(data).enter().append('circle')
-        .attr('cx', d => xScale(d.x))
-        .attr('cy', d => yScale(d.y))
-        .attr('r', 5)
-        .attr('fill', confColor)
-        .attr('fill-opacity', 0.7)
-        .attr('stroke', confColor)
-        .attr('stroke-opacity', 0.3)
-        .attr('stroke-width', 2)
-        .style('cursor', 'pointer')
-        .on('mouseover', function(event, d) {
-            d3.select(this).attr('r', 8).attr('fill-opacity', 1);
-            tooltip.style('display', 'block')
-                .html(`<strong>${d.outlet}</strong> (${d.cc})<br>${d.lang} · ${d.conf}`);
-        })
-        .on('mousemove', function(event) {
-            tooltip.style('left', (event.clientX + 12) + 'px').style('top', (event.clientY - 10) + 'px');
-        })
-        .on('mouseout', function() {
-            d3.select(this).attr('r', 5).attr('fill-opacity', 0.7);
-            tooltip.style('display', 'none');
-        });
-
-    // legend
-    const legend = svg.append('g').attr('transform', `translate(${w - margin.right - 180}, ${margin.top + 5})`);
-    [['HIGH', '#c8a84e'], ['MEDIUM', '#4a7c59'], ['CONTESTED', '#b84233']].forEach(([label, color], i) => {
-        legend.append('circle').attr('cx', 0).attr('cy', i * 18).attr('r', 4).attr('fill', color);
-        legend.append('text').attr('x', 10).attr('y', i * 18 + 4)
-            .text(label).attr('fill', '#807c74').attr('font-size', '10px');
-    });
-})();
-
-
-// --- D3 world map ---
-(function() {
-    const covered = new Set(['IR','GB','BR','IN','HK','US','FR','ES','CA','CN','CZ','AU','QA','ZA','NG','NO','IL','IT','BG','HR','VA','PK','DE','UA','XK','SG','LT','EG','SY','CH','BE','TW','SK','RO','NZ','AL','JP','KR','PH','AR','IE','KE','BD','AZ']);
-
-    const w = Math.min(1060, window.innerWidth - 60);
-    const h = w * 0.5;
-
-    const svg = d3.select('#worldmap').append('svg')
-        .attr('width', w).attr('height', h)
-        .attr('viewBox', `0 0 ${w} ${h}`);
-
-    const projection = d3.geoNaturalEarth1().fitSize([w, h], {type: "Sphere"});
-    const path = d3.geoPath(projection);
-
-    // iso numeric to alpha-2 mapping (subset)
-    const numToAlpha = {
-        4:'AF',8:'AL',12:'DZ',32:'AR',36:'AU',40:'AT',31:'AZ',50:'BD',56:'BE',
-        68:'BO',70:'BA',76:'BR',100:'BG',116:'KH',120:'CM',124:'CA',152:'CL',
-        156:'CN',170:'CO',191:'HR',196:'CY',203:'CZ',208:'DK',818:'EG',233:'EE',
-        231:'ET',246:'FI',250:'FR',268:'GE',276:'DE',288:'GH',300:'GR',344:'HK',
-        348:'HU',356:'IN',360:'ID',364:'IR',368:'IQ',372:'IE',376:'IL',380:'IT',
-        392:'JP',400:'JO',398:'KZ',404:'KE',410:'KR',414:'KW',418:'LA',422:'LB',
-        440:'LT',442:'LU',458:'MY',484:'MX',504:'MA',508:'MZ',524:'NP',528:'NL',
-        554:'NZ',566:'NG',578:'NO',512:'OM',586:'PK',604:'PE',608:'PH',616:'PL',
-        620:'PT',634:'QA',642:'RO',643:'RU',682:'SA',688:'RS',702:'SG',703:'SK',
-        710:'ZA',724:'ES',144:'LK',752:'SE',756:'CH',760:'SY',158:'TW',764:'TH',
-        792:'TR',804:'UA',784:'AE',826:'GB',840:'US',858:'UY',860:'UZ',704:'VN',
-        887:'YE',894:'ZM',716:'ZW',336:'VA',383:'XK'
-    };
-
-    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
-        const countries = topojson.feature(world, world.objects.countries);
-
-        svg.selectAll('path').data(countries.features).enter().append('path')
-            .attr('d', path)
-            .attr('fill', d => {
-                const alpha = numToAlpha[+d.id];
-                return covered.has(alpha) ? '#c8a84e' : '#141425';
-            })
-            .attr('stroke', '#1e1e30')
-            .attr('stroke-width', 0.5)
-            .attr('fill-opacity', d => {
-                const alpha = numToAlpha[+d.id];
-                return covered.has(alpha) ? 0.7 : 0.4;
-            })
-            .on('mouseover', function(event, d) {
-                const alpha = numToAlpha[+d.id] || '??';
-                const isCovered = covered.has(alpha);
-                d3.select(this).attr('fill-opacity', 1).attr('stroke', '#c8a84e');
-                d3.select('#map-tooltip').style('display', 'block')
-                    .html(`${d.properties.name || alpha} ${isCovered ? '— covered' : '— absent'}`)
-                    .style('left', (event.clientX + 12) + 'px')
-                    .style('top', (event.clientY - 10) + 'px');
-            })
-            .on('mousemove', function(event) {
-                d3.select('#map-tooltip')
-                    .style('left', (event.clientX + 12) + 'px')
-                    .style('top', (event.clientY - 10) + 'px');
-            })
-            .on('mouseout', function(event, d) {
-                const alpha = numToAlpha[+d.id];
-                d3.select(this)
-                    .attr('fill-opacity', covered.has(alpha) ? 0.7 : 0.4)
-                    .attr('stroke', '#1e1e30');
-                d3.select('#map-tooltip').style('display', 'none');
-            });
-    });
-})();
-
-// map tooltip
-const mapTip = document.createElement('div');
-mapTip.id = 'map-tooltip';
-mapTip.style.cssText = 'position:fixed;display:none;background:#141425;border:1px solid #2a2a40;padding:0.4rem 0.7rem;font-family:IBM Plex Mono,monospace;font-size:0.7rem;color:#d4d0c8;z-index:1000;pointer-events:none;';
-document.body.appendChild(mapTip);
+// ── WINDOW RESIZE ──
+window.addEventListener('resize', () => {
+  // re-render map on resize
+  const svg = document.getElementById('world-map');
+  if (svg) { svg.innerHTML = ''; buildMap(); }
+});
 </script>
-
 </body>
 </html>
