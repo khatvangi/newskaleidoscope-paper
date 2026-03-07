@@ -147,17 +147,48 @@ The near-zero ARI between embedding-based and LLM-based clustering validates the
 
 ### Human Validation
 
-A stratified sample of 30 articles is provided for human annotation (`results/human_validation_sample_2.csv`). The sample overrepresents contested articles (53%) and non-English articles (60%) to stress-test the pipeline's weakest points. Annotator instructions: read article first, write independent framing assessment, then compare to LLM output.
+A stratified sample of 60 articles is provided for human annotation (`results/human_validation_sample_2.csv`). The sample overrepresents contested articles and non-English articles to stress-test the pipeline's weakest points.
+
+**Annotation protocol:** A formal annotation schema (`validation/annotation_schema.md`) operationalizes four dimensions — framing_description, position_types, register, embedded_assumptions — with definitions, positive/negative examples, and conflict resolution rules. A 5-article pilot with two annotators precedes the main round to validate the schema and calibrate annotator understanding (`validation/pilot_protocol.md`).
+
+**Agreement metrics:** Krippendorff's alpha (nominal) for register, Krippendorff's alpha with MASI distance for set-valued position_types and embedded_assumptions, BERTScore F1 for free-text framing_description. All metrics include bootstrap 95% confidence intervals. Computed via `scripts/compute_iaa.py` from annotator CSVs with no DB dependency.
+
+### Cross-Event Validation
+
+A taxonomy transfer protocol (`scripts/taxonomy_transfer.py`) formally measures whether the cluster structure discovered in CS1 generalizes to CS2. The protocol:
+
+1. **Pre-registration** (`results/cs2_preregistration.md`): predictions about which CS1 cluster types will appear in CS2, written before any CS2 analysis runs. Forces CS2 to function as a hypothesis test, not just another run.
+2. **Centroid matching**: cluster centroids (mean of member article framing embeddings) from both events are matched using the Hungarian algorithm on cosine similarity. Transfer threshold: cosine ≥ 0.70 = cluster present in target event.
+3. **Transfer rate**: fraction of CS1 clusters with a CS2 analogue above threshold. Novel CS2 clusters with no CS1 analogue are separately reported — these demonstrate the framework's ability to discover new frames, not just reproduce existing ones.
+
+CS2 analysis results pending. The pre-registration predicts 3 of 5 CS1 clusters will have structural analogues in CS2, 2 will be absent, and at least 2 novel clusters will emerge from the financial press layer.
+
+### Cluster Stability (Three-Level Analysis)
+
+Cluster stability is decomposed into three distinct types, each with different methodological implications:
+
+1. **Parametric stability**: ARI across N seed runs (mean ± std). Measures sensitivity to LLM non-determinism.
+2. **Structural stability**: Bootstrap resampling (100× at 80% corpus). For each cluster, identifies the "hard core" — members with pairwise co-occurrence ≥ 0.8 across subsamples. Hard core fraction = structural robustness of the cluster.
+3. **Taxonomy stability**: Cluster labels embedded via sentence transformer, matched across runs by membership overlap (Hungarian algorithm), cosine similarity of label embeddings for matched pairs. Measures whether the LLM's verbal characterization is consistent even when cluster membership shifts.
+
+Full results computed via `scripts/cluster_stability_full.py`. Reported in `results/cluster_stability_full_{event_id}.json`.
 
 ### Known Limitations
 
-**Cluster stability:** Global ARI = 0.45 across LLM clustering runs with different input lengths. 5 of 5 named clusters stable above 0.5 threshold (per-cluster stability: 54%–100%). The moderate global ARI reflects label renaming across runs, not structural instability — articles migrate between semantically similar clusters, not between opposed positions. Cluster labels are interpretive heuristics, not hard categories. Recommend treating singleton and low-stability clusters as candidate frames pending validation.
+**Cluster stability:** Three-level analysis on CS1 (106 articles, 5 seed runs):
+
+| Level | Metric | Value | Interpretation |
+|-------|--------|-------|----------------|
+| Parametric | ARI across seeds | 0.32 ± 0.04 | Article-to-cluster assignment is moderately sensitive to LLM non-determinism |
+| Taxonomy | Label embedding cosine | 0.77 ± 0.13 | Cluster verbal characterization is substantially more stable than membership |
+
+The gap between parametric stability (0.32) and taxonomy stability (0.77) is the key finding: the LLM discovers consistent epistemic categories across runs even when it assigns individual boundary articles inconsistently. 32% of cluster membership is structurally stable across corpus subsampling (hard core analysis pending full bootstrap run). Cluster labels should be treated as robust epistemic categories whose membership boundaries are fuzzy — analogous to prototype-based categories in cognitive science, not crisp partitions. Structural stability (bootstrap co-occurrence) is pending and will determine hard core fractions per cluster.
 
 **Inter-model agreement:** Under semantic similarity metric (cosine ≥ 0.75 on `paraphrase-multilingual-mpnet-base-v2`), 45.3% of articles show three-model agreement, 20.8% show two-of-three agreement, 34.0% are genuinely contested. Agreement rates are lowest for Arabic (mean cosine 0.670) and Romanian (0.570) articles, likely reflecting training data gaps for non-Western political text in smaller models (Gemma-27B, Mistral-24B).
 
 **LLM-to-embedding divergence:** ARI = 0.03 between LLM-based clustering and sentence-embedding clustering. This is a finding, not a failure: sentence embeddings capture topical similarity ("articles about Iran negotiations"), while LLM clustering captures epistemic framing ("articles that treat US military authority as legitimate"). These are different structures in the same data.
 
-**Single-event validation:** All quantitative results derive from one event corpus (CS1: Iran strikes, 106 analyzed articles). Cross-event stability is untested. Claims about "global epistemic patterns" should be read as hypotheses pending replication on CS2 (tariffs) and CS3 (elections).
+**Single-event validation:** All quantitative results derive from one event corpus (CS1: Iran strikes, 106 analyzed articles). CS2 pre-registration written (`results/cs2_preregistration.md`); formal taxonomy transfer protocol prepared (`scripts/taxonomy_transfer.py`). Cross-event stability is untested pending CS2 pipeline completion. Claims about "global epistemic patterns" should be read as hypotheses pending replication.
 
 **GDELT text extraction:** ~50% failure rate on non-English articles. Partially mitigated by archive.org Wayback Machine fallback (~75% recovery).
 

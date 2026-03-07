@@ -1,0 +1,437 @@
+{
+  "event_id": 2,
+  "event_title": "US-Israeli Military Strikes on Iran",
+  "n_articles": 106,
+  "model": "qwen3-32b-q4km.gguf",
+  "timestamp": "2026-03-07 14:16:54",
+  "parametric": {
+    "n_runs": 3,
+    "n_pairwise_comparisons": 3,
+    "ari_mean": 0.3204,
+    "ari_std": 0.04,
+    "ari_min": 0.2778,
+    "ari_max": 0.3739,
+    "all_aris": [
+      0.2778,
+      0.3095,
+      0.3739
+    ]
+  },
+  "structural": "skipped (use --bootstrap N)",
+  "taxonomy": {
+    "n_runs": 5,
+    "n_matched_pairs": 51,
+    "mean_taxonomy_cosine": 0.7732,
+    "std_taxonomy_cosine": 0.1325,
+    "matched_pairs": [
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "US-Israel as Necessary Counter to Iran's Nuclear Ambitions",
+        "label_b": "Legitimizing US-Israeli Preemptive Strikes as Existential Defense",
+        "membership_jaccard": 0.516,
+        "label_cosine": 0.8852
+      },
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "Diplomacy as the Last Chance to Avoid War",
+        "label_b": "Critiquing US Militarism, Advocating Diplomacy and Iran's Sovereignty",
+        "membership_jaccard": 0.4,
+        "label_cosine": 0.6804
+      },
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "Critique of US Militarism and Advocacy for Diplomacy",
+        "label_b": "Humanitarian and Ethical Critiques of Escalation",
+        "membership_jaccard": 0.267,
+        "label_cosine": 0.7211
+      },
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "China's Position on US Overreach and Regional Influence",
+        "label_b": "Regional Power Shifts and Critique of US Hegemony",
+        "membership_jaccard": 0.429,
+        "label_cosine": 0.8913
+      },
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "Iran's Framing of US-Israel Actions as Illegal Aggression",
+        "label_b": "Iranian Perspective: Self-Defense Against Imperialism",
+        "membership_jaccard": 0.538,
+        "label_cosine": 0.876
+      },
+      {
+        "run_a": 0,
+        "run_b": 1,
+        "label_a": "Economic and Strategic Impact Focus",
+        "label_b": "Economic and Strategic Calculus in Conflict",
+        "membership_jaccard": 0.231,
+        "label_cosine": 0.8321
+      },
+      {
+        "run_a": 0,
+        "run_b": 2,
+        "label_a": "US-Israel as Necessary Counter to Iran's Nuclear Ambitions",
+        "label_b": "Justification of US-Israeli Military Action as Existential Defense",
+        "membership_jaccard": 0.367,
+        "label_cosine": 0.8728
+      },
+      {
+        "run_a": 0,
+        "run_b": 2,
+        "label_a": "Diplomacy as the Last Chance to Avoid War",
+        "label_b": "Diplomatic Efforts as the Last Chance to Avert Conflict",
+        "membership_jaccard": 0.818,
+        "label_cosine": 0.9371
+      },
+      {
+        "run_a": 0,
+        "run_b": 2,
+        "label_a": "Critique of US Militarism and Advocacy for Diplomacy",
+        "label_b": "Critique of US-Israeli Escalation as Destabilizing and Unjust",
+        "membership_jaccard": 0.211,
+        "label_cosine": 0.8912
+      },
+      {
+        "run_a": 0,
+        "run_b": 2,
+        "label_a": "China's Position on US Overreach and Regional Influence",
+        "label_b": "Positioning US Actions as Destabilizing and Highlighting Regional Alternatives",
+        "membership_jaccard": 0.5,
+        "label_cosine": 0.8693
+      },
+      {
+        "run_a": 0,
+        "run_b": 2,
+        "label_a": "Regional Stability and Gulf Concerns",
+        "label_b": "Strategic Calculus and Political Justification for Military Action",
+        "membership_jaccard": 0.062,
+        "label_cosine": 0.4341
+      },
+      {
+        "run_a": 0,
+        "run_b": 3,
+        "label_a": "US-Israel as Necessary Counter to Iran's Nuclear Ambitions",
+        "label_b": "Strategic Calculus of Preemptive Military Action",
+        "membership_jaccard": 0.276,
+        "label_cosine": 0.804
+      },
+      {
+        "run_a": 0,
+        "run_b": 3,
+        "label_a": "Diplomacy as the Last Chance to Avoid War",
+        "label_b": "Diplomatic Restraint and Critique of US Militarism",
+        "membership_jaccard": 0.438,
+        "label_cosine": 0.8179
+      },
+      {
+        "run_a": 0,
+        "run_b": 3,
+        "label_a": "Critique of US Militarism and Advocacy for Diplomacy",
+        "label_b": "Regional Non-Alignment and Neutral Peace Advocacy",
+        "membership_jaccard": 0.214,
+        "label_cosine": 0.6429
+      },
+      {
+        "run_a": 0,
+        "run_b": 3,
+        "label_a": "China's Position on US Overreach and Regional Influence",
+        "label_b": "China's Strategic Opportunity and Critique of US Hegemony",
+        "membership_jaccard": 0.5,
+        "label_cosine": 0.9007
+      },
+      {
+        "run_a": 0,
+        "run_b": 3,
+        "label_a": "Iran's Framing of US-Israel Actions as Illegal Aggression",
+        "label_b": "Iranian Sovereignty and Resistance to Imperialism",
+        "membership_jaccard": 0.538,
+        "label_cosine": 0.8845
+      },
+      {
+        "run_a": 0,
+        "run_b": 4,
+        "label_a": "US-Israel as Necessary Counter to Iran's Nuclear Ambitions",
+        "label_b": "Strategic Calculus and Risk Management in US-Israeli Military Posturing",
+        "membership_jaccard": 0.467,
+        "label_cosine": 0.8007
+      },
+      {
+        "run_a": 0,
+        "run_b": 4,
+        "label_a": "Diplomacy as the Last Chance to Avoid War",
+        "label_b": "Diplomatic Optimism and Critique of US Military Escalation",
+        "membership_jaccard": 0.467,
+        "label_cosine": 0.7601
+      },
+      {
+        "run_a": 0,
+        "run_b": 4,
+        "label_a": "Iran's Framing of US-Israel Actions as Illegal Aggression",
+        "label_b": "Condemnation of US-Israeli Aggression as Imperialist or Unjust",
+        "membership_jaccard": 0.276,
+        "label_cosine": 0.854
+      },
+      {
+        "run_a": 0,
+        "run_b": 4,
+        "label_a": "Economic and Strategic Impact Focus",
+        "label_b": "Economic and Regional Stability Concerns Amid Conflict",
+        "membership_jaccard": 0.227,
+        "label_cosine": 0.7302
+      },
+      {
+        "run_a": 0,
+        "run_b": 4,
+        "label_a": "Regional Stability and Gulf Concerns",
+        "label_b": "Legitimization of US-Israeli Military Action as Counter to Iranian Nuclear Threat",
+        "membership_jaccard": 0.133,
+        "label_cosine": 0.3457
+      },
+      {
+        "run_a": 1,
+        "run_b": 2,
+        "label_a": "Legitimizing US-Israeli Preemptive Strikes as Existential Defense",
+        "label_b": "Justification of US-Israeli Military Action as Existential Defense",
+        "membership_jaccard": 0.583,
+        "label_cosine": 0.9168
+      },
+      {
+        "run_a": 1,
+        "run_b": 2,
+        "label_a": "Critiquing US Militarism, Advocating Diplomacy and Iran's Sovereignty",
+        "label_b": "Diplomatic Efforts as the Last Chance to Avert Conflict",
+        "membership_jaccard": 0.5,
+        "label_cosine": 0.6382
+      },
+      {
+        "run_a": 1,
+        "run_b": 2,
+        "label_a": "Regional Power Shifts and Critique of US Hegemony",
+        "label_b": "Positioning US Actions as Destabilizing and Highlighting Regional Alternatives",
+        "membership_jaccard": 0.833,
+        "label_cosine": 0.8505
+      },
+      {
+        "run_a": 1,
+        "run_b": 2,
+        "label_a": "Economic and Strategic Calculus in Conflict",
+        "label_b": "Strategic Calculus and Political Justification for Military Action",
+        "membership_jaccard": 0.067,
+        "label_cosine": 0.6794
+      },
+      {
+        "run_a": 1,
+        "run_b": 2,
+        "label_a": "Humanitarian and Ethical Critiques of Escalation",
+        "label_b": "Critique of US-Israeli Escalation as Destabilizing and Unjust",
+        "membership_jaccard": 0.263,
+        "label_cosine": 0.7929
+      },
+      {
+        "run_a": 1,
+        "run_b": 3,
+        "label_a": "Legitimizing US-Israeli Preemptive Strikes as Existential Defense",
+        "label_b": "Strategic Calculus of Preemptive Military Action",
+        "membership_jaccard": 0.214,
+        "label_cosine": 0.8397
+      },
+      {
+        "run_a": 1,
+        "run_b": 3,
+        "label_a": "Critiquing US Militarism, Advocating Diplomacy and Iran's Sovereignty",
+        "label_b": "Diplomatic Restraint and Critique of US Militarism",
+        "membership_jaccard": 0.5,
+        "label_cosine": 0.8418
+      },
+      {
+        "run_a": 1,
+        "run_b": 3,
+        "label_a": "Iranian Perspective: Self-Defense Against Imperialism",
+        "label_b": "Iranian Sovereignty and Resistance to Imperialism",
+        "membership_jaccard": 1.0,
+        "label_cosine": 0.9211
+      },
+      {
+        "run_a": 1,
+        "run_b": 3,
+        "label_a": "Regional Power Shifts and Critique of US Hegemony",
+        "label_b": "China's Strategic Opportunity and Critique of US Hegemony",
+        "membership_jaccard": 0.333,
+        "label_cosine": 0.8627
+      },
+      {
+        "run_a": 1,
+        "run_b": 3,
+        "label_a": "Economic and Strategic Calculus in Conflict",
+        "label_b": "Regional Non-Alignment and Neutral Peace Advocacy",
+        "membership_jaccard": 0.077,
+        "label_cosine": 0.5607
+      },
+      {
+        "run_a": 1,
+        "run_b": 4,
+        "label_a": "Legitimizing US-Israeli Preemptive Strikes as Existential Defense",
+        "label_b": "Legitimization of US-Israeli Military Action as Counter to Iranian Nuclear Threat",
+        "membership_jaccard": 0.485,
+        "label_cosine": 0.8407
+      },
+      {
+        "run_a": 1,
+        "run_b": 4,
+        "label_a": "Critiquing US Militarism, Advocating Diplomacy and Iran's Sovereignty",
+        "label_b": "Diplomatic Optimism and Critique of US Military Escalation",
+        "membership_jaccard": 0.353,
+        "label_cosine": 0.8119
+      },
+      {
+        "run_a": 1,
+        "run_b": 4,
+        "label_a": "Regional Power Shifts and Critique of US Hegemony",
+        "label_b": "Economic and Regional Stability Concerns Amid Conflict",
+        "membership_jaccard": 0.278,
+        "label_cosine": 0.6574
+      },
+      {
+        "run_a": 1,
+        "run_b": 4,
+        "label_a": "Economic and Strategic Calculus in Conflict",
+        "label_b": "Strategic Calculus and Risk Management in US-Israeli Military Posturing",
+        "membership_jaccard": 0.042,
+        "label_cosine": 0.6792
+      },
+      {
+        "run_a": 1,
+        "run_b": 4,
+        "label_a": "Humanitarian and Ethical Critiques of Escalation",
+        "label_b": "Condemnation of US-Israeli Aggression as Imperialist or Unjust",
+        "membership_jaccard": 0.385,
+        "label_cosine": 0.6167
+      },
+      {
+        "run_a": 2,
+        "run_b": 3,
+        "label_a": "Strategic Calculus and Political Justification for Military Action",
+        "label_b": "Strategic Calculus of Preemptive Military Action",
+        "membership_jaccard": 0.571,
+        "label_cosine": 0.879
+      },
+      {
+        "run_a": 2,
+        "run_b": 3,
+        "label_a": "Diplomatic Efforts as the Last Chance to Avert Conflict",
+        "label_b": "Diplomatic Restraint and Critique of US Militarism",
+        "membership_jaccard": 0.353,
+        "label_cosine": 0.7874
+      },
+      {
+        "run_a": 2,
+        "run_b": 3,
+        "label_a": "Critique of US-Israeli Escalation as Destabilizing and Unjust",
+        "label_b": "Regional Non-Alignment and Neutral Peace Advocacy",
+        "membership_jaccard": 0.1,
+        "label_cosine": 0.599
+      },
+      {
+        "run_a": 2,
+        "run_b": 3,
+        "label_a": "Positioning US Actions as Destabilizing and Highlighting Regional Alternatives",
+        "label_b": "China's Strategic Opportunity and Critique of US Hegemony",
+        "membership_jaccard": 0.4,
+        "label_cosine": 0.8572
+      },
+      {
+        "run_a": 2,
+        "run_b": 3,
+        "label_a": "Justification of US-Israeli Military Action as Existential Defense",
+        "label_b": "Iranian Sovereignty and Resistance to Imperialism",
+        "membership_jaccard": 0.0,
+        "label_cosine": 0.7845
+      },
+      {
+        "run_a": 2,
+        "run_b": 4,
+        "label_a": "Strategic Calculus and Political Justification for Military Action",
+        "label_b": "Strategic Calculus and Risk Management in US-Israeli Military Posturing",
+        "membership_jaccard": 0.45,
+        "label_cosine": 0.8954
+      },
+      {
+        "run_a": 2,
+        "run_b": 4,
+        "label_a": "Diplomatic Efforts as the Last Chance to Avert Conflict",
+        "label_b": "Diplomatic Optimism and Critique of US Military Escalation",
+        "membership_jaccard": 0.571,
+        "label_cosine": 0.732
+      },
+      {
+        "run_a": 2,
+        "run_b": 4,
+        "label_a": "Critique of US-Israeli Escalation as Destabilizing and Unjust",
+        "label_b": "Condemnation of US-Israeli Aggression as Imperialist or Unjust",
+        "membership_jaccard": 0.333,
+        "label_cosine": 0.8287
+      },
+      {
+        "run_a": 2,
+        "run_b": 4,
+        "label_a": "Positioning US Actions as Destabilizing and Highlighting Regional Alternatives",
+        "label_b": "Economic and Regional Stability Concerns Amid Conflict",
+        "membership_jaccard": 0.222,
+        "label_cosine": 0.7067
+      },
+      {
+        "run_a": 2,
+        "run_b": 4,
+        "label_a": "Justification of US-Israeli Military Action as Existential Defense",
+        "label_b": "Legitimization of US-Israeli Military Action as Counter to Iranian Nuclear Threat",
+        "membership_jaccard": 0.536,
+        "label_cosine": 0.8337
+      },
+      {
+        "run_a": 3,
+        "run_b": 4,
+        "label_a": "Strategic Calculus of Preemptive Military Action",
+        "label_b": "Strategic Calculus and Risk Management in US-Israeli Military Posturing",
+        "membership_jaccard": 0.55,
+        "label_cosine": 0.8796
+      },
+      {
+        "run_a": 3,
+        "run_b": 4,
+        "label_a": "Diplomatic Restraint and Critique of US Militarism",
+        "label_b": "Diplomatic Optimism and Critique of US Military Escalation",
+        "membership_jaccard": 0.316,
+        "label_cosine": 0.8596
+      },
+      {
+        "run_a": 3,
+        "run_b": 4,
+        "label_a": "Iranian Sovereignty and Resistance to Imperialism",
+        "label_b": "Condemnation of US-Israeli Aggression as Imperialist or Unjust",
+        "membership_jaccard": 0.25,
+        "label_cosine": 0.8095
+      },
+      {
+        "run_a": 3,
+        "run_b": 4,
+        "label_a": "China's Strategic Opportunity and Critique of US Hegemony",
+        "label_b": "Economic and Regional Stability Concerns Amid Conflict",
+        "membership_jaccard": 0.056,
+        "label_cosine": 0.5989
+      },
+      {
+        "run_a": 3,
+        "run_b": 4,
+        "label_a": "Regional Non-Alignment and Neutral Peace Advocacy",
+        "label_b": "Legitimization of US-Israeli Military Action as Counter to Iranian Nuclear Threat",
+        "membership_jaccard": 0.094,
+        "label_cosine": 0.4425
+      }
+    ]
+  }
+}

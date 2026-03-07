@@ -4,7 +4,7 @@
 
 ## overview
 
-you have been given 30 articles sampled from a corpus of 142 articles about US-Israel military action against Iran. the articles were analyzed by an LLM council (3 models: Qwen-32B, Gemma-27B, Mistral-24B) for their epistemic framing.
+you have been given 60 articles sampled from a corpus of 175 articles about US-Israel military action against Iran. the articles were analyzed by an LLM council (3 models: Qwen-32B, Gemma-27B, Mistral-24B) for their epistemic framing.
 
 your task: independently assess each article's framing and compare to the LLM's assessment.
 
