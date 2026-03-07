@@ -8,9 +8,13 @@ logs/
 analysis/*
 !analysis/.gitkeep
 
-# tier 3 audio/transcripts (large, re-fetchable)
-sources/tier3/audio/
-sources/tier3/transcripts/
+# tier 3 audio/transcripts/dark web (large, re-fetchable)
+sources/tier3/
+sources/dark/
+
+# large data backups (re-generatable from source APIs)
+articles_cs1_backup.json
+articles_cs2_backup.json
 
 # python
 __pycache__/

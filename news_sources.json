@@ -1,0 +1,153 @@
+{
+  "_meta": {
+    "description": "Master source registry for NewsKaleidoscope. Documents every ingestion channel across all case studies.",
+    "updated": "2026-03-06",
+    "format": "Each source has: name, type, tier, country, language, region, access method, and which case studies use it."
+  },
+
+  "ingestion_tiers": {
+    "tier1": "Flagship press — curated RSS, direct feed. Highest editorial standards.",
+    "tier2": "Institutional — think tanks, religious institutions, parliamentary records, UN.",
+    "tier3_oral": "Audio/video — YouTube, podcasts, radio. Whisper transcription on boron GPU.",
+    "tier3_vernacular": "Online discourse — Reddit, Telegram. Labeled explicitly as non-representative.",
+    "gdelt": "Gap-fill only — GDELT DOC API for geographic diversity. Not primary source."
+  },
+
+  "case_studies": {
+    "cs1_iran": {
+      "event_id": 2,
+      "title": "US-Israeli Military Strikes on Iran",
+      "date": "2026-03-01",
+      "type": "military",
+      "corpus_size": 106,
+      "countries": 46,
+      "languages": 18
+    },
+    "cs2_tariffs": {
+      "event_id": 3,
+      "title": "US Reciprocal Tariffs - Liberation Day",
+      "date": "2025-04-02",
+      "type": "economic",
+      "windows": {
+        "w1_announcement": "2025-04-02 to 2025-04-08",
+        "w2_pause": "2025-04-09 to 2025-04-16",
+        "w3_reimposition": "2025-05-01 to 2025-07-31",
+        "w4_retaliation": "2025-08-01 to 2025-10-31",
+        "w5_retrospective": "2026-02-24 to 2026-03-06"
+      },
+      "corpus_size": 441,
+      "countries": 84,
+      "languages": 29
+    }
+  },
+
+  "sources": [
+
+    {"name": "GDELT DOC API", "type": "api", "tier": "gdelt", "url": "https://api.gdeltproject.org/api/v2/doc/doc", "access": "free, rate limited (1 req/5s)", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "Gap-fill for geographic diversity. Returns up to 250 articles per query. Historical queries via startdatetime/enddatetime. Falls back to boron IP when nitrogen is rate-limited."},
+
+    {"name": "Al Jazeera", "type": "rss", "tier": 1, "domain": "aljazeera.com", "rss": "https://www.aljazeera.com/xml/rss/all.xml", "country": "Qatar", "language": "English", "region": "Middle East", "bias_notes": "Qatar state-funded; critical of Saudi/UAE", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "BBC News", "type": "rss", "tier": 1, "domain": "bbc.com", "rss": "https://feeds.bbci.co.uk/news/rss.xml", "country": "United Kingdom", "language": "English", "region": "Europe", "bias_notes": "Public broadcaster, editorially independent", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "DW News", "type": "rss", "tier": 1, "domain": "dw.com", "rss": "https://rss.dw.com/rdf/rss-en-all", "country": "Germany", "language": "English", "region": "Europe", "bias_notes": "German public broadcaster", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "Reuters", "type": "rss", "tier": 1, "domain": "reuters.com", "rss": "https://www.reutersagency.com/feed/?best-topics=business-finance", "country": "United States", "language": "English", "region": "North America", "bias_notes": "Wire service, minimal editorial framing", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "The Guardian", "type": "rss", "tier": 1, "domain": "theguardian.com", "rss": "https://www.theguardian.com/world/rss", "country": "United Kingdom", "language": "English", "region": "Europe", "bias_notes": "Centre-left editorial line", "case_studies": ["cs1_iran"]},
+    {"name": "South China Morning Post", "type": "rss", "tier": 1, "domain": "scmp.com", "rss": "https://www.scmp.com/rss/91/feed", "country": "Hong Kong", "language": "English", "region": "East Asia", "bias_notes": "HK-based, Alibaba-owned since 2016", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "Press TV", "type": "rss", "tier": 1, "domain": "presstv.ir", "country": "Iran", "language": "English", "region": "Middle East", "bias_notes": "Iranian state media — English-language arm of IRIB", "case_studies": ["cs1_iran"]},
+    {"name": "Dawn", "type": "rss", "tier": 1, "domain": "dawn.com", "country": "Pakistan", "language": "English", "region": "South Asia", "bias_notes": "Pakistan's oldest English-language newspaper, liberal editorial line", "case_studies": ["cs1_iran"]},
+
+    {"name": "Financial Times", "type": "rss", "tier": 1, "domain": "ft.com", "rss": "https://www.ft.com/rss/home", "country": "United Kingdom", "language": "English", "region": "Europe", "bias_notes": "Global financial press of record. Paywalled.", "case_studies": ["cs2_tariffs"]},
+    {"name": "Nikkei Asia", "type": "rss", "tier": 1, "domain": "asia.nikkei.com", "rss": "https://asia.nikkei.com/rss", "country": "Japan", "language": "English", "region": "East Asia", "bias_notes": "Japanese business press, Asian supply chain focus", "case_studies": ["cs2_tariffs"]},
+    {"name": "Caixin Global", "type": "rss", "tier": 1, "domain": "caixinglobal.com", "rss": "https://www.caixinglobal.com/rss.html", "country": "China", "language": "English", "region": "East Asia", "bias_notes": "Chinese financial press, relatively independent by PRC standards", "case_studies": ["cs2_tariffs"]},
+    {"name": "Economic Times India", "type": "rss", "tier": 1, "domain": "economictimes.indiatimes.com", "rss": "https://economictimes.indiatimes.com/rssfeedstopstories.cms", "country": "India", "language": "English", "region": "South Asia", "bias_notes": "Largest Indian business newspaper", "case_studies": ["cs2_tariffs"]},
+    {"name": "Business Day South Africa", "type": "rss", "tier": 1, "domain": "businesslive.co.za", "rss": "https://www.businesslive.co.za/rss/", "country": "South Africa", "language": "English", "region": "Africa", "bias_notes": "SA's leading business daily", "case_studies": ["cs2_tariffs"]},
+    {"name": "Korea Herald", "type": "rss", "tier": 1, "domain": "koreaherald.com", "rss": "http://www.koreaherald.com/common/rss_xml.php?ct=102", "country": "South Korea", "language": "English", "region": "East Asia", "bias_notes": "Korean English-language daily", "case_studies": ["cs2_tariffs"]},
+    {"name": "Folha de S.Paulo", "type": "rss", "tier": 1, "domain": "folha.uol.com.br", "rss": "https://feeds.folha.uol.com.br/mundo/rss091.xml", "country": "Brazil", "language": "Portuguese", "region": "Latin America", "bias_notes": "Brazil's largest circulation newspaper", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "Le Monde", "type": "rss", "tier": 1, "domain": "lemonde.fr", "rss": "https://www.lemonde.fr/international/rss_full.xml", "country": "France", "language": "French", "region": "Europe", "bias_notes": "French newspaper of record, centre-left", "case_studies": ["cs2_tariffs"]},
+
+    {"name": "UN Security Council", "type": "institutional", "tier": 2, "domain": "un.org", "country": "International", "language": "English", "region": "Global", "access": "Free XML transcripts", "case_studies": ["cs1_iran"], "notes": "Emergency session transcripts, per-country voting positions"},
+    {"name": "Vatican News", "type": "institutional", "tier": 2, "domain": "vaticannews.va", "country": "Vatican", "language": "English", "region": "Europe", "case_studies": ["cs1_iran"]},
+
+    {"name": "Al Jazeera English (YouTube)", "type": "youtube", "tier": 3, "channel": "@AlJazeeraEnglish", "country": "Qatar", "language": "English", "region": "Middle East", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "9 videos transcribed for CS1"},
+    {"name": "BBC News (YouTube)", "type": "youtube", "tier": 3, "channel": "@BBCNews", "country": "United Kingdom", "language": "English", "region": "Europe", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "DW News (YouTube)", "type": "youtube", "tier": 3, "channel": "@DWNews", "country": "Germany", "language": "English", "region": "Europe", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "WION (YouTube)", "type": "youtube", "tier": 3, "channel": "@WIONews", "country": "India", "language": "English", "region": "South Asia", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "CGTN (YouTube)", "type": "youtube", "tier": 3, "channel": "@CGTNOfficial", "country": "China", "language": "English", "region": "East Asia", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs2_tariffs"]},
+    {"name": "TRT World (YouTube)", "type": "youtube", "tier": 3, "channel": "@taborabdulhak", "country": "Turkey", "language": "English", "region": "Middle East", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "CNA (YouTube)", "type": "youtube", "tier": 3, "channel": "@channelnewsasia", "country": "Singapore", "language": "English", "region": "Southeast Asia", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs2_tariffs"], "notes": "Singapore/ASEAN perspective on trade"},
+    {"name": "France 24 English (YouTube)", "type": "youtube", "tier": 3, "channel": "@FRANCE24English", "country": "France", "language": "English", "region": "Europe", "access": "yt-dlp + faster-whisper on boron", "case_studies": ["cs2_tariffs"]},
+
+    {"name": "BBC World Service - Newshour (Podcast)", "type": "podcast", "tier": 3, "rss": "https://podcasts.files.bbci.co.uk/p002vsmz.rss", "country": "United Kingdom", "language": "English", "region": "Europe", "access": "RSS + ffmpeg + faster-whisper on boron", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "Al Jazeera - The Take (Podcast)", "type": "podcast", "tier": 3, "rss": "https://feeds.buzzsprout.com/1107960.rss", "country": "Qatar", "language": "English", "region": "Middle East", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "CFR - The World Next Week (Podcast)", "type": "podcast", "tier": 3, "rss": "https://feeds.cfr.org/cfr_podcasts", "country": "United States", "language": "English", "region": "North America", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "2 episodes transcribed for CS1"},
+    {"name": "Trade Talks (Podcast)", "type": "podcast", "tier": 3, "rss": "https://feeds.megaphone.fm/tradetalks", "country": "United States", "language": "English", "region": "North America", "case_studies": ["cs2_tariffs"], "notes": "Peterson Institute trade policy podcast"},
+    {"name": "FT News Briefing (Podcast)", "type": "podcast", "tier": 3, "rss": "https://www.ft.com/news-briefing?format=rss", "country": "United Kingdom", "language": "English", "region": "Europe", "case_studies": ["cs2_tariffs"]},
+    {"name": "The Economist Podcasts (Podcast)", "type": "podcast", "tier": 3, "rss": "https://www.economist.com/podcasts/rss", "country": "United Kingdom", "language": "English", "region": "Europe", "case_studies": ["cs2_tariffs"]},
+
+    {"name": "r/worldnews", "type": "reddit", "tier": 3, "subreddit": "worldnews", "country": "International", "language": "English", "region": "Global", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "English-dominant global news discussion"},
+    {"name": "r/geopolitics", "type": "reddit", "tier": 3, "subreddit": "geopolitics", "country": "International", "language": "English", "region": "Global", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "Higher analytical quality than r/worldnews"},
+    {"name": "r/economics", "type": "reddit", "tier": 3, "subreddit": "economics", "country": "International", "language": "English", "region": "Global", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/iran", "type": "reddit", "tier": 3, "subreddit": "iran", "country": "Iran", "language": "English", "region": "Middle East", "case_studies": ["cs1_iran"], "notes": "Diaspora-heavy, not representative of domestic opinion"},
+    {"name": "r/Israel", "type": "reddit", "tier": 3, "subreddit": "Israel", "country": "Israel", "language": "English", "region": "Middle East", "case_studies": ["cs1_iran"]},
+    {"name": "r/india", "type": "reddit", "tier": 3, "subreddit": "india", "country": "India", "language": "English", "region": "South Asia", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/pakistan", "type": "reddit", "tier": 3, "subreddit": "pakistan", "country": "Pakistan", "language": "English", "region": "South Asia", "case_studies": ["cs1_iran"]},
+    {"name": "r/VietNam", "type": "reddit", "tier": 3, "subreddit": "VietNam", "country": "Vietnam", "language": "English", "region": "Southeast Asia", "case_studies": ["cs2_tariffs"], "notes": "Vietnam hit with 46% tariff — highest impact country"},
+    {"name": "r/Philippines", "type": "reddit", "tier": 3, "subreddit": "Philippines", "country": "Philippines", "language": "English", "region": "Southeast Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/indonesia", "type": "reddit", "tier": 3, "subreddit": "indonesia", "country": "Indonesia", "language": "English", "region": "Southeast Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/malaysia", "type": "reddit", "tier": 3, "subreddit": "malaysia", "country": "Malaysia", "language": "English", "region": "Southeast Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/Thailand", "type": "reddit", "tier": 3, "subreddit": "Thailand", "country": "Thailand", "language": "English", "region": "Southeast Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/bangladesh", "type": "reddit", "tier": 3, "subreddit": "bangladesh", "country": "Bangladesh", "language": "English", "region": "South Asia", "case_studies": ["cs2_tariffs"], "notes": "Bangladesh garment sector directly impacted"},
+    {"name": "r/canada", "type": "reddit", "tier": 3, "subreddit": "canada", "country": "Canada", "language": "English", "region": "North America", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/europe", "type": "reddit", "tier": 3, "subreddit": "europe", "country": "Europe", "language": "English", "region": "Europe", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/de", "type": "reddit", "tier": 3, "subreddit": "de", "country": "Germany", "language": "German", "region": "Europe", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/france", "type": "reddit", "tier": 3, "subreddit": "france", "country": "France", "language": "French", "region": "Europe", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/unitedkingdom", "type": "reddit", "tier": 3, "subreddit": "unitedkingdom", "country": "United Kingdom", "language": "English", "region": "Europe", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/korea", "type": "reddit", "tier": 3, "subreddit": "korea", "country": "South Korea", "language": "English", "region": "East Asia", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/China_irl", "type": "reddit", "tier": 3, "subreddit": "China_irl", "country": "China", "language": "Chinese", "region": "East Asia", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "Chinese-language Reddit community, diaspora + VPN users"},
+    {"name": "r/japan", "type": "reddit", "tier": 3, "subreddit": "japan", "country": "Japan", "language": "English", "region": "East Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/taiwan", "type": "reddit", "tier": 3, "subreddit": "taiwan", "country": "Taiwan", "language": "English", "region": "East Asia", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/brasil", "type": "reddit", "tier": 3, "subreddit": "brasil", "country": "Brazil", "language": "Portuguese", "region": "Latin America", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/mexico", "type": "reddit", "tier": 3, "subreddit": "mexico", "country": "Mexico", "language": "Spanish", "region": "Latin America", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/argentina", "type": "reddit", "tier": 3, "subreddit": "argentina", "country": "Argentina", "language": "Spanish", "region": "Latin America", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/Nigeria", "type": "reddit", "tier": 3, "subreddit": "Nigeria", "country": "Nigeria", "language": "English", "region": "Africa", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/southafrica", "type": "reddit", "tier": 3, "subreddit": "southafrica", "country": "South Africa", "language": "English", "region": "Africa", "case_studies": ["cs1_iran", "cs2_tariffs"]},
+    {"name": "r/Kenya", "type": "reddit", "tier": 3, "subreddit": "Kenya", "country": "Kenya", "language": "English", "region": "Africa", "case_studies": ["cs2_tariffs"]},
+    {"name": "r/Turkey", "type": "reddit", "tier": 3, "subreddit": "Turkey", "country": "Turkey", "language": "English", "region": "Middle East", "case_studies": ["cs1_iran"]},
+    {"name": "r/arabs", "type": "reddit", "tier": 3, "subreddit": "arabs", "country": "Arab World", "language": "English", "region": "Middle East", "case_studies": ["cs1_iran"]},
+    {"name": "r/politics", "type": "reddit", "tier": 3, "subreddit": "politics", "country": "United States", "language": "English", "region": "North America", "case_studies": ["cs2_tariffs"], "notes": "US domestic liberal-leaning discourse"},
+    {"name": "r/Conservative", "type": "reddit", "tier": 3, "subreddit": "Conservative", "country": "United States", "language": "English", "region": "North America", "case_studies": ["cs2_tariffs"], "notes": "US domestic conservative discourse — compare with r/politics for internal US mirror gap"},
+
+    {"name": "World News API", "type": "api", "tier": 1, "url": "https://api.worldnewsapi.com/search-news", "access": "free tier with daily quota", "languages": "80+", "countries": "210+", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "Returns FULL article text. 15 languages confirmed working. Key advantage: Arabic, Persian, Hindi, Chinese text directly available. Supports historical date ranges. ~50 articles per call."},
+    {"name": "NewsData.io", "type": "api", "tier": 1, "url": "https://newsdata.io/api/1/news", "access": "free tier 200 credits/day, 10 articles/credit", "languages": "89+", "countries": "165+", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "Free tier: /news = 48h lookback only, /archive = paid. Good for current events. Content field sometimes truncated."},
+    {"name": "Internet Archive Wayback Machine", "type": "api", "tier": "fallback", "url": "https://web.archive.org/cdx/search/cdx", "access": "fully open, no auth needed", "case_studies": ["cs1_iran", "cs2_tariffs"], "notes": "CDX API for snapshot lookup, then fetch archived page + trafilatura extraction. Recovers articles that fail direct fetch. Non-commercial research use. 'id_' suffix for clean HTML without toolbar."},
+    {"name": "MarketAux", "type": "api", "tier": 1, "url": "https://api.marketaux.com/v1/news/all", "access": "free tier 100 req/day, 3 articles/req", "case_studies": ["cs2_tariffs"], "notes": "Financial news with ticker tags + industry classification. Different epistemic layer — how markets frame tariffs vs political press. 424 unique tickers across CS2. AAPL(55), NVDA(45), TSLA(33) most associated with tariff impact."}
+  ],
+
+  "source_counts": {
+    "tier1_rss": 16,
+    "tier1_api": 3,
+    "tier2_institutional": 2,
+    "tier3_youtube": 8,
+    "tier3_podcast": 6,
+    "tier3_reddit": 30,
+    "gdelt": 1,
+    "archive_fallback": 1,
+    "total": 67
+  },
+
+  "known_gaps": [
+    "Urdu press (Dawn Urdu, Jang, Geo — only English Dawn included via RSS)",
+    "Central Asian Russian-language press (not attempted beyond World News API)",
+    "Telegram public channels (API needed, web preview blocked on most)",
+    "Friday sermon archives (built but non-functional — needs URL research)",
+    "Live radio transcription (future — ffmpeg + Whisper pipeline exists but untested)",
+    "Reddit Anglophone bias: all country subs skew English-speaking, educated, urban diaspora",
+    "NewsData.io archive endpoint requires paid tier for CS2 historical windows (Apr-Oct 2025)"
+  ],
+
+  "gaps_closed_session8": [
+    "Arabic-language domestic press — CLOSED via World News API (97 articles, 7 countries)",
+    "Persian domestic press — CLOSED via World News API (82 articles from Iran)",
+    "Hindi press — CLOSED via World News API (78 articles from India)",
+    "Indonesian Bahasa press — CLOSED via World News API (50 articles from Indonesia)",
+    "French/German/Spanish/Italian EU press — CLOSED via World News API (389 articles, 20+ countries)"
+  ]
+}

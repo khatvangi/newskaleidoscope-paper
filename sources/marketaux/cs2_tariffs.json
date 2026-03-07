@@ -1,0 +1,5099 @@
+[
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/us-global-markets-plunge-as-trumps-tariff-hike-escalate-trade-war-fears/articleshow/119944614.cms",
+    "title": "US, global markets plunge as Trump's tariff hike escalate trade war fears",
+    "seendate": "20250403122033",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 179,
+    "tickers": [
+      "^AXJO",
+      "^HSI",
+      "^N225",
+      "^FCHI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.forbes.com/sites/greatspeculations/2025/04/07/effective-tariff-rate-hits-1909-levels-as-global-trade-war-explodes/",
+    "title": "Effective Tariff Rate Hits 1909 Levels As Global Trade War Explodes",
+    "seendate": "20250407174127",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 162,
+    "tickers": [
+      "BRKB.BA",
+      "BRKBD.BA",
+      "BRKBB.BA"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.ft.com/content/fe5f7469-6f04-40e6-bc59-0d4e004e1cd3",
+    "title": "Donald Trump escalates global trade war with sweeping tariff blitz",
+    "seendate": "20250402234223",
+    "sourcelang": "en",
+    "domain": "ft.com",
+    "source": "marketaux",
+    "source_name": "ft.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 102,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "NVDA.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/news/international/business/let-donald-trump-unleash-his-tariff-blitz-china-has-already-trade-war-proofed-its-economy/articleshow/120030260.cms",
+    "title": "Let Donald Trump unleash his tariff blitz, China has already trade-war-proofed its economy",
+    "seendate": "20250406030103",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 335,
+    "tickers": [
+      "AMZN.MX",
+      "WMT.MX",
+      "AMZN",
+      "WMT",
+      "WMTD.BA",
+      "WMTC.BA",
+      "AMZN.SN",
+      "WMT.SN",
+      "WALMARTCL.SN",
+      "AMZNCL.SN",
+      "AMZ.DE",
+      "WMT.DE"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Consumer Defensive",
+      "N/A"
+    ],
+    "entity_count": 12
+  },
+  {
+    "url": "https://finance.yahoo.com/news/us-starts-collecting-trumps-10-042456147.html",
+    "title": "US starts collecting Trump's 10% tariff, smashing global trade norms",
+    "seendate": "20250405042456",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 271,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.investing.com/analysis/effective-tariff-rate-hits-1909-levels-as-global-trade-war-explodes-200659183",
+    "title": "Effective Tariff Rate Hits 1909 Levels as Global Trade War Explodes",
+    "seendate": "20250407180700",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 147,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NFLX",
+      "BRK-B",
+      "BRK-A",
+      "TSLA34.SA",
+      "GROW",
+      "TSLAD.BA",
+      "TSLAC.BA",
+      "BRKB.BA",
+      "BRKBD.BA",
+      "BRKBB.BA",
+      "TL0.DE",
+      "TSLA.MX"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical",
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 17
+  },
+  {
+    "url": "https://www.ndtvprofit.com/economy-finance/rupee-versus-dollar-check-inr-usd-rate-03-04-2025",
+    "title": "Rupee Weakens Against US Dollar After Trump Launches Tariff War",
+    "seendate": "20250403045837",
+    "sourcelang": "en",
+    "domain": "ndtvprofit.com",
+    "source": "marketaux",
+    "source_name": "bloombergquint.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 252,
+    "tickers": [
+      "USDINR"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/trump-tariff-war-trade-war-between-us-and-china-donald-trump-xi-jinping/articleshow/120084306.cms",
+    "title": "Tariff war: Trump escalates, Xi digs in — who will blink first?",
+    "seendate": "20250408055154",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 179,
+    "tickers": [
+      "^HSI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.ft.com/content/29edc364-3b09-4658-9fd5-5ceebb146f14",
+    "title": "How far will Donald Trump take his trade war?",
+    "seendate": "20250408130043",
+    "sourcelang": "en",
+    "domain": "ft.com",
+    "source": "marketaux",
+    "source_name": "ft.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 108,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.businessinsider.com/mortgage-rates-outlook-drop-trump-tariffs-housing-market-prices-homeuyers-2025-4",
+    "title": "Falling mortgage rates offer a bright spot amid tariff chaos — but the trade war creates new hazards",
+    "seendate": "20250406120002",
+    "sourcelang": "en",
+    "domain": "businessinsider.com",
+    "source": "marketaux",
+    "source_name": "businessinsider.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 128,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.rttnews.com/3526491/asian-shares-slide-on-trade-war-concerns.aspx?type=ts",
+    "title": "Asian Shares Slide On Trade War Concerns",
+    "seendate": "20250403083403",
+    "sourcelang": "en",
+    "domain": "rttnews.com",
+    "source": "marketaux",
+    "source_name": "rttnews.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 184,
+    "tickers": [
+      "BIDU",
+      "SONY",
+      "^AXJO",
+      "NZX.NZ",
+      "NZ50C.NZ"
+    ],
+    "industries": [
+      "Communication Services",
+      "Technology",
+      "N/A",
+      "Financial Services"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.investors.com/news/technology/alibaba-stock-china-tech-tariffs-trump/",
+    "title": "Alibaba, China Tech Stocks Slide As Trade War Fears Intensify",
+    "seendate": "20250407141934",
+    "sourcelang": "en",
+    "domain": "investors.com",
+    "source": "marketaux",
+    "source_name": "investors.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 132,
+    "tickers": [
+      "^HSI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.rttnews.com/story.aspx?Id=3526929",
+    "title": "Trade War Concerns Lead To Extended Nosedive On Wall Street",
+    "seendate": "20250404201938",
+    "sourcelang": "en",
+    "domain": "rttnews.com",
+    "source": "marketaux",
+    "source_name": "rttnews.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 262,
+    "tickers": [
+      "^AXJO",
+      "^N225",
+      "^FCHI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://milliondollarjourney.com/us-canada-tariffs-trump-trade-war.htm",
+    "title": "US vs Canada: Trump Tariffs Lead to Trade War",
+    "seendate": "20250403042400",
+    "sourcelang": "en",
+    "domain": "milliondollarjourney.com",
+    "source": "marketaux",
+    "source_name": "milliondollarjourney.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 251,
+    "tickers": [
+      "SHOP.TO"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.rttnews.com/3526601/u-s-stocks-poised-for-initial-sell-off-on-trade-war-concerns.aspx?type=ts",
+    "title": "U.S. Stocks Poised For Initial Sell-Off On Trade War Concerns",
+    "seendate": "20250403125934",
+    "sourcelang": "en",
+    "domain": "rttnews.com",
+    "source": "marketaux",
+    "source_name": "rttnews.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 282,
+    "tickers": [
+      "^N225",
+      "^FCHI",
+      "^HSI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.bbc.com/news/articles/cx26v8x24w1o",
+    "title": "Stocks fall again as Trump tariff jitters continue",
+    "seendate": "20250404080204",
+    "sourcelang": "en",
+    "domain": "bbc.com",
+    "source": "marketaux",
+    "source_name": "bbc.co.uk",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 96,
+    "tickers": [
+      "^FCHI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/navin-fluorine-srf-and-other-chemical-stocks-drop-up-to-6-after-us-tariff/articleshow/119931390.cms",
+    "title": "Navin Fluorine, SRF and other chemical stocks drop up to 6% after US tariff",
+    "seendate": "20250403053640",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 379,
+    "tickers": [
+      "TATAMTRDVR.BO",
+      "TATAMOTORS.BO",
+      "UPL.BO",
+      "SRF.BO",
+      "PIIND.BO",
+      "BALKRISIND.BO",
+      "BHARATFORG.BO"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Basic Materials"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.thehindu.com/business/Industry/pharma-companies-stocks-get-a-boost-on-us-tariff-exemption/article69407052.ece",
+    "title": "Pharma companies’ stocks get a boost on U.S. tariff exemption",
+    "seendate": "20250403063416",
+    "sourcelang": "en",
+    "domain": "thehindu.com",
+    "source": "marketaux",
+    "source_name": "thehindu.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 126,
+    "tickers": [
+      "^CNXPHARMA"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/auto-stocks-drop-up-to-4-on-us-tariff-hike-export-concerns-rise/articleshow/119930085.cms",
+    "title": "Auto stocks drop up to 4% on US tariff hike, export concerns rise",
+    "seendate": "20250403050034",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 334,
+    "tickers": [
+      "^CNXAUTO",
+      "TATAMTRDVR.BO",
+      "TATAMOTORS.BO",
+      "BALKRISIND.BO",
+      "BHARATFORG.BO"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-turmoil-stocks-plunge-as-trumps-tariff-bombshell-rocks-global-markets/49143/",
+    "title": "MARKET TURMOIL: STOCKS PLUNGE AS TRUMP’S TARIFF BOMBSHELL ROCKS GLOBAL MARKETS",
+    "seendate": "20250403112904",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 151,
+    "tickers": [
+      "AAPL",
+      "AMD",
+      "GOOGL",
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NFLX",
+      "JNJ",
+      "DJNJ2.BA",
+      "DJNJ3.BA"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical",
+      "Healthcare"
+    ],
+    "entity_count": 12
+  },
+  {
+    "url": "https://www.investopedia.com/mining-stocks-show-cracks-amid-worries-tariffs-could-impact-metals-demand-11709138",
+    "title": "Mining Stocks Show Cracks Amid Worries Tariffs Could Impact Metals Demand",
+    "seendate": "20250404155823",
+    "sourcelang": "en",
+    "domain": "investopedia.com",
+    "source": "marketaux",
+    "source_name": "investopedia.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 115,
+    "tickers": [
+      "B1BL34.SA",
+      "BHPLF",
+      "BHPBF",
+      "BHP.BA",
+      "RIOD.BA",
+      "BHP",
+      "BBL",
+      "BHP.JO",
+      "BIL.DE",
+      "BHPN.MX",
+      "BHP.L",
+      "0HN3.L",
+      "BHP.AX"
+    ],
+    "industries": [
+      "Basic Materials",
+      "N/A"
+    ],
+    "entity_count": 13
+  },
+  {
+    "url": "https://finance.yahoo.com/news/japanese-stocks-tumble-banks-slump-003219844.html",
+    "title": "Japanese stocks in bear market as banks slump on tariff jitters",
+    "seendate": "20250404003219",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 674,
+    "tickers": [
+      "MTU",
+      "0K1Y.L"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/tech/technology/us-tech-retail-stocks-lead-rout-after-tariff-shock/articleshow/119941778.cms",
+    "title": "US tech, retail stocks lead rout after tariff shock",
+    "seendate": "20250403103834",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 377,
+    "tickers": [
+      "JPMMV",
+      "JPMML",
+      "JPM",
+      "JPMC.BA",
+      "JPMCL.SN"
+    ],
+    "industries": [
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.thehindubusinessline.com/markets/stock-markets/indian-pharma-stocks-crash-6-amid-trumps-unprecedented-tariff-threat/article69411618.ece",
+    "title": "Pharma stocks including Cipla, Dr Reddys, Biocon, Divis, Ipca crash 6% amid Trump’s tariff blow",
+    "seendate": "20250404062907",
+    "sourcelang": "en",
+    "domain": "thehindubusinessline.com",
+    "source": "marketaux",
+    "source_name": "thehindubusinessline.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 116,
+    "tickers": [
+      "^CNXPHARMA"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/todays-midday-market-update-stocks-whipsaw-amid-tariff-turmoil/49165/",
+    "title": "Today’s Midday Market Update: Stocks Whipsaw Amid Tariff Turmoil",
+    "seendate": "20250407150219",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 155,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "BILI",
+      "NVDA",
+      "MSFT",
+      "JD",
+      "TSLA",
+      "DTMXF",
+      "DGLY",
+      "AFMD",
+      "MSCL.SN",
+      "^N225",
+      "^FCHI"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical",
+      "Industrials",
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 13
+  },
+  {
+    "url": "https://www.investopedia.com/nvidia-and-other-chip-stocks-fall-as-tariff-fueled-rout-continues-11709191",
+    "title": "Nvidia and Other Chip Stocks Fall as Tariff-Fueled Rout Continues",
+    "seendate": "20250404154122",
+    "sourcelang": "en",
+    "domain": "investopedia.com",
+    "source": "marketaux",
+    "source_name": "investopedia.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 235,
+    "tickers": [
+      "NVDA.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.livemint.com/news/world/china-rushes-to-ally-fears-of-us-firms-as-chinese-stocks-suffer-panic-selling-in-trump-tariff-aftermath-11744021289548.html",
+    "title": "China assuages US firms as Chinese stocks suffer ‘panic selling’ in Trump Tariff aftermath",
+    "seendate": "20250407124538",
+    "sourcelang": "en",
+    "domain": "livemint.com",
+    "source": "marketaux",
+    "source_name": "livemint.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 197,
+    "tickers": [
+      "JEF",
+      "JEF.MX",
+      "^HSI",
+      "MSCL.SN"
+    ],
+    "industries": [
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://finance.yahoo.com/news/stock-market-today-us-stocks-100716570.html",
+    "title": "Stock Market Today: Stocks take $2 trillion 'Tariff Tantrum' plunge",
+    "seendate": "20250403100716",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 58,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "QUILF",
+      "QLT.L",
+      "QLT.JO",
+      "^N225"
+    ],
+    "industries": [
+      "Technology",
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://qz.com/lululemon-nike-deckers-american-eagle-tariffs-1851774516",
+    "title": "Lululemon, Nike, and Deckers stocks are hit hard by Trump’s sweeping tariff plan",
+    "seendate": "20250403143000",
+    "sourcelang": "en",
+    "domain": "qz.com",
+    "source": "marketaux",
+    "source_name": "qz.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 114,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.thehindubusinessline.com/markets/stock-markets/markets-weather-us-tariff-storm-it-takes-the-hit-while-pharma-shines/article69408166.ece",
+    "title": "Markets weather tariff storm; IT takes hit while pharma shines",
+    "seendate": "20250403121957",
+    "sourcelang": "en",
+    "domain": "thehindubusinessline.com",
+    "source": "marketaux",
+    "source_name": "thehindubusinessline.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 156,
+    "tickers": [
+      "^CNXIT",
+      "^CRSMID",
+      "^CNXSC",
+      "NIFTY_MIDCAP_100.NS",
+      "HCLTECH-BL.NS",
+      "CIPLA.BO",
+      "HCLTECH.BO",
+      "INFY.BO",
+      "TECHM.BO",
+      "LKPSEC.BO",
+      "BANKINDIA.BO"
+    ],
+    "industries": [
+      "N/A",
+      "Healthcare",
+      "Technology",
+      "Financial Services"
+    ],
+    "entity_count": 11
+  },
+  {
+    "url": "https://www.forexlive.com/news/forexlive-asia-pacific-fx-news-wrap-trump-reciprocal-tariff-announcement-hits-20250403/",
+    "title": "ForexLive Asia-Pacific FX news wrap: Trump reciprocal tariff announcement hits",
+    "seendate": "20250403034908",
+    "sourcelang": "en",
+    "domain": "forexlive.com",
+    "source": "marketaux",
+    "source_name": "forexlive.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 55,
+    "tickers": [
+      "^N225",
+      "USDJPY",
+      "^HSI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.econlib.org/on-the-reciprocal-tariff-plan/",
+    "title": "On the “Reciprocal” Tariff Plan",
+    "seendate": "20250406162514",
+    "sourcelang": "en",
+    "domain": "econlib.org",
+    "source": "marketaux",
+    "source_name": "econlib.org",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 337,
+    "tickers": [
+      "INTO"
+    ],
+    "industries": [
+      "Industrials"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.benzinga.com/markets/equities/25/04/44620686/sp-500-nasdaq-futures-plunge-over-3-as-trumps-reciprocal-tariff-plan-hits-market-confidence",
+    "title": "Trump's 'Reciprocal Tariff' Plan Hits Market Confidence As Dow Futures Drops Over 830 Points - Apple (NASDAQ:AAPL), Amazon.com (NASDAQ:AMZN)",
+    "seendate": "20250403024555",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 201,
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "NVDA",
+      "NVDA.MI",
+      "AAPL.BA",
+      "NVDAD.BA",
+      "AAPLD.BA",
+      "NVDAC.BA",
+      "AAPLC.BA",
+      "AMZN.SN",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AMZNCL.SN",
+      "AAPL.NE",
+      "AMZ.DE",
+      "APC.DE",
+      "AMZN.MX",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 18
+  },
+  {
+    "url": "https://www.investopedia.com/what-could-trump-reciprocal-tariffs-mean-for-the-stock-market-11707598",
+    "title": "What Could Trump's Reciprocal Tariffs Mean for the Stock Market?",
+    "seendate": "20250402162911",
+    "sourcelang": "en",
+    "domain": "investopedia.com",
+    "source": "marketaux",
+    "source_name": "investopedia.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 146,
+    "tickers": [
+      "MSCL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.businesstoday.in/markets/stocks/story/trump-tariffs-reciprocal-import-duty-will-affect-indian-stock-market-economy-470478-2025-04-03",
+    "title": "Trump tariffs: How 27% 'reciprocal' import duty will affect Indian stock market, economy",
+    "seendate": "20250403040940",
+    "sourcelang": "en",
+    "domain": "businesstoday.in",
+    "source": "marketaux",
+    "source_name": "businesstoday.in",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 145,
+    "tickers": [
+      "^N225"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/cheer-on-reciprocal-tariffs-donald-trump-spares-indias-pharmaceutical-industry/articleshow/119929661.cms",
+    "title": "Cheer on reciprocal tariffs! Donald Trump spares India’s pharmaceutical industry",
+    "seendate": "20250403050403",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 171,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-d-street-ends-lower-after-trumps-tariff-hit-sensex-sheds-322-pts-nifty-below-23300/articleshow/119941145.cms",
+    "title": "Market Wrap: D-Street ends lower after Trump's tariff hit; Sensex sheds 322 pts, Nifty below 23,300",
+    "seendate": "20250403102111",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 243,
+    "tickers": [
+      "^CNXIT",
+      "^CRSMID",
+      "^NSEI",
+      "^CNXSC",
+      "NIFTY_MIDCAP_100.NS",
+      "TATAMTRDVR.BO",
+      "INFY.BO",
+      "TATAMOTORS.BO",
+      "TECHM.BO",
+      "BHARATFORG.BO"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Cyclical",
+      "Technology"
+    ],
+    "entity_count": 10
+  },
+  {
+    "url": "https://www.bangkokpost.com/business/general/2995196/analysts-estimate-widespread-tariff-damage",
+    "title": "Analysts estimate widespread tariff damage",
+    "seendate": "20250403200000",
+    "sourcelang": "en",
+    "domain": "bangkokpost.com",
+    "source": "marketaux",
+    "source_name": "bangkokpost.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 253,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.fortuneindia.com/markets/market-weekly-wrap-sensex-nifty-drop-25-amid-tariff-chaos-will-d-street-extend-fall-next-week/121622",
+    "title": "Market weekly wrap: Sensex, Nifty drop 2.5% amid tariff chaos; will D-Street extend fall next week?",
+    "seendate": "20250405072844",
+    "sourcelang": "en",
+    "domain": "fortuneindia.com",
+    "source": "marketaux",
+    "source_name": "fortuneindia.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 159,
+    "tickers": [
+      "^CNXAUTO",
+      "^CNXMETAL",
+      "NIFTYMIDCAP150.NS",
+      "^CNXENERGY"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.killerstartups.com/us-stock-market-plunges-with-inflation-tariff-fears/",
+    "title": "US stock market plunges with inflation, tariff fears",
+    "seendate": "20250402201200",
+    "sourcelang": "en",
+    "domain": "killerstartups.com",
+    "source": "marketaux",
+    "source_name": "killerstartups.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 95,
+    "tickers": [
+      "GOOGL",
+      "TSLA"
+    ],
+    "industries": [
+      "Communication Services",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://gulfbusiness.com/how-will-trumps-reciprocal-tariffs-impact-indian-exports/",
+    "title": "How will Trump’s reciprocal tariffs impact Indian exports?",
+    "seendate": "20250403065454",
+    "sourcelang": "en",
+    "domain": "gulfbusiness.com",
+    "source": "marketaux",
+    "source_name": "gulfbusiness.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 146,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-recap-market-volatility-continues-amid-trumps-tariff-announcement-april-2-2025/49138/",
+    "title": "Stock Market Recap: Market Volatility Continues Amid Trump's Tariff Announcement",
+    "seendate": "20250402180155",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 156,
+    "tickers": [
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "AAPL",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NCNO",
+      "JNJ"
+    ],
+    "industries": [
+      "Healthcare",
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/share-market-outlook-tariff-us-inflation-and-rbis-mpc-rate-cut-decision-to-drive-investor-sentiment-this-week/articleshow/120039041.cms",
+    "title": "Share market outlook: Tariff, US inflation, and RBI's MPC rate cut decision to drive investor sentiment next week",
+    "seendate": "20250406134033",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 171,
+    "tickers": [
+      "BANKINDIA.NS",
+      "MOTILALOFS.NS",
+      "MOTILALOFS.BO",
+      "BANKINDIA.BO",
+      "MASTERTR.BO"
+    ],
+    "industries": [
+      "Financial Services"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/todays-midday-market-update-navigating-turbulence-amid-tariff-concerns/49169/",
+    "title": "Today’s Midday Market Update: Navigating Turbulence Amid Tariff Concerns",
+    "seendate": "20250407152904",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 158,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "MSFT",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.benzinga.com/markets/25/04/44621408/market-access-has-a-price-trump-unveils-list-of-tariffs-countries-targeted",
+    "title": "Trump Unveils Massive Tariff Plan to Slash $1.2 Trillion Trade Deficit: 'Access To The American Market Is A Privilege'",
+    "seendate": "20250403054911",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 141,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.benzinga.com/markets/equities/25/04/44628003/the-big-liberation-day-surprise",
+    "title": "The Silver Lining In The Liberation Day Tariff Announcement - NVIDIA (NASDAQ:NVDA), RH (NYSE:RH)",
+    "seendate": "20250403133642",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 117,
+    "tickers": [
+      "TSLAD.BA",
+      "TSLAC.BA",
+      "NVDA",
+      "TSLA",
+      "RH",
+      "TL0.DE",
+      "TSLA.MX",
+      "TSLA34.SA"
+    ],
+    "industries": [
+      "N/A",
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://www.forbes.com/sites/dereksaul/2025/04/02/heres-what-to-know-about-liberation-day-from-announcement-time-to-what-trump-may-target/",
+    "title": "Here’s What To Know About ‘Liberation Day’—From Announcement Time To What Trump May Target",
+    "seendate": "20250402131118",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 176,
+    "tickers": [
+      "TSLA"
+    ],
+    "industries": [
+      "Consumer Cyclical"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.benzinga.com/markets/equities/25/04/44607209/betting-on-both-outcomes-a-liberation-day-gameplan",
+    "title": "Betting On Both Outcomes: A Liberation Day Gameplan",
+    "seendate": "20250402134352",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 123,
+    "tickers": [
+      "NVDA.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.ibtimes.com/trump-mocked-stock-market-nosedive-following-tariff-rollout-so-this-what-liberation-looks-like-3768724",
+    "title": "Trump Mocked for Stock Market Nosedive Following Tariff Rollout: 'So This Is What Liberation Looks Like'",
+    "seendate": "20250403180822",
+    "sourcelang": "en",
+    "domain": "ibtimes.com",
+    "source": "marketaux",
+    "source_name": "ibtimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 156,
+    "tickers": [
+      "AAPL"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-plunges-on-liberation-day-tariffs-stock-market-recap-for-april-4-2025/49153/",
+    "title": "Market Plunges on “Liberation Day” Tariffs: Stock Market Recap for April 4, 2025",
+    "seendate": "20250404180150",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 122,
+    "tickers": [
+      "NVD.DE",
+      "GTR.DE",
+      "VFP.DE",
+      "AAPL",
+      "NVDA",
+      "MSFT",
+      "GT",
+      "TSLA",
+      "VFC",
+      "NVDA.MX",
+      "GT.MX",
+      "VFC.MX",
+      "0R30.L",
+      "0QLL.L",
+      "GT.SW",
+      "NVDC34.SA",
+      "VFCO34.SA",
+      "NVDA.BA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 18
+  },
+  {
+    "url": "https://www.zerohedge.com/markets/futures-slide-markets-await-liberation-day-details",
+    "title": "Futures Slide As Markets Await \"Liberation Day\" Details",
+    "seendate": "20250402120629",
+    "sourcelang": "en",
+    "domain": "zerohedge.com",
+    "source": "marketaux",
+    "source_name": "zerohedge.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 83,
+    "tickers": [
+      "USDCNY",
+      "USDJPY",
+      "EURUSD",
+      "WMT.DE",
+      "YI",
+      "MBG.DE",
+      "^FCHI",
+      "AAPL",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TTEC",
+      "TSLA",
+      "NCNO",
+      "EWTX",
+      "WMT",
+      "WMT.MX",
+      "SONY",
+      "JHG.AX",
+      "CGL.AX",
+      "^AXJO",
+      "BNP.MI",
+      "MSFT.MI",
+      "NVDA.MI",
+      "WMTD.BA",
+      "WMTC.BA",
+      "WMT.SN",
+      "WALMARTCL.SN",
+      "^J202.JO",
+      "^N225",
+      "089790.KQ"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Defensive",
+      "Healthcare",
+      "Consumer Cyclical",
+      "Technology",
+      "Communication Services",
+      "Financial Services"
+    ],
+    "entity_count": 31
+  },
+  {
+    "url": "https://www.investing.com/analysis/dollar-and-stocks-sink-as-trump-unleashes-liberation-day-200659033",
+    "title": "Dollar and Stocks Sink as Trump Unleashes ‘Liberation Day’",
+    "seendate": "20250403101400",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 162,
+    "tickers": [
+      "AAPL"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-recap-wall-street-awaits-trumps-liberation-day-tariffs-as-tesla-disappoints-on-deliveries/49140/",
+    "title": "Market Recap: Wall Street Awaits Trump’s ‘Liberation Day’ Tariffs as Tesla Disappoints on Deliveries",
+    "seendate": "20250402210156",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 121,
+    "tickers": [
+      "RNA",
+      "AAPL",
+      "NVDA",
+      "MSFT",
+      "DNLI",
+      "NFE",
+      "TSLA",
+      "NCNO"
+    ],
+    "industries": [
+      "Healthcare",
+      "Technology",
+      "Utilities",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-turmoil-stock-market-plunges-on-trumps-liberation-day-tariffs-april-4-2025/49149/",
+    "title": "Market Turmoil: Stock Market Plunges on Trump’s “Liberation Day” Tariffs – April 4, 2025",
+    "seendate": "20250404110154",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 131,
+    "tickers": [
+      "FMC1.DE",
+      "AAPL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "F",
+      "F.MX",
+      "F.SW"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Technology"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-turmoil-stock-market-plunges-on-trumps-liberation-day-tariffs/49152/",
+    "title": "Market Turmoil: Stock Market Plunges on Trump’s “Liberation Day” Tariffs",
+    "seendate": "20250404142858",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 127,
+    "tickers": [
+      "399233.SZ",
+      "AAPL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NVDC34.SA",
+      "NVDA.BA",
+      "NVD.DE",
+      "NVDA.MX"
+    ],
+    "industries": [
+      "N/A",
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-d-street-ends-higher-ahead-of-trumps-tariff-liberation-day-sensex-gains-593-pts-nifty-above-23300/articleshow/119903689.cms",
+    "title": "Market Wrap: D-Street ends higher ahead of Trump's tariff liberation day; Sensex gains 593 pts, Nifty above 23,300",
+    "seendate": "20250402101712",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 305,
+    "tickers": [
+      "^NSEBANK",
+      "^CNXIT",
+      "^NSEI",
+      "HDB.BA",
+      "HDFCBANK.BO",
+      "ICICIBANK.BO",
+      "TECHM.BO",
+      "PERSISTENT.BO",
+      "BANKINDIA.BO",
+      "ISTLTD.BO",
+      "^N225"
+    ],
+    "industries": [
+      "N/A",
+      "Financial Services",
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 11
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/trading-day-nervous-calm-ahead-of-liberation-day/articleshow/119890578.cms",
+    "title": "TRADING DAY-Nervous calm ahead of 'Liberation Day'",
+    "seendate": "20250402015717",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 282,
+    "tickers": [
+      "TSLA",
+      "^N225"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.benzinga.com/25/04/44620222/bitcoin-ethereum-dogecoin-give-up-early-gains-on-trumps-tariff-liberation-day-analyst-flags-levels-where-buying-b",
+    "title": "Bitcoin, Ethereum, Dogecoin Crash On Trump's Tariff 'Liberation Day' — Analyst Says Buying BTC Between These Levels Could Lead To 'Substantial Gains' - Grayscale Bitcoin Mini Trust (BTC) Common units ",
+    "seendate": "20250403014029",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 116,
+    "tickers": [
+      "BTCUSD",
+      "ETHUSD",
+      "DOGEUSD",
+      "CC:BTC",
+      "CC:ETH",
+      "CC:DOGE",
+      "CC:RAY"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.investing.com/analysis/us-dollar-shows-strength-as-liberation-day-announcement-looms-200658982",
+    "title": "US Dollar Shows Strength as ’Liberation Day’ Announcement Looms",
+    "seendate": "20250402092300",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "EURUSD"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.benzinga.com/news/global/25/04/44620889/trumps-liberation-day-tariffs-roil-markets-as-china-slams-typical-unilateral-bullying-asian-markets-p",
+    "title": "Trump's 'Liberation Day' Tariffs Roil Markets As China Slams 'Typical Unilateral Bullying:' Asian Markets Plunge",
+    "seendate": "20250403041402",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 127,
+    "tickers": [
+      "^N225",
+      "^NSEI"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2764053/apple-aapl-faces-supply-chain-challenges-amid-tariff-concerns",
+    "title": "Apple (AAPL) Faces Supply Chain Challenges Amid Tariff Concerns",
+    "seendate": "20250406033011",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL",
+      "APC.DE",
+      "AAPL.MX",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "MSCL.SN",
+      "AAPL.NE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 10
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2764105/apple-aapl-faces-supply-chain-challenges-amid-tariff-pressures",
+    "title": "Apple (AAPL) Faces Supply Chain Challenges Amid Tariff Pressures",
+    "seendate": "20250406131013",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 159,
+    "tickers": [
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "MSCL.SN",
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 10
+  },
+  {
+    "url": "https://wallstreetpit.com/125743-tariff-shock-slams-apple-harder-than-any-other-tech-giant/",
+    "title": "Tariff Shock Slams Apple Harder Than Any Other Tech Giant",
+    "seendate": "20250403130722",
+    "sourcelang": "en",
+    "domain": "wallstreetpit.com",
+    "source": "marketaux",
+    "source_name": "wallstreetpit.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 315,
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical",
+      "Communication Services"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://www.zerohedge.com/markets/tariff-shockwave-these-apparel-brands-retailers-most-risk-price-hikes",
+    "title": "Tariff Shockwave: These Apparel Brands & Retailers Most At Risk Of Price Hikes",
+    "seendate": "20250408081500",
+    "sourcelang": "en",
+    "domain": "zerohedge.com",
+    "source": "marketaux",
+    "source_name": "zerohedge.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 83,
+    "tickers": [
+      "0KEQ.L",
+      "PVH"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2763808/nintendo-ntdoy-delays-switch-2-preorders-amid-tariff-concerns",
+    "title": "Nintendo (NTDOY) Delays Switch 2 Preorders Amid Tariff Concerns",
+    "seendate": "20250404235609",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "NTDOY",
+      "NTDOF",
+      "NTDOYN.MX",
+      "0K85.L",
+      "7974.T"
+    ],
+    "industries": [
+      "Communication Services",
+      "N/A"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2762760/apple-aapl-faces-stock-plunge-amid-us-tariff-concerns",
+    "title": "Apple (AAPL) Faces Stock Plunge Amid U.S. Tariff Concerns",
+    "seendate": "20250404083030",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 159,
+    "tickers": [
+      "AAPL.MX",
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2764414/apple-aapl-faces-cost-challenges-amid-us-tariff-policy",
+    "title": "Apple (AAPL) Faces Cost Challenges Amid U.S. Tariff Policy",
+    "seendate": "20250407114016",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "MSCL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2764275/apple-aapl-unlikely-to-move-iphone-production-to-us-despite-tariff-policies",
+    "title": "Apple (AAPL) Unlikely to Move iPhone Production to US Despite Tariff Policies",
+    "seendate": "20250407025020",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL.MX",
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.businesstoday.in/technology/news/story/apple-eyeing-india-for-iphone-production-amid-us-tariff-changes-report-471276-2025-04-08",
+    "title": "Apple eyeing India for iPhone production amid US tariff changes: Report",
+    "seendate": "20250408150332",
+    "sourcelang": "en",
+    "domain": "businesstoday.in",
+    "source": "marketaux",
+    "source_name": "businesstoday.in",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 222,
+    "tickers": [
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2762170/nke-stock-dips-amid-tariff-concerns",
+    "title": "NKE Stock Dips Amid Tariff Concerns",
+    "seendate": "20250403202608",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "NKE.BA",
+      "NKED.BA",
+      "NKE.SN",
+      "NKECL.SN",
+      "NKE",
+      "NKE.DE",
+      "NKE.MX"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2762257/micron-mu-shares-plummet-following-tariff-announcement",
+    "title": "Micron (MU) Shares Plummet Following Tariff Announcement",
+    "seendate": "20250403215655",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "MTE.DE",
+      "MU",
+      "MU.MX",
+      "MUTC34.SA"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.cnbc.com/2025/04/08/trump-tariffs-cambodia-manufacturing-reshoring-us.html",
+    "title": "Cambodia hit with highest Trump tariff, but manufacturing 'absolutely not' coming back to U.S., trade group says",
+    "seendate": "20250408121735",
+    "sourcelang": "en",
+    "domain": "cnbc.com",
+    "source": "marketaux",
+    "source_name": "cnbc.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 157,
+    "tickers": [
+      "ADS.MI"
+    ],
+    "industries": [
+      "Consumer Cyclical"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2762527/apple-aapl-faces-steep-decline-amid-tariff-concerns",
+    "title": "Apple (AAPL) Faces Steep Decline Amid Tariff Concerns",
+    "seendate": "20250403225639",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL",
+      "AAPL.MX",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2761404/micron-technology-mu-faces-significant-risk-amid-tariff-concerns",
+    "title": "Micron Technology (MU) Faces Significant Risk Amid Tariff Concerns",
+    "seendate": "20250403125635",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 157,
+    "tickers": [
+      "MUTC34.SA",
+      "MU",
+      "MTE.DE",
+      "MU.MX"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2762636/apple-strategizes-to-mitigate-impact-of-new-tariff-policies",
+    "title": "Apple Strategizes to Mitigate Impact of New Tariff Policies",
+    "seendate": "20250404005011",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w1",
+    "text_chars": 159,
+    "tickers": [
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://finance.yahoo.com/news/china-changes-top-trade-negotiator-035624976.html",
+    "title": "China unexpectedly anoints new trade negotiator amid US tariff war",
+    "seendate": "20250416035624",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 576,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://gulfbusiness.com/trumps-stunning-tariff-pause-focuses-trade-war-on-china/",
+    "title": "Trump’s stunning tariff pause focuses trade war on China",
+    "seendate": "20250410055059",
+    "sourcelang": "en",
+    "domain": "gulfbusiness.com",
+    "source": "marketaux",
+    "source_name": "gulfbusiness.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 119,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.benzinga.com/25/04/44708618/china-retaliates-with-massive-84-tariff-hike-on-us-goods-amid-escalating-trade-war",
+    "title": "China Retaliates With Massive 84% Tariff On US Goods Amid Escalating Trade War - Baidu (NASDAQ:BIDU), Li Auto (NASDAQ:LI)",
+    "seendate": "20250409115007",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 156,
+    "tickers": [
+      "9888.HK",
+      "LI",
+      "BIDU",
+      "NIO",
+      "XPEV",
+      "BIDU.BA",
+      "BIDUD.BA",
+      "BAIDF",
+      "BIDUN.MX",
+      "NION.MX",
+      "LIAN.MX",
+      "XPEVN.MX",
+      "0A1K.L"
+    ],
+    "industries": [
+      "Communication Services",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 13
+  },
+  {
+    "url": "https://www.bangkokpost.com/business/general/3000209/trumps-tariff-pause-gives-relief-but-china-trade-war-intensifies",
+    "title": "Trump's tariff pause gives relief, but China trade war intensifies",
+    "seendate": "20250410054500",
+    "sourcelang": "en",
+    "domain": "bangkokpost.com",
+    "source": "marketaux",
+    "source_name": "bangkokpost.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 204,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/investors-flee-u-assets-chinese-101358307.html",
+    "title": "Investors flee U.S. assets but Chinese markets shrug off Trump’s 145% tariff as trade war begins",
+    "seendate": "20250411101358",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 136,
+    "tickers": [
+      "000300.SS",
+      "399300.SZ"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://finance.yahoo.com/news/video-shocking-104-surcharge-americans-104405618.html",
+    "title": "Video: Shocking 104% surcharge for Americans at Chinese restaurant amid tariff war",
+    "seendate": "20250411104405",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 77,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.zerohedge.com/markets/trade-war-turbulence-china-halts-boeing-jet-deliveries-airlines",
+    "title": "Trade War Turbulence: China Halts Boeing Jet Deliveries For Airlines",
+    "seendate": "20250415112000",
+    "sourcelang": "en",
+    "domain": "zerohedge.com",
+    "source": "marketaux",
+    "source_name": "zerohedge.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 83,
+    "tickers": [
+      "BACL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/us-china-tariff-war-earnings-to-drive-mkts-say-analysts/articleshow/120268990.cms",
+    "title": "US-China tariff war, earnings to drive mkts, say analysts",
+    "seendate": "20250414032146",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 180,
+    "tickers": [
+      "HDB.BA"
+    ],
+    "industries": [
+      "Financial Services"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.fortuneindia.com/markets/tata-steel-hindalco-sail-other-metal-stocks-crack-as-us-china-trade-war-escalates/121715",
+    "title": "Tata Steel, Hindalco, SAIL, other metal stocks crack as U.S.-China trade war escalates",
+    "seendate": "20250409052206",
+    "sourcelang": "en",
+    "domain": "fortuneindia.com",
+    "source": "marketaux",
+    "source_name": "fortuneindia.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 116,
+    "tickers": [
+      "ADANIENT.BO",
+      "HINDALCO.BO",
+      "HINDZINC.BO",
+      "JSWSTEEL.BO",
+      "JSL.BO",
+      "TATASTEEL.BO",
+      "VEDL.BO",
+      "NATIONALUM.BO",
+      "NMDC.BO"
+    ],
+    "industries": [
+      "Energy",
+      "Basic Materials"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.bangkokpost.com/business/general/3001594/risk-appetite-sapped-by-trade-war-worries",
+    "title": "Risk appetite sapped by trade war worries",
+    "seendate": "20250411203000",
+    "sourcelang": "en",
+    "domain": "bangkokpost.com",
+    "source": "marketaux",
+    "source_name": "bangkokpost.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 340,
+    "tickers": [
+      "APC.DE",
+      "AAPL.MX",
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.cnbc.com/2025/04/10/trumps-triple-digit-tariff-essentially-cuts-off-most-trade-with-china-says-economist.html",
+    "title": "Trump's triple-digit tariff essentially cuts off most trade with China, says economist",
+    "seendate": "20250410192738",
+    "sourcelang": "en",
+    "domain": "cnbc.com",
+    "source": "marketaux",
+    "source_name": "cnbc.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 156,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.under30ceo.com/trump-threatens-further-tariffs-in-china-trade-war/",
+    "title": "Trump threatens further tariffs in China trade war",
+    "seendate": "20250409140300",
+    "sourcelang": "en",
+    "domain": "under30ceo.com",
+    "source": "marketaux",
+    "source_name": "under30ceo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 93,
+    "tickers": [
+      "^N225"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://news.sky.com/story/china-us-tariff-war-could-be-reaching-stalemate-but-more-danger-lingers-13346350",
+    "title": "China-US tariff war could be reaching stalemate, but more danger lingers",
+    "seendate": "20250411100500",
+    "sourcelang": "en",
+    "domain": "news.sky.com",
+    "source": "marketaux",
+    "source_name": "news.sky.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 138,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://cepr.net/publications/our-huge-trade-deficit/",
+    "title": "Our Huge Trade Deficit with China Does NOT Give Us the Upper Hand in Tax (Tariff) War",
+    "seendate": "20250409150202",
+    "sourcelang": "en",
+    "domain": "cepr.net",
+    "source": "marketaux",
+    "source_name": "cepr.net",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 132,
+    "tickers": [
+      "MSFT.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.abc.net.au/news/2025-04-12/trump-tariff-war-us-china-australia-cheaper-chinese-goods/105165900",
+    "title": "Donald Trump's tariff war with China could see Australians pay less for Chinese-made products",
+    "seendate": "20250411191602",
+    "sourcelang": "en",
+    "domain": "abc.net.au",
+    "source": "marketaux",
+    "source_name": "abc.net.au",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 151,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.under30ceo.com/global-stocks-recover-slightly-amid-tariff-tensions/",
+    "title": "Global stocks recover slightly amid tariff tensions",
+    "seendate": "20250409133300",
+    "sourcelang": "en",
+    "domain": "under30ceo.com",
+    "source": "marketaux",
+    "source_name": "under30ceo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 72,
+    "tickers": [
+      "^N225"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.foxbusiness.com/markets/stocks-rocked-after-feds-powell-talks-tariff-impact",
+    "title": "Stocks rocked after Fed’s Powell talks tariff impact",
+    "seendate": "20250416201933",
+    "sourcelang": "en",
+    "domain": "foxbusiness.com",
+    "source": "marketaux",
+    "source_name": "foxbusiness.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 157,
+    "tickers": [
+      "AAPL.MX",
+      "GLD.MX",
+      "TSLA.MX",
+      "DLTR.MX",
+      "AMGN.MX",
+      "0IC8.L",
+      "XLC",
+      "GLD",
+      "AAPL",
+      "AMGN",
+      "2840.HK",
+      "SBUX",
+      "DLTR",
+      "TSLA",
+      "STX",
+      "TSLA34.SA",
+      "AAPL.BA",
+      "TSLAD.BA",
+      "CVXD.BA",
+      "AMGN.BA",
+      "AAPLD.BA",
+      "TSLAC.BA",
+      "AAPLC.BA",
+      "SBUXD.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "SBUXCL.SN",
+      "1326.T",
+      "AAPL.NE",
+      "APC.DE",
+      "TL0.DE",
+      "DT3.DE",
+      "AMG.DE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A",
+      "Consumer Cyclical",
+      "Consumer Defensive",
+      "Healthcare"
+    ],
+    "entity_count": 33
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/todays-midday-market-update-tech-stocks-lead-rally-on-tariff-exemptions/49265/",
+    "title": "Today’s Midday Market Update: Tech Stocks Lead Rally on Tariff Exemptions",
+    "seendate": "20250414152856",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 152,
+    "tickers": [
+      "MP",
+      "MP-WT",
+      "INL.DE",
+      "AAPL",
+      "INTC.MX",
+      "INTC",
+      "MP.MX",
+      "MTB",
+      "0JW2.L",
+      "399233.SZ",
+      "INCO.BR",
+      "M1TB34.SA",
+      "INTC.SN"
+    ],
+    "industries": [
+      "Basic Materials",
+      "N/A",
+      "Technology",
+      "Financial Services"
+    ],
+    "entity_count": 13
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/todays-midday-market-update-stocks-rally-amid-tariff-developments/49275/",
+    "title": "Today’s Midday Market Update: Stocks Rally Amid Tariff Developments",
+    "seendate": "20250415150211",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 155,
+    "tickers": [
+      "JNJ",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "NVDA.BA",
+      "ALGM",
+      "IBKR",
+      "LEGN",
+      "NVDA",
+      "KC",
+      "TSLA",
+      "NFLX",
+      "NVD.DE",
+      "NVDA.MX",
+      "NVDC34.SA"
+    ],
+    "industries": [
+      "Healthcare",
+      "Technology",
+      "Financial Services",
+      "Consumer Cyclical",
+      "Communication Services"
+    ],
+    "entity_count": 14
+  },
+  {
+    "url": "https://www.businesstoday.in/markets/stocks/story/aurobindo-sun-pharma-other-pharma-stocks-in-focus-after-90-day-trump-tariff-pause-471475-2025-04-10",
+    "title": "Aurobindo, Sun Pharma, other pharma stocks in focus after 90-day Trump tariff pause",
+    "seendate": "20250410043203",
+    "sourcelang": "en",
+    "domain": "businesstoday.in",
+    "source": "marketaux",
+    "source_name": "businesstoday.in",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 207,
+    "tickers": [
+      "AUROPHARMA.NS",
+      "CIPLA.NS",
+      "LUPIN.NS",
+      "GLAND.NS",
+      "AUROPHARMA.BO",
+      "CIPLA.BO",
+      "LUPIN.BO",
+      "GLAND.BO"
+    ],
+    "industries": [
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2773286/market-today-semiconductor-stocks-slide-amid-tariff-uncertainty",
+    "title": "Market Today: Semiconductor Stocks Slide Amid Tariff Uncertainty",
+    "seendate": "20250410223227",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "JBLU",
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "CB",
+      "KMX"
+    ],
+    "industries": [
+      "Industrials",
+      "Technology",
+      "Financial Services",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-recap-wall-street-rallies-as-tech-stocks-soar-on-tariff-exemptions/49267/",
+    "title": "Market Recap: Wall Street Rallies as Tech Stocks Soar on Tariff Exemptions",
+    "seendate": "20250414182852",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 153,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "NFLX"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/todays-midday-market-update-tech-stocks-lead-rally-amid-tariff-exemptions/49264/",
+    "title": "Today’s Midday Market Update: Tech Stocks Lead Rally Amid Tariff Exemptions",
+    "seendate": "20250414150204",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 155,
+    "tickers": [
+      "JNJ",
+      "MP",
+      "MP-WT",
+      "AAPL",
+      "NVDA",
+      "TSLA",
+      "MP.MX",
+      "399233.SZ",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "UNHD.BA"
+    ],
+    "industries": [
+      "Healthcare",
+      "Basic Materials",
+      "N/A",
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 11
+  },
+  {
+    "url": "https://finance.yahoo.com/news/auto-stocks-under-pressure-as-tariff-escalation-boils-over-160147809.html",
+    "title": "Auto stocks under pressure as tariff escalation boils over",
+    "seendate": "20250409160147",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 221,
+    "tickers": [
+      "VOW.DE"
+    ],
+    "industries": [
+      "Consumer Cyclical"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://markets.businessinsider.com/news/stocks/stock-markets-auto-cars-surge-trump-tariff-exemption-toyota-hyundai-2025-4",
+    "title": "Toyota and other Asia auto stocks surge after Trump says he is considering a tariff pause",
+    "seendate": "20250415015212",
+    "sourcelang": "en",
+    "domain": "markets.businessinsider.com",
+    "source": "marketaux",
+    "source_name": "businessinsider.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 147,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-recap-stocks-inch-higher-after-volatile-week-of-tariff-turbulence/49255/",
+    "title": "Market Recap: Stocks Inch Higher After Volatile Week of Tariff Turbulence",
+    "seendate": "20250411182916",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 155,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NFLX"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://www.benzinga.com/25/04/44708204/trump-hints-at-major-tariff-on-imported-pharmaceuticals-us-pharma-stocks-tumble-in-wednesday-pre-market",
+    "title": "Trump Hints At 'Major Tariff' On Imported Pharmaceuticals, US Pharma Stocks Tumble In Wednesday Pre-Market - AstraZeneca (NASDAQ:AZN), Amgen (NASDAQ:AMGN)",
+    "seendate": "20250409113424",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "AZN",
+      "AMGN",
+      "MRK",
+      "AZNCF",
+      "AMGN.BA",
+      "MRKD.BA",
+      "MRK.SN",
+      "ZEG.DE",
+      "6MK.DE",
+      "AMG.DE",
+      "MRK.PA",
+      "AZNN.MX",
+      "MRK.MX",
+      "AMGN.MX",
+      "AZN.L",
+      "0A4J.L"
+    ],
+    "industries": [
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 16
+  },
+  {
+    "url": "https://finance.yahoo.com/news/tariff-sensitive-stocks-apple-nike-221200528.html",
+    "title": "Tariff-Sensitive Stocks Apple and Nike Are Getting Clobbered. Time to Buy?",
+    "seendate": "20250413221200",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 520,
+    "tickers": [
+      "NKE",
+      "AAPL"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Technology"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/asian-stocks-jump-after-us-markets-hit-record-highs-after-tariff-pause-10-things-to-know/articleshow/120144720.cms",
+    "title": "Asian stocks jump after US markets hit record highs after tariff pause: 10 things to know",
+    "seendate": "20250410032328",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 179,
+    "tickers": [
+      "^AXJO",
+      "^HSI",
+      "^N225"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/midday-market-update-wall-street-navigates-tariff-tensions-as-tech-stocks-lead-rally/49203/",
+    "title": "Midday Market Update: Wall Street Navigates Tariff Tensions as Tech Stocks Lead Rally",
+    "seendate": "20250409150204",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 158,
+    "tickers": [
+      "VERO",
+      "AAPL",
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "TSLA"
+    ],
+    "industries": [
+      "Healthcare",
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-soars-after-trumps-tariff-pause-market-update-for-april-10-2025/49212/",
+    "title": "Stock Market Soars After Trump’s Tariff Pause: Market Update for April 10, 2025",
+    "seendate": "20250410110205",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 151,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "^HSI",
+      "MSCL.SN"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-surges-on-tariff-exemptions-market-update-for-april-14-2025/49262/",
+    "title": "Stock Market Surges on Tariff Exemptions: Market Update for April 14, 2025",
+    "seendate": "20250414110156",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 150,
+    "tickers": [
+      "7HP.DE",
+      "AAPL",
+      "NVDA",
+      "NFLX",
+      "HPQ.MX",
+      "HPQ",
+      "JNJ",
+      "0J2E.L",
+      "HPQB34.SA",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "HPQ.BA",
+      "HPQ.SN"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 13
+  },
+  {
+    "url": "https://www.thehindubusinessline.com/markets/stock-markets/metal-banking-stocks-lead-market-rally-as-us-delays-reciprocal-tariffs/article69439510.ece",
+    "title": "Metal, banking stocks lead market rally as US delays reciprocal tariffs",
+    "seendate": "20250411131207",
+    "sourcelang": "en",
+    "domain": "thehindubusinessline.com",
+    "source": "marketaux",
+    "source_name": "thehindubusinessline.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 130,
+    "tickers": [
+      "ASIANPAINT.NS",
+      "COALINDIA.NS",
+      "HINDALCO.NS",
+      "JSWSTEEL.NS",
+      "TATASTEEL.NS",
+      "^CRSMID",
+      "^CNXMETAL",
+      "^NSEI",
+      "^INDIAVIX",
+      "NIFTY_MIDCAP_100.NS",
+      "TATASTEEL-BL.NS",
+      "APOLLOHOSP-BL.NS",
+      "ASIANPAINT.BO",
+      "HINDALCO.BO",
+      "JSWSTEEL.BO",
+      "TATASTEEL.BO",
+      "LKPSEC.BO",
+      "COALINDIA.BO"
+    ],
+    "industries": [
+      "Basic Materials",
+      "Energy",
+      "N/A",
+      "Financial Services"
+    ],
+    "entity_count": 18
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2769549/us-stock-market-soars-as-trump-announces-tariff-suspension",
+    "title": "US Stock Market Soars as Trump Announces Tariff Suspension",
+    "seendate": "20250409195039",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-indexes-rally-as-tech-gets-tariff-reprieve/49260/",
+    "title": "STOCK MARKET TODAY: INDEXES RALLY AS TECH GETS TARIFF REPRIEVE",
+    "seendate": "20250414080213",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 151,
+    "tickers": [
+      "USB",
+      "MTB",
+      "USB.MX",
+      "JNJ",
+      "BABAF",
+      "0LHY.L",
+      "0JW2.L",
+      "CRSP",
+      "9988.HK",
+      "AAPL",
+      "ASML",
+      "NVDA",
+      "NFLX",
+      "BABA",
+      "ABT",
+      "USBC34.SA",
+      "M1TB34.SA",
+      "BABA.BA",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "USB.BA",
+      "UNHD.BA",
+      "ABT.SN",
+      "USB.SN",
+      "ABTCL.SN",
+      "AHLA.DE",
+      "UB5.DE",
+      "BABAN.MX"
+    ],
+    "industries": [
+      "Financial Services",
+      "Healthcare",
+      "Consumer Cyclical",
+      "N/A",
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 28
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-recap-wall-street-rebounds-as-tech-stocks-lead-the-way-on-tariff-exemptions/49266/",
+    "title": "Market Recap: Wall Street Rebounds as Tech Stocks Lead the Way on Tariff Exemptions",
+    "seendate": "20250414180203",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 153,
+    "tickers": [
+      "JNJ",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "AAPL",
+      "NVDA",
+      "NFLX"
+    ],
+    "industries": [
+      "Healthcare",
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 6
+  },
+  {
+    "url": "https://www.investing.com/analysis/trumps-reciprocal-tariffs-the-boomerang-effect-200659328",
+    "title": "Trump’s Reciprocal Tariffs: The Boomerang Effect",
+    "seendate": "20250410092400",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 124,
+    "tickers": [
+      "TSLA",
+      "JPM",
+      "^HSI"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://finance.yahoo.com/news/apple-market-cap-falls-back-below-3-trillion-as-relief-rally-fades-amid-new-tariff-uncertainty-160003888.html",
+    "title": "Apple market cap falls back below $3 trillion as 'relief rally' fades amid new tariff uncertainty",
+    "seendate": "20250416160003",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 146,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "MSFT"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-volatility-continues-as-tariff-tensions-dominate-wall-street-april-11-2025/49221/",
+    "title": "Market Volatility Continues as Tariff Tensions Dominate Wall Street",
+    "seendate": "20250411110232",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 157,
+    "tickers": [
+      "AAPL",
+      "AMD",
+      "NVDA",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/donald-trump-90-day-pause-on-reciprocal-tariffs-for-most-nations-india-but-raises-tariffs-for-china-full-details/articleshow/120135978.cms",
+    "title": "Donald Trump presses 90-day pause button on reciprocal tariffs for most nations, but raises tariffs for China",
+    "seendate": "20250409173558",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 179,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-explodes-3000-points-higher-sp-500-has-best-day-since-2008-as-trump-pauses-most-reciprocal-tariffs-133616395.html",
+    "title": "Stock market today: Dow explodes 3,000 points higher, S&P 500 has best day since 2008 as Trump pauses most reciprocal tariffs",
+    "seendate": "20250409200636",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 141,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-watch-stock-market-rallies-on-tech-tariff-exemptions-as-earnings-season-heats-up/49270/",
+    "title": "Market Watch: Stock Market Rallies on Tech Tariff Exemptions as Earnings Season Heats Up",
+    "seendate": "20250415110211",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 150,
+    "tickers": [
+      "NFLX",
+      "ABT",
+      "JNJ",
+      "DJNJ2.BA",
+      "DJNJ3.BA",
+      "UNHD.BA",
+      "ABT.SN",
+      "ABTCL.SN",
+      "MSCL.SN",
+      "AAPL",
+      "IBKR",
+      "NVDA"
+    ],
+    "industries": [
+      "Communication Services",
+      "Healthcare",
+      "N/A",
+      "Technology",
+      "Financial Services"
+    ],
+    "entity_count": 12
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/koreas-kospi-falls-into-bear-market-as-tariff-worries-persist/articleshow/120122336.cms",
+    "title": "Korea’s Kospi falls into bear market as tariff worries persist",
+    "seendate": "20250409084913",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 213,
+    "tickers": [
+      "MSCL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://finance.yahoo.com/news/ireland-had-surprising-way-deal-141812959.html",
+    "title": "Ireland had a surprising way to deal with Trump's tariff hike",
+    "seendate": "20250415141812",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 133,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.forbes.com/sites/dereksaul/2025/04/14/apple-soars-after-tariff-exemptions-and-iphones-may-not-get-more-expensive-after-all/",
+    "title": "Apple Soars After Tariff Exemptions—And iPhones May Not Get More Expensive After All",
+    "seendate": "20250414140224",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 165,
+    "tickers": [
+      "AAPL"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.benzinga.com/government/25/04/44819250/german-euro-area-economic-sentiment-plunges-after-trumps-liberation-day-tariffs",
+    "title": "German, Euro Area Economic Sentiment Plunges After Trump's 'Liberation Day' Tariffs",
+    "seendate": "20250415160901",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 163,
+    "tickers": [
+      "RNMBF"
+    ],
+    "industries": [
+      "Industrials"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.under30ceo.com/australian-stock-market-rebounds-despite-tariff-threats/",
+    "title": "Australian stock market rebounds despite tariff threats",
+    "seendate": "20250409134500",
+    "sourcelang": "en",
+    "domain": "under30ceo.com",
+    "source": "marketaux",
+    "source_name": "under30ceo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 104,
+    "tickers": [
+      "^AXJO"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.forexlive.com/news/usdjpy-rises-300-pips-from-the-trump-tariff-reversal-20250409/",
+    "title": "USD/JPY rises 300 pips from the Trump tariff reversal",
+    "seendate": "20250409182430",
+    "sourcelang": "en",
+    "domain": "forexlive.com",
+    "source": "marketaux",
+    "source_name": "forexlive.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 29,
+    "tickers": [
+      "USDJPY"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.upi.com/Top_News/US/2025/04/10/Dow-falls-1107-points-after-brief-rally-following-Trump-tariff-pause/5241744297110/",
+    "title": "Dow falls 1,107 points after brief rally following Trump tariff pause",
+    "seendate": "20250410151941",
+    "sourcelang": "en",
+    "domain": "upi.com",
+    "source": "marketaux",
+    "source_name": "upi.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 109,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://financefeeds.com/btc-puts-surge-past-2023-levels-on-tariff-worries/",
+    "title": "BTC Puts Surge Past 2023 Levels on Tariff Worries",
+    "seendate": "20250415120557",
+    "sourcelang": "en",
+    "domain": "financefeeds.com",
+    "source": "marketaux",
+    "source_name": "financefeeds.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 157,
+    "tickers": [
+      "CC:BTC"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.cbc.ca/news/world/china-tariffs-us-trump-1.7507719?cmp=rss",
+    "title": "China hits back at Trump's tariff hike with 125% duties on U.S. goods",
+    "seendate": "20250411102032",
+    "sourcelang": "en",
+    "domain": "cbc.ca",
+    "source": "marketaux",
+    "source_name": "cbc.ca",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 261,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/2-different-wall-street-strategists-make-same-forrest-gump-reference-explaining-markets-tariff-response-152013349.html",
+    "title": "2 different Wall Street strategists make same Forrest Gump reference explaining market's tariff response",
+    "seendate": "20250414152013",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 151,
+    "tickers": [
+      "NVDA.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.thehindubusinessline.com/markets/asia-shares-jump-after-us-stocks-soared-to-historic-gains-on-90-day-tariff-pause/article69434813.ece",
+    "title": "Asia shares jump after US stocks soared to historic gains on 90-day tariff pause",
+    "seendate": "20250410100951",
+    "sourcelang": "en",
+    "domain": "thehindubusinessline.com",
+    "source": "marketaux",
+    "source_name": "thehindubusinessline.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 150,
+    "tickers": [
+      "^N225",
+      "^AXJO"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://finance.yahoo.com/news/marjorie-taylor-greene-bought-thousands-170244557.html",
+    "title": "Marjorie Taylor Greene bought thousands of dollars in stock right before Trump's tariff pause sent markets soaring",
+    "seendate": "20250414170244",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 140,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/investors-aggressively-buy-the-dip-as-trumps-tariff-turmoil-continues-to-shake-markets-133641635.html",
+    "title": "Investors aggressively buy the dip as Trump's tariff turmoil continues to shake markets",
+    "seendate": "20250415133641",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 121,
+    "tickers": [
+      "BAC"
+    ],
+    "industries": [
+      "Financial Services"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://finance.yahoo.com/news/nike-inc-nke-insiders-bought-013127845.html",
+    "title": "NIKE, Inc. (NKE): Insiders Bought in April After Trump’s Tariff Rollout",
+    "seendate": "20250409013127",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 335,
+    "tickers": [
+      "NKE",
+      "NKE.DE",
+      "NKE.MX",
+      "NKE.BA",
+      "NKED.BA",
+      "NKE.SN",
+      "NKECL.SN"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.pymnts.com/cfo/2025/trumps-global-tariffs-position-cfos-as-new-supply-chain-architects/",
+    "title": "Trump’s Tariffs Position CFOs as New Supply Chain Architects",
+    "seendate": "20250409155553",
+    "sourcelang": "en",
+    "domain": "pymnts.com",
+    "source": "marketaux",
+    "source_name": "pymnts.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 131,
+    "tickers": [
+      "JNJ",
+      "DJNJ2.BA",
+      "DJNJ3.BA"
+    ],
+    "industries": [
+      "Healthcare"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2783159/xpeng-xpev-strengthens-supply-chain-amidst-uschina-tensions",
+    "title": "XPeng (XPEV) Strengthens Supply Chain Amidst US-China Tensions",
+    "seendate": "20250416105558",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 161,
+    "tickers": [
+      "XPEV",
+      "XPEVN.MX"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2769512/nike-nke-faces-supply-chain-challenges-amid-steep-tariffs",
+    "title": "Nike (NKE) Faces Supply Chain Challenges Amid Steep Tariffs",
+    "seendate": "20250409185914",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 155,
+    "tickers": [
+      "NKE.MX",
+      "NKE",
+      "NKE.BA",
+      "NKED.BA",
+      "NKE.SN",
+      "NKECL.SN",
+      "NKE.DE"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.cnbc.com/2025/04/14/tariffs-wont-bring-manufacturing-back-to-us-supply-chain-survey.html",
+    "title": "Trump tariffs won't lead supply chains back to U.S. but companies will go low-tariff globe-hopping: CNBC survey",
+    "seendate": "20250414165155",
+    "sourcelang": "en",
+    "domain": "cnbc.com",
+    "source": "marketaux",
+    "source_name": "cnbc.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 156,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2773983/morgan-stanley-adjusts-textron-txt-price-target-amid-supply-chain-concerns-txt-stock-news",
+    "title": "Morgan Stanley Adjusts Textron (TXT) Price Target Amid Supply Chain Concerns | TXT Stock News",
+    "seendate": "20250411124549",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "TXT.MX",
+      "0LF0.L",
+      "TXT",
+      "T1XT34.SA"
+    ],
+    "industries": [
+      "Industrials",
+      "N/A"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.benzinga.com/25/04/44781528/apples-preemptive-iphone-stockpile-could-disrupt-supply-chain-amid-looming-semiconductor-tariffs-warns-top-analys",
+    "title": "Apple's iPhone Stockpile Could Disrupt Supply Chain Amid Looming Chip Tariffs, Warns Top Analyst — Identifies Cupertino's Best Option Beyond White House Talks",
+    "seendate": "20250414023121",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 260,
+    "tickers": [
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL",
+      "AAPL.MX",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2775937/apple-aapl-avoids-major-tariff-crisis-with-exemption-on-chinese-goods",
+    "title": "Apple (AAPL) Avoids Major Tariff Crisis with Exemption on Chinese Goods",
+    "seendate": "20250414012018",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL.MX",
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2775985/nvidia-nvda-remains-morgan-stanleys-top-pick-amid-tariff-concerns",
+    "title": "NVIDIA (NVDA) Remains Morgan Stanley's Top Pick Amid Tariff Concerns",
+    "seendate": "20250414051022",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "MSCL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2775949/trumps-stance-on-trade-focus-on-china-and-electronics-supply-chain-aapl-stock-news",
+    "title": "Trump's Stance on Trade: Focus on China and Electronics Supply Chain | AAPL Stock News",
+    "seendate": "20250414021514",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 159,
+    "tickers": [
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL",
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://finance.yahoo.com/news/nvidia-nvda-stays-strong-despite-120914885.html",
+    "title": "NVIDIA (NVDA) Stays Strong Despite Supply Chain Snags – Analysts Say “Own It”",
+    "seendate": "20250410120914",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 337,
+    "tickers": [
+      "NVDA.MX",
+      "NVDA",
+      "NVDC34.SA",
+      "NVDA.BA",
+      "NVD.DE"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2771643/north-american-manufacturers-report-sharp-pullback-due-to-tariffs-while-asian-suppliers-run-at-full-tilt-gep-global-supply-chain-volatility-index",
+    "title": "NORTH AMERICAN MANUFACTURERS REPORT SHARP PULLBACK DUE TO TARIFFS, WHILE ASIAN SUPPLIERS RUN AT FULL TILT: GEP GLOBAL SUPPLY CHAIN VOLATILITY INDEX",
+    "seendate": "20250410140012",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 157,
+    "tickers": [
+      "MHL.DE",
+      "SPGI.MX",
+      "0KYY.L",
+      "SPGI",
+      "IT"
+    ],
+    "industries": [
+      "Financial Services",
+      "N/A",
+      "Technology"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2783219/therma-bright-reviews-manufacturing-strategy-in-light-of-us-tariff-changes-tbrif-stock-news",
+    "title": "Therma Bright Reviews Manufacturing Strategy in Light of US Tariff Changes | TBRIF Stock News",
+    "seendate": "20250416114526",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 161,
+    "tickers": [
+      "THRBF",
+      "THRM.V",
+      "TBRIF"
+    ],
+    "industries": [
+      "Healthcare"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2775698/ubs-analyst-maintains-optimistic-outlook-on-apple-aapl-amid-tariff-adjustments-aapl-stock-news",
+    "title": "UBS Analyst Maintains Optimistic Outlook on Apple (AAPL) Amid Tariff Adjustments | AAPL Stock News",
+    "seendate": "20250413184529",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL",
+      "AAPL.BA",
+      "AAPLD.BA",
+      "AAPLC.BA",
+      "AAPLCL.SN",
+      "AAPL.SN",
+      "AAPL.NE",
+      "APC.DE",
+      "AAPL.MX"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 9
+  },
+  {
+    "url": "https://www.investing.com/analysis/why-crowdstrike-is-a-top-growth-play-in-a-tariffresistant-sector-200659527",
+    "title": "Why CrowdStrike Is a Top Growth Play in a Tariff-Resistant Sector",
+    "seendate": "20250415181900",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 119,
+    "tickers": [
+      "CRWD",
+      "TFC"
+    ],
+    "industries": [
+      "Technology",
+      "Financial Services"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/trump-tariff-effect-indias-electronic-exports-to-be-20-cheaper-than-china-in-us-says-icea/articleshow/120253785.cms",
+    "title": "Trump tariff effect: India's electronic exports to be 20% cheaper than China in US, says ICEA",
+    "seendate": "20250413111203",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w2",
+    "text_chars": 171,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://news.sky.com/story/trade-war-trump-floats-china-tariff-cut-to-80-ahead-of-talks-13364410",
+    "title": "Trade war: Trump floats China tariff cut to 80% ahead of talks",
+    "seendate": "20250509115800",
+    "sourcelang": "en",
+    "domain": "news.sky.com",
+    "source": "marketaux",
+    "source_name": "news.sky.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 145,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.businessinsider.com/stock-market-today-trump-apple-tariffs-iphone-eu-trade-india-2025-5",
+    "title": "Stocks tumble after Trump re-escalates trade war with more tariff talk",
+    "seendate": "20250523141512",
+    "sourcelang": "en",
+    "domain": "businessinsider.com",
+    "source": "marketaux",
+    "source_name": "businessinsider.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 129,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/china-wants-return-us-trade-040300401.html",
+    "title": "China says successful US trade talks make return to tariff war unnecessary",
+    "seendate": "20250718040300",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 332,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.investing.com/analysis/gold-price-rebounds-as-trump-tariff-threat-sparks-global-trade-war-fears-200661592",
+    "title": "Gold Price Rebounds as Trump Tariff Threat Sparks Global Trade War Fears",
+    "seendate": "20250602101200",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 156,
+    "tickers": [
+      "USDJPY"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://michaelwest.com.au/news/trump-ramps-up-trade-war-in-tariff-letters-to-leaders/",
+    "title": "Trump ramps up trade war in tariff letters to leaders",
+    "seendate": "20250708031525",
+    "sourcelang": "en",
+    "domain": "michaelwest.com.au",
+    "source": "marketaux",
+    "source_name": "michaelwest.com.au",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 311,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/tariff-fatigue-sets-in-markets-yawn-at-trumps-latest-trade-war/50743/",
+    "title": "Tariff Fatigue Sets In: Markets Yawn at Trump’s Latest Trade War",
+    "seendate": "20250719180046",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 53,
+    "tickers": [
+      "RIOD.BA"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/trump-tariff-war-mexico-canada-plan-stronger-trade-collaboration-check-details/articleshow/122609130.cms",
+    "title": "Trump tariff war: Mexico, Canada plan stronger trade collaboration",
+    "seendate": "20250717031916",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 179,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/donald-trump-trade-war-impact-india-in-wait-and-watch-mode-on-impact-of-tariff-differentials-difficult-to-plan/articleshow/122564278.cms",
+    "title": "Donald Trump trade war impact: India in wait-and-watch mode on impact of tariff differentials; ‘difficult to plan…’",
+    "seendate": "20250716080538",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 171,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/international-business/donald-trump-tariff-jitters-whats-latest-on-us-trade-war-what-happens-next-check-details/articleshow/122377839.cms",
+    "title": "Donald Trump tariff jitters: What's latest on US trade war & what happens next? Check details",
+    "seendate": "20250711035112",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 179,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://michaelwest.com.au/news/trade-deal-making-ramps-up-ahead-of-us-tariff-deadline/",
+    "title": "Trade deal-making ramps up ahead of US tariff deadline",
+    "seendate": "20250706232520",
+    "sourcelang": "en",
+    "domain": "michaelwest.com.au",
+    "source": "marketaux",
+    "source_name": "michaelwest.com.au",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 319,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/trump-tariff-war-hammer-british-163444766.html",
+    "title": "Trump tariff war ‘to hammer British industry’",
+    "seendate": "20250710163444",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 138,
+    "tickers": [
+      "0A4J.L",
+      "0IVW.L",
+      "0KWZ.L",
+      "AAL",
+      "AZN",
+      "NVDA",
+      "RIO.AX",
+      "^AXJO",
+      "NVDA.MI",
+      "^CNXPHARMA",
+      "RIOD.BA",
+      "^N225",
+      "^FCHI",
+      "AZN.L",
+      "AAL.L",
+      "0HE6.L",
+      "0A3T.L",
+      "AJB.L",
+      "0QZ4.L",
+      "JUP.L",
+      "GLEN.L",
+      "RIO.L"
+    ],
+    "industries": [
+      "N/A",
+      "Industrials",
+      "Healthcare",
+      "Technology",
+      "Basic Materials",
+      "Financial Services"
+    ],
+    "entity_count": 22
+  },
+  {
+    "url": "https://thesun.my/world-news/eu-awaits-trump-tariff-letter-as-trade-tensions-escalate-NE14455239",
+    "title": "EU awaits Trump tariff letter as trade tensions escalate",
+    "seendate": "20250711152905",
+    "sourcelang": "en",
+    "domain": "thesun.my",
+    "source": "marketaux",
+    "source_name": "thesundaily.my",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 139,
+    "tickers": [
+      "CMWAY",
+      "CBAUF",
+      "CBAPJ.AX"
+    ],
+    "industries": [
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/news/international/global-trends/trump-tariffs-is-us-china-trade-war-over-or-tariff-cuts-may-be-just-a-temporary-fix-all-your-faqs-answered/articleshow/121110601.cms",
+    "title": "Is US-China trade war over or tariff cuts may be just a temporary fix? All your FAQs answered",
+    "seendate": "20250512121715",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 347,
+    "tickers": [
+      "0KEQ.L",
+      "PVH"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/news/international/global-trends/where-things-stand-in-the-us-china-trade-war/articleshow/120815415.cms",
+    "title": "Where things stand in the US-China trade war",
+    "seendate": "20250502065804",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 135,
+    "tickers": [
+      "PVH",
+      "0KEQ.L"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://news.sky.com/story/trade-war-aston-martin-outlines-plan-to-beat-us-tariff-hit-as-profits-sink-13403862",
+    "title": "Trade war: Aston Martin outlines plan to beat US tariff hit as profits sink",
+    "seendate": "20250730074000",
+    "sourcelang": "en",
+    "domain": "news.sky.com",
+    "source": "marketaux",
+    "source_name": "news.sky.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 156,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.morningstar.co.uk/uk/news/264894/which-stocks-had-uncertainty-ratings-raised-on-tariff-concerns.aspx",
+    "title": "Which Stocks Had Uncertainty Ratings Raised on Tariff Concerns?",
+    "seendate": "20250514090348",
+    "sourcelang": "en",
+    "domain": "morningstar.co.uk",
+    "source": "marketaux",
+    "source_name": "morningstar.co.uk",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 89,
+    "tickers": [
+      "MBG.DE"
+    ],
+    "industries": [
+      "Consumer Cyclical"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/july-9-tariff-deadline-market-impact-analysis-and-what-investors-need-to-know/50258/",
+    "title": "July 9 Tariff Deadline: Market Impact Analysis and What Investors Need to Know",
+    "seendate": "20250706140816",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 136,
+    "tickers": [
+      "CORN",
+      "USMV",
+      "AMAT",
+      "LRCX",
+      "MU",
+      "APTV",
+      "APTV-PA",
+      "BLK",
+      "GM",
+      "RTX",
+      "DE",
+      "LEA",
+      "FCX",
+      "SNAP",
+      "USMV.MX"
+    ],
+    "industries": [
+      "N/A",
+      "Technology",
+      "Consumer Cyclical",
+      "Financial Services",
+      "Industrials",
+      "Basic Materials",
+      "Communication Services"
+    ],
+    "entity_count": 15
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-markets-steady-as-trump-extends-tariff-deadline-ai-stocks-lead-gainers/50288/",
+    "title": "Stock Market Today: Markets Steady as Trump Extends Tariff Deadline, AI Stocks Lead Gainers",
+    "seendate": "20250708140813",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 125,
+    "tickers": [
+      "NDRA",
+      "NDRAW",
+      "ENPH",
+      "AAPL",
+      "NVDA",
+      "FSLR",
+      "TSLA",
+      "RUN",
+      "SEDG",
+      "SOFI",
+      "SOUN",
+      "QS",
+      "QS-WT",
+      "QS.MX"
+    ],
+    "industries": [
+      "Healthcare",
+      "N/A",
+      "Technology",
+      "Consumer Cyclical",
+      "Financial Services"
+    ],
+    "entity_count": 14
+  },
+  {
+    "url": "https://www.forbes.com/sites/dereksaul/2025/05/13/tariff-market-rebounds-biggest-losers-include-tobacco-stocks-as-smoky-safe-haven-loses-luster/",
+    "title": "Tobacco Stocks Struggle As Tariff Easing Put Out Rally",
+    "seendate": "20250513193310",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 167,
+    "tickers": [
+      "UNHD.BA"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/indices-edge-up-on-fii-boost-tariff-impact-still-a-worry/articleshow/120914289.cms",
+    "title": "Indices edge up on FII boost, tariff impact still a worry",
+    "seendate": "20250506001937",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 189,
+    "tickers": [
+      "NIFTYMIDCAP150.NS",
+      "^NSEI",
+      "WALLFORT.BO"
+    ],
+    "industries": [
+      "N/A",
+      "Financial Services"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://michaelwest.com.au/news/stocks-fall-after-trump-sets-tariff-sights-on-canada/",
+    "title": "Stocks fall after Trump sets tariff sights on Canada",
+    "seendate": "20250711085256",
+    "sourcelang": "en",
+    "domain": "michaelwest.com.au",
+    "source": "marketaux",
+    "source_name": "michaelwest.com.au",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 328,
+    "tickers": [
+      "NVDA.MI",
+      "NVDA"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.benzinga.com/markets/25/05/45484954/treasury-secretary-bessent-addresses-moodys-downgrade-and-tariff-impact-n-walmart",
+    "title": "Treasury Secretary Bessent Addresses Moody's Downgrade and Tariff Impact on Walmart - Walmart (NYSE:WMT)",
+    "seendate": "20250518182535",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 144,
+    "tickers": [
+      "WMT",
+      "WMTD.BA",
+      "WMTC.BA",
+      "WMT.SN",
+      "WALMARTCL.SN",
+      "WMT.DE",
+      "WMT.MX"
+    ],
+    "industries": [
+      "Consumer Defensive",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://finance.yahoo.com/news/consumer-price-inflation-slows-april-155408742.html",
+    "title": "Consumer-price inflation slows in April, but tariff impact on prices will linger",
+    "seendate": "20250513155408",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 104,
+    "tickers": [
+      "BOKF",
+      "BOKFL",
+      "UNHD.BA"
+    ],
+    "industries": [
+      "Financial Services",
+      "N/A"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2829158/trumps-tariff-move-shakes-markets-impacting-netflix-nflx-and-tech-stocks",
+    "title": "Trump's Tariff Move Shakes Markets, Impacting Netflix (NFLX) and Tech Stocks",
+    "seendate": "20250505153017",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 160,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "NFLX"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2896066/ch-robinson-worldwide-inc-chrw-launches-us-tariff-impact-analysis-tool-chrw-stock-news",
+    "title": "C.H. Robinson Worldwide Inc (CHRW) Launches U.S. Tariff Impact Analysis Tool | CHRW stock news",
+    "seendate": "20250529150348",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 160,
+    "tickers": [
+      "CHRW",
+      "0HQW.L"
+    ],
+    "industries": [
+      "Industrials",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-recap-stocks-retreat-as-fed-meeting-begins-and-tariff-concerns-linger/49411/",
+    "title": "Market Recap: Stocks Retreat as Fed Meeting Begins and Tariff Concerns Linger",
+    "seendate": "20250506182901",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 156,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "MSFT",
+      "TSLA",
+      "NFLX",
+      "BRKB.BA",
+      "BRKBD.BA",
+      "BRKBB.BA"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 11
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2974925/intercontinental-exchange-inc-ice-premarket-update-tariff-announcements-impact-market-sentiment-ice-stock-news",
+    "title": "Intercontinental Exchange Inc (ICE) Pre-Market Update: Tariff Announcements Impact Market Sentiment | ICE stock news",
+    "seendate": "20250714140737",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 160,
+    "tickers": [
+      "ICE",
+      "HRB",
+      "IC2.DE",
+      "ICE.MX",
+      "0JC3.L"
+    ],
+    "industries": [
+      "Financial Services",
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.insidermonkey.com/blog/11-defensive-stocks-billionaires-are-buying-amid-us-trade-tariff-uncertainty-1578325/",
+    "title": "11 Defensive Stocks Billionaires are Buying amid US Trade Tariff Uncertainty",
+    "seendate": "20250730041402",
+    "sourcelang": "en",
+    "domain": "insidermonkey.com",
+    "source": "marketaux",
+    "source_name": "insidermonkey.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 189,
+    "tickers": [
+      "COCA34.SA",
+      "MOOO34.SA",
+      "MO",
+      "ABT",
+      "KO",
+      "MO.BA",
+      "MOD.BA",
+      "KO.SN",
+      "ABT.SN",
+      "ABTCL.SN",
+      "PHM7.DE",
+      "CCC3.DE",
+      "KO.MX",
+      "MO.MX"
+    ],
+    "industries": [
+      "Consumer Defensive",
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 14
+  },
+  {
+    "url": "https://finance.yahoo.com/news/reciprocal-tariff-pause-ends-11-070600217.html",
+    "title": "The Reciprocal Tariff Pause Ends in 11 Days -- Is a \"Trump Dump\" of Stocks Imminent?",
+    "seendate": "20250628070600",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 87,
+    "tickers": [
+      "NVDA",
+      "NFLX"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-markets-stabilize-after-tariff-scare-as-tech-stocks-lead-recovery/50293/",
+    "title": "Stock Market Today: Markets Stabilize After Tariff Scare as Tech Stocks Lead Recovery",
+    "seendate": "20250708210806",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 158,
+    "tickers": [
+      "AMD",
+      "NVDA",
+      "FSLR",
+      "TSLA",
+      "MRNA",
+      "RUN",
+      "PGNY",
+      "RXRX",
+      "FICO",
+      "000300.SS",
+      "^N225",
+      "ENPH",
+      "3S9.DE",
+      "RUN.MX",
+      "FICO1.MX",
+      "0A4S.L",
+      "0TIQ.L",
+      "399300.SZ",
+      "^HSI"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical",
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 19
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/market-soars-as-us-china-reach-tariff-agreement-may-12-2025-market-recap/49439/",
+    "title": "Market Soars as US-China Reach Tariff Agreement: May 12, 2025 Market Recap",
+    "seendate": "20250512180208",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 77,
+    "tickers": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "ON",
+      "MRVL",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://finance.yahoo.com/news/taiwan-semiconductor-just-threw-cold-094500175.html",
+    "title": "Taiwan Semiconductor Just Threw Cold Water on Tariff Concerns",
+    "seendate": "20250727094500",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 102,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "INTC"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-markets-close-higher-amid-trump-tariff-legal-battle-nvidia-leads-tech-gains/49539/",
+    "title": "Stock Market Today: Markets Close Higher Amid Trump Tariff Legal Battle, Nvidia Leads Tech Gains",
+    "seendate": "20250529210220",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 158,
+    "tickers": [
+      "AVGO",
+      "AVGOP",
+      "NVDA",
+      "MSFT",
+      "SMCI",
+      "STX",
+      "MSCL.SN"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2968448/nissan-nsany-halts-us-production-for-canadian-market-amid-tariff-dispute",
+    "title": "Nissan (NSANY) Halts U.S. Production for Canadian Market Amid Tariff Dispute",
+    "seendate": "20250710075708",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 160,
+    "tickers": [
+      "NSANY",
+      "NSANF",
+      "7201.T",
+      "NSANYN.MX"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-indexes-waver-as-tariff-concerns-linger-at-the-market-close/50292/",
+    "title": "Stock Market Today: Indexes Waver as Tariff Concerns Linger at the Market Close",
+    "seendate": "20250708200808",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 155,
+    "tickers": [
+      "FICO1.MX",
+      "0TIQ.L",
+      "AAPL",
+      "TSLA",
+      "MRNA",
+      "RUN",
+      "FICO"
+    ],
+    "industries": [
+      "Technology",
+      "N/A",
+      "Consumer Cyclical",
+      "Healthcare"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-edge-higher-as-nvidias-market-cap-hits-4t-trump-unveils-more-tariff-letters-160326514.html",
+    "title": "Stock market today: Dow, S&P 500, Nasdaq edge higher as Nvidia's market cap hits $4T, Trump unveils more tariff letters",
+    "seendate": "20250709160326",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 71,
+    "tickers": [
+      "NVDA"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://economictimes.indiatimes.com/markets/stocks/news/japans-nikkei-edges-lower-as-tariff-stalemate-weighs/articleshow/122200413.cms",
+    "title": "Japan's Nikkei edges lower as tariff stalemate weighs",
+    "seendate": "20250702073431",
+    "sourcelang": "en",
+    "domain": "economictimes.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "economictimes.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 205,
+    "tickers": [
+      "DKILY",
+      "DKILF",
+      "KWHIY",
+      "KWHIF",
+      "NCBDY",
+      "NCBDF",
+      "7832.T"
+    ],
+    "industries": [
+      "Industrials",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-markets-stabilize-after-mondays-tariff-induced-selloff/50289/",
+    "title": "Stock Market Today: Markets Stabilize After Monday’s Tariff-Induced Selloff",
+    "seendate": "20250708160802",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 150,
+    "tickers": [
+      "NVDA",
+      "TSLA",
+      "MRNA",
+      "SOUN",
+      "399300.SZ",
+      "^AXJO",
+      "^HSI",
+      "NVDA.MI",
+      "000300.SS",
+      "^N225"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical",
+      "Healthcare",
+      "N/A"
+    ],
+    "entity_count": 10
+  },
+  {
+    "url": "https://www.bangkokpost.com/business/general/3020577/tariff-measures-weigh-on-oil-and-global-growth",
+    "title": "Tariff measures weigh on oil and global growth",
+    "seendate": "20250508041800",
+    "sourcelang": "en",
+    "domain": "bangkokpost.com",
+    "source": "marketaux",
+    "source_name": "bangkokpost.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 299,
+    "tickers": [
+      "PUTRF",
+      "PUTRY",
+      "PETFF"
+    ],
+    "industries": [
+      "Energy"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.forbes.com/sites/bill_stone/2025/06/01/market-implications-of-tariff-litigation-and-ai-spending/",
+    "title": "Market Implications Of Tariff Litigation And AI Spending",
+    "seendate": "20250601121106",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 167,
+    "tickers": [
+      "GOOGL"
+    ],
+    "industries": [
+      "Communication Services"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.investing.com/analysis/gold-prices-under-pressure-as-tariff-talks-offset-geopolitical-risks-200663238",
+    "title": "Gold Prices Under Pressure as Tariff Talks Offset Geopolitical Risks",
+    "seendate": "20250707082500",
+    "sourcelang": "en",
+    "domain": "investing.com",
+    "source": "marketaux",
+    "source_name": "investing.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 145,
+    "tickers": [
+      "EURUSD"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thestockmarketwatch.com/stock-market-news/stock-market-today-markets-open-mixed-as-investors-weigh-tariff-uncertainty-and-jobs-data/49608/",
+    "title": "Stock Market Today: Markets Open Mixed as Investors Weigh Tariff Uncertainty and Jobs Data",
+    "seendate": "20250605140203",
+    "sourcelang": "en",
+    "domain": "thestockmarketwatch.com",
+    "source": "marketaux",
+    "source_name": "thestockmarketwatch.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 158,
+    "tickers": [
+      "0KEQ.L",
+      "MDB",
+      "NVDA",
+      "SBUX",
+      "COWN",
+      "COWNL",
+      "TSLA",
+      "PVH"
+    ],
+    "industries": [
+      "N/A",
+      "Technology",
+      "Consumer Cyclical",
+      "Financial Services"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://finance.yahoo.com/news/bitcoin-dogecoin-xrp-rise-bessent-160830150.html",
+    "title": "Bitcoin, Dogecoin, XRP Rise as Bessent Hints at Trade Deals Before Liberation Day Tariff Deadline",
+    "seendate": "20250706160830",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 89,
+    "tickers": [
+      "CC:BTC",
+      "CC:DOGE"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.cnbc.com/2025/05/05/our-2-best-and-2-worst-stocks-since-trumps-liberation-day-tariff-announcement.html",
+    "title": "Our 2 best and 2 worst stocks since Trump's 'liberation day' tariff announcement",
+    "seendate": "20250505202053",
+    "sourcelang": "en",
+    "domain": "cnbc.com",
+    "source": "marketaux",
+    "source_name": "cnbc.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 99,
+    "tickers": [
+      "NVDA.MI",
+      "SBUX.MI"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://finance.yahoo.com/news/nuveen-cio-saira-malik-decodes-the-stock-markets-post-liberation-day-rally-154917834.html",
+    "title": "Nuveen CIO Saira Malik decodes the stock market's post-'Liberation Day' rally",
+    "seendate": "20250506154917",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 138,
+    "tickers": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+    ],
+    "industries": [
+      "Technology",
+      "Communication Services"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.benzinga.com/markets/25/05/45486508/scott-bessent-signals-liberation-day-2-0-coming-if-countries-dont-sign-trade-deals-president-trump-has-pu",
+    "title": "Scott Bessent Signals Liberation Day 2.0 Coming If Countries Don't Sign Trade Deals: 'President Trump Has Put Them On Notice' - Target (NYSE:TGT), Walmart (NYSE:WMT)",
+    "seendate": "20250519040327",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 149,
+    "tickers": [
+      "WMTD.BA",
+      "WMTC.BA",
+      "WMT.SN",
+      "WALMARTCL.SN",
+      "TGT",
+      "WMT",
+      "WMT.DE",
+      "WMT.MX"
+    ],
+    "industries": [
+      "N/A",
+      "Consumer Defensive"
+    ],
+    "entity_count": 8
+  },
+  {
+    "url": "https://www.benzinga.com/markets/25/05/45664337/china-tells-us-to-entirely-revoke-wrongful-unilateral-tariffs-after-court-blocks-trumps-liberation-day-le",
+    "title": "China Tells US To 'Entirely' Revoke 'Wrongful Unilateral' Tariffs After Court Blocks Trump's 'Liberation Day' Levies",
+    "seendate": "20250529100052",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 133,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.businessinsider.com/liberation-day-industrials-stock-market-rally-trade-war-record-high-2025-5",
+    "title": "One of the stock market's biggest Liberation Day losers is setting new records after crossing a key technical level",
+    "seendate": "20250521155057",
+    "sourcelang": "en",
+    "domain": "businessinsider.com",
+    "source": "marketaux",
+    "source_name": "businessinsider.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 97,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://finance.yahoo.com/news/m-deal-signing-hits-20-100917832.html",
+    "title": "M&A deal signing hits 20 year-low after Trump's 'Liberation Day'",
+    "seendate": "20250506100917",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 520,
+    "tickers": [
+      "MSCL.SN"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.forbes.com/sites/dereksaul/2025/05/02/sp-500-notches-longest-winning-streak-since-2004-as-stocks-claw-back-from-liberation-day-crash/",
+    "title": "S&P 500 Notches Longest Winning Streak Since 2004 As Stocks Claw Back From ‘Liberation Day’ Crash",
+    "seendate": "20250502200809",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 125,
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "TSLA"
+    ],
+    "industries": [
+      "Technology",
+      "Consumer Cyclical"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://www.forbes.com/sites/dereksaul/2025/05/02/sp-500-heads-to-longest-green-stretch-since-2004-as-stocks-claw-back-from-liberation-day-crash/",
+    "title": "S&P 500 Heads To Longest Green Stretch Since 2004 As Stocks Claw Back From ‘Liberation Day’ Crash",
+    "seendate": "20250502152153",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 125,
+    "tickers": [
+      "TSLA",
+      "AAPL",
+      "MSFT"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "Technology"
+    ],
+    "entity_count": 3
+  },
+  {
+    "url": "https://qz.com/sp-500-stocks-erase-losses-since-liberation-day-april-2-1851778909",
+    "title": "Stocks are all the way back to where they were before Trump's 'Liberation Day' tanked the market",
+    "seendate": "20250502184400",
+    "sourcelang": "en",
+    "domain": "qz.com",
+    "source": "marketaux",
+    "source_name": "qz.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 104,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.benzinga.com/markets/25/05/45397196/jensen-huangs-wealth-surges-37-since-liberation-day-lows-as-nvidia-re-enters-3-trillion-market-cap-club-o",
+    "title": "Jensen Huang's Wealth Surges 37% Since 'Liberation Day' Lows As Nvidia Re-Enters $3 Trillion Market Cap Club On Saudi Chip Pact - Microsoft (NASDAQ:MSFT), Apple (NASDAQ:AAPL)",
+    "seendate": "20250514033435",
+    "sourcelang": "en",
+    "domain": "benzinga.com",
+    "source": "marketaux",
+    "source_name": "benzinga.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 227,
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "NVDA.MI",
+      "NVDAD.BA",
+      "NVDAC.BA"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 5
+  },
+  {
+    "url": "https://www.forexlive.com/technical-analysis/the-usd-is-little-change-after-run-higher-on-endingtrump-liberation-day-tariffs-fizzles-20250529/",
+    "title": "The USD is little change after run higher on endingTrump Liberation Day tariffs fizzles",
+    "seendate": "20250529122153",
+    "sourcelang": "en",
+    "domain": "forexlive.com",
+    "source": "marketaux",
+    "source_name": "forexlive.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 71,
+    "tickers": [
+      "NVDA"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://finance.yahoo.com/news/morning-bid-us-eu-avert-043145828.html",
+    "title": "Morning Bid: US and EU avert tariff bust-up",
+    "seendate": "20250728043145",
+    "sourcelang": "en",
+    "domain": "finance.yahoo.com",
+    "source": "marketaux",
+    "source_name": "finance.yahoo.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 586,
+    "tickers": [
+      "WPLCF",
+      "WIZEY"
+    ],
+    "industries": [
+      "Technology",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.rte.ie/news/business/2025/0710/1522808-markets-trump-tariffs/",
+    "title": "Markets 'shaken but not stirred' by latest tariff threats",
+    "seendate": "20250710075827",
+    "sourcelang": "en",
+    "domain": "rte.ie",
+    "source": "marketaux",
+    "source_name": "rte.ie",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 126,
+    "tickers": [
+      "NVDA.MI"
+    ],
+    "industries": [
+      "Technology"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://thesun.my/business-news/us-tariff-jitters-drag-fbm-klci-lower-for-second-day-BC14433417",
+    "title": "US tariff jitters drag FBM KLCI lower for second day",
+    "seendate": "20250708102641",
+    "sourcelang": "en",
+    "domain": "thesun.my",
+    "source": "marketaux",
+    "source_name": "thesundaily.my",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 129,
+    "tickers": [
+      "^KLSE"
+    ],
+    "industries": [
+      "N/A"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.forbes.com/sites/stevebanker/2025/06/01/tariff-havoc-is-forecasted-to-create-a-global-supply-chain-collapse/",
+    "title": "Tariff Havoc Is Forecasted To Create A Global Supply Chain Collapse",
+    "seendate": "20250601143050",
+    "sourcelang": "en",
+    "domain": "forbes.com",
+    "source": "marketaux",
+    "source_name": "forbes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 154,
+    "tickers": [
+      "F.SW",
+      "F",
+      "FMC1.DE",
+      "F.MX"
+    ],
+    "industries": [
+      "Consumer Cyclical"
+    ],
+    "entity_count": 4
+  },
+  {
+    "url": "https://www.manilatimes.net/2025/07/11/tmt-newswire/pr-newswire/tariff-pause-spurs-global-manufacturing-activity-in-june-with-global-supply-chains-now-operating-close-to-full-capacity-gep-global-supply-chain-volatility-index/2147738",
+    "title": "TARIFF PAUSE SPURS GLOBAL MANUFACTURING ACTIVITY IN JUNE, WITH GLOBAL SUPPLY CHAINS NOW OPERATING CLOSE TO FULL CAPACITY: GEP GLOBAL SUPPLY CHAIN VOLATILITY INDEX",
+    "seendate": "20250711124425",
+    "sourcelang": "en",
+    "domain": "manilatimes.net",
+    "source": "marketaux",
+    "source_name": "manilatimes.net",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 747,
+    "tickers": [
+      "SPGI"
+    ],
+    "industries": [
+      "Financial Services"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/business/india-business/aerospace-supply-chain-gauges-impact/articleshow/123007942.cms",
+    "title": "India-US trade deal: Aerospace supply chain gauges impact",
+    "seendate": "20250731004120",
+    "sourcelang": "en",
+    "domain": "timesofindia.indiatimes.com",
+    "source": "marketaux",
+    "source_name": "timesofindia.indiatimes.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 172,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.manilatimes.net/2025/05/01/tmt-newswire/globenewswire/resilinc-launches-agentic-ai-platform-for-supply-chain-risk-and-compliance/2103703",
+    "title": "Resilinc Launches Agentic AI Platform for Supply Chain Risk and Compliance",
+    "seendate": "20250501112814",
+    "sourcelang": "en",
+    "domain": "manilatimes.net",
+    "source": "marketaux",
+    "source_name": "manilatimes.net",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 24,
+    "tickers": [
+      "WWD"
+    ],
+    "industries": [
+      "Industrials"
+    ],
+    "entity_count": 1
+  },
+  {
+    "url": "https://www.cnbc.com/2025/05/22/tariff-pause-boosts-china-imports-retail-empty-shelves-supply-risk.html",
+    "title": "Trump tariff pause bumps up China imports, but retail shelf supply risk remains elevated: CNBC Supply Chain Survey",
+    "seendate": "20250522134609",
+    "sourcelang": "en",
+    "domain": "cnbc.com",
+    "source": "marketaux",
+    "source_name": "cnbc.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 159,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2973660/wmt-faces-supply-chain-disruptions-amid-tariff-concerns-wmt-stock-news",
+    "title": "WMT Faces Supply Chain Disruptions Amid Tariff Concerns | WMT Stock News",
+    "seendate": "20250713183018",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 160,
+    "tickers": [
+      "WMT.DE",
+      "WMT",
+      "WMT.MX",
+      "WMTD.BA",
+      "WMTC.BA",
+      "WMT.SN",
+      "WALMARTCL.SN"
+    ],
+    "industries": [
+      "Consumer Defensive",
+      "N/A"
+    ],
+    "entity_count": 7
+  },
+  {
+    "url": "https://www.gurufocus.com/news/2847992/yeti-holdings-inc-yeti-q1-2025-earnings-call-highlights-navigating-growth-amid-supply-chain-challenges",
+    "title": "YETI Holdings Inc (YETI) Q1 2025 Earnings Call Highlights: Navigating Growth Amid Supply Chain Challenges",
+    "seendate": "20250509071237",
+    "sourcelang": "en",
+    "domain": "gurufocus.com",
+    "source": "marketaux",
+    "source_name": "gurufocus.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 159,
+    "tickers": [
+      "YETI",
+      "YETI.MX"
+    ],
+    "industries": [
+      "Consumer Cyclical",
+      "N/A"
+    ],
+    "entity_count": 2
+  },
+  {
+    "url": "https://www.bangkokpost.com/business/general/3016110/apple-expects-900m-tariff-hit-us-iphone-supply-shifts-to-india",
+    "title": "Apple expects $900m tariff hit, US iPhone supply shifts to India",
+    "seendate": "20250502005500",
+    "sourcelang": "en",
+    "domain": "bangkokpost.com",
+    "source": "marketaux",
+    "source_name": "bangkokpost.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 169,
+    "tickers": [],
+    "industries": [],
+    "entity_count": 0
+  },
+  {
+    "url": "https://www.livemint.com/companies/news/american-air-s-new-airbus-jet-grounded-by-supply-chain-issue-11753471476384.html",
+    "title": "American Air’s New Airbus Jet Grounded by Supply Chain Issue",
+    "seendate": "20250725192435",
+    "sourcelang": "en",
+    "domain": "livemint.com",
+    "source": "marketaux",
+    "source_name": "livemint.com",
+    "tier": 1,
+    "event_id": 3,
+    "window": "w3",
+    "text_chars": 212,
+    "tickers": [
+      "AAL.MX",
+      "DAL.MX",
+      "AIRN.MX",
+      "0HE6.L",
+      "0QZ4.L",
+      "AAL",
+      "DAL",
+      "AALL34.SA",
+      "DEAI34.SA",
+      "A1G.DE",
+      "OYC.DE"
+    ],
+    "industries": [
+      "Industrials",
+      "N/A"
+    ],
+    "entity_count": 11
+  }
+]

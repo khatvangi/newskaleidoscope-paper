@@ -503,7 +503,7 @@ Appendix E: Case Study 2 verification table
 | Case Study | Event | Status | Data Location |
 |---|---|---|---|
 | CS1 — Military | US-Israel-Iran Strike, March 2026 | **COMPLETE** — all data in DB, 106 articles, 9 clusters, 87 presuppositions, mirror gap, absence report, HTML deployed | `analysis/`, `docs/events/iran-march-2026/` |
-| CS2 — Economic | US Reciprocal Tariffs, April 2026 | **IN QUEUE** — Session 8 target. Requires: GDELT pull, 4 time windows, data verification layer, tariff-specific outlet curation | `docs/events/tariffs-april-2026/` (planned) |
+| CS2 — Economic | US Reciprocal Tariffs, April 2025 | **INGESTION COMPLETE** — 1,010+ articles from 6 sources (GDELT 441, MarketAux 212, Reddit 270, World News 87+). 5 time windows. Pipeline Pass 1 running. Multilingual backfill overnight. | `docs/events/tariffs-april-2025/` (pending) |
 | CS3 — Political | 2026 US Midterm Elections | **PLANNED** — November 2026 event. Electoral framing activates biographical/domestic-political registers absent from CS1 and CS2 | TBD |
 
 ### Timeline
@@ -586,9 +586,9 @@ The Mirror Gap is the feature that needs to open every event page. Two columns. 
 | Session 5 | Syntactic analysis + presupposition | syntax_analyzer.py, vocabulary_asymmetry.py, presupposition_extractor.py, correlation_analysis.py — 94 articles syntactically analyzed, 215 actor-framing rows, 87 presuppositions extracted | COMPLETE |
 | Session 6 | Production pipeline + output | pipeline_run.py (10-stage orchestrator), mirror_gap.py, absence_report.py, render.py, deploy.py — deployed to thebeakers.com/newskaleidoscope (48.5K bytes, 7 sections, all LLM sections populated) | COMPLETE |
 | Session 7 | Tier 3 ingestion + data export | YouTube ingest (9 videos, 3 channels), podcast ingest (2 CFR episodes), pipeline analysis of 12 new articles, council on 12, mirror gap + absence report refresh, complete data dump for report generation (224KB JSON) | COMPLETE |
-| Session 8 | CS2 — Tariff event setup | Event creation, GDELT pull for tariff coverage, outlet curation for economic sources, time window architecture, data verification layer | Next |
-| Session 9+ | CS2 analysis + CS3 planning | Full pipeline on tariff corpus, cross-case comparison framework, CS3 event selection confirmed | Planned |
-| Ongoing | New events | One event per week, full pipeline, comparative analysis building over time | |
+| Session 8 | CS2 ingestion + multi-API infrastructure | CS2 event (id=3) in DB. 5-window GDELT pull (441 articles). Multi-API ingestion: World News API (1,087 CS1 articles, 15 langs, 54 countries), MarketAux (212 financial articles, 424 tickers), Reddit (CS1: 109 posts, CS2: 270 posts), NewsData.io, archive.org Wayback fallback. Pipeline running on 441 CS2 articles. Overnight cron for multilingual backfill. CS1 editorial page rewritten. Master record restructured to single paper. | COMPLETE |
+| Session 9 | CS2 analysis pipeline | Check pipeline + overnight results. Merge all sources. Council run. Pass 2 clustering. Absence report. CS2 HTML page. Cross-case comparison. | Next |
+| Session 10+ | CS3 planning + paper writing | CS3 event selection (midterms). Cross-case framework. Paper draft. | Planned |
 
 ---
 

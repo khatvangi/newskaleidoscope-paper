@@ -127,10 +127,24 @@ def fetch_article_text(url):
         except Exception as e:
             log.warning(f"  newspaper3k failed for {url[:60]}: {e}")
 
+    # fallback: try Wayback Machine for archived version
+    if not text:
+        try:
+            from archive_fetcher import fetch_via_wayback
+            log.info(f"  trying Wayback Machine for {url[:60]}...")
+            text = fetch_via_wayback(url)
+            if text:
+                log.info(f"  wayback recovered: {len(text)} chars")
+        except ImportError:
+            log.warning("archive_fetcher not available")
+        except Exception as e:
+            log.warning(f"  wayback failed: {e}")
+
     if text and text.strip():
         with open(cache_path, "w", encoding="utf-8") as f:
             f.write(text)
         return text
+
     return None
 
 
