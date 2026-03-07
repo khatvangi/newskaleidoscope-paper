@@ -238,7 +238,7 @@ def get_country_context(contexts, country):
 
 
 # ── language preservation: extract framing from original text ─────
-FRAMING_EXTRACT_PROMPT = """You are analyzing a news article written in {language} about US-Iran/Israel military tensions.
+FRAMING_EXTRACT_PROMPT = """You are analyzing a news article written in {language} about {event_context}.
 
 Extract ONLY the key framing language — the specific words and phrases that reveal how this source frames the event. Return them in the ORIGINAL language, not translated. Also provide approximate English translations.
 
@@ -256,9 +256,9 @@ Article excerpt:
 {text}"""
 
 
-def extract_original_framing(model, text, language):
+def extract_original_framing(model, text, language, event_context="a major geopolitical event"):
     """extract key framing language from original (non-English) text before translation."""
-    prompt = FRAMING_EXTRACT_PROMPT.format(language=language, text=text[:2000])
+    prompt = FRAMING_EXTRACT_PROMPT.format(language=language, text=text[:2000], event_context=event_context)
     raw = llm_generate(model, prompt)
     return parse_llm_json(raw)
 
@@ -280,7 +280,7 @@ def get_translator():
 #  no predefined categories — use the article's own conceptual vocabulary
 # ══════════════════════════════════════════════════════════════════
 
-PASS1_PROMPT = """You are analyzing a news article about US-Israel military action against Iran.
+PASS1_PROMPT = """You are analyzing a news article about {event_context}.
 
 {country_context}
 
@@ -321,12 +321,13 @@ Article:
 {article_text}"""
 
 
-def pass1_extract(model, text, country_context=""):
+def pass1_extract(model, text, country_context="", event_context="a major geopolitical event"):
     """pass 1: open-ended framing description, no predefined categories."""
     truncated = text[:3000]
     prompt = PASS1_PROMPT.format(
         article_text=truncated,
-        country_context=country_context
+        country_context=country_context,
+        event_context=event_context
     )
     raw = llm_generate(model, prompt)
     return parse_llm_json(raw)
@@ -337,7 +338,7 @@ def pass1_extract(model, text, country_context=""):
 #  runs ONCE after all articles are processed
 # ══════════════════════════════════════════════════════════════════
 
-PASS2_CLUSTER_PROMPT = """You have analyzed {n} news articles from {n_countries} countries about US-Israel military action against Iran.
+PASS2_CLUSTER_PROMPT = """You have analyzed {n} news articles from {n_countries} countries about {event_context}.
 
 Below are the framing descriptions from each article. Your task: identify the EMERGENT clusters — the natural groupings that arise from the data itself.
 
@@ -375,14 +376,17 @@ Output JSON:
 IMPORTANT: Output ONLY valid JSON, no other text."""
 
 
-def pass2_cluster(model, results):
+def pass2_cluster(model, results, event_context="a major geopolitical event"):
     """pass 2: cluster all framing descriptions into emergent categories."""
     # build descriptions summary for clustering prompt
     # use one_sentence_summary to keep prompt within context window
     descriptions = []
     for i, r in enumerate(results):
         analysis = r.get("analysis", {})
-        desc = analysis.get("one_sentence_summary", analysis.get("framing_description", ""))[:120]
+        # prefer one_sentence_summary (typically 80-150 chars); fall back to
+        # framing_description truncated to 300 chars if summary is missing.
+        # previous 120-char truncation was cutting mid-sentence, collapsing distinct framings.
+        desc = analysis.get("one_sentence_summary", "") or analysis.get("framing_description", "")[:300]
         country = r.get("sourcecountry", "unknown")
         domain = r.get("domain", "unknown")
         descriptions.append(f"[{i}] {domain} ({country}): {desc}")
@@ -391,7 +395,8 @@ def pass2_cluster(model, results):
     prompt = PASS2_CLUSTER_PROMPT.format(
         n=len(results),
         n_countries=n_countries,
-        descriptions="\n".join(descriptions)
+        descriptions="\n".join(descriptions),
+        event_context=event_context
     )
     raw = llm_generate(model, prompt, timeout=300)  # longer timeout for corpus-level reasoning
     return parse_llm_json(raw)
@@ -402,7 +407,7 @@ def pass2_cluster(model, results):
 #  what positions are structurally missing from the dataset?
 # ══════════════════════════════════════════════════════════════════
 
-ABSENCE_PROMPT = """You have analyzed {n} news articles from {n_countries} countries about US-Israel military action against Iran.
+ABSENCE_PROMPT = """You have analyzed {n} news articles from {n_countries} countries about {event_context}.
 
 The articles came from these countries: {country_list}
 The languages represented: {lang_list}
@@ -412,7 +417,7 @@ Here is a summary of the framing positions found:
 
 Now identify what is STRUCTURALLY ABSENT from this corpus:
 
-1. Which actors have obvious stakes in this event but are NOT represented? (e.g., Iranian domestic press, Kurdish media, specific religious authorities)
+1. Which actors have obvious stakes in this event but are NOT represented? (e.g., {absence_examples})
 2. What arguments could legitimately be made about this event that NO article in this set makes?
 3. Which regions or populations are affected by this event but have no voice in this corpus?
 4. What framings would appear if the corpus included Tier 3 sources — oral media, WhatsApp networks, sermons, radio?
@@ -431,7 +436,9 @@ Output JSON:
 IMPORTANT: Output ONLY valid JSON, no other text."""
 
 
-def generate_absence_report(model, results, cluster_data):
+def generate_absence_report(model, results, cluster_data,
+                            event_context="a major geopolitical event",
+                            absence_examples="underrepresented domestic media, marginalized communities"):
     """corpus-level analysis of what positions are structurally missing."""
     countries = sorted(set(r.get("sourcecountry", "") for r in results))
     langs = sorted(set(r.get("sourcelang", "") for r in results))
@@ -447,7 +454,9 @@ def generate_absence_report(model, results, cluster_data):
         n_countries=len(countries),
         country_list=", ".join(countries),
         lang_list=", ".join(langs),
-        cluster_summary=cluster_summary or "(clustering not available)"
+        cluster_summary=cluster_summary or "(clustering not available)",
+        event_context=event_context,
+        absence_examples=absence_examples
     )
     raw = llm_generate(model, prompt, timeout=300)
     return parse_llm_json(raw)
@@ -672,10 +681,17 @@ def run_pipeline(limit=None, event_id=None):
             event_type="military",
             primary_actors=["United States", "Israel", "Iran"],
             geographic_scope="regional",
+            prompt_context="US-Israel military action against Iran",
+            absence_examples="Iranian domestic press, Kurdish media, specific religious authorities",
         )
         db_session.add(event)
         db_session.flush()
         log.info(f"created new event: id={event.id}")
+
+    # extract event-specific prompt text from DB
+    event_context = event.prompt_context or event.title or "a major geopolitical event"
+    absence_examples = event.absence_examples or "underrepresented domestic media, marginalized communities"
+    log.info(f"  prompt context: '{event_context}'")
 
     # ── PASS 1: per-article analysis ──────────────────────────────
     log.info(f"\n{'─'*60}")
@@ -766,7 +782,7 @@ def run_pipeline(limit=None, event_id=None):
 
             # also extract framing via LLM (preserves richer analysis)
             log.info(f"  extracting original {lang} framing terms...")
-            original_framing = extract_original_framing(model, raw_text, lang)
+            original_framing = extract_original_framing(model, raw_text, lang, event_context=event_context)
 
             # step 3: translate with Helsinki-NLP (NOT Qwen)
             log.info(f"  translating from {lang} via Helsinki-NLP...")
@@ -788,7 +804,7 @@ def run_pipeline(limit=None, event_id=None):
         # step 4: pass 1 — open-ended framing analysis with country context
         country_ctx = get_country_context(country_contexts, country)
         log.info(f"  pass 1: extracting framing description...")
-        analysis = pass1_extract(model, text, country_context=country_ctx)
+        analysis = pass1_extract(model, text, country_context=country_ctx, event_context=event_context)
         if not analysis:
             log.warning(f"  SKIP: framing extraction failed")
             consecutive_llm_failures += 1
@@ -883,7 +899,7 @@ def run_pipeline(limit=None, event_id=None):
         log.info(f"PASS 2: emergent clustering of {len(results)} framing descriptions")
         log.info(f"{'─'*60}")
 
-        cluster_data = pass2_cluster(model, results)
+        cluster_data = pass2_cluster(model, results, event_context=event_context)
         if cluster_data and not cluster_data.get("raw_response"):
             cluster_path = os.path.join(ANALYSIS_DIR, "emergent_clusters.json")
             with open(cluster_path, "w", encoding="utf-8") as f:
@@ -925,7 +941,9 @@ def run_pipeline(limit=None, event_id=None):
         log.info(f"ABSENCE ANALYSIS: what this corpus doesn't say")
         log.info(f"{'─'*60}")
 
-        absence_data = generate_absence_report(model, results, cluster_data)
+        absence_data = generate_absence_report(model, results, cluster_data,
+                                                   event_context=event_context,
+                                                   absence_examples=absence_examples)
         if absence_data and not absence_data.get("raw_response"):
             absence_path = os.path.join(ANALYSIS_DIR, "absence_report.json")
             with open(absence_path, "w", encoding="utf-8") as f:

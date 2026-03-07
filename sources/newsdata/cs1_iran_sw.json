@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://taifaleo.nation.co.ke/habari/kimataifa/trump-iran-lazima-inishirikishe-inapochagua-kiongozi-mpya/",
+    "title": "Trump: Iran lazima inishirikishe inapochagua kiongozi mpya",
+    "seendate": "20260307045503",
+    "sourcecountry": "kenya",
+    "sourcelang": "Swahili",
+    "domain": "taifaleo.nation.co.ke",
+    "source": "newsdata",
+    "tier": 1,
+    "region": "Africa",
+    "event_id": 2,
+    "text_chars": 28,
+    "has_full_text": true
+  },
+  {
+    "url": "https://www.mwananchi.co.tz/mw/habari/siasa/mapigano-marekani-israel-na-iran-yazidi-kupanuka-5381682",
+    "title": "Mapigano Marekani, Israel na Iran yazidi kupanuka",
+    "seendate": "20260306123838",
+    "sourcecountry": "tanzania",
+    "sourcelang": "Swahili",
+    "domain": "mwananchi.co.tz",
+    "source": "newsdata",
+    "tier": 1,
+    "region": "Africa",
+    "event_id": 2,
+    "text_chars": 28,
+    "has_full_text": true
+  },
+  {
+    "url": "https://globalpublishers.co.tz/2026/03/06/iran-tunawasubiri-uvamizi-wanajeshi-wa-marekani-ardhini-tuko-tayari/",
+    "title": "Waziri wa Iran Atoa Tamko Uvamizi wa Wanajeshi wa Marekani Ardhini",
+    "seendate": "20260306085501",
+    "sourcecountry": "tanzania",
+    "sourcelang": "Swahili",
+    "domain": "globalpublishers.co.tz",
+    "source": "newsdata",
+    "tier": 1,
+    "region": "Africa",
+    "event_id": 2,
+    "text_chars": 28,
+    "has_full_text": true
+  },
+  {
+    "url": "https://globalpublishers.co.tz/2026/03/06/takwimu-za-siku-6-tangu-kuanza-vita-ya-iran-na-mustakabali-wa-amani-mashariki-ya-kati/",
+    "title": "Takwimu za Siku 6 za Vita ya Iran na Mustakabali wa Amani Mashariki ya Kati",
+    "seendate": "20260306041706",
+    "sourcecountry": "tanzania",
+    "sourcelang": "Swahili",
+    "domain": "globalpublishers.co.tz",
+    "source": "newsdata",
+    "tier": 1,
+    "region": "Africa",
+    "event_id": 2,
+    "text_chars": 28,
+    "has_full_text": true
+  }
+]

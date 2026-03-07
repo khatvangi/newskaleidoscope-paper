@@ -1,0 +1,192 @@
+{
+  "event_id": 2,
+  "event_title": "US-Israeli Military Strikes on Iran",
+  "total_verdicts": 106,
+  "overall_agreement_rate": 0.019,
+  "confidence_distribution": {
+    "high": 2,
+    "medium": 43,
+    "contested": 61
+  },
+  "per_language": [
+    {
+      "language": "English",
+      "total": 64,
+      "agree": 2,
+      "agreement_rate": 0.031,
+      "high": 2,
+      "medium": 28,
+      "contested": 34
+    },
+    {
+      "language": "Chinese",
+      "total": 6,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 5
+    },
+    {
+      "language": "French",
+      "total": 5,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 4
+    },
+    {
+      "language": "Spanish",
+      "total": 4,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 3,
+      "contested": 1
+    },
+    {
+      "language": "Portuguese",
+      "total": 4,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 3
+    },
+    {
+      "language": "German",
+      "total": 3,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 2,
+      "contested": 1
+    },
+    {
+      "language": "Albanian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 1
+    },
+    {
+      "language": "Russian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 1
+    },
+    {
+      "language": "Bulgarian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 2,
+      "contested": 0
+    },
+    {
+      "language": "Croatian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 2
+    },
+    {
+      "language": "Czech",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 1
+    },
+    {
+      "language": "Italian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 2
+    },
+    {
+      "language": "Norwegian",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 1
+    },
+    {
+      "language": "Arabic",
+      "total": 2,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 2
+    },
+    {
+      "language": "Lithuanian",
+      "total": 1,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 1
+    },
+    {
+      "language": "Romanian",
+      "total": 1,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 1
+    },
+    {
+      "language": "Slovak",
+      "total": 1,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 1,
+      "contested": 0
+    },
+    {
+      "language": "Korean",
+      "total": 1,
+      "agree": 0,
+      "agreement_rate": 0.0,
+      "high": 0,
+      "medium": 0,
+      "contested": 1
+    }
+  ],
+  "model_pair_disagreements": [
+    {
+      "pair": "qwen3:32b vs gemma-3-27b-it",
+      "disagreements": 104,
+      "disagreement_rate": 0.981
+    },
+    {
+      "pair": "qwen3:32b vs mistral-small-3.1-24b",
+      "disagreements": 104,
+      "disagreement_rate": 0.981
+    },
+    {
+      "pair": "gemma-3-27b-it vs mistral-small-3.1-24b",
+      "disagreements": 104,
+      "disagreement_rate": 0.981
+    }
+  ]
+}

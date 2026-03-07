@@ -1,0 +1,1072 @@
+{
+  "event_id": 2,
+  "event_title": "US-Israeli Military Strikes on Iran",
+  "method": "cosine similarity on paraphrase-multilingual-mpnet-base-v2, threshold=0.75",
+  "total_articles": 106,
+  "confidence_distribution": {
+    "high": 48,
+    "high_pct": 0.453,
+    "medium": 22,
+    "medium_pct": 0.208,
+    "contested": 36,
+    "contested_pct": 0.34
+  },
+  "similarity_stats": {
+    "mean": 0.7851,
+    "median": 0.8014,
+    "std": 0.1018,
+    "min": 0.3603,
+    "max": 0.9843
+  },
+  "similarity_histogram": {
+    "0.0-0.1": 0,
+    "0.1-0.2": 0,
+    "0.2-0.3": 0,
+    "0.3-0.4": 1,
+    "0.4-0.5": 3,
+    "0.5-0.6": 11,
+    "0.6-0.7": 44,
+    "0.7-0.8": 99,
+    "0.8-0.9": 130,
+    "0.9-1.0": 30
+  },
+  "per_language": [
+    {
+      "language": "English",
+      "total": 64,
+      "high": 30,
+      "medium": 11,
+      "contested": 23,
+      "agreement_rate": 0.641,
+      "mean_similarity": 0.7895
+    },
+    {
+      "language": "Chinese",
+      "total": 6,
+      "high": 4,
+      "medium": 2,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.8085
+    },
+    {
+      "language": "French",
+      "total": 5,
+      "high": 3,
+      "medium": 1,
+      "contested": 1,
+      "agreement_rate": 0.8,
+      "mean_similarity": 0.7942
+    },
+    {
+      "language": "Spanish",
+      "total": 4,
+      "high": 2,
+      "medium": 0,
+      "contested": 2,
+      "agreement_rate": 0.5,
+      "mean_similarity": 0.8152
+    },
+    {
+      "language": "Portuguese",
+      "total": 4,
+      "high": 3,
+      "medium": 0,
+      "contested": 1,
+      "agreement_rate": 0.75,
+      "mean_similarity": 0.7601
+    },
+    {
+      "language": "German",
+      "total": 3,
+      "high": 1,
+      "medium": 2,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.8166
+    },
+    {
+      "language": "Albanian",
+      "total": 2,
+      "high": 0,
+      "medium": 2,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.7756
+    },
+    {
+      "language": "Russian",
+      "total": 2,
+      "high": 2,
+      "medium": 0,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.862
+    },
+    {
+      "language": "Bulgarian",
+      "total": 2,
+      "high": 0,
+      "medium": 0,
+      "contested": 2,
+      "agreement_rate": 0.0,
+      "mean_similarity": 0.7697
+    },
+    {
+      "language": "Croatian",
+      "total": 2,
+      "high": 0,
+      "medium": 1,
+      "contested": 1,
+      "agreement_rate": 0.5,
+      "mean_similarity": 0.7574
+    },
+    {
+      "language": "Czech",
+      "total": 2,
+      "high": 1,
+      "medium": 0,
+      "contested": 1,
+      "agreement_rate": 0.5,
+      "mean_similarity": 0.724
+    },
+    {
+      "language": "Italian",
+      "total": 2,
+      "high": 1,
+      "medium": 1,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.7839
+    },
+    {
+      "language": "Norwegian",
+      "total": 2,
+      "high": 0,
+      "medium": 2,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.7429
+    },
+    {
+      "language": "Arabic",
+      "total": 2,
+      "high": 0,
+      "medium": 0,
+      "contested": 2,
+      "agreement_rate": 0.0,
+      "mean_similarity": 0.6701
+    },
+    {
+      "language": "Lithuanian",
+      "total": 1,
+      "high": 0,
+      "medium": 0,
+      "contested": 1,
+      "agreement_rate": 0.0,
+      "mean_similarity": 0.761
+    },
+    {
+      "language": "Romanian",
+      "total": 1,
+      "high": 0,
+      "medium": 0,
+      "contested": 1,
+      "agreement_rate": 0.0,
+      "mean_similarity": 0.5699
+    },
+    {
+      "language": "Slovak",
+      "total": 1,
+      "high": 1,
+      "medium": 0,
+      "contested": 0,
+      "agreement_rate": 1.0,
+      "mean_similarity": 0.9066
+    },
+    {
+      "language": "Korean",
+      "total": 1,
+      "high": 0,
+      "medium": 0,
+      "contested": 1,
+      "agreement_rate": 0.0,
+      "mean_similarity": 0.7048
+    }
+  ],
+  "model_pair_stats": [
+    {
+      "pair": "gemma-3-27b-it vs mistral-small-3.1-24b",
+      "mean_similarity": 0.7783,
+      "median_similarity": 0.7937,
+      "std": 0.0995,
+      "pct_above_threshold": 0.67
+    },
+    {
+      "pair": "gemma-3-27b-it vs qwen3:32b",
+      "mean_similarity": 0.7947,
+      "median_similarity": 0.8092,
+      "std": 0.0925,
+      "pct_above_threshold": 0.726
+    },
+    {
+      "pair": "mistral-small-3.1-24b vs qwen3:32b",
+      "mean_similarity": 0.7822,
+      "median_similarity": 0.7906,
+      "std": 0.1117,
+      "pct_above_threshold": 0.632
+    }
+  ],
+  "lowest_agreement_language": "Romanian",
+  "lowest_agreement_rate": 0.5699,
+  "per_article": [
+    {
+      "article_id": 2,
+      "language": "Albanian",
+      "mean_similarity": 0.7656,
+      "min_similarity": 0.6665,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 3,
+      "language": "Spanish",
+      "mean_similarity": 0.8837,
+      "min_similarity": 0.8265,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 4,
+      "language": "English",
+      "mean_similarity": 0.8422,
+      "min_similarity": 0.7628,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 5,
+      "language": "Russian",
+      "mean_similarity": 0.8612,
+      "min_similarity": 0.8515,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 6,
+      "language": "English",
+      "mean_similarity": 0.8755,
+      "min_similarity": 0.8237,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 7,
+      "language": "French",
+      "mean_similarity": 0.7275,
+      "min_similarity": 0.6839,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 8,
+      "language": "Portuguese",
+      "mean_similarity": 0.7914,
+      "min_similarity": 0.7626,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 9,
+      "language": "Bulgarian",
+      "mean_similarity": 0.7846,
+      "min_similarity": 0.7458,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 10,
+      "language": "English",
+      "mean_similarity": 0.7672,
+      "min_similarity": 0.6751,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 11,
+      "language": "Chinese",
+      "mean_similarity": 0.8744,
+      "min_similarity": 0.8597,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 12,
+      "language": "Croatian",
+      "mean_similarity": 0.7704,
+      "min_similarity": 0.6759,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 13,
+      "language": "Czech",
+      "mean_similarity": 0.6674,
+      "min_similarity": 0.635,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 14,
+      "language": "French",
+      "mean_similarity": 0.8114,
+      "min_similarity": 0.7818,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 15,
+      "language": "German",
+      "mean_similarity": 0.7909,
+      "min_similarity": 0.7367,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 16,
+      "language": "Chinese",
+      "mean_similarity": 0.7939,
+      "min_similarity": 0.7091,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 17,
+      "language": "English",
+      "mean_similarity": 0.79,
+      "min_similarity": 0.7585,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 18,
+      "language": "English",
+      "mean_similarity": 0.8426,
+      "min_similarity": 0.804,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 19,
+      "language": "English",
+      "mean_similarity": 0.6832,
+      "min_similarity": 0.5796,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 20,
+      "language": "Italian",
+      "mean_similarity": 0.7965,
+      "min_similarity": 0.779,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 21,
+      "language": "English",
+      "mean_similarity": 0.7674,
+      "min_similarity": 0.74,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 22,
+      "language": "English",
+      "mean_similarity": 0.7837,
+      "min_similarity": 0.7499,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 23,
+      "language": "Lithuanian",
+      "mean_similarity": 0.761,
+      "min_similarity": 0.7134,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 24,
+      "language": "English",
+      "mean_similarity": 0.5062,
+      "min_similarity": 0.3603,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 25,
+      "language": "Norwegian",
+      "mean_similarity": 0.7246,
+      "min_similarity": 0.6257,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 26,
+      "language": "English",
+      "mean_similarity": 0.7529,
+      "min_similarity": 0.6905,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 27,
+      "language": "Romanian",
+      "mean_similarity": 0.5699,
+      "min_similarity": 0.4623,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 28,
+      "language": "Chinese",
+      "mean_similarity": 0.7456,
+      "min_similarity": 0.6085,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 29,
+      "language": "Slovak",
+      "mean_similarity": 0.9066,
+      "min_similarity": 0.8947,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 30,
+      "language": "Korean",
+      "mean_similarity": 0.7048,
+      "min_similarity": 0.5878,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 31,
+      "language": "Spanish",
+      "mean_similarity": 0.7788,
+      "min_similarity": 0.7217,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 32,
+      "language": "German",
+      "mean_similarity": 0.7864,
+      "min_similarity": 0.7473,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 33,
+      "language": "English",
+      "mean_similarity": 0.8771,
+      "min_similarity": 0.8635,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 34,
+      "language": "Chinese",
+      "mean_similarity": 0.7937,
+      "min_similarity": 0.7516,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 35,
+      "language": "Russian",
+      "mean_similarity": 0.8628,
+      "min_similarity": 0.8227,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 36,
+      "language": "English",
+      "mean_similarity": 0.8617,
+      "min_similarity": 0.853,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 37,
+      "language": "English",
+      "mean_similarity": 0.8181,
+      "min_similarity": 0.7847,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 38,
+      "language": "English",
+      "mean_similarity": 0.8318,
+      "min_similarity": 0.7432,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 39,
+      "language": "Portuguese",
+      "mean_similarity": 0.8127,
+      "min_similarity": 0.7568,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 40,
+      "language": "Bulgarian",
+      "mean_similarity": 0.7548,
+      "min_similarity": 0.6127,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 41,
+      "language": "Chinese",
+      "mean_similarity": 0.8383,
+      "min_similarity": 0.802,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 42,
+      "language": "Croatian",
+      "mean_similarity": 0.7444,
+      "min_similarity": 0.6933,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 43,
+      "language": "Czech",
+      "mean_similarity": 0.7807,
+      "min_similarity": 0.7566,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 44,
+      "language": "Arabic",
+      "mean_similarity": 0.7077,
+      "min_similarity": 0.6339,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 45,
+      "language": "French",
+      "mean_similarity": 0.7768,
+      "min_similarity": 0.71,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 46,
+      "language": "German",
+      "mean_similarity": 0.8725,
+      "min_similarity": 0.8449,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 47,
+      "language": "Chinese",
+      "mean_similarity": 0.805,
+      "min_similarity": 0.7636,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 48,
+      "language": "English",
+      "mean_similarity": 0.874,
+      "min_similarity": 0.8578,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 49,
+      "language": "Arabic",
+      "mean_similarity": 0.6325,
+      "min_similarity": 0.4463,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 50,
+      "language": "Italian",
+      "mean_similarity": 0.7712,
+      "min_similarity": 0.7396,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 51,
+      "language": "Albanian",
+      "mean_similarity": 0.7856,
+      "min_similarity": 0.7273,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 52,
+      "language": "Norwegian",
+      "mean_similarity": 0.7613,
+      "min_similarity": 0.7243,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 53,
+      "language": "English",
+      "mean_similarity": 0.866,
+      "min_similarity": 0.8223,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 54,
+      "language": "English",
+      "mean_similarity": 0.7973,
+      "min_similarity": 0.7548,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 55,
+      "language": "English",
+      "mean_similarity": 0.7154,
+      "min_similarity": 0.6042,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 56,
+      "language": "English",
+      "mean_similarity": 0.6996,
+      "min_similarity": 0.6149,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 57,
+      "language": "English",
+      "mean_similarity": 0.8293,
+      "min_similarity": 0.7618,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 58,
+      "language": "English",
+      "mean_similarity": 0.8639,
+      "min_similarity": 0.843,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 59,
+      "language": "English",
+      "mean_similarity": 0.6585,
+      "min_similarity": 0.5479,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 60,
+      "language": "English",
+      "mean_similarity": 0.7619,
+      "min_similarity": 0.7478,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 61,
+      "language": "French",
+      "mean_similarity": 0.8209,
+      "min_similarity": 0.7816,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 62,
+      "language": "French",
+      "mean_similarity": 0.8342,
+      "min_similarity": 0.8077,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 63,
+      "language": "Spanish",
+      "mean_similarity": 0.8615,
+      "min_similarity": 0.8198,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 64,
+      "language": "Spanish",
+      "mean_similarity": 0.7368,
+      "min_similarity": 0.6023,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 65,
+      "language": "English",
+      "mean_similarity": 0.8852,
+      "min_similarity": 0.8358,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 66,
+      "language": "English",
+      "mean_similarity": 0.6863,
+      "min_similarity": 0.5125,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 67,
+      "language": "English",
+      "mean_similarity": 0.8473,
+      "min_similarity": 0.8074,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 68,
+      "language": "English",
+      "mean_similarity": 0.8664,
+      "min_similarity": 0.8249,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 69,
+      "language": "English",
+      "mean_similarity": 0.8805,
+      "min_similarity": 0.84,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 70,
+      "language": "English",
+      "mean_similarity": 0.7342,
+      "min_similarity": 0.6496,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 71,
+      "language": "English",
+      "mean_similarity": 0.6408,
+      "min_similarity": 0.5542,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 72,
+      "language": "English",
+      "mean_similarity": 0.7228,
+      "min_similarity": 0.6922,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 73,
+      "language": "English",
+      "mean_similarity": 0.8471,
+      "min_similarity": 0.8097,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 74,
+      "language": "English",
+      "mean_similarity": 0.8983,
+      "min_similarity": 0.8899,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 75,
+      "language": "Portuguese",
+      "mean_similarity": 0.7876,
+      "min_similarity": 0.7567,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 76,
+      "language": "Portuguese",
+      "mean_similarity": 0.6489,
+      "min_similarity": 0.572,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 77,
+      "language": "English",
+      "mean_similarity": 0.7494,
+      "min_similarity": 0.6929,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 78,
+      "language": "English",
+      "mean_similarity": 0.8225,
+      "min_similarity": 0.7879,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 79,
+      "language": "English",
+      "mean_similarity": 0.7973,
+      "min_similarity": 0.7159,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 80,
+      "language": "English",
+      "mean_similarity": 0.6528,
+      "min_similarity": 0.5387,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 81,
+      "language": "English",
+      "mean_similarity": 0.6772,
+      "min_similarity": 0.6272,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 82,
+      "language": "English",
+      "mean_similarity": 0.8636,
+      "min_similarity": 0.8263,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 83,
+      "language": "English",
+      "mean_similarity": 0.7146,
+      "min_similarity": 0.6592,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 84,
+      "language": "English",
+      "mean_similarity": 0.7293,
+      "min_similarity": 0.6507,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 85,
+      "language": "English",
+      "mean_similarity": 0.8606,
+      "min_similarity": 0.8426,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 86,
+      "language": "English",
+      "mean_similarity": 0.8887,
+      "min_similarity": 0.8255,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 87,
+      "language": "English",
+      "mean_similarity": 0.8677,
+      "min_similarity": 0.8314,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 88,
+      "language": "English",
+      "mean_similarity": 0.8749,
+      "min_similarity": 0.8233,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 89,
+      "language": "English",
+      "mean_similarity": 0.8235,
+      "min_similarity": 0.7444,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 90,
+      "language": "English",
+      "mean_similarity": 0.8143,
+      "min_similarity": 0.774,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 91,
+      "language": "English",
+      "mean_similarity": 0.9438,
+      "min_similarity": 0.9183,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 92,
+      "language": "English",
+      "mean_similarity": 0.856,
+      "min_similarity": 0.7872,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 93,
+      "language": "English",
+      "mean_similarity": 0.9526,
+      "min_similarity": 0.9325,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 94,
+      "language": "English",
+      "mean_similarity": 0.809,
+      "min_similarity": 0.7478,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 95,
+      "language": "English",
+      "mean_similarity": 0.7068,
+      "min_similarity": 0.6757,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 96,
+      "language": "English",
+      "mean_similarity": 0.6209,
+      "min_similarity": 0.5726,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 97,
+      "language": "English",
+      "mean_similarity": 0.6779,
+      "min_similarity": 0.5122,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 98,
+      "language": "English",
+      "mean_similarity": 0.7039,
+      "min_similarity": 0.5342,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 99,
+      "language": "English",
+      "mean_similarity": 0.8112,
+      "min_similarity": 0.743,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 100,
+      "language": "English",
+      "mean_similarity": 0.847,
+      "min_similarity": 0.823,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    },
+    {
+      "article_id": 101,
+      "language": "English",
+      "mean_similarity": 0.7431,
+      "min_similarity": 0.6878,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 102,
+      "language": "English",
+      "mean_similarity": 0.7543,
+      "min_similarity": 0.7006,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 103,
+      "language": "English",
+      "mean_similarity": 0.7654,
+      "min_similarity": 0.7208,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 104,
+      "language": "English",
+      "mean_similarity": 0.7958,
+      "min_similarity": 0.7475,
+      "confidence": "medium",
+      "n_pairs_above_threshold": 2
+    },
+    {
+      "article_id": 105,
+      "language": "English",
+      "mean_similarity": 0.7401,
+      "min_similarity": 0.6882,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 1
+    },
+    {
+      "article_id": 106,
+      "language": "English",
+      "mean_similarity": 0.7015,
+      "min_similarity": 0.6602,
+      "confidence": "contested",
+      "n_pairs_above_threshold": 0
+    },
+    {
+      "article_id": 107,
+      "language": "English",
+      "mean_similarity": 0.8895,
+      "min_similarity": 0.8366,
+      "confidence": "high",
+      "n_pairs_above_threshold": 3
+    }
+  ]
+}

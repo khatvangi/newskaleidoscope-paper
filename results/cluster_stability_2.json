@@ -1,0 +1,50 @@
+{
+  "event_id": 2,
+  "event_title": "US-Israeli Military Strikes on Iran",
+  "timestamp": "2026-03-07 13:18:43",
+  "runs": {
+    "session_003_embedding": {
+      "articles": 94,
+      "clusters": 5
+    },
+    "recluster_20260307_131533": {
+      "articles": 55,
+      "clusters": 12
+    },
+    "session_001": {
+      "articles": 57,
+      "clusters": 8
+    }
+  },
+  "pairwise_comparisons": [
+    {
+      "run_a": "recluster_20260307_131533",
+      "run_b": "session_001",
+      "common_articles": 45,
+      "ari": 0.4464,
+      "nmi": 0.6189,
+      "clusters_a": 8,
+      "clusters_b": 7
+    },
+    {
+      "run_a": "recluster_20260307_131533",
+      "run_b": "session_003_embedding",
+      "common_articles": 53,
+      "ari": 0.0344,
+      "nmi": 0.2545,
+      "clusters_a": 12,
+      "clusters_b": 5
+    },
+    {
+      "run_a": "session_001",
+      "run_b": "session_003_embedding",
+      "common_articles": 57,
+      "ari": 0.0731,
+      "nmi": 0.273,
+      "clusters_a": 8,
+      "clusters_b": 5
+    }
+  ],
+  "bootstrap_aris": [],
+  "bootstrap_mean_ari": null
+}

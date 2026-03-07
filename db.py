@@ -43,6 +43,11 @@ class Event(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     primary_actors = Column(JSONB, default=list)  # jsonb array
     geographic_scope = Column(String(50))  # global/regional/bilateral
+    # prompt parameterization: event-specific text for LLM prompts
+    prompt_context = Column(Text, nullable=True)  # e.g. "US-Israel military action against Iran"
+    absence_examples = Column(Text, nullable=True)  # e.g. "Iranian domestic press, Kurdish media"
+    # corpus versioning: incremented when new sources are added
+    corpus_version = Column(String(20), nullable=True)  # e.g. "v3"
 
     articles = relationship("Article", back_populates="event")
     analyses = relationship("Analysis", back_populates="event")

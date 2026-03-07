@@ -1,0 +1,260 @@
+{
+  "event_id": 2,
+  "run_a": "recluster_20260307_131533",
+  "run_b": "session_001",
+  "common_articles": 45,
+  "per_cluster_run_a": [
+    {
+      "cluster": "Sovereignty and International Law as Central to Conflict Legitimacy",
+      "members_total": 19,
+      "members_in_common": 17,
+      "stability": 0.765,
+      "most_common_destination": "Regional and Ethical Criticisms",
+      "destination_count": 13,
+      "all_destinations": {
+        "Regional and Ethical Criticisms": 13,
+        "Legitimacy of US-Israeli Defensive Actions": 2,
+        "Critique of US Hegemony and Destabilization": 2
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Justified Preemptive Military Action Against Existential Threats",
+      "members_total": 15,
+      "members_in_common": 13,
+      "stability": 0.538,
+      "most_common_destination": "Strategic Necessity of US-Israeli Military Action",
+      "destination_count": 7,
+      "all_destinations": {
+        "Strategic Necessity of US-Israeli Military Action": 7,
+        "Legitimacy of US-Israeli Defensive Actions": 4,
+        "Diplomatic and Technical Resolution Focus": 1,
+        "Regional and Ethical Criticisms": 1
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Iranian Resistance as Justified Self-Defense",
+      "members_total": 11,
+      "members_in_common": 8,
+      "stability": 0.875,
+      "most_common_destination": "Regional and Ethical Criticisms",
+      "destination_count": 7,
+      "all_destinations": {
+        "Regional and Ethical Criticisms": 7,
+        "Critique of US Hegemony and Destabilization": 1
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Diplomatic Efforts as the Primary Path to Conflict Avoidance",
+      "members_total": 10,
+      "members_in_common": 8,
+      "stability": 0.625,
+      "most_common_destination": "Diplomatic and Technical Resolution Focus",
+      "destination_count": 5,
+      "all_destinations": {
+        "Diplomatic and Technical Resolution Focus": 5,
+        "Regional and Ethical Criticisms": 3
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "China's Strategic Gains and Regional Stability Concerns",
+      "members_total": 5,
+      "members_in_common": 5,
+      "stability": 1.0,
+      "most_common_destination": "Critique of US Hegemony and Destabilization",
+      "destination_count": 5,
+      "all_destinations": {
+        "Critique of US Hegemony and Destabilization": 5
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: EUA afundam navio de guerra do Ir� perto do Sri Lanka e deix",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Legitimacy of US-Israeli Defensive Actions",
+      "destination_count": 1,
+      "all_destinations": {
+        "Legitimacy of US-Israeli Defensive Actions": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: Nucléaire iranien : des discussions techniques à Vienne la s",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Diplomatic and Technical Resolution Focus",
+      "destination_count": 1,
+      "all_destinations": {
+        "Diplomatic and Technical Resolution Focus": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: Írán a united states v Ženevě pokračují v jednáních | Svět",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Singleton: Focuses on data-driven advertising ethics, unrelated to U.S.-Israel-I",
+      "destination_count": 1,
+      "all_destinations": {
+        "Singleton: Focuses on data-driven advertising ethics, unrela": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton:  ( 影 ） 若美 「 有限 」 打擊伊 真主黨將不介入 ! 伊示威升溫 軍隊入校園鎮壓 | 國際",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Singleton: Empty description; no framing provided.",
+      "destination_count": 1,
+      "all_destinations": {
+        "Singleton: Empty description; no framing provided.": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    }
+  ],
+  "per_cluster_run_b": [
+    {
+      "cluster": "Regional and Ethical Criticisms",
+      "members_total": 20,
+      "members_in_common": 16,
+      "stability": 0.812,
+      "most_common_destination": "Sovereignty and International Law as Central to Conflict Legitimacy",
+      "destination_count": 13,
+      "all_destinations": {
+        "Sovereignty and International Law as Central to Conflict Leg": 13,
+        "Diplomatic Efforts as the Primary Path to Conflict Avoidance": 2,
+        "Justified Preemptive Military Action Against Existential Thr": 1
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Strategic Necessity of US-Israeli Military Action",
+      "members_total": 11,
+      "members_in_common": 7,
+      "stability": 1.0,
+      "most_common_destination": "Justified Preemptive Military Action Against Existential Threats",
+      "destination_count": 7,
+      "all_destinations": {
+        "Justified Preemptive Military Action Against Existential Thr": 7
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Critique of US Hegemony and Destabilization",
+      "members_total": 8,
+      "members_in_common": 7,
+      "stability": 0.714,
+      "most_common_destination": "China's Strategic Gains and Regional Stability Concerns",
+      "destination_count": 5,
+      "all_destinations": {
+        "China's Strategic Gains and Regional Stability Concerns": 5,
+        "Sovereignty and International Law as Central to Conflict Leg": 2
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Diplomatic and Technical Resolution Focus",
+      "members_total": 8,
+      "members_in_common": 6,
+      "stability": 0.667,
+      "most_common_destination": "Diplomatic Efforts as the Primary Path to Conflict Avoidance",
+      "destination_count": 4,
+      "all_destinations": {
+        "Diplomatic Efforts as the Primary Path to Conflict Avoidance": 4,
+        "Justified Preemptive Military Action Against Existential Thr": 1,
+        "Singleton: Nucléaire iranien : des discussions techniques à ": 1
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Legitimacy of US-Israeli Defensive Actions",
+      "members_total": 7,
+      "members_in_common": 7,
+      "stability": 0.571,
+      "most_common_destination": "Justified Preemptive Military Action Against Existential Threats",
+      "destination_count": 4,
+      "all_destinations": {
+        "Justified Preemptive Military Action Against Existential Thr": 4,
+        "Sovereignty and International Law as Central to Conflict Leg": 2,
+        "Singleton: EUA afundam navio de guerra do Ir� perto do Sri L": 1
+      },
+      "is_singleton": false,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: Focuses on data-driven advertising ethics, unrelated to U.S.-Israel-Iran dynamic",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Singleton: Írán a united states v Ženevě pokračují v jednáních | Svět",
+      "destination_count": 1,
+      "all_destinations": {
+        "Singleton: Írán a united states v Ženevě pokračují v jednání": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: Empty description; no framing provided.",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Singleton:  ( 影 ） 若美 「 有限 」 打擊伊 真主黨將不介入 ! 伊示威升溫 軍隊入校園鎮壓 | 國際",
+      "destination_count": 1,
+      "all_destinations": {
+        "Singleton:  ( 影 ） 若美 「 有限 」 打擊伊 真主黨將不介入 ! 伊示威升溫 軍隊入校園鎮壓 | 國際": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    },
+    {
+      "cluster": "Singleton: Focuses on Pakistan's nuclear energy advancements under IAEA, diverging from reg",
+      "members_total": 1,
+      "members_in_common": 1,
+      "stability": 1.0,
+      "most_common_destination": "Sovereignty and International Law as Central to Conflict Legitimacy",
+      "destination_count": 1,
+      "all_destinations": {
+        "Sovereignty and International Law as Central to Conflict Leg": 1
+      },
+      "is_singleton": true,
+      "stable": true
+    }
+  ],
+  "stable_count_a": 5,
+  "unstable_count_a": 0,
+  "china_realpolitik": {
+    "cluster": "China's Strategic Gains and Regional Stability Concerns",
+    "members_total": 5,
+    "members_in_common": 5,
+    "stability": 1.0,
+    "most_common_destination": "Critique of US Hegemony and Destabilization",
+    "destination_count": 5,
+    "all_destinations": {
+      "Critique of US Hegemony and Destabilization": 5
+    },
+    "is_singleton": false,
+    "stable": true
+  }
+}
