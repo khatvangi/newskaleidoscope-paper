@@ -44,7 +44,19 @@ HELSINKI_MODELS = {
     "nb": "Helsinki-NLP/opus-mt-gmq-en",  # norwegian bokmal
     "nn": "Helsinki-NLP/opus-mt-gmq-en",  # norwegian nynorsk
     "lt": "Helsinki-NLP/opus-mt-sla-en",  # lithuanian via slavic group (approximate)
+    "el": "Helsinki-NLP/opus-mt-grk-en",  # greek (group model)
+    "sr": "Helsinki-NLP/opus-mt-sla-en",  # serbian via slavic group
+    "sl": "Helsinki-NLP/opus-mt-sla-en",  # slovenian via slavic group
+    "ca": "Helsinki-NLP/opus-mt-ROMANCE-en",  # catalan via romance group
+    "lv": "Helsinki-NLP/opus-mt-sla-en",  # latvian via slavic group (approximate)
+    "uk": "Helsinki-NLP/opus-mt-sla-en",  # ukrainian via slavic group
+    "bs": "Helsinki-NLP/opus-mt-sla-en",  # bosnian via slavic group
+    "mk": "Helsinki-NLP/opus-mt-sla-en",  # macedonian via slavic group
 }
+
+# languages where Helsinki group models are a poor fit — skip straight to NLLB.
+# latvian is Baltic (not Slavic), catalan gets confused in the ROMANCE group model.
+FORCE_NLLB = {"lv", "ca"}
 
 # NLLB-200 fallback for languages Helsinki doesn't cover
 # uses FLORES-200 language codes
@@ -92,14 +104,26 @@ NLLB_LANG_CODES = {
     "lt": "lit_Latn",
     "ur": "urd_Arab",
     "id": "ind_Latn",
+    "el": "ell_Grek",   # greek
+    "sr": "srp_Cyrl",   # serbian
+    "sl": "slv_Latn",   # slovenian
+    "ca": "cat_Latn",   # catalan
+    "lv": "lvs_Latn",   # latvian
+    "uk": "ukr_Cyrl",   # ukrainian
+    "bs": "bos_Latn",   # bosnian
+    "mk": "mkd_Cyrl",   # macedonian
+    "hu": "hun_Latn",   # hungarian
+    "et": "est_Latn",   # estonian
+    "da": "dan_Latn",   # danish (already present but ensuring coverage)
 }
 
 # group models need a prefix token to specify source language
 # format: >>lang<< prepended to input text
 GROUP_MODEL_PREFIXES = {
-    "Helsinki-NLP/opus-mt-ROMANCE-en": {"pt": ">>pt<<", "ro": ">>ron<<", "fr": ">>fr<<", "es": ">>es<<", "it": ">>it<<"},
+    "Helsinki-NLP/opus-mt-ROMANCE-en": {"pt": ">>pt<<", "ro": ">>ron<<", "fr": ">>fr<<", "es": ">>es<<", "it": ">>it<<", "ca": ">>ca<<"},
     "Helsinki-NLP/opus-mt-roa-en": {"ro": ">>ron<<", "pt": ">>pt<<"},
-    "Helsinki-NLP/opus-mt-sla-en": {"hr": ">>hrv<<", "lt": ">>lit<<", "bg": ">>bul<<", "cs": ">>ces<<", "sk": ">>slk<<"},
+    "Helsinki-NLP/opus-mt-sla-en": {"hr": ">>hrv<<", "lt": ">>lit<<", "bg": ">>bul<<", "cs": ">>ces<<", "sk": ">>slk<<", "sr": ">>srp<<", "sl": ">>slv<<", "lv": ">>lav<<", "uk": ">>ukr<<", "bs": ">>bos<<", "mk": ">>mkd<<"},
+    "Helsinki-NLP/opus-mt-grk-en": {"el": ">>ell<<"},
     "Helsinki-NLP/opus-mt-gmq-en": {"no": ">>nob<<", "nb": ">>nob<<", "nn": ">>nno<<"},
 }
 
@@ -114,6 +138,9 @@ LANGUAGE_NAME_TO_CODE = {
     "romanian": "ro", "slovak": "sk", "lithuanian": "lt", "hebrew": "he",
     "thai": "th", "vietnamese": "vi", "dutch": "nl", "polish": "pl",
     "swedish": "sv", "danish": "da", "finnish": "fi",
+    "greek": "el", "serbian": "sr", "slovenian": "sl", "catalan": "ca",
+    "latvian": "lv", "ukrainian": "uk", "bosnian": "bs", "macedonian": "mk",
+    "hungarian": "hu", "estonian": "et",
 }
 
 
@@ -260,7 +287,8 @@ class TranslationEngine:
             return (text, "en")
 
         # tier 1: try Helsinki-NLP (fast, high quality for supported pairs)
-        model_name = HELSINKI_MODELS.get(lang_code)
+        # skip Helsinki for languages where group models produce poor results
+        model_name = HELSINKI_MODELS.get(lang_code) if lang_code not in FORCE_NLLB else None
         if model_name:
             try:
                 model, tokenizer = self._load_model(model_name)

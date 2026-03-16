@@ -1,0 +1,26 @@
+=== NewsKaleidoscope Corpus Overview ===
+Generated from PostgreSQL database
+
+--- Iran (event_id=2) ---
+Total articles:           1267
+With raw_text:            1267 (100%)
+With translated_text:     1267 (100%)
+Distinct sources:         330
+Distinct languages:       24
+Date range:               2026-03-05 to 2026-03-08 (ingested_at; publication_date NULL)
+
+--- Tariffs (event_id=3) ---
+Total articles:           1496
+With raw_text:            1429 (95%)
+With translated_text:     1427 (95%)
+Distinct sources:         622
+Distinct languages:       31
+Date range:               2011-09-16 to 2026-03-06
+
+--- Ukraine (event_id=4) ---
+Total articles:           2096
+With raw_text:            1863 (88%)
+With translated_text:     1862 (88%)
+Distinct sources:         717
+Distinct languages:       41
+Date range:               2022-02-22 to 2022-03-04

@@ -1,0 +1,8 @@
+=== Singleton Cluster Counts ===
+(clusters with article_count = 1)
+
+Iran (chunked_recluster_event2_20260313_1637):
+  Singletons: 76 out of 119 total clusters (63.9%)
+
+Ukraine (chunked_recluster_20260313_110858):
+  Singletons: 68 out of 93 total clusters (73.1%)

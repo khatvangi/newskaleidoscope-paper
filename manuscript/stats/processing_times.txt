@@ -1,0 +1,38 @@
+=== Processing Times (from log files) ===
+
+--- Pass 1 (per-article framing extraction) ---
+CS1-RU (event_id=4): 1,610 articles
+  Start: 2026-03-10 15:04:51
+  End:   2026-03-11 12:34:41
+  Duration: ~21.5 hours
+  Rate: ~75 articles/hour (~48 sec/article)
+  Model: Qwen3-32B Q4_K_M on boron (2x TITAN RTX)
+
+--- Translation ---
+CS1-RU (event_id=4): 1,006 articles (non-English with raw_text)
+  Start: 2026-03-10 12:25:13
+  End:   2026-03-10 13:28:07
+  Duration: ~63 minutes
+  Rate: ~960 articles/hour (~3.8 sec/article)
+  Engine: MarianMT + NLLB (local, nitrogen GPU)
+  Success: 1,006/1,007 (1 Gujarati failure)
+
+--- LLM Council ---
+CS1 full council (event_id=2): 1,161 articles x 2 additional models
+  Start: 2026-03-08 18:40:06 (Gemma run)
+  End:   2026-03-09 11:40:04
+  Duration: ~17 hours (Gemma + Mistral sequential)
+  Rate: ~68 articles/hour per model (sequential, single inference)
+
+CS1-RU sample council (event_id=4): 307 articles x 1 model (Gemma)
+  Start: 2026-03-11 14:25:27
+  End:   2026-03-11 15:17:57
+  Duration: ~53 minutes
+  Rate: ~347 articles/hour
+  Note: --parallel 4 mode on llama-server (4x throughput vs sequential)
+
+--- Text Extraction ---
+CS1-RU: 2,096 articles (2022 URLs, many expired)
+  Extraction rate: 88.9% (1,863/2,096)
+  Wayback Machine fallback used for expired URLs
+  Engine: trafilatura (preferred) + newspaper3k (fallback)

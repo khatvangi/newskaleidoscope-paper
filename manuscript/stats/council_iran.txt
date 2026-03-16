@@ -1,0 +1,7 @@
+=== LLM Council Results: Iran (event_id=2) ===
+Full council (3 models: Qwen-32B, Gemma-27B, Mistral-24B)
+
+Total verdicts:   1267
+HIGH:             60 (4.7%)
+MEDIUM:           476 (37.6%)
+CONTESTED:        731 (57.7%)

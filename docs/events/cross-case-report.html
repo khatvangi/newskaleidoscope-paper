@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewsKaleidoscope — How the World Frames Current Wars</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --teal: #2a9d8f;
+    --teal-light: #e8f5f3;
+    --teal-dark: #1f7a6f;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --text: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #777;
+    --bg: #fcfcfa;
+    --surface: #f5f4f0;
+    --border: #e0ddd6;
+    --iran-color: #c0392b;
+    --ukraine-color: #2a9d8f;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── page structure ── */
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-wide {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── header bar ── */
+  .topbar {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── cover section ── */
+  .cover {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .cover-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 2rem;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .cover h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .cover-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .cover-meta strong {
+    color: var(--text-secondary);
+  }
+
+  .cover-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--red);
+    margin: 2.5rem auto 0;
+  }
+
+  /* ── section numbering ── */
+  .section-break {
+    padding: 4rem 0 1rem;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-rule {
+    width: 100%;
+    height: 2px;
+    background: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── body text ── */
+  p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  p.intro {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ── numbered findings ── */
+  .finding {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: start;
+  }
+
+  .finding-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    padding-top: 0.1rem;
+  }
+
+  .finding-body {
+    border-left: 3px solid var(--red);
+    padding-left: 1rem;
+  }
+
+  .finding-body .lead {
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .finding-body .lead-teal {
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  /* ── alternating left/right findings ── */
+  .finding-right {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: start;
+  }
+
+  .finding-right .finding-body {
+    border-left: none;
+    border-right: 3px solid var(--red);
+    padding-left: 0;
+    padding-right: 1rem;
+    text-align: right;
+  }
+
+  /* ── comparison table ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.92rem;
+  }
+
+  .data-table caption {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .data-table thead th {
+    background: var(--teal);
+    color: white;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--teal-light);
+  }
+
+  .data-table .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+  }
+
+  .data-table .num-red {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .data-table .num-teal {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  /* ── horizontal bar chart ── */
+  .chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 50px;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bar-label {
+    font-size: 0.8rem;
+    text-align: right;
+    color: var(--text-secondary);
+    line-height: 1.3;
+  }
+
+  .bar-track {
+    background: #eae8e2;
+    height: 24px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+
+  .bar-fill.teal { background: var(--teal); }
+  .bar-fill.red { background: var(--red); }
+
+  /* multi-color cluster bars — warm palette (Iran) */
+  .bar-fill.c1 { background: #c0392b; }
+  .bar-fill.c2 { background: #d35400; }
+  .bar-fill.c3 { background: #e67e22; }
+  .bar-fill.c4 { background: #f39c12; }
+  .bar-fill.c5 { background: #8e44ad; }
+  .bar-fill.c6 { background: #2980b9; }
+  .bar-fill.c7 { background: #16a085; }
+  .bar-fill.c8 { background: #7f8c8d; }
+  .bar-fill.c9 { background: #95a5a6; }
+
+  /* multi-color cluster bars — cool palette (Ukraine) */
+  .bar-fill.u1 { background: #1a7a6d; }
+  .bar-fill.u2 { background: #c0392b; }
+  .bar-fill.u3 { background: #e67e22; }
+  .bar-fill.u4 { background: #2980b9; }
+  .bar-fill.u5 { background: #8e44ad; }
+  .bar-fill.u6 { background: #27ae60; }
+  .bar-fill.u7 { background: #7f8c8d; }
+
+  /* emergence banner */
+  .emergence-banner {
+    background: var(--surface);
+    border: 2px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  .emergence-banner .eb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .emergence-banner .eb-body {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .emergence-banner .eb-contrast {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .emergence-banner .eb-col {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .emergence-banner .eb-vs {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+  }
+
+  .bar-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  /* ── segmented bar (council comparison) ── */
+  .seg-chart {
+    margin: 2rem 0;
+  }
+
+  .seg-row {
+    margin-bottom: 1.5rem;
+  }
+
+  .seg-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .seg-bar {
+    display: flex;
+    height: 36px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+  }
+
+  .seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+  }
+
+  .seg-high { background: var(--teal); }
+  .seg-medium { background: #6db8ad; }
+  .seg-contested { background: var(--red); }
+
+  .seg-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .seg-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+  }
+
+  .seg-legend .l-high::before { background: var(--teal); }
+  .seg-legend .l-medium::before { background: #6db8ad; }
+  .seg-legend .l-contested::before { background: var(--red); }
+
+  /* ── cluster cards ── */
+  .cluster-card {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--teal);
+    background: var(--teal-light);
+  }
+
+  .cluster-card.red {
+    border-left-color: var(--red);
+    background: var(--red-light);
+  }
+
+  .cluster-card.neutral {
+    border-left-color: var(--text-muted);
+    background: var(--surface);
+  }
+
+  .cluster-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .cluster-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .cluster-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .cluster-langs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* ── callout box ── */
+  .callout {
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .callout-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-red {
+    background: var(--red-light);
+    border-color: var(--red);
+  }
+
+  .callout-red .callout-title {
+    color: var(--red);
+  }
+
+  /* ── word cloud (framing vocabulary) ── */
+  .wordcloud {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    line-height: 2.2;
+  }
+
+  .wordcloud span {
+    display: inline;
+    margin: 0 0.3rem;
+    white-space: nowrap;
+  }
+
+  .wc-xl { font-size: 1.8rem; font-weight: 700; }
+  .wc-lg { font-size: 1.35rem; font-weight: 600; }
+  .wc-md { font-size: 1rem; font-weight: 400; }
+  .wc-sm { font-size: 0.8rem; font-weight: 300; color: var(--text-muted); }
+
+  .wc-teal { color: var(--teal); }
+  .wc-red { color: var(--red); }
+  .wc-dark { color: var(--text); }
+  .wc-muted { color: #888; }
+
+  /* ── three-factor model table ── */
+  .model-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .model-table th {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--text);
+    font-size: 0.9rem;
+  }
+
+  .model-table th:nth-child(2) { color: var(--red); }
+  .model-table th:nth-child(3) { color: var(--teal); }
+
+  .model-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+
+  .model-table td:first-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  /* ── footer ── */
+  .report-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 2px solid var(--teal);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .report-footer a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  /* ── methodology section ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0.4rem 1.5rem;
+    font-size: 0.88rem;
+    margin: 1.5rem 0;
+  }
+
+  .method-grid dt {
+    font-weight: 600;
+    color: var(--teal-dark);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .method-grid dd {
+    color: var(--text-secondary);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── footnotes ── */
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  /* ── paired bar chart (two bars per row) ── */
+  .paired-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .paired-label {
+    font-size: 0.78rem;
+    text-align: right;
+    color: var(--text-secondary);
+    line-height: 1.2;
+    padding-right: 0.5rem;
+  }
+
+  .paired-bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .paired-bar-cell.left {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+
+  .paired-bar-cell .bar-mini {
+    height: 18px;
+    border-radius: 2px;
+    min-width: 2px;
+  }
+
+  .paired-bar-cell .bar-mini.red { background: var(--red); }
+  .paired-bar-cell .bar-mini.teal { background: var(--teal); }
+
+  .paired-bar-cell .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  /* ── region dot grid ── */
+  .region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .region-card {
+    padding: 1rem;
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .region-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .region-dots {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .region-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .region-dots .dot.red { background: var(--red); }
+  .region-dots .dot.teal { background: var(--teal); }
+  .region-dots .dot.red.empty { background: none; border: 1.5px solid var(--red); }
+  .region-dots .dot.teal.empty { background: none; border: 1.5px solid var(--teal); }
+
+  .region-nums {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .region-nums .rn-red { color: var(--red); font-weight: 600; }
+  .region-nums .rn-teal { color: var(--teal); font-weight: 600; }
+
+  /* ── page break hints for print ── */
+  @media print {
+    .section-break { page-break-before: always; }
+    body { font-size: 11pt; }
+  }
+
+  /* ── responsive ── */
+  @media (max-width: 640px) {
+    .bar-row { grid-template-columns: 120px 1fr 40px; }
+    .bar-label { font-size: 0.7rem; }
+    .finding { grid-template-columns: auto 1fr; gap: 0.75rem; }
+    .finding-num { font-size: 1.8rem; }
+    .finding-right { grid-template-columns: 1fr auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ TOPBAR ═══════════════════ -->
+<div class="topbar">
+  NEWSKALEIDOSCOPE: CROSS-CASE EPISTEMIC REPORT &mdash; IRAN 2026 &amp; UKRAINE 2022
+</div>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-label">NewsKaleidoscope Cross-Case Report</div>
+  <h1>How the World<br>Frames Current Wars</h1>
+  <h2>Russian Invasion of Ukraine<br>US-Israeli Attack on Iran</h2>
+  <p class="cover-meta" style="margin-top: 1.5rem;">
+    Epistemic Mapping of Global News Coverage
+  </p>
+  <p class="cover-meta">
+    A comparative analysis of <strong>3,363 articles</strong> across <strong>41 languages</strong> and <strong>1,047 sources</strong><br>
+    examining how different regions frame two military conflicts
+  </p>
+  <div class="cover-divider"></div>
+  <p class="cover-meta" style="margin-top: 1.5rem; font-size: 0.8rem;">
+    March 2026 &middot; news.thebeakers.com
+  </p>
+</div>
+
+<!-- ═══════════════════ 01 INTRODUCTION ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">01</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Introduction</div>
+  </div>
+
+  <p>When a military power strikes, the global media system activates. Thousands of journalists in dozens of languages attempt to explain what happened and why it matters. The words they choose, the historical context they invoke, the voices they amplify and the perspectives they silence collectively form an epistemic map: a record of how different cultures understood the same event.</p>
+
+  <p>This report presents a computational analysis of that map for two military conflicts: the US-Israeli strike on Iran in February 2026, and Russia's invasion of Ukraine in February 2022. Using identical methodology across both events, we extracted framing patterns from 3,363 articles without predefined categories, allowing the data to reveal its own structure.</p>
+
+  <p>The central question is not which framing is "correct." It is: <em>why does the global media system converge on a single narrative for one war, and fracture into competing narratives for another?</em></p>
+</div>
+
+<!-- ═══════════════════ 02 THE TWO CORPORA ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">02</div>
+    <div class="section-rule"></div>
+    <div class="section-title">The Two Corpora</div>
+  </div>
+
+  <table class="data-table">
+    <caption>Corpus Comparison</caption>
+    <thead>
+      <tr><th></th><th>Iran Strike (Feb 2026)</th><th>Ukraine Invasion (Feb 2022)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Total articles</td><td class="num-red">1,267</td><td class="num-teal">2,096</td></tr>
+      <tr><td>With extractable text</td><td class="num">1,267</td><td class="num">1,863</td></tr>
+      <tr><td>Unique sources</td><td class="num">330</td><td class="num">717</td></tr>
+      <tr><td>Languages</td><td class="num">24</td><td class="num">41</td></tr>
+      <tr><td>Primary source</td><td>World News API (1,087)</td><td>GDELT (1,944)</td></tr>
+      <tr><td>Vernacular layer</td><td>Reddit (109 posts)</td><td>Reddit (152 posts)</td></tr>
+      <tr><td>Time window</td><td>Feb 26 &ndash; Mar 6, 2026</td><td>Feb 24 &ndash; Mar 2, 2022</td></tr>
+    </tbody>
+  </table>
+
+  <p>Ukraine 2022 generated 66% more global coverage than Iran 2026 across 71% more languages. This asymmetry is not an artifact of data collection&mdash;both used the same GDELT infrastructure. The difference reflects genuine disparities in global media attention: the largest land war in Europe since 1945 drew more language communities into coverage than a targeted strike in the Middle East.</p>
+</div>
+
+<!-- ═══════════════════ GLOBAL REACH ═══════════════════ -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num" style="color: var(--red);">02b</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Global Reach:<br>Languages &amp;<br>Regions</div>
+  </div>
+
+  <p style="max-width: 780px;">The two corpora span 41 languages and every inhabited continent. The paired chart below shows how each language community contributed to both case studies. Where a language appears for one conflict but not the other, the silence is itself a data point.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Article Count by Language — Both Case Studies</div>
+    <div class="chart-subtitle">
+      <span style="color: var(--red);">&#9632; Iran 2026</span> &nbsp;&nbsp;
+      <span style="color: var(--teal);">&#9632; Ukraine 2022</span>
+    </div>
+
+    <!-- header row -->
+    <div class="paired-row" style="margin-bottom: 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+      <div class="paired-label" style="font-weight: 600; font-size: 0.7rem; color: var(--text-muted);">LANGUAGE</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--red);">IRAN</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--teal);">UKRAINE</div>
+    </div>
+
+    <!-- sorted by combined total (Iran + Ukraine) descending -->
+    <div class="paired-row"><div class="paired-label">English</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(133 / 660 * 100%);"></div><div class="val">133</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(658 / 660 * 100%);"></div><div class="val">658</div></div></div>
+    <div class="paired-row"><div class="paired-label">Turkish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(97 / 660 * 100%);"></div><div class="val">97</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(173 / 660 * 100%);"></div><div class="val">173</div></div></div>
+    <div class="paired-row"><div class="paired-label">Russian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(57 / 660 * 100%);"></div><div class="val">57</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(138 / 660 * 100%);"></div><div class="val">138</div></div></div>
+    <div class="paired-row"><div class="paired-label">Chinese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(56 / 660 * 100%);"></div><div class="val">56</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(118 / 660 * 100%);"></div><div class="val">118</div></div></div>
+    <div class="paired-row"><div class="paired-label">French</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(105 / 660 * 100%);"></div><div class="val">105</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(68 / 660 * 100%);"></div><div class="val">68</div></div></div>
+    <div class="paired-row"><div class="paired-label">Spanish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(103 / 660 * 100%);"></div><div class="val">103</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(48 / 660 * 100%);"></div><div class="val">48</div></div></div>
+    <div class="paired-row"><div class="paired-label">German</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(102 / 660 * 100%);"></div><div class="val">102</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(25 / 660 * 100%);"></div><div class="val">25</div></div></div>
+    <div class="paired-row"><div class="paired-label">Arabic</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(99 / 660 * 100%);"></div><div class="val">99</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(25 / 660 * 100%);"></div><div class="val">25</div></div></div>
+    <div class="paired-row"><div class="paired-label">Portuguese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(85 / 660 * 100%);"></div><div class="val">85</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(35 / 660 * 100%);"></div><div class="val">35</div></div></div>
+    <div class="paired-row"><div class="paired-label">Ukrainian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(113 / 660 * 100%);"></div><div class="val">113</div></div></div>
+    <div class="paired-row"><div class="paired-label">Korean</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(51 / 660 * 100%);"></div><div class="val">51</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(59 / 660 * 100%);"></div><div class="val">59</div></div></div>
+    <div class="paired-row"><div class="paired-label">Italian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(98 / 660 * 100%);"></div><div class="val">98</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(5 / 660 * 100%);"></div><div class="val">5</div></div></div>
+    <div class="paired-row"><div class="paired-label">Persian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(82 / 660 * 100%);"></div><div class="val">82</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: 0;"></div><div class="val" style="color: var(--red);">&mdash;</div></div></div>
+    <div class="paired-row"><div class="paired-label">Hindi</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(78 / 660 * 100%);"></div><div class="val">78</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: 0;"></div><div class="val" style="color: var(--red);">&mdash;</div></div></div>
+    <div class="paired-row"><div class="paired-label">Polish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(76 / 660 * 100%);"></div><div class="val">76</div></div></div>
+    <div class="paired-row"><div class="paired-label">Japanese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(50 / 660 * 100%);"></div><div class="val">50</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(17 / 660 * 100%);"></div><div class="val">17</div></div></div>
+    <div class="paired-row"><div class="paired-label">Indonesian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(50 / 660 * 100%);"></div><div class="val">50</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(16 / 660 * 100%);"></div><div class="val">16</div></div></div>
+    <div class="paired-row"><div class="paired-label">Romanian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(1 / 660 * 100%);"></div><div class="val">1</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(41 / 660 * 100%);"></div><div class="val">41</div></div></div>
+    <div class="paired-row"><div class="paired-label">Serbian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(34 / 660 * 100%);"></div><div class="val">34</div></div></div>
+    <div class="paired-row"><div class="paired-label">Croatian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(2 / 660 * 100%);"></div><div class="val">2</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(27 / 660 * 100%);"></div><div class="val">27</div></div></div>
+    <div class="paired-row" style="margin-top: 0.5rem; border-top: 1px solid var(--border); padding-top: 0.5rem;">
+      <div class="paired-label" style="font-weight: 600; font-size: 0.75rem;">+ 21 more</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">24 total</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">41 total</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Reading the Language Map</div>
+    <p style="margin: 0;">Persian (82) and Hindi (78) appear heavily in Iran coverage but are absent from Ukraine — these are communities directly affected by the Iran strike. Ukrainian (113) and Polish (76) dominate Ukraine coverage but are absent from Iran — geographic proximity drives engagement. The dashes (&mdash;) are as significant as the numbers: they mark the boundaries of which communities considered each conflict to be "their" story.</p>
+  </div>
+
+  <!-- regional reach -->
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--teal); margin: 2.5rem 0 0.75rem;">Regional Distribution</h3>
+
+  <p style="max-width: 780px;">Each dot represents roughly 10 articles from that region. Filled dots show the count; the contrast between red and teal reveals which conflicts each region prioritised.</p>
+
+  <div class="region-grid">
+    <div class="region-card">
+      <div class="region-name">Europe</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">73</span> / <span class="rn-teal">125</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Middle East</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">89</span> / <span class="rn-teal">42</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">East Asia</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">55</span> / <span class="rn-teal">31</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">South Asia</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">21</span> / <span class="rn-teal">29</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Latin America</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots" style="min-height: 10px;">
+      </div>
+      <div class="region-nums"><span class="rn-red">27</span> / <span class="rn-teal">0</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">North America</div>
+      <div class="region-dots">
+        <div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">9</span> / <span class="rn-teal">17</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Africa</div>
+      <div class="region-dots">
+        <div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">6</span> / <span class="rn-teal">7</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Oceania</div>
+      <div class="region-dots" style="min-height: 10px;">
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">3</span> / <span class="rn-teal">9</span></div>
+    </div>
+  </div>
+
+  <div class="seg-legend" style="justify-content: center; margin: 1rem 0;">
+    <span style="color: var(--red);">&#9679; Iran &nbsp;</span>
+    <span style="color: var(--teal);">&#9679; Ukraine &nbsp;</span>
+    <span style="color: var(--text-muted);">Each dot &asymp; 10 articles</span>
+  </div>
+
+  <div class="callout-red callout" style="max-width: 780px; margin: 1.5rem auto;">
+    <div class="callout-title">The Latin America Gap</div>
+    <p style="margin: 0;">Latin America produced 27 Iran-related sources but zero Ukraine sources in our GDELT corpus. This is not an absence of coverage — Latin American outlets covered Ukraine extensively — but a limitation of GDELT's URL-level indexing for 2022 historical data. The asymmetry highlights a methodological boundary worth documenting.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 KEY FINDINGS ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">03</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Executive Summary</div>
+  </div>
+
+  <p class="intro">This analysis reveals a fundamental asymmetry in how the global media system processes different military conflicts. The findings challenge assumptions about media neutrality and demonstrate that epistemic fragmentation is itself a measurable signal of geopolitical complexity.</p>
+
+  <div class="finding">
+    <div class="finding-num">01</div>
+    <div class="finding-body">
+      <p><span class="lead">Ukraine coverage is four times more "legible" to analytical models than Iran coverage.</span> Only 14% of Ukraine articles produced contested framing between models, compared to 57.7% for Iran. When the global media system converges on a narrative, it converges completely. When it fractures, it fractures along cultural fault lines.</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">Nearly half of all Ukraine coverage belongs to a single mega-cluster.</span> 49.8% of articles frame the invasion identically: unprovoked Russian aggression against a sovereign state. No equivalent dominant narrative exists for Iran, where the largest cluster captures only 18.5% of coverage. The world agreed on Ukraine; it fractured on Iran.</p>
+    </div>
+    <div class="finding-num">02</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">03</div>
+    <div class="finding-body">
+      <p><span class="lead">The moral clarity of the target determines framing consensus, not just the nature of the attacker.</span> Ukraine is perceived as an unambiguous victim: democratic, European, no proxy networks. Iran carries moral baggage&mdash;Hezbollah, Hamas, nuclear ambiguity&mdash;that forces every outlet to adjudicate competing narratives. Epistemic fragmentation tracks moral complexity.</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">Dissent is distributed in Iran coverage but concentrated in Ukraine coverage.</span> Arabic, Indonesian, German, and Korean media each dissent <em>differently</em> on Iran. On Ukraine, Russian-language media is the sole dissenting pole against near-universal condemnation. Multipolar disagreement versus bipolar disagreement.</p>
+    </div>
+    <div class="finding-num">04</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">05</div>
+    <div class="finding-body">
+      <p><span class="lead">Actions by hegemonic powers generate more epistemically diverse global reactions.</span> US allies must negotiate their own complicity when the US strikes&mdash;France, Turkey, Indonesia each find different positions. When Russia invades, condemnation costs nothing. The hegemon's allies are forced to articulate positions; the adversary's critics face no such dilemma.</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">What a corpus cannot say reveals the boundaries of its epistemic horizon.</span> Iran generated religious legitimacy and China-silence clusters absent from Ukraine. Ukraine generated Western-hypocrisy and military-resistance clusters absent from Iran. Structural absences are as diagnostic as presences.</p>
+    </div>
+    <div class="finding-num">06</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 MODEL AGREEMENT ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">04</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Model Agreement:<br>How "Legible" Is<br>Each War's Framing?</div>
+  </div>
+
+  <p>We ran an LLM council (Qwen-32B vs Gemma-27B) to measure inter-model agreement on extracted framings. Higher agreement means the framing is more "legible"&mdash;models parse the same article the same way. Lower agreement means the framing is genuinely ambiguous.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Inter-Model Agreement Distribution</div>
+    <div class="seg-chart">
+      <div class="seg-row">
+        <div class="seg-label"><span style="color: var(--red);">Iran 2026</span> <span style="color: var(--text-muted); font-weight: 400; font-size: 0.8rem;">(N=1,267, full council)</span></div>
+        <div class="seg-bar">
+          <div class="seg seg-high" style="width: 4.7%;">4.7%</div>
+          <div class="seg seg-medium" style="width: 37.6%;">37.6%</div>
+          <div class="seg seg-contested" style="width: 57.7%;">57.7%</div>
+        </div>
+      </div>
+      <div class="seg-row">
+        <div class="seg-label"><span style="color: var(--teal);">Ukraine 2022</span> <span style="color: var(--text-muted); font-weight: 400; font-size: 0.8rem;">(N=307, stratified sample)</span></div>
+        <div class="seg-bar">
+          <div class="seg seg-high" style="width: 13.4%;">13.4%</div>
+          <div class="seg seg-medium" style="width: 72.6%;">72.6%</div>
+          <div class="seg seg-contested" style="width: 14%;">14%</div>
+        </div>
+      </div>
+    </div>
+    <div class="seg-legend">
+      <span class="l-high">High Agreement</span>
+      <span class="l-medium">Medium</span>
+      <span class="l-contested">Contested</span>
+    </div>
+    <div class="chart-subtitle">Cosine similarity threshold: 0.82. Sample council methodology validated on CS1 full corpus.</div>
+  </div>
+
+  <div class="callout-red callout">
+    <div class="callout-title">Critical Finding</div>
+    <p style="margin: 0;">The 4&times; difference in contestation rates (57.7% vs 14%) is not a methodological artifact. It reflects a genuine difference in how legible each conflict is to analytical frameworks. Ukraine's "illegal Russian aggression" narrative is so dominant that even models with different training data converge on it. Iran's framing landscape has no equivalent consensus.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 IRAN CLUSTERS ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">05</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Iran Strike:<br>Emergent Clusters</div>
+  </div>
+
+  <div class="emergence-banner">
+    <div class="eb-title">These categories were not predefined &mdash; they emerged from the data</div>
+    <div class="eb-body">Unlike conventional media analysis that codes articles into pre-chosen categories (e.g. "pro-war / anti-war"), our LLM extracted each article's framing in its own words. Clusters formed from semantic similarity between these free-text descriptions. The names below are <em>discoveries</em>, not labels imposed by researchers.</div>
+    <div class="eb-contrast">
+      <div class="eb-col" style="text-align: right; color: var(--text-muted);"><strong style="color: var(--red);">Conventional</strong><br>Researcher defines 5&ndash;8 categories<br>Articles coded into fixed bins<br>Presupposes the answer</div>
+      <div class="eb-vs">vs</div>
+      <div class="eb-col" style="text-align: left; color: var(--text-muted);"><strong style="color: var(--teal);">This study</strong><br>LLM describes framing freely<br>Clusters emerge from similarity<br>Discovers the structure</div>
+    </div>
+  </div>
+
+  <p>119 clusters emerged from 1,267 articles, with 76 singletons&mdash;articles that resisted all clustering, each carrying a unique epistemic position. The top clusters reveal a deeply fractured epistemic landscape with no dominant narrative:</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Iran Strike: Emergent Framing Clusters</div>
+    <div class="chart-subtitle">Each colour represents a distinct emergent cluster. 119 total clusters, top 9 shown.</div>
+    <div class="bar-row"><div class="bar-label">Justified Strategic Escalation</div><div class="bar-track"><div class="bar-fill c1" style="width: 18.5%;"></div></div><div class="bar-value">267</div></div>
+    <div class="bar-row"><div class="bar-label">Proportional Response</div><div class="bar-track"><div class="bar-fill c2" style="width: 10.6%;"></div></div><div class="bar-value">153</div></div>
+    <div class="bar-row"><div class="bar-label">Iranian Sovereignty Defense</div><div class="bar-track"><div class="bar-fill c3" style="width: 10.1%;"></div></div><div class="bar-value">145</div></div>
+    <div class="bar-row"><div class="bar-label">Humanitarian &amp; Legal Critique</div><div class="bar-track"><div class="bar-fill c4" style="width: 5.8%;"></div></div><div class="bar-value">84</div></div>
+    <div class="bar-row"><div class="bar-label">Reciprocal Escalation Cycle</div><div class="bar-track"><div class="bar-fill c5" style="width: 4.8%;"></div></div><div class="bar-value">69</div></div>
+    <div class="bar-row"><div class="bar-label">Economic &amp; Energy Impact</div><div class="bar-track"><div class="bar-fill c6" style="width: 4.2%;"></div></div><div class="bar-value">61</div></div>
+    <div class="bar-row"><div class="bar-label">Critique of US Unilateralism</div><div class="bar-track"><div class="bar-fill c7" style="width: 4.1%;"></div></div><div class="bar-value">59</div></div>
+    <div class="bar-row"><div class="bar-label">Proxy Conflict Rebalancing</div><div class="bar-track"><div class="bar-fill c8" style="width: 3.7%;"></div></div><div class="bar-value">54</div></div>
+    <div class="bar-row"><div class="bar-label">Technical-Strategic Analysis</div><div class="bar-track"><div class="bar-fill c9" style="width: 3.3%;"></div></div><div class="bar-value">47</div></div>
+  </div>
+
+  <div class="cluster-card red">
+    <div class="cluster-name">Justified Strategic Escalation Against Iranian Aggression</div>
+    <div class="cluster-meta">267 articles &middot; 18.5% of corpus &middot; 21 languages</div>
+    <div class="cluster-desc">Frames US-Israeli action as necessary, intelligence-driven response to Iranian aggression. Emphasizes preemptive self-defense and existential threats. Downplays civilian harm or legal concerns.</div>
+    <div class="cluster-langs">Top: French (48), English (37), Turkish (23), Persian (21), Spanish (20), Arabic (19)</div>
+  </div>
+
+  <div class="cluster-card red">
+    <div class="cluster-name">Iranian Sovereignty Defense Framing</div>
+    <div class="cluster-meta">145 articles &middot; 10.1% of corpus</div>
+    <div class="cluster-desc">Frames US-Israeli action as illegal imperialism, emphasizing Iran's sovereign right to self-defense. Rejects civilian harm narratives as Western propaganda.</div>
+    <div class="cluster-langs">Top: French (25), Turkish (22), Persian (21), English (19), Portuguese (11)</div>
+  </div>
+
+  <div class="cluster-card neutral">
+    <div class="cluster-name">China-Centric Domestic Narratives</div>
+    <div class="cluster-meta">31 articles &middot; 2.2% of corpus &middot; Chinese only</div>
+    <div class="cluster-desc">Chinese outlets entirely omitting US-Israel-Iran dynamics, focusing instead on domestic economic strategies and political campaigns. <strong>The absence is the framing.</strong> By choosing not to cover the strike, these outlets implicitly communicate that Iran is not China's problem.</div>
+  </div>
+
+  <div class="cluster-card neutral">
+    <div class="cluster-name">Religious &amp; Divine Legitimacy Framing</div>
+    <div class="cluster-meta">15 articles &middot; 1.0% of corpus</div>
+    <div class="cluster-desc">Portrays conflict as divinely sanctioned or tied to religious solidarity. Uses sacred rhetoric to justify or condemn violence. A unique epistemic register entirely absent from Ukraine coverage.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 UKRAINE CLUSTERS ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">06</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Ukraine Invasion:<br>Emergent Clusters</div>
+  </div>
+
+  <p>93 clusters emerged from 1,863 articles, with 68 singletons. Compared to Iran's fractured landscape, Ukraine shows a single dominant mega-cluster that captures nearly half the global corpus. The dominance of a single emergent category&mdash;without being predefined&mdash;is itself the finding.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Ukraine Invasion: Emergent Framing Clusters</div>
+    <div class="chart-subtitle">Each colour represents a distinct emergent cluster. 93 total clusters, top 7 shown.</div>
+    <div class="bar-row"><div class="bar-label">Condemnation of Russian Aggression</div><div class="bar-track"><div class="bar-fill u1" style="width: 49.8%;"></div></div><div class="bar-value">927</div></div>
+    <div class="bar-row"><div class="bar-label">Russian "SMO" Justification</div><div class="bar-track"><div class="bar-fill u2" style="width: 12.2%;"></div></div><div class="bar-value">228</div></div>
+    <div class="bar-row"><div class="bar-label">Humanitarian Crisis</div><div class="bar-track"><div class="bar-fill u3" style="width: 11.9%;"></div></div><div class="bar-value">221</div></div>
+    <div class="bar-row"><div class="bar-label">Western Coalition-Building</div><div class="bar-track"><div class="bar-fill u4" style="width: 10.8%;"></div></div><div class="bar-value">202</div></div>
+    <div class="bar-row"><div class="bar-label">Geopolitical &amp; Economic Impact</div><div class="bar-track"><div class="bar-fill u5" style="width: 9.0%;"></div></div><div class="bar-value">168</div></div>
+    <div class="bar-row"><div class="bar-label">Ukrainian Military Resistance</div><div class="bar-track"><div class="bar-fill u6" style="width: 2.8%;"></div></div><div class="bar-value">52</div></div>
+    <div class="bar-row"><div class="bar-label">Non-Western Narratives</div><div class="bar-track"><div class="bar-fill u7" style="width: 1.0%;"></div></div><div class="bar-value">19</div></div>
+  </div>
+
+  <div class="cluster-card">
+    <div class="cluster-name">Condemnation of Russian Aggression and Ukrainian Sovereignty Advocacy</div>
+    <div class="cluster-meta">927 articles &middot; 49.8% of corpus &middot; 38 languages</div>
+    <div class="cluster-desc">Nearly half the entire corpus. Uniformly depicts invasion as unprovoked, emphasizes Ukraine's sovereignty, calls for sanctions, NATO unity, and international accountability. Present in 38 of 41 languages.</div>
+    <div class="cluster-langs">Top: English (306), Ukrainian (71), Turkish (70), Polish (51), Chinese (44), Korean (32)</div>
+  </div>
+
+  <div class="cluster-card red">
+    <div class="cluster-name">Russian "Special Military Operation" Justification</div>
+    <div class="cluster-meta">228 articles &middot; 12.2% of corpus</div>
+    <div class="cluster-desc">Frames Russia's actions as defensive or stabilizing. Cites NATO expansion, protection of Russian-speaking populations, historical grievances. <strong>Russian-language media (74) leads this cluster</strong>&mdash;but English (41), Turkish (26), and Spanish (22) also contribute, indicating this frame extends beyond Russian state media.</div>
+  </div>
+
+  <div class="cluster-card neutral">
+    <div class="cluster-name">Critique of Western Hypocrisy and Historical Narratives</div>
+    <div class="cluster-meta">10 articles &middot; 0.5% of corpus</div>
+    <div class="cluster-desc">Questions Western consistency in sovereignty claims. Links invasion to historical denial of atrocities. Frames Ukraine's struggle through a racialized lens. Entirely absent from Iran coverage.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 CROSS-CASE ANALYSIS ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">07</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Cross-Case Analysis:<br>Why the Difference?</div>
+  </div>
+
+  <p class="intro">The most striking structural finding is the contrast between monopolar and multipolar framing. But explaining why requires examining three interacting factors that all push in the same direction.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Largest Cluster as Proportion of Corpus</div>
+    <div class="chart-subtitle"><span style="color: var(--teal);">&#9632; Ukraine</span> &nbsp; <span style="color: var(--red);">&#9632; Iran</span></div>
+    <div class="bar-row">
+      <div class="bar-label" style="font-weight: 600; color: var(--teal);">Ukraine 2022</div>
+      <div class="bar-track"><div class="bar-fill teal" style="width: 49.8%;"></div></div>
+      <div class="bar-value" style="font-weight: 600;">49.8%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label" style="font-weight: 600; color: var(--red);">Iran 2026</div>
+      <div class="bar-track"><div class="bar-fill red" style="width: 18.5%;"></div></div>
+      <div class="bar-value" style="font-weight: 600;">18.5%</div>
+    </div>
+    <div class="chart-subtitle">Half the world's media said essentially the same thing about Ukraine. No single narrative captured even a fifth of Iran coverage.</div>
+  </div>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--teal); margin: 2rem 0 1rem;">The Three-Factor Model</h3>
+
+  <table class="model-table">
+    <thead>
+      <tr><th>Factor</th><th>Iran (fragmented)</th><th>Ukraine (unified)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Moral clarity of the target</td>
+        <td>Ambiguous&mdash;sovereign state <em>and</em> terror network sponsor. Hezbollah, Hamas, nuclear program create competing moral frames.</td>
+        <td>Unambiguous&mdash;democratic sovereign victim. No proxy networks, no nuclear ambiguity. No "but they..." counterargument gains traction.</td>
+      </tr>
+      <tr>
+        <td>Hegemon accountability pressure</td>
+        <td>US allies must negotiate complicity. France, Turkey, Indonesia each find different positions. The strike forces articulation.</td>
+        <td>No complicity dilemma. Condemning Russia costs nothing for most nations. Consensus is the path of least resistance.</td>
+      </tr>
+      <tr>
+        <td>Nature of the military action</td>
+        <td>Preemptive strike. "Was this proportional?" is inherently debatable. Legal ambiguity invites competing interpretations.</td>
+        <td>Full-scale invasion of a sovereign state. Legality is unambiguous under international law. Less interpretive space.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Interpretive Note</div>
+    <p style="margin: 0;">All three factors push in the same direction, which explains the strength of the effect. Iran's moral ambiguity, the compliance pressure on US allies, and the legal debatability of preemptive strikes all generate framing diversity independently. Their convergence produces the 4&times; difference in epistemic fragmentation.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 LANGUAGE OF FRAMING ═══════════════════ -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num">08</div>
+    <div class="section-rule"></div>
+    <div class="section-title">The Language<br>of Framing</div>
+  </div>
+
+  <p style="max-width: 780px;">Words and phrases that emerged from LLM framing extraction across both corpora. Size reflects frequency; colour reflects the case study of origin.</p>
+
+  <div class="wordcloud" style="background: var(--surface); padding: 2.5rem; margin: 2rem 0;">
+    <span class="wc-xl wc-teal">unprovoked aggression</span>
+    <span class="wc-lg wc-red">preemptive self-defense</span>
+    <span class="wc-xl wc-teal">sovereignty</span>
+    <span class="wc-md wc-red">existential threat</span>
+    <span class="wc-lg wc-teal">sanctions</span>
+    <span class="wc-xl wc-red">illegal imperialism</span>
+    <span class="wc-md wc-teal">NATO expansion</span>
+    <span class="wc-lg wc-red">nuclear ambiguity</span>
+    <span class="wc-sm wc-muted">energy markets</span>
+    <span class="wc-lg wc-teal">civilian suffering</span>
+    <span class="wc-md wc-red">axis of resistance</span>
+    <span class="wc-xl wc-teal">international law</span>
+    <span class="wc-md wc-muted">proxy warfare</span>
+    <span class="wc-lg wc-red">proportional response</span>
+    <span class="wc-sm wc-teal">refugee crisis</span>
+    <span class="wc-md wc-red">regime change</span>
+    <span class="wc-lg wc-teal">Russian-speaking populations</span>
+    <span class="wc-sm wc-red">divine legitimacy</span>
+    <span class="wc-md wc-teal">collective security</span>
+    <span class="wc-lg wc-red">unilateral escalation</span>
+    <span class="wc-sm wc-muted">strategic autonomy</span>
+    <span class="wc-md wc-teal">Western hypocrisy</span>
+    <span class="wc-lg wc-red">Hezbollah</span>
+    <span class="wc-sm wc-teal">Donbass</span>
+    <span class="wc-md wc-muted">oil price volatility</span>
+    <span class="wc-lg wc-teal">special military operation</span>
+    <span class="wc-sm wc-red">terror network</span>
+    <span class="wc-md wc-teal">Zelenskyy</span>
+  </div>
+
+  <div class="seg-legend" style="justify-content: center; margin-bottom: 2rem;">
+    <span style="color: var(--red);">&#9632; Iran Strike framing</span>
+    <span style="color: var(--teal);">&#9632; Ukraine Invasion framing</span>
+    <span style="color: var(--text-muted);">&#9632; Shared across both</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 STRUCTURAL ABSENCES ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">09</div>
+    <div class="section-rule"></div>
+    <div class="section-title">What's Absent<br>Reveals As Much<br>As What's Present</div>
+  </div>
+
+  <table class="data-table">
+    <caption>Structural Absences: Clusters Present in One Corpus but Not the Other</caption>
+    <thead>
+      <tr><th>Absent Position</th><th>Iran</th><th>Ukraine</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Religious / divine framing</td><td class="num-red">Present (15, 1%)</td><td class="num">&mdash;</td></tr>
+      <tr><td>China "no-comment" framing</td><td class="num-red">Present (31, 2.2%)</td><td class="num">&mdash;</td></tr>
+      <tr><td>Military resistance celebration</td><td class="num">&mdash;</td><td class="num-teal">Present (52, 2.8%)</td></tr>
+      <tr><td>Racial / colonial critique</td><td class="num">&mdash;</td><td class="num-teal">Present (10, 0.5%)</td></tr>
+      <tr><td>Domestic instrumentalisation</td><td class="num">Minimal</td><td class="num-teal">Present (4)</td></tr>
+      <tr><td>Technical-neutral analysis</td><td class="num-red">Present (47, 3.3%)</td><td class="num">Minimal (10, 0.5%)</td></tr>
+    </tbody>
+  </table>
+
+  <p>Iran generated a <em>religious legitimacy</em> cluster and a <em>China silence</em> cluster&mdash;both absent from Ukraine. Ukraine generated a <em>Western hypocrisy</em> critique and a <em>military resistance celebration</em>&mdash;both absent from Iran.</p>
+
+  <p>The absences are as diagnostic as the presences. The Iran corpus cannot generate a "celebrate the defenders" cluster because there is no unambiguous defender. The Ukraine corpus cannot generate a "divine legitimacy" cluster because the conflict was never framed in sacred terms. What a corpus <em>cannot say</em> reveals the boundaries of its epistemic horizon.</p>
+</div>
+
+<!-- ═══════════════════ 10 METHODOLOGY ═══════════════════ -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">10</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Methodology</div>
+  </div>
+
+  <dl class="method-grid">
+    <dt>Text extraction</dt>
+    <dd>trafilatura &rarr; newspaper3k &rarr; Wayback Machine. 86% success on 2022 URLs.</dd>
+    <dt>Translation</dt>
+    <dd>Helsinki-NLP MarianMT (20+ pairs) &rarr; Meta NLLB-200 (200 languages). All local.</dd>
+    <dt>Pass 1</dt>
+    <dd>Qwen3-32B. Open-ended framing prompt with no predefined categories. Country context injection for bias compensation (58 countries).</dd>
+    <dt>Council</dt>
+    <dd>Iran: full (3 models &times; 1,267). Ukraine: stratified sample (2 models &times; 307).</dd>
+    <dt>Clustering</dt>
+    <dd>LLM Pass 2, chunked hierarchical. Framing descriptions clustered in batches, merged across chunks.</dd>
+    <dt>Infrastructure</dt>
+    <dd>Qwen3-32B + Gemma-27B on 2&times; TITAN RTX (boron). Translation on RTX A4000 (nitrogen). All local inference, no cloud APIs.</dd>
+  </dl>
+
+  <div class="callout">
+    <div class="callout-title">On Methodology</div>
+    <p style="margin: 0;">No predefined framing categories were used at any stage. The LLM was asked to describe each article's framing in its own words. Clusters emerged from semantic similarity between these free-text descriptions. This means the categories above&mdash;"Justified Strategic Escalation," "Russian SMO Justification"&mdash;were <em>discovered</em> by the system, not imposed by researchers. The 76 Iran singletons and 68 Ukraine singletons represent articles that refused to cluster: each carries a unique epistemic position that no other article in the corpus shares.</p>
+  </div>
+
+  <p class="footnote">
+    This report was produced using the NewsKaleidoscope epistemic mapping system. Corpus data sourced from GDELT, World News API, and Reddit. LLM analysis performed on local infrastructure with no data sent to external APIs. All framing categories are emergent, not predefined. For methodology details, see PROTOCOL.md in the project repository.
+  </p>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<div class="page">
+  <div class="report-footer">
+    <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--teal); margin-bottom: 0.5rem;">NewsKaleidoscope</p>
+    <p>Epistemic Mapping of Global Media &middot; <a href="https://news.thebeakers.com">news.thebeakers.com</a></p>
+    <p style="margin-top: 0.75rem;">Data: GDELT + World News API + Reddit &middot; Analysis: Qwen3-32B + Gemma-27B &middot; All inference local</p>
+    <p style="margin-top: 0.5rem;">March 2026</p>
+  </div>
+</div>
+
+</body>
+</html>

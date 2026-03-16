@@ -123,21 +123,37 @@ def start_llama_server(model_name):
     _ssh_cmd(cmd)
     log.info(f"  starting llama-server with {model_name} ({gguf})...")
 
-    # wait for server to be ready
-    for attempt in range(30):
-        time.sleep(2)
+    # wait for server to be ready (HTTP endpoint + model warmup)
+    for attempt in range(60):
+        time.sleep(3)
         try:
             req = urllib.request.Request(f"{LLM_URL}/v1/models")
             with urllib.request.urlopen(req, timeout=5) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 if data.get("data"):
                     loaded = data["data"][0].get("id", "unknown")
-                    log.info(f"  llama-server ready: {loaded}")
-                    return loaded
+                    log.info(f"  llama-server HTTP ready: {loaded}")
+                    break
         except Exception:
             pass
+    else:
+        raise TimeoutError(f"llama-server failed to start with {model_name} after 180s")
 
-    raise TimeoutError(f"llama-server failed to start with {model_name} after 60s")
+    # warmup: send a tiny prompt to force full model load into GPU
+    log.info("  warming up model with test prompt...")
+    warmup = llm_call("Say OK.", timeout=60)
+    if warmup:
+        log.info(f"  warmup successful, model fully loaded")
+    else:
+        # retry warmup once — model may need more time
+        time.sleep(5)
+        warmup = llm_call("Say OK.", timeout=60)
+        if warmup:
+            log.info(f"  warmup successful on retry")
+        else:
+            log.warning(f"  warmup failed — proceeding anyway, early articles may fail")
+
+    return loaded
 
 
 def llm_call(prompt, timeout=TIMEOUT):
@@ -320,11 +336,17 @@ class LLMCouncil:
             raw = llm_call(prompt)
 
             if raw is None:
-                log.warning(f"    timeout/error for article {article_id}")
+                # retry once after a pause — server may be momentarily busy
+                log.warning(f"    timeout/error for article {article_id}, retrying in 5s...")
+                time.sleep(5)
+                raw = llm_call(prompt)
+
+            if raw is None:
+                log.warning(f"    FAILED article {article_id} after retry")
                 readings[article_id] = None
                 failures += 1
-                if failures >= 5:
-                    log.error(f"  5 consecutive failures on {model_name}, aborting model")
+                if failures >= 10:
+                    log.error(f"  10 consecutive failures on {model_name}, aborting model")
                     for _, (aid, _) in enumerate(articles_data[i+1:]):
                         readings[aid] = None
                     break

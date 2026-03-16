@@ -61,6 +61,45 @@ EVENTS = {
         "date_start": 1772006400,  # approx 2026-02-26
         "date_end": 1772784000,    # approx 2026-03-06
     },
+    "cs1ru_ukraine": {
+        "event_id": 4,
+        "label": "CS1-RU: Ukraine Invasion (2022)",
+        "queries": ["russia ukraine invasion", "ukraine war", "ukraine attack", "putin ukraine", "zelensky"],
+        "subreddits": [
+            # global geopolitical
+            {"sub": "worldnews", "country": "International", "language": "English", "region": "Global"},
+            {"sub": "geopolitics", "country": "International", "language": "English", "region": "Global"},
+            {"sub": "UkrainianConflict", "country": "International", "language": "English", "region": "Global"},
+            {"sub": "CombatFootage", "country": "International", "language": "English", "region": "Global"},
+            # directly involved
+            {"sub": "ukraine", "country": "Ukraine", "language": "English", "region": "Eastern Europe"},
+            {"sub": "russia", "country": "Russia", "language": "English", "region": "Eastern Europe"},
+            {"sub": "AskARussian", "country": "Russia", "language": "English", "region": "Eastern Europe"},
+            {"sub": "liberta", "country": "Russia", "language": "Russian", "region": "Eastern Europe"},
+            # european
+            {"sub": "europe", "country": "Europe", "language": "English", "region": "Europe"},
+            {"sub": "de", "country": "Germany", "language": "German", "region": "Europe"},
+            {"sub": "france", "country": "France", "language": "French", "region": "Europe"},
+            {"sub": "unitedkingdom", "country": "United Kingdom", "language": "English", "region": "Europe"},
+            {"sub": "Polska", "country": "Poland", "language": "Polish", "region": "Europe"},
+            {"sub": "Romania", "country": "Romania", "language": "English", "region": "Europe"},
+            # neighboring / affected
+            {"sub": "Turkey", "country": "Turkey", "language": "English", "region": "Middle East"},
+            {"sub": "india", "country": "India", "language": "English", "region": "South Asia"},
+            {"sub": "China_irl", "country": "China", "language": "Chinese", "region": "East Asia"},
+            {"sub": "korea", "country": "South Korea", "language": "English", "region": "East Asia"},
+            # americas
+            {"sub": "canada", "country": "Canada", "language": "English", "region": "North America"},
+            {"sub": "politics", "country": "United States", "language": "English", "region": "North America"},
+            {"sub": "brasil", "country": "Brazil", "language": "Portuguese", "region": "Latin America"},
+            # africa
+            {"sub": "Nigeria", "country": "Nigeria", "language": "English", "region": "Africa"},
+            {"sub": "southafrica", "country": "South Africa", "language": "English", "region": "Africa"},
+        ],
+        # date filter: Feb 22 - Mar 5, 2022 (slightly wider to catch early/late posts)
+        "date_start": 1645488000,   # 2022-02-22 00:00:00 UTC
+        "date_end": 1646438400,     # 2022-03-05 00:00:00 UTC
+    },
     "cs2_tariffs": {
         "event_id": 3,
         "label": "CS2: US Tariffs",

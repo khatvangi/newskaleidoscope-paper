@@ -1,0 +1,7 @@
+=== LLM Council Results: Ukraine (event_id=4) ===
+Sample council (stratified N=307, 2 models: Qwen-32B, Gemma-27B)
+
+Total verdicts:   307
+HIGH:             41 (13.4%)
+MEDIUM:           223 (72.6%)
+CONTESTED:        43 (14.0%)

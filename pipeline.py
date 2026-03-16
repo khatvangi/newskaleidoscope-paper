@@ -24,6 +24,7 @@ import time
 import hashlib
 import urllib.request
 import urllib.error
+from datetime import datetime
 
 from db import get_session, Event, Source, Article, Analysis, Cluster, ClusterMembership, CoverageGap
 from translate import TranslationEngine
@@ -54,6 +55,8 @@ TOP_LANGUAGES = [
     "Arabic", "Bengali", "Portuguese", "Russian", "Swahili",
     "Hausa", "Japanese", "German", "Korean", "Turkish",
 ]
+
+COUNTRY_NAME_BY_CODE = {v: k for k, v in COUNTRY_CODES.items()}
 
 # ── logging setup ─────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)
@@ -210,6 +213,44 @@ def parse_llm_json(raw):
             log.warning(f"  could not parse LLM JSON output")
             return {"raw_response": raw}
     return {"raw_response": raw}
+
+
+def _safe_id_for_filename(value):
+    """sanitize run IDs for filesystem-safe artifact names."""
+    if not value:
+        return ""
+    return "".join(ch if ch.isalnum() or ch in ("-", "_") else "_" for ch in value)
+
+
+def write_json_artifact(base_path, payload, run_id=None, event_id=None, archive_existing=True):
+    """write canonical artifact and optional run-scoped immutable copy."""
+    os.makedirs(os.path.dirname(base_path), exist_ok=True)
+    base, ext = os.path.splitext(base_path)
+
+    run_copy_path = None
+    safe_run = _safe_id_for_filename(run_id)
+    if safe_run:
+        if event_id is not None:
+            run_copy_path = f"{base}_event{event_id}_{safe_run}{ext}"
+        else:
+            run_copy_path = f"{base}_{safe_run}{ext}"
+        with open(run_copy_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+
+    if archive_existing and os.path.exists(base_path):
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        archived_path = f"{base}_{stamp}{ext}"
+        counter = 1
+        while os.path.exists(archived_path):
+            archived_path = f"{base}_{stamp}_{counter}{ext}"
+            counter += 1
+        os.replace(base_path, archived_path)
+        log.info(f"  archived previous artifact: {archived_path}")
+
+    with open(base_path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+
+    return run_copy_path
 
 
 # ── country context loading ───────────────────────────────────────
@@ -463,6 +504,85 @@ def generate_absence_report(model, results, cluster_data,
 
 
 # ── DB helpers ────────────────────────────────────────────────────
+def _pick_preferred_analysis(analysis_rows):
+    """pick the most relevant analysis row for reporting/resume."""
+    if not analysis_rows:
+        return None
+
+    def is_council(model_name):
+        name = (model_name or "").lower()
+        return name.startswith("council_") or name.startswith("council:")
+
+    primary = [a for a in analysis_rows if not is_council(a.model_used) and (a.model_used or "").lower().startswith("qwen")]
+    if primary:
+        return primary[0]
+
+    non_council = [a for a in analysis_rows if not is_council(a.model_used)]
+    if non_council:
+        return non_council[0]
+
+    return analysis_rows[0]
+
+
+def load_existing_results_from_db(session, event_id):
+    """rebuild result objects from DB so resume runs keep full corpus context."""
+    rebuilt = {}
+    articles = session.query(Article).filter_by(event_id=event_id).all()
+
+    for art in articles:
+        analysis_rows = (
+            session.query(Analysis)
+            .filter_by(article_id=art.id, event_id=event_id)
+            .order_by(Analysis.created_at.desc(), Analysis.id.desc())
+            .all()
+        )
+        analysis_row = _pick_preferred_analysis(analysis_rows)
+        if not analysis_row:
+            continue
+
+        raw = analysis_row.raw_llm_output or {}
+        source = art.source
+        source_url = (source.url or "") if source else ""
+        domain = source_url.replace("https://", "").replace("http://", "").rstrip("/") if source_url else ""
+        source_country = COUNTRY_NAME_BY_CODE.get(source.country_code, source.country_code or "unknown") if source else "unknown"
+
+        result = {
+            "url": art.url,
+            "title": art.title or "untitled",
+            "domain": domain or "unknown",
+            "sourcecountry": source_country,
+            "sourcelang": art.original_language or "English",
+            "source_type": (source.source_type or "unknown") if source else "unknown",
+            "outlet_name": source.name if source else (domain or "unknown"),
+            "outlet_tier": 0,
+            "outlet_region": "unknown",
+            "outlet_bias_notes": "",
+            "analysis": {
+                "framing_description": analysis_row.primary_frame or raw.get("framing_description", ""),
+                "one_sentence_summary": raw.get("one_sentence_summary", ""),
+                "authority_structure": raw.get("authority_structure", ""),
+                "historical_context_invoked": raw.get("historical_context_invoked", []),
+                "assumed_appropriate_response": raw.get("assumed_appropriate_response", ""),
+                "unstated_assumptions": raw.get("unstated_assumptions", []),
+                "who_is_quoted": raw.get("who_is_quoted", []),
+                "whose_voice_is_absent": raw.get("whose_voice_is_absent", []),
+                "internal_tensions": raw.get("internal_tensions", ""),
+                "factual_claims": raw.get("factual_claims", []),
+                "absence_flags": analysis_row.absence_flags or raw.get("absence_flags", []),
+                "key_framing_language": analysis_row.positions or raw.get("key_framing_language", []),
+                "original_framing_terms": raw.get("original_framing_terms", []),
+                "english_approximations": raw.get("english_approximations", []),
+                "contested_translations": raw.get("contested_translations", []),
+                "original_language": raw.get("original_language", art.original_language or ""),
+                "emotional_register": raw.get("emotional_register", ""),
+                "translation_warning": raw.get("translation_warning", ""),
+            },
+        }
+        rebuilt[art.url] = result
+
+    return rebuilt
+
+
 def find_or_create_source(session, domain, article_data, outlet_domains):
     """find source by domain match, or create a minimal source record."""
     url = f"https://{domain}" if domain else article_data.get("url", "")
@@ -523,7 +643,7 @@ def write_article_to_db(session, event_id, source, url, title, lang, raw_text,
     return article
 
 
-def write_analysis_to_db(session, article_id, event_id, model_name, analysis_data):
+def write_analysis_to_db(session, article_id, event_id, model_name, analysis_data, run_id=None):
     """write analysis record to DB."""
     positions = analysis_data.get("key_framing_language", [])
     tension_text = analysis_data.get("internal_tensions")
@@ -535,6 +655,10 @@ def write_analysis_to_db(session, article_id, event_id, model_name, analysis_dat
     for v in analysis_data.get("whose_voice_is_absent", []):
         unspeakable.append(f"voice absent: {v}")
 
+    raw_payload = dict(analysis_data)
+    if run_id:
+        raw_payload["_run_id"] = run_id
+
     record = Analysis(
         article_id=article_id,
         event_id=event_id,
@@ -544,13 +668,13 @@ def write_analysis_to_db(session, article_id, event_id, model_name, analysis_dat
         internal_tensions=internal_tensions,
         absence_flags=analysis_data.get("absence_flags", []),
         unspeakable_positions=unspeakable,
-        raw_llm_output=analysis_data,
+        raw_llm_output=raw_payload,
     )
     session.add(record)
     return record
 
 
-def write_clusters_to_db(session, event_id, cluster_data, results, url_to_article_id):
+def write_clusters_to_db(session, event_id, cluster_data, results, url_to_article_id, run_id=None, method="llm_pass2"):
     """write clusters and memberships to DB after pass 2."""
     if not cluster_data or "emergent_clusters" not in cluster_data:
         return 0, 0
@@ -568,9 +692,14 @@ def write_clusters_to_db(session, event_id, cluster_data, results, url_to_articl
 
         cluster = Cluster(
             event_id=event_id,
+            run_id=run_id,
+            method=method,
             label=c.get("cluster_name", ""),
+            description=c.get("description"),
             article_count=len(indices),
             geographic_signature=geo_sig,
+            is_singleton=False,
+            maps_to_conventional=c.get("maps_to_conventional_category"),
         )
         session.add(cluster)
         session.flush()
@@ -596,9 +725,13 @@ def write_clusters_to_db(session, event_id, cluster_data, results, url_to_articl
             title_frag = results[idx].get("title", "")[:60]
             cluster = Cluster(
                 event_id=event_id,
+                run_id=run_id,
+                method=method,
                 label=f"Singleton: {title_frag}",
+                description=s.get("why_unique", ""),
                 article_count=1,
                 geographic_signature={results[idx].get("sourcecountry", "unknown"): 1},
+                is_singleton=True,
             )
             session.add(cluster)
             session.flush()
@@ -614,8 +747,15 @@ def write_clusters_to_db(session, event_id, cluster_data, results, url_to_articl
 
 def write_coverage_gaps_to_db(session, event_id, covered_country_codes):
     """seed coverage_gaps for countries with zero articles."""
+    existing_codes = {
+        row[0]
+        for row in session.query(CoverageGap.country_code)
+        .filter_by(event_id=event_id, source_type="all")
+        .all()
+    }
+
     gaps = 0
-    for code in sorted(ALL_COUNTRY_CODES - covered_country_codes):
+    for code in sorted((ALL_COUNTRY_CODES - covered_country_codes) - existing_codes):
         session.add(CoverageGap(
             event_id=event_id,
             country_code=code,
@@ -629,13 +769,17 @@ def write_coverage_gaps_to_db(session, event_id, covered_country_codes):
 
 
 # ── main pipeline ─────────────────────────────────────────────────
-def run_pipeline(limit=None, event_id=None):
+def run_pipeline(limit=None, event_id=None, run_id=None):
     """run the full two-pass analysis pipeline.
 
     args:
         limit: max number of articles to process
         event_id: existing event ID to add articles to. if None, creates new event.
     """
+    if not run_id:
+        run_id = f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    run_id = _safe_id_for_filename(run_id)
+
     with open(ARTICLES_FILE, "r", encoding="utf-8") as f:
         articles = json.load(f)
 
@@ -647,6 +791,7 @@ def run_pipeline(limit=None, event_id=None):
 
     model = find_best_model()
     log.info(f"using model: {model}")
+    log.info(f"run_id: {run_id}")
 
     # load country contexts for bias compensation
     country_contexts = load_country_contexts()
@@ -719,6 +864,10 @@ def run_pipeline(limit=None, event_id=None):
     if db_urls:
         log.info(f"  resume: {len(db_urls)} articles already in DB")
 
+    db_existing_results = load_existing_results_from_db(db_session, event.id)
+    if db_existing_results:
+        log.info(f"  resume: {len(db_existing_results)} DB-backed analysis results available")
+
     # track url -> article_id for cluster membership
     url_to_article_id = {}
     for a in db_session.query(Article).filter_by(event_id=event.id).all():
@@ -750,6 +899,11 @@ def run_pipeline(limit=None, event_id=None):
         # resume: skip if already in DB
         if url in db_urls:
             log.info(f"[{i+1}/{len(articles)}] {domain} — RESUME (already in DB)")
+            rebuilt = db_existing_results.get(url)
+            if rebuilt:
+                results.append(rebuilt)
+            else:
+                log.warning("  resume warning: article exists in DB but has no analysis row")
             continue
 
         # bail out if boron appears to be offline
@@ -853,7 +1007,7 @@ def run_pipeline(limit=None, event_id=None):
         )
         url_to_article_id[url] = db_article.id
 
-        write_analysis_to_db(db_session, db_article.id, event.id, model, analysis)
+        write_analysis_to_db(db_session, db_article.id, event.id, model, analysis, run_id=run_id)
         db_session.commit()  # commit per article for resume safety
 
         # ── also write JSON (parallel output) ────────────────────
@@ -875,7 +1029,7 @@ def run_pipeline(limit=None, event_id=None):
 
         # save per-article result
         safe_domain = domain.replace("/", "_").replace(".", "_")
-        out_path = os.path.join(ANALYSIS_DIR, f"{safe_domain}_{i}.json")
+        out_path = os.path.join(ANALYSIS_DIR, f"{safe_domain}_{i}_{run_id}.json")
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
 
@@ -885,8 +1039,11 @@ def run_pipeline(limit=None, event_id=None):
 
     # save pass 1 results (JSON side)
     combined_path = os.path.join(ANALYSIS_DIR, "all_results.json")
-    with open(combined_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    run_copy = write_json_artifact(
+        combined_path, results, run_id=run_id, event_id=event.id, archive_existing=True
+    )
+    if run_copy:
+        log.info(f"  run artifact: {run_copy}")
 
     log.info(f"\n  pass 1 complete: {len(results)}/{len(articles)} articles processed")
 
@@ -902,8 +1059,11 @@ def run_pipeline(limit=None, event_id=None):
         cluster_data = pass2_cluster(model, results, event_context=event_context)
         if cluster_data and not cluster_data.get("raw_response"):
             cluster_path = os.path.join(ANALYSIS_DIR, "emergent_clusters.json")
-            with open(cluster_path, "w", encoding="utf-8") as f:
-                json.dump(cluster_data, f, indent=2, ensure_ascii=False)
+            run_cluster_path = write_json_artifact(
+                cluster_path, cluster_data, run_id=run_id, event_id=event.id, archive_existing=True
+            )
+            if run_cluster_path:
+                log.info(f"  run artifact: {run_cluster_path}")
 
             # tag each result with its cluster assignments
             if "emergent_clusters" in cluster_data:
@@ -929,7 +1089,7 @@ def run_pipeline(limit=None, event_id=None):
 
             # write clusters to DB
             c_count, m_count = write_clusters_to_db(
-                db_session, event.id, cluster_data, results, url_to_article_id)
+                db_session, event.id, cluster_data, results, url_to_article_id, run_id=run_id, method="llm_pass2")
             db_session.commit()
             log.info(f"  DB: {c_count} clusters, {m_count} memberships written")
         else:
@@ -946,8 +1106,11 @@ def run_pipeline(limit=None, event_id=None):
                                                    absence_examples=absence_examples)
         if absence_data and not absence_data.get("raw_response"):
             absence_path = os.path.join(ANALYSIS_DIR, "absence_report.json")
-            with open(absence_path, "w", encoding="utf-8") as f:
-                json.dump(absence_data, f, indent=2, ensure_ascii=False)
+            run_absence_path = write_json_artifact(
+                absence_path, absence_data, run_id=run_id, event_id=event.id, archive_existing=True
+            )
+            if run_absence_path:
+                log.info(f"  run artifact: {run_absence_path}")
             log.info(f"  unrepresented actors: {absence_data.get('unrepresented_actors', [])[:5]}")
         else:
             log.warning("  absence analysis failed")
@@ -959,11 +1122,12 @@ def run_pipeline(limit=None, event_id=None):
     log.info(f"  coverage gaps seeded: {gaps}")
 
     # save final enriched results (with cluster tags)
-    with open(combined_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    write_json_artifact(
+        combined_path, results, run_id=run_id, event_id=event.id, archive_existing=False
+    )
 
     # coverage gaps report (JSON side)
-    generate_coverage_report(results, articles)
+    generate_coverage_report(results, articles, run_id=run_id, event_id=event.id)
 
     # final summary
     print_summary(results, articles, cluster_data)
@@ -971,6 +1135,7 @@ def run_pipeline(limit=None, event_id=None):
     # close DB
     db_session.close()
     log.info(f"  event_id: {event.id}")
+    log.info(f"  run_id: {run_id}")
 
     return results
 
@@ -998,7 +1163,7 @@ def print_summary(results, articles, cluster_data=None):
     log.info(f"{'='*60}")
 
 
-def generate_coverage_report(results, articles):
+def generate_coverage_report(results, articles, run_id=None, event_id=None):
     """audit coverage gaps: missing regions, languages, sources."""
     report = {"generated": time.strftime("%Y-%m-%d %H:%M:%S")}
 
@@ -1060,8 +1225,9 @@ def generate_coverage_report(results, articles):
     }
 
     report_path = os.path.join(ANALYSIS_DIR, "coverage_gaps.json")
-    with open(report_path, "w", encoding="utf-8") as f:
-        json.dump(report, f, indent=2, ensure_ascii=False)
+    write_json_artifact(
+        report_path, report, run_id=run_id, event_id=event_id, archive_existing=True
+    )
 
     log.info(f"\n{'='*60}")
     log.info(f"COVERAGE GAPS REPORT")
@@ -1081,5 +1247,7 @@ if __name__ == "__main__":
                         help="max articles to process")
     parser.add_argument("--event-id", type=int, default=None,
                         help="existing event ID to add articles to")
+    parser.add_argument("--run-id", type=str, default=None,
+                        help="analysis run identifier for immutable artifacts and DB provenance")
     args = parser.parse_args()
-    run_pipeline(limit=args.limit, event_id=args.event_id)
+    run_pipeline(limit=args.limit, event_id=args.event_id, run_id=args.run_id)

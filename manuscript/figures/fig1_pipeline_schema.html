@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 1: NewsKaleidoscope Pipeline Schema</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Source Serif 4', serif; background: white; color: #1a1a1a; padding: 2rem; }
+  .fig-container { max-width: 900px; margin: 0 auto; }
+  .fig-caption { font-size: 0.85rem; color: #555; margin-bottom: 1.5rem; }
+  .fig-caption strong { color: #1a1a1a; }
+
+  /* pipeline layout */
+  .pipeline { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .stage-row { display: flex; align-items: center; gap: 0.5rem; }
+
+  .stage {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    flex-shrink: 0;
+  }
+
+  .stage-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+
+  .stage-detail { font-size: 0.75rem; color: inherit; opacity: 0.8; }
+
+  /* colors by tier */
+  .tier-source { background: #e8f5f3; border: 1.5px solid #2a9d8f; color: #1a1a1a; }
+  .tier-source .stage-label { color: #2a9d8f; }
+
+  .tier-process { background: #fff3e0; border: 1.5px solid #e67e22; color: #1a1a1a; }
+  .tier-process .stage-label { color: #d35400; }
+
+  .tier-analysis { background: #fdf0ee; border: 1.5px solid #c0392b; color: #1a1a1a; }
+  .tier-analysis .stage-label { color: #c0392b; }
+
+  .tier-output { background: #f3e8ff; border: 1.5px solid #8e44ad; color: #1a1a1a; }
+  .tier-output .stage-label { color: #8e44ad; }
+
+  .tier-infra { background: #f5f5f5; border: 1.5px solid #7f8c8d; color: #555; }
+  .tier-infra .stage-label { color: #7f8c8d; }
+
+  /* arrows */
+  .arrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #999;
+    text-align: center;
+    padding: 0.2rem 0;
+  }
+
+  .arrow-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #999;
+    padding: 0 0.3rem;
+  }
+
+  /* phase labels */
+  .phase-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    padding: 1rem 0 0.3rem;
+    border-bottom: 1px solid #e0ddd6;
+    margin-bottom: 0.5rem;
+  }
+
+  /* numbers */
+  .num-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  /* grid layout for parallel stages */
+  .parallel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .parallel-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  /* flow section */
+  .flow-section {
+    margin-bottom: 0.75rem;
+  }
+</style>
+</head>
+<body>
+<div class="fig-container">
+
+<p class="fig-caption"><strong>Figure 1.</strong> NewsKaleidoscope analysis pipeline. Tier 1-2 sources (institutional news) flow through text extraction, translation, and LLM-based framing analysis. Each article is analysed independently with no predefined categories. Emergent clusters form from semantic similarity between free-text framing descriptions. All LLM inference runs on local hardware (2&times;TITAN RTX + RTX A4000).</p>
+
+<div class="pipeline">
+
+<!-- PHASE 1: DATA COLLECTION -->
+<div class="phase-header">Phase 1 &mdash; Data Collection</div>
+
+<div class="flow-section">
+  <div class="parallel-grid">
+    <div class="stage tier-source">
+      <div class="stage-label">GDELT DOC API</div>
+      <div class="stage-detail">Multi-query, geo-diverse<br>Iran: 121 &middot; Ukraine: 1,944</div>
+    </div>
+    <div class="stage tier-source">
+      <div class="stage-label">World News API</div>
+      <div class="stage-detail">Full text, 80+ languages<br>Iran: 1,087 &middot; Ukraine: 0*</div>
+    </div>
+    <div class="stage tier-source">
+      <div class="stage-label">Reddit JSON API</div>
+      <div class="stage-detail">Vernacular discourse<br>Iran: 109 &middot; Ukraine: 152</div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow">&darr; URL deduplication &amp; DB insertion &darr;</div>
+
+<div class="flow-section">
+  <div class="stage-row">
+    <span class="num-badge">Iran: 1,267 articles</span>
+    <span class="num-badge">Ukraine: 2,096 articles</span>
+    <span class="num-badge">24 + 41 languages</span>
+    <span class="num-badge">330 + 717 sources</span>
+  </div>
+</div>
+
+<!-- PHASE 2: TEXT PROCESSING -->
+<div class="phase-header">Phase 2 &mdash; Text Extraction &amp; Translation</div>
+
+<div class="flow-section">
+  <div class="parallel-grid-2">
+    <div class="stage tier-process">
+      <div class="stage-label">Text Extraction</div>
+      <div class="stage-detail">trafilatura &rarr; newspaper3k &rarr; Wayback Machine<br>Iran: 100% &middot; Ukraine: 86.2% (2022 URLs)</div>
+    </div>
+    <div class="stage tier-process">
+      <div class="stage-label">Translation</div>
+      <div class="stage-detail">Helsinki-NLP MarianMT (20+ pairs) &rarr; NLLB-200 (200 langs)<br>All local on RTX A4000 &middot; 99.9% success</div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow">&darr; articles with English text ready for analysis &darr;</div>
+
+<!-- PHASE 3: FRAMING EXTRACTION -->
+<div class="phase-header">Phase 3 &mdash; Open-Ended Framing Extraction (Pass 1)</div>
+
+<div class="flow-section">
+  <div class="stage tier-analysis" style="max-width: 100%;">
+    <div class="stage-label">Qwen3-32B &mdash; per-article framing analysis</div>
+    <div class="stage-detail">
+      Open-ended prompt: "Describe how this article frames this event using the article's own conceptual vocabulary"<br>
+      No predefined categories &middot; Country context injection (58 countries) &middot; JSON output<br>
+      Iran: 1,267 articles &middot; Ukraine: 1,863 articles &middot; ~40s per article on 2&times;TITAN RTX
+    </div>
+  </div>
+</div>
+
+<div class="arrow">&darr; free-text framing descriptions + structured metadata &darr;</div>
+
+<!-- PHASE 4: COUNCIL VALIDATION -->
+<div class="phase-header">Phase 4 &mdash; Multi-Model Council Validation</div>
+
+<div class="flow-section">
+  <div class="parallel-grid">
+    <div class="stage tier-analysis">
+      <div class="stage-label">Qwen3-32B</div>
+      <div class="stage-detail">Primary model<br>(Alibaba, Chinese training)</div>
+    </div>
+    <div class="stage tier-analysis">
+      <div class="stage-label">Gemma-27B</div>
+      <div class="stage-detail">Council member<br>(Google, distinct corpus)</div>
+    </div>
+    <div class="stage tier-analysis">
+      <div class="stage-label">Mistral-24B</div>
+      <div class="stage-detail">Tiebreaker<br>(European emphasis)</div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow">&darr; cosine similarity (all-MiniLM-L6-v2) &middot; threshold: 0.82 &darr;</div>
+
+<div class="flow-section">
+  <div class="stage-row">
+    <div class="stage tier-analysis" style="flex: 1; text-align: center;">
+      <div class="stage-label">Consensus Classification</div>
+      <div class="stage-detail">
+        <strong>HIGH</strong> (all agree &ge; 0.82) &middot;
+        <strong>MEDIUM</strong> (2-of-3 agree) &middot;
+        <strong>CONTESTED</strong> (no pair agrees)
+      </div>
+    </div>
+  </div>
+  <div class="stage-row" style="margin-top: 0.3rem;">
+    <span class="num-badge">Iran full council: HIGH 4.7% &middot; MED 37.6% &middot; CONTESTED 57.7%</span>
+    <span class="num-badge">Ukraine sample (N=307): HIGH 13.4% &middot; MED 72.6% &middot; CONTESTED 14.0%</span>
+  </div>
+</div>
+
+<!-- PHASE 5: CLUSTERING -->
+<div class="phase-header">Phase 5 &mdash; Emergent Clustering (Pass 2)</div>
+
+<div class="flow-section">
+  <div class="stage tier-output" style="max-width: 100%;">
+    <div class="stage-label">LLM-Based Chunked Hierarchical Clustering</div>
+    <div class="stage-detail">
+      Framing descriptions clustered by semantic similarity in batches, merged across chunks<br>
+      No predefined cluster labels &mdash; names emerge from cluster content<br>
+      Singletons preserved (articles resisting all clustering)
+    </div>
+  </div>
+</div>
+
+<div class="arrow">&darr; emergent framing categories &darr;</div>
+
+<div class="flow-section">
+  <div class="parallel-grid-2">
+    <div class="stage tier-output" style="text-align: center;">
+      <div class="stage-label">Iran: 119 emergent clusters</div>
+      <div class="stage-detail">Largest: 18.5% &middot; 76 singletons<br><strong>Multipolar</strong> &mdash; no dominant narrative</div>
+    </div>
+    <div class="stage tier-output" style="text-align: center;">
+      <div class="stage-label">Ukraine: 93 emergent clusters</div>
+      <div class="stage-detail">Largest: 49.8% &middot; 68 singletons<br><strong>Monopolar</strong> &mdash; one mega-cluster</div>
+    </div>
+  </div>
+</div>
+
+<!-- INFRASTRUCTURE -->
+<div class="phase-header">Infrastructure</div>
+
+<div class="flow-section">
+  <div class="parallel-grid-2">
+    <div class="stage tier-infra">
+      <div class="stage-label">boron (LLM inference)</div>
+      <div class="stage-detail">2&times; NVIDIA TITAN RTX (48GB total)<br>llama-server --tensor-split 0.5,0.5 --parallel 4</div>
+    </div>
+    <div class="stage tier-infra">
+      <div class="stage-label">nitrogen (translation + orchestration)</div>
+      <div class="stage-detail">NVIDIA RTX A4000 (16GB)<br>MarianMT + NLLB-200 &middot; PostgreSQL &middot; pipeline control</div>
+    </div>
+  </div>
+  <div class="stage-row" style="margin-top: 0.3rem;">
+    <span class="num-badge">All inference local &mdash; no cloud APIs</span>
+    <span class="num-badge">Total compute: ~40 GPU-hours per case study</span>
+  </div>
+</div>
+
+<p style="font-size: 0.7rem; color: #999; margin-top: 1rem;">* World News API returned 0 results for 2022 historical queries despite supporting date parameters. Ukraine corpus relies on GDELT + Reddit.</p>
+
+</div>
+</div>
+</body>
+</html>

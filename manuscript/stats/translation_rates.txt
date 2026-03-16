@@ -1,0 +1,10 @@
+=== Translation Rates: Ukraine (event_id=4) ===
+
+Non-English articles with raw_text: 1205
+Successfully translated:            1204 (99.9%)
+
+Translation engine breakdown:
+English|1204
+
+Languages with translation failures:
+Gujarati|1|0

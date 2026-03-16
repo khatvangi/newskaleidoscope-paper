@@ -1,0 +1,11 @@
+=== Text Extraction Rates: Ukraine (event_id=4) ===
+
+Total articles:           2096
+With raw_text:            1863 (88.9%)
+Without raw_text:         233
+Extraction rate:          88.9%
+
+Wayback Machine recoveries: 353 (25 + 328 from fetch logs)
+(articles fetched via web.archive.org fallback for expired 2022 URLs)
+
+Engine: trafilatura (preferred) + newspaper3k (fallback)
