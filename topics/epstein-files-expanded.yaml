@@ -1,0 +1,151 @@
+# NewsKaleidoscope Topic Configuration — EXPANDED
+# Epstein Files: Comprehensive Global Coverage
+# 30+ query groups targeting every major angle
+
+name: "Epstein Files: Global Reaction"
+slug: epstein-files
+event_type: political_scandal
+description: >
+  The U.S. Department of Justice released 3.5 million pages of documents related to
+  Jeffrey Epstein's sex trafficking network. Coverage spans political elite (Trump, Clinton),
+  royalty (Prince Andrew), finance (Wexner, Black), academia (MIT, Harvard), intelligence
+  (Mossad theories), and modeling industry (Brunel). European careers ended while US
+  response remained muted.
+
+windows:
+  w1_initial_release:
+    label: "Initial Release (Redacted)"
+    start: "2025-12-20"
+    end: "2025-12-31"
+  w2_major_release:
+    label: "Major DOJ Release"
+    start: "2026-01-28"
+    end: "2026-02-10"
+  w3_european_fallout:
+    label: "European Fallout"
+    start: "2026-02-10"
+    end: "2026-03-01"
+  w4_ongoing:
+    label: "Ongoing Reaction"
+    start: "2026-03-01"
+    end: "2026-03-20"
+
+queries:
+  gdelt:
+    # broad
+    - "Epstein files release documents"
+    - "Epstein DOJ documents scandal"
+    - "Jeffrey Epstein trafficking investigation"
+    # named individuals — political
+    - "Epstein Trump documents"
+    - "Epstein Clinton files"
+    - "Epstein Bill Gates"
+    - "Epstein Elon Musk"
+    # named individuals — royalty/UK
+    - "Prince Andrew Epstein files"
+    - "Ghislaine Maxwell documents"
+    - "Peter Mandelson Epstein"
+    # named individuals — finance
+    - "Les Wexner Epstein"
+    - "Leon Black Epstein"
+    - "Jes Staley Epstein JPMorgan"
+    # named individuals — Israel
+    - "Ehud Barak Epstein"
+    - "Epstein Israel intelligence Mossad"
+    # named individuals — academia
+    - "Epstein MIT Media Lab Joi Ito"
+    - "Epstein Harvard university donations"
+    - "Epstein academics scientists payroll"
+    # named individuals — France
+    - "Jean-Luc Brunel Epstein modeling"
+    # named individuals — legal
+    - "Alan Dershowitz Epstein files"
+    # victims and accountability
+    - "Epstein victims reaction files"
+    - "Epstein survivors justice"
+    # angles
+    - "Epstein files redacted controversy"
+    - "Epstein intelligence agency connection"
+    - "Epstein financial network wealth"
+    - "Epstein Virgin Islands lawsuit"
+    # fallout
+    - "Epstein fallout resignations Europe"
+    - "Epstein career ended scandal"
+    - "Epstein files cover-up"
+    - "Epstein accountability elite impunity"
+
+  worldnews:
+    default: ["Epstein files released", "Epstein documents DOJ scandal", "Epstein associates named"]
+    en: ["Epstein Prince Andrew", "Epstein Trump Clinton", "Epstein MIT Harvard", "Epstein victims justice"]
+    fr: ["dossiers Epstein publiés", "fichiers Epstein scandale", "Epstein Brunel mannequins"]
+    de: ["Epstein Akten veröffentlicht", "Epstein Dokumente Skandal", "Epstein Enthüllungen"]
+    es: ["archivos Epstein publicados", "documentos Epstein escándalo", "Epstein élite impunidad"]
+    it: ["file Epstein pubblicati", "documenti Epstein scandalo"]
+    pt: ["arquivos Epstein divulgados", "documentos Epstein escândalo"]
+    ar: ["ملفات إبستين", "وثائق إبستين فضيحة", "إبستين استخبارات"]
+    tr: ["Epstein dosyaları", "Epstein belgeleri skandal"]
+    ru: ["файлы Эпштейна", "документы Эпштейна скандал", "Эпштейн разведка"]
+    zh: ["爱泼斯坦文件公开", "爱泼斯坦丑闻文件", "爱泼斯坦精英"]
+    ja: ["エプスタイン文書公開", "エプスタインスキャンダル"]
+    ko: ["엡스타인 파일 공개", "엡스타인 문서 스캔들"]
+    he: ["תיקי אפשטיין", "מסמכי אפשטיין", "אפשטיין ברק"]
+    nl: ["Epstein dossiers vrijgegeven", "Epstein Prins Andrew"]
+    pl: ["akta Epsteina", "dokumenty Epsteina skandal"]
+    sv: ["Epstein-filerna", "Epstein dokument skandal"]
+    hi: ["एपस्टीन फाइलें", "एपस्टीन दस्तावेज़"]
+    fa: ["پرونده‌های اپستین", "اسناد اپستین"]
+    id: ["file Epstein", "dokumen Epstein skandal"]
+    el: ["αρχεία Epstein", "Epstein σκάνδαλο"]
+    ro: ["dosarele Epstein", "documente Epstein"]
+    hu: ["Epstein akták", "Epstein dokumentumok"]
+    uk: ["файли Епштейна", "документи Епштейна"]
+
+  reddit:
+    subreddits:
+      # primary Epstein communities
+      - {sub: Epstein, country: International, language: English, region: Global}
+      - {sub: EpsteinAndFriends, country: International, language: English, region: Global}
+      - {sub: DataHoarder, country: International, language: English, region: Global}
+      # global news
+      - {sub: worldnews, country: International, language: English, region: Global}
+      - {sub: news, country: "United States", language: English, region: "North America"}
+      - {sub: politics, country: "United States", language: English, region: "North America"}
+      - {sub: conspiracy, country: International, language: English, region: Global}
+      - {sub: TrueReddit, country: International, language: English, region: Global}
+      # european reaction
+      - {sub: europe, country: Europe, language: English, region: Europe}
+      - {sub: unitedkingdom, country: "United Kingdom", language: English, region: Europe}
+      - {sub: france, country: France, language: French, region: Europe}
+      - {sub: de, country: Germany, language: German, region: Europe}
+      - {sub: sweden, country: Sweden, language: English, region: Europe}
+      # country-specific
+      - {sub: israel, country: Israel, language: English, region: "Middle East"}
+      - {sub: australia, country: Australia, language: English, region: Oceania}
+      - {sub: canada, country: Canada, language: English, region: "North America"}
+      - {sub: india, country: India, language: English, region: "South Asia"}
+      - {sub: brasil, country: Brazil, language: Portuguese, region: "Latin America"}
+      - {sub: southafrica, country: "South Africa", language: English, region: Africa}
+      # topic-specific
+      - {sub: law, country: International, language: English, region: Global}
+      - {sub: technology, country: International, language: English, region: Global}
+    queries:
+      - "epstein files"
+      - "epstein documents released"
+      - "epstein scandal"
+      - "epstein associates"
+      - "epstein prince andrew"
+      - "epstein MIT Harvard"
+      - "epstein intelligence"
+      - "epstein victims"
+
+absence_examples: >
+  Victim-centered narratives, intelligence agency connections (Mossad/CIA theories),
+  institutional complicity (MIT Media Lab, scientific community), class-based
+  analysis of elite impunity, comparison to other trafficking cases,
+  role of plea deal architects (Acosta), financial network details,
+  USVI lawsuit outcomes, modeling industry exploitation
+
+llm_model: "qwen3-32b-q4km.gguf"
+council_model: "google_gemma-3-27b-it-Q4_K_M.gguf"
+council_strategy: sample
+council_sample_size: 300

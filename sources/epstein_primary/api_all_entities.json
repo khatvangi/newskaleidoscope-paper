@@ -1,0 +1,962 @@
+[
+  {
+    "id": "33a9d83a-cb63-4470-80a5-e6afa4046886",
+    "slug": "jeffrey-epstein",
+    "name": "Jeffrey Epstein",
+    "entity_type": "person",
+    "document_count": 1540,
+    "flight_count": 14,
+    "email_count": 8,
+    "role_description": "Principal subject"
+  },
+  {
+    "id": "bdbdf904-9417-4946-a532-e347f63dff72",
+    "slug": "ghislaine-maxwell",
+    "name": "Ghislaine Maxwell",
+    "entity_type": "person",
+    "document_count": 1283,
+    "flight_count": 16,
+    "email_count": 7,
+    "role_description": "Co-conspirator, recruiter, and groomer"
+  },
+  {
+    "id": "86a62f2a-2b79-4e50-897f-5ac1f028b4a9",
+    "slug": "laura-menninger",
+    "name": "Laura Menninger",
+    "entity_type": "person",
+    "document_count": 280,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Maxwell defense attorney"
+  },
+  {
+    "id": "cc2dbbae-c50b-4eaa-9b5c-a87526701190",
+    "slug": "leon-black",
+    "name": "Leon Black",
+    "entity_type": "person",
+    "document_count": 84,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Financial client"
+  },
+  {
+    "id": "d8743ac2-dfec-4acf-a3fe-6bd2d8b0d5f5",
+    "slug": "prince-andrew",
+    "name": "Prince Andrew",
+    "entity_type": "person",
+    "document_count": 84,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Named in court documents and civil lawsuit"
+  },
+  {
+    "id": "fff4034f-8e70-4e0d-bddd-b0a4921b1bd2",
+    "slug": "sigrid-mccawley",
+    "name": "Sigrid McCawley",
+    "entity_type": "person",
+    "document_count": 83,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Giuffre's attorney"
+  },
+  {
+    "id": "6f408da1-3774-4723-8103-c4ee0c30d402",
+    "slug": "bobbi-sternheim",
+    "name": "Bobbi Sternheim",
+    "entity_type": "person",
+    "document_count": 69,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Maxwell defense attorney"
+  },
+  {
+    "id": "f5263cd6-e2a0-40e9-8c33-b91af47ac06f",
+    "slug": "brad-edwards",
+    "name": "Brad Edwards",
+    "entity_type": "person",
+    "document_count": 68,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victims' attorney"
+  },
+  {
+    "id": "131c74f4-a9b8-4356-ba8e-fcbddf22b30c",
+    "slug": "donald-trump",
+    "name": "Donald Trump",
+    "entity_type": "person",
+    "document_count": 66,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book; mentioned in depositions"
+  },
+  {
+    "id": "e4bee0a5-0852-4bd1-8aa9-d379b4c05a17",
+    "slug": "damian-williams",
+    "name": "Damian Williams",
+    "entity_type": "person",
+    "document_count": 57,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Lead prosecutor (SDNY)"
+  },
+  {
+    "id": "86cd423b-8a87-4972-8b9a-0e7d515e6d7b",
+    "slug": "alexander-acosta",
+    "name": "Alexander Acosta",
+    "entity_type": "person",
+    "document_count": 48,
+    "flight_count": 0,
+    "email_count": 1,
+    "role_description": "Former U.S. Attorney who negotiated NPA"
+  },
+  {
+    "id": "90ae98af-25dd-460d-9784-a8b2557dc97d",
+    "slug": "david-boies",
+    "name": "David Boies",
+    "entity_type": "person",
+    "document_count": 31,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Attorney for Giuffre"
+  },
+  {
+    "id": "aa64b885-0e35-46ad-a453-4a9ca384e6d5",
+    "slug": "jeffrey-berman",
+    "name": "Geoffrey Berman",
+    "entity_type": "person",
+    "document_count": 28,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "U.S. Attorney who indicted Epstein"
+  },
+  {
+    "id": "2849216b-2a13-4f04-86a0-54b17fb5fe0e",
+    "slug": "alan-dershowitz",
+    "name": "Alan Dershowitz",
+    "entity_type": "person",
+    "document_count": 24,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Epstein defense attorney; named in documents"
+  },
+  {
+    "id": "08fd619e-13da-4a2c-941a-34e6626c05e2",
+    "slug": "bill-clinton",
+    "name": "Bill Clinton",
+    "entity_type": "person",
+    "document_count": 24,
+    "flight_count": 6,
+    "email_count": 0,
+    "role_description": "Documented in flight logs"
+  },
+  {
+    "id": "4537c125-4140-469f-8603-1333e5f945c8",
+    "slug": "larry-visoski",
+    "name": "Larry Visoski",
+    "entity_type": "person",
+    "document_count": 23,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Personal pilot"
+  },
+  {
+    "id": "02c93f4f-9f58-4a84-82e1-f9a4d5f33ba3",
+    "slug": "harvey-weinstein",
+    "name": "Harvey Weinstein",
+    "entity_type": "person",
+    "document_count": 17,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "63a8b616-1765-45aa-b65f-2262f46c7253",
+    "slug": "david-rodgers",
+    "name": "David Rodgers",
+    "entity_type": "person",
+    "document_count": 16,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Pilot and flight log keeper"
+  },
+  {
+    "id": "650d959b-02d0-4f74-bacf-c59319bc33cf",
+    "slug": "jes-staley",
+    "name": "Jes Staley",
+    "entity_type": "person",
+    "document_count": 16,
+    "flight_count": 0,
+    "email_count": 1,
+    "role_description": "Banking associate"
+  },
+  {
+    "id": "dc7702bb-df65-4b61-b1b7-9f98bc1e2908",
+    "slug": "paul-cassell",
+    "name": "Paul Cassell",
+    "entity_type": "person",
+    "document_count": 14,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victims' rights attorney"
+  },
+  {
+    "id": "cd8761db-6a11-45c0-9625-bcc1cb6c68e0",
+    "slug": "alison-moe",
+    "name": "Alison Moe",
+    "entity_type": "person",
+    "document_count": 12,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Lead prosecutor"
+  },
+  {
+    "id": "d4b93735-ab5d-4005-adf7-6bc3e9cfecd0",
+    "slug": "bill-richardson",
+    "name": "Bill Richardson",
+    "entity_type": "person",
+    "document_count": 12,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Named in court documents"
+  },
+  {
+    "id": "9117a541-125a-4b77-a749-ae8bf6c3d623",
+    "slug": "julie-k-brown",
+    "name": "Julie K. Brown",
+    "entity_type": "person",
+    "document_count": 11,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Investigative journalist"
+  },
+  {
+    "id": "dc2a2fd0-d4a2-4092-b68e-337b8143d8a6",
+    "slug": "denise-george",
+    "name": "Denise George",
+    "entity_type": "person",
+    "document_count": 10,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "USVI Attorney General"
+  },
+  {
+    "id": "72d699d5-0e62-400c-84af-c1fd1d86d061",
+    "slug": "steve-bannon",
+    "name": "Steve Bannon",
+    "entity_type": "person",
+    "document_count": 8,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Met with Epstein in 2018"
+  },
+  {
+    "id": "62bb9e44-11dd-4be7-95de-e80027db52e1",
+    "slug": "alison-nathan",
+    "name": "Alison Nathan",
+    "entity_type": "person",
+    "document_count": 7,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Presiding judge"
+  },
+  {
+    "id": "b276e3f3-8220-46d9-9c6d-5e5c9b2eecc3",
+    "slug": "robert-maxwell",
+    "name": "Robert Maxwell",
+    "entity_type": "person",
+    "document_count": 5,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Father of Ghislaine Maxwell"
+  },
+  {
+    "id": "1ba24f3c-2940-4de8-819e-77f04a41e634",
+    "slug": "leslie-wexner",
+    "name": "Leslie Wexner",
+    "entity_type": "person",
+    "document_count": 5,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Financial associate"
+  },
+  {
+    "id": "91de04a3-6e94-4eb6-ac44-24ca559e4911",
+    "slug": "jean-luc-brunel",
+    "name": "Jean-Luc Brunel",
+    "entity_type": "person",
+    "document_count": 5,
+    "flight_count": 4,
+    "email_count": 1,
+    "role_description": "Modeling agent and alleged procurer"
+  },
+  {
+    "id": "1fe57ad2-2876-43d6-ab7d-412faa64f2b4",
+    "slug": "maurene-comey",
+    "name": "Maurene Comey",
+    "entity_type": "person",
+    "document_count": 5,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Prosecutor"
+  },
+  {
+    "id": "69354f90-9cd6-4dda-b5d0-76015ceeaded",
+    "slug": "juan-alessi",
+    "name": "Juan Alessi",
+    "entity_type": "person",
+    "document_count": 4,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Former house manager"
+  },
+  {
+    "id": "75ca6963-fd06-4b40-9c81-ceddd38b63da",
+    "slug": "richard-berman",
+    "name": "Richard Berman",
+    "entity_type": "person",
+    "document_count": 4,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Presiding judge"
+  },
+  {
+    "id": "58bf25ac-8f18-4217-b29a-e278ab93034f",
+    "slug": "eva-dubin",
+    "name": "Eva Dubin",
+    "entity_type": "person",
+    "document_count": 3,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Social associate"
+  },
+  {
+    "id": "6ec79b7b-9938-406d-ac34-a489e3b91179",
+    "slug": "lesley-groff",
+    "name": "Lesley Groff",
+    "entity_type": "person",
+    "document_count": 3,
+    "flight_count": 0,
+    "email_count": 1,
+    "role_description": "Executive assistant"
+  },
+  {
+    "id": "329925c7-f9d5-4491-875c-032143e28c6b",
+    "slug": "bill-gates",
+    "name": "Bill Gates",
+    "entity_type": "person",
+    "document_count": 3,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Met with Epstein post-conviction"
+  },
+  {
+    "id": "99bdb8a0-2590-4363-b738-e0f15c6b8dc5",
+    "slug": "george-mitchell",
+    "name": "George Mitchell",
+    "entity_type": "person",
+    "document_count": 3,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in court documents"
+  },
+  {
+    "id": "24d78640-afb1-49e6-aeae-7cd9d746fcc9",
+    "slug": "michael-baden",
+    "name": "Michael Baden",
+    "entity_type": "person",
+    "document_count": 3,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Forensic pathologist who disputed suicide ruling"
+  },
+  {
+    "id": "e92e274d-e67f-43ec-81ec-74481a82fb87",
+    "slug": "kevin-spacey",
+    "name": "Kevin Spacey",
+    "entity_type": "person",
+    "document_count": 2,
+    "flight_count": 5,
+    "email_count": 0,
+    "role_description": "Photographed on Epstein aircraft"
+  },
+  {
+    "id": "579bc50b-417d-4372-8c44-9b97980ab012",
+    "slug": "chris-tucker",
+    "name": "Chris Tucker",
+    "entity_type": "person",
+    "document_count": 2,
+    "flight_count": 5,
+    "email_count": 0,
+    "role_description": "Documented in flight logs"
+  },
+  {
+    "id": "9252cc4d-6451-4b06-b148-65070437210e",
+    "slug": "lawrence-krauss",
+    "name": "Lawrence Krauss",
+    "entity_type": "person",
+    "document_count": 2,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Received Epstein funding"
+  },
+  {
+    "id": "83cf9291-ce33-417a-b17a-cd58bbe5c986",
+    "slug": "david-copperfield",
+    "name": "David Copperfield",
+    "entity_type": "person",
+    "document_count": 2,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in depositions; listed in contact book"
+  },
+  {
+    "id": "93abdd65-ca64-445c-accc-063afa897e04",
+    "slug": "sergey-brin",
+    "name": "Sergey Brin",
+    "entity_type": "person",
+    "document_count": 2,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "91481e43-d595-417a-a09e-13225809a02e",
+    "slug": "palm-beach-police",
+    "name": "Palm Beach Police Department",
+    "entity_type": "organization",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Initial investigating agency"
+  },
+  {
+    "id": "d91b5bd1-bc61-488e-bc5d-522de55eaf24",
+    "slug": "michael-jackson",
+    "name": "Michael Jackson",
+    "entity_type": "person",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "edc65b29-9822-468b-8e0d-a49dccf5e564",
+    "slug": "little-st-james-island",
+    "name": "Little St. James Island",
+    "entity_type": "location",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Private island"
+  },
+  {
+    "id": "402c8abc-15ca-4a94-a1bf-9794c87dcd9c",
+    "slug": "peter-mandelson",
+    "name": "Peter Mandelson",
+    "entity_type": "person",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in documents; listed in contact book"
+  },
+  {
+    "id": "5bba1a1e-1b48-4682-8271-e8f3eaf0c767",
+    "slug": "marvin-minsky",
+    "name": "Marvin Minsky",
+    "entity_type": "person",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in court filings"
+  },
+  {
+    "id": "977d815b-0284-45e4-9fab-3d11d8ef3f9f",
+    "slug": "woody-allen",
+    "name": "Woody Allen",
+    "entity_type": "person",
+    "document_count": 1,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Social associate"
+  },
+  {
+    "id": "9e78d172-e92b-4776-8e67-9c93788322cd",
+    "slug": "john-mark-dougan",
+    "name": "John Mark Dougan",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Former law enforcement"
+  },
+  {
+    "id": "10c23225-a83c-4258-8d90-5ee27cc5c1dd",
+    "slug": "nadia-marcinkova",
+    "name": "Nadia Marcinkova",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 3,
+    "email_count": 0,
+    "role_description": "Named co-conspirator"
+  },
+  {
+    "id": "1a51fefa-58ea-4ec8-b9a7-6178134f815e",
+    "slug": "haley-robson",
+    "name": "Haley Robson",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim turned recruiter"
+  },
+  {
+    "id": "d927fb5d-1568-4c5a-ab40-d6c7f2c2442d",
+    "slug": "sarah-kellen",
+    "name": "Sarah Kellen",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 5,
+    "email_count": 2,
+    "role_description": "Personal assistant and alleged scheduler"
+  },
+  {
+    "id": "33873682-a415-42c0-8ac5-a93add739b4a",
+    "slug": "virginia-giuffre",
+    "name": "Virginia Giuffre",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Victim and key accuser"
+  },
+  {
+    "id": "365c9cdc-4de7-4556-bab4-ec4ee9635270",
+    "slug": "noam-chomsky",
+    "name": "Noam Chomsky",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Acknowledged meetings with Epstein"
+  },
+  {
+    "id": "0f1d2fe7-9ce7-420b-847a-e20ee444b025",
+    "slug": "courtney-wild",
+    "name": "Courtney Wild",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim and CVRA plaintiff"
+  },
+  {
+    "id": "f5795a24-7384-4776-88c7-fd2bf161d296",
+    "slug": "us-virgin-islands-ag",
+    "name": "USVI Attorney General",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Enforcement action"
+  },
+  {
+    "id": "09c14269-56b5-4014-9854-7e5ec70204d4",
+    "slug": "annie-farmer",
+    "name": "Annie Farmer",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim and trial witness"
+  },
+  {
+    "id": "39e66701-f154-4cce-bf64-293cdfa339cf",
+    "slug": "pam-bondi",
+    "name": "Pam Bondi",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Attorney General (2025)"
+  },
+  {
+    "id": "4c7f721f-5337-482d-8974-3b9a76481f52",
+    "slug": "carolyn-victim",
+    "name": "Carolyn (Trial Witness)",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim and trial witness"
+  },
+  {
+    "id": "13a6fa25-fc6b-4b5a-997e-db1c684a2294",
+    "slug": "zorro-ranch",
+    "name": "Zorro Ranch",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "New Mexico ranch"
+  },
+  {
+    "id": "5d793da9-1366-470e-b3e1-7bf95bc45827",
+    "slug": "palm-beach-mansion",
+    "name": "Palm Beach Mansion",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Primary abuse location"
+  },
+  {
+    "id": "62a0e2af-1424-4559-a842-9d97c8d8a14f",
+    "slug": "southern-district-of-new-york",
+    "name": "Southern District of New York (SDNY)",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Prosecuting office"
+  },
+  {
+    "id": "8c889c5e-de8f-49e6-a6f2-4f5159b69dfc",
+    "slug": "kate-victim",
+    "name": "Kate (Trial Witness)",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim and trial witness"
+  },
+  {
+    "id": "1961dcf1-a18e-42ce-8404-e70c1928d467",
+    "slug": "great-st-james-island",
+    "name": "Great St. James Island",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Second private island"
+  },
+  {
+    "id": "6e5315d8-2549-4112-bc5a-1453d8011cd1",
+    "slug": "joseph-recarey",
+    "name": "Joseph Recarey",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Lead detective"
+  },
+  {
+    "id": "109c96c5-74cc-4234-a9fd-7750788c9ace",
+    "slug": "ehud-barak",
+    "name": "Ehud Barak",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in court documents; visited Epstein properties"
+  },
+  {
+    "id": "765aee1a-8f99-498a-8f7c-3bd494d91546",
+    "slug": "henry-kissinger",
+    "name": "Henry Kissinger",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "7e084329-f312-43ea-8c5c-2201658f3d25",
+    "slug": "l-brands",
+    "name": "L Brands",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Corporate entity linked through Wexner"
+  },
+  {
+    "id": "465961e5-da8f-493d-8f70-59e9f95bfb00",
+    "slug": "deutsche-bank",
+    "name": "Deutsche Bank",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Epstein's bank after JPMorgan"
+  },
+  {
+    "id": "8022b487-1367-45cd-9713-1d70c7943dc2",
+    "slug": "tony-blair",
+    "name": "Tony Blair",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "466b6663-40f5-405d-ac4e-27faab959989",
+    "slug": "tom-barrack",
+    "name": "Tom Barrack",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "4f61622a-3ef1-4051-9995-3c476825d56a",
+    "slug": "demi-moore",
+    "name": "Demi Moore",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "07f06af3-1db3-44d9-85e5-a50821406b84",
+    "slug": "teterboro-airport",
+    "name": "Teterboro Airport",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Arrest location"
+  },
+  {
+    "id": "504b0921-bf27-40f8-b257-fafdb99ed5cd",
+    "slug": "harvard-university",
+    "name": "Harvard University",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Received Epstein donations"
+  },
+  {
+    "id": "9a99756f-eb40-4866-9f11-77a51b4eca03",
+    "slug": "jane-victim",
+    "name": "Jane (Trial Witness)",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Victim and trial witness"
+  },
+  {
+    "id": "a4f158ec-9435-480a-adeb-b60595adb539",
+    "slug": "itzhak-perlman",
+    "name": "Itzhak Perlman",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "a9a21fbf-9d9f-4444-90b7-2b371096ada1",
+    "slug": "robert-giuffre",
+    "name": "Robert Giuffre",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Father of key accuser"
+  },
+  {
+    "id": "aea1d6a0-ab18-41dc-b244-1173dbe69059",
+    "slug": "reid-hoffman",
+    "name": "Reid Hoffman",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Social associate post-conviction"
+  },
+  {
+    "id": "20bceddc-49f8-467c-9bb7-3b90ca91ad0a",
+    "slug": "victoria-secret",
+    "name": "Victoria's Secret",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Used by Epstein as recruitment cover"
+  },
+  {
+    "id": "2a451385-0300-4325-9e4a-43e7a075e214",
+    "slug": "jpmorgan-chase",
+    "name": "JPMorgan Chase",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Epstein's bank"
+  },
+  {
+    "id": "447c31d1-34fd-4982-b5dc-8575489c79ec",
+    "slug": "manhattan-townhouse",
+    "name": "Manhattan Townhouse",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "NYC residence"
+  },
+  {
+    "id": "573e7c68-70d3-46e3-8d93-160ea343fc98",
+    "slug": "barclays",
+    "name": "Barclays",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "CEO resigned over Epstein ties"
+  },
+  {
+    "id": "8c27f5ea-407e-4429-8f62-4f42314dab0b",
+    "slug": "miami-herald",
+    "name": "Miami Herald",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Investigative media outlet"
+  },
+  {
+    "id": "4a580548-691c-4f46-8c8d-a08cd2caa917",
+    "slug": "stephen-hawking",
+    "name": "Stephen Hawking",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named in documents attending Epstein-funded event"
+  },
+  {
+    "id": "4ddf450e-7f5a-403c-b583-e0a66d71bc5d",
+    "slug": "naomi-campbell",
+    "name": "Naomi Campbell",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Documented in flight logs"
+  },
+  {
+    "id": "ca1d04a2-dbaa-4aaa-9f76-0cfca0218062",
+    "slug": "adriana-ross",
+    "name": "Adriana Ross",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Named co-conspirator"
+  },
+  {
+    "id": "bd4b745e-f6a8-4865-87d9-b1a10246cb8b",
+    "slug": "rupert-murdoch",
+    "name": "Rupert Murdoch",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Listed in contact book"
+  },
+  {
+    "id": "d000f77d-4cdc-4153-b2a5-1a3d4b3c8d8c",
+    "slug": "st-thomas-usvi",
+    "name": "St. Thomas, USVI",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Transit point to Epstein islands"
+  },
+  {
+    "id": "d4723c0a-a5bb-489e-8621-5b334749f3ec",
+    "slug": "mar-a-lago",
+    "name": "Mar-a-Lago",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Recruitment location"
+  },
+  {
+    "id": "96e32bd7-d7fe-481e-b3e5-de9146a64f23",
+    "slug": "mc2-model-management",
+    "name": "MC2 Model Management",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Modeling agency linked to recruitment"
+  },
+  {
+    "id": "ea0d2ff1-ff75-42e8-9102-71f9bd3dc09f",
+    "slug": "metropolitan-correctional-center",
+    "name": "Metropolitan Correctional Center",
+    "entity_type": "location",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Detention facility"
+  },
+  {
+    "id": "ef96c46f-d001-4e52-8676-4b2c5959e4f1",
+    "slug": "mit-media-lab",
+    "name": "MIT Media Lab",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Accepted Epstein funding"
+  },
+  {
+    "id": "f1fec809-25d8-462c-91db-c8fe7f8f427e",
+    "slug": "apollo-global-management",
+    "name": "Apollo Global Management",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Leon Black's firm"
+  },
+  {
+    "id": "e84c508e-5ec1-46fe-918c-a062feafbf52",
+    "slug": "michael-reiter",
+    "name": "Michael Reiter",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Police chief"
+  },
+  {
+    "id": "e0c4fc42-611d-4a35-938c-c34fe4d76375",
+    "slug": "fbi",
+    "name": "Federal Bureau of Investigation",
+    "entity_type": "organization",
+    "document_count": 0,
+    "flight_count": 0,
+    "email_count": 0,
+    "role_description": "Investigating agency"
+  },
+  {
+    "id": "5edc45cf-36e1-49ec-ad56-27d30e809d10",
+    "slug": "glenn-dubin",
+    "name": "Glenn Dubin",
+    "entity_type": "person",
+    "document_count": 0,
+    "flight_count": 1,
+    "email_count": 0,
+    "role_description": "Named in court documents"
+  }
+]

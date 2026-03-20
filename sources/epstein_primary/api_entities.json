@@ -1,0 +1,207 @@
+{
+  "data": [
+    {
+      "id": "33a9d83a-cb63-4470-80a5-e6afa4046886",
+      "slug": "jeffrey-epstein",
+      "name": "Jeffrey Epstein",
+      "entity_type": "person",
+      "document_count": 1540,
+      "flight_count": 14,
+      "email_count": 8,
+      "role_description": "Principal subject"
+    },
+    {
+      "id": "bdbdf904-9417-4946-a532-e347f63dff72",
+      "slug": "ghislaine-maxwell",
+      "name": "Ghislaine Maxwell",
+      "entity_type": "person",
+      "document_count": 1283,
+      "flight_count": 16,
+      "email_count": 7,
+      "role_description": "Co-conspirator, recruiter, and groomer"
+    },
+    {
+      "id": "86a62f2a-2b79-4e50-897f-5ac1f028b4a9",
+      "slug": "laura-menninger",
+      "name": "Laura Menninger",
+      "entity_type": "person",
+      "document_count": 280,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Maxwell defense attorney"
+    },
+    {
+      "id": "d8743ac2-dfec-4acf-a3fe-6bd2d8b0d5f5",
+      "slug": "prince-andrew",
+      "name": "Prince Andrew",
+      "entity_type": "person",
+      "document_count": 84,
+      "flight_count": 1,
+      "email_count": 0,
+      "role_description": "Named in court documents and civil lawsuit"
+    },
+    {
+      "id": "cc2dbbae-c50b-4eaa-9b5c-a87526701190",
+      "slug": "leon-black",
+      "name": "Leon Black",
+      "entity_type": "person",
+      "document_count": 84,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Financial client"
+    },
+    {
+      "id": "fff4034f-8e70-4e0d-bddd-b0a4921b1bd2",
+      "slug": "sigrid-mccawley",
+      "name": "Sigrid McCawley",
+      "entity_type": "person",
+      "document_count": 83,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Giuffre's attorney"
+    },
+    {
+      "id": "6f408da1-3774-4723-8103-c4ee0c30d402",
+      "slug": "bobbi-sternheim",
+      "name": "Bobbi Sternheim",
+      "entity_type": "person",
+      "document_count": 69,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Maxwell defense attorney"
+    },
+    {
+      "id": "f5263cd6-e2a0-40e9-8c33-b91af47ac06f",
+      "slug": "brad-edwards",
+      "name": "Brad Edwards",
+      "entity_type": "person",
+      "document_count": 68,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Victims' attorney"
+    },
+    {
+      "id": "131c74f4-a9b8-4356-ba8e-fcbddf22b30c",
+      "slug": "donald-trump",
+      "name": "Donald Trump",
+      "entity_type": "person",
+      "document_count": 66,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Listed in contact book; mentioned in depositions"
+    },
+    {
+      "id": "e4bee0a5-0852-4bd1-8aa9-d379b4c05a17",
+      "slug": "damian-williams",
+      "name": "Damian Williams",
+      "entity_type": "person",
+      "document_count": 57,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Lead prosecutor (SDNY)"
+    },
+    {
+      "id": "86cd423b-8a87-4972-8b9a-0e7d515e6d7b",
+      "slug": "alexander-acosta",
+      "name": "Alexander Acosta",
+      "entity_type": "person",
+      "document_count": 48,
+      "flight_count": 0,
+      "email_count": 1,
+      "role_description": "Former U.S. Attorney who negotiated NPA"
+    },
+    {
+      "id": "90ae98af-25dd-460d-9784-a8b2557dc97d",
+      "slug": "david-boies",
+      "name": "David Boies",
+      "entity_type": "person",
+      "document_count": 31,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Attorney for Giuffre"
+    },
+    {
+      "id": "aa64b885-0e35-46ad-a453-4a9ca384e6d5",
+      "slug": "jeffrey-berman",
+      "name": "Geoffrey Berman",
+      "entity_type": "person",
+      "document_count": 28,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "U.S. Attorney who indicted Epstein"
+    },
+    {
+      "id": "08fd619e-13da-4a2c-941a-34e6626c05e2",
+      "slug": "bill-clinton",
+      "name": "Bill Clinton",
+      "entity_type": "person",
+      "document_count": 24,
+      "flight_count": 6,
+      "email_count": 0,
+      "role_description": "Documented in flight logs"
+    },
+    {
+      "id": "2849216b-2a13-4f04-86a0-54b17fb5fe0e",
+      "slug": "alan-dershowitz",
+      "name": "Alan Dershowitz",
+      "entity_type": "person",
+      "document_count": 24,
+      "flight_count": 1,
+      "email_count": 0,
+      "role_description": "Epstein defense attorney; named in documents"
+    },
+    {
+      "id": "4537c125-4140-469f-8603-1333e5f945c8",
+      "slug": "larry-visoski",
+      "name": "Larry Visoski",
+      "entity_type": "person",
+      "document_count": 23,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Personal pilot"
+    },
+    {
+      "id": "02c93f4f-9f58-4a84-82e1-f9a4d5f33ba3",
+      "slug": "harvey-weinstein",
+      "name": "Harvey Weinstein",
+      "entity_type": "person",
+      "document_count": 17,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Listed in contact book"
+    },
+    {
+      "id": "63a8b616-1765-45aa-b65f-2262f46c7253",
+      "slug": "david-rodgers",
+      "name": "David Rodgers",
+      "entity_type": "person",
+      "document_count": 16,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Pilot and flight log keeper"
+    },
+    {
+      "id": "650d959b-02d0-4f74-bacf-c59319bc33cf",
+      "slug": "jes-staley",
+      "name": "Jes Staley",
+      "entity_type": "person",
+      "document_count": 16,
+      "flight_count": 0,
+      "email_count": 1,
+      "role_description": "Banking associate"
+    },
+    {
+      "id": "dc7702bb-df65-4b61-b1b7-9f98bc1e2908",
+      "slug": "paul-cassell",
+      "name": "Paul Cassell",
+      "entity_type": "person",
+      "document_count": 14,
+      "flight_count": 0,
+      "email_count": 0,
+      "role_description": "Victims' rights attorney"
+    }
+  ],
+  "total": 96,
+  "page": 1,
+  "limit": 20
+}

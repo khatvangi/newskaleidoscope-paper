@@ -228,14 +228,18 @@ def phase_ingest(config, event_id):
                         except ValueError:
                             pass
 
-                    cur.execute("""
-                        INSERT INTO articles (event_id, source_id, url, title,
-                                              original_language, publication_date, ingested_at)
-                        VALUES (%s, %s, %s, %s, %s, %s, NOW())
-                    """, (
-                        event_id, source_id, url, art.get("title", ""),
-                        art.get("language", "unknown"), pub_date,
-                    ))
+                    try:
+                        cur.execute("""
+                            INSERT INTO articles (event_id, source_id, url, title,
+                                                  original_language, publication_date, ingested_at)
+                            VALUES (%s, %s, %s, %s, %s, %s, NOW())
+                        """, (
+                            event_id, source_id, url, art.get("title", ""),
+                            art.get("language", "unknown"), pub_date,
+                        ))
+                    except psycopg2.errors.UniqueViolation:
+                        conn.rollback()
+                        continue
                     new += 1
                     total_inserted += 1
 
@@ -639,20 +643,20 @@ def show_status(config, event_id):
     row = cur.fetchone()
 
     cur.execute("SELECT COUNT(*) FROM analyses WHERE event_id = %s", (event_id,))
-    analyses = cur.fetchone()[0]
+    analyses = (cur.fetchone() or (0,))[0]
 
     cur.execute("""
         SELECT COUNT(*) FROM llm_council_verdicts v
         JOIN articles a ON v.article_id = a.id
         WHERE a.event_id = %s
     """, (event_id,))
-    verdicts = cur.fetchone()[0]
+    verdicts = (cur.fetchone() or (0,))[0]
 
     cur.execute("""
         SELECT COUNT(*) FROM clusters
-        WHERE event_id = %s AND method LIKE 'llm_pass2%'
+        WHERE event_id = %s AND method LIKE '%%llm_pass2%%'
     """, (event_id,))
-    clusters = cur.fetchone()[0]
+    clusters = (cur.fetchone() or (0,))[0]
 
     cur.close()
     conn.close()
@@ -693,7 +697,7 @@ def main():
     parser = argparse.ArgumentParser(description="run NewsKaleidoscope pipeline from topic config")
     parser.add_argument("config", type=str, help="path to topic YAML config")
     parser.add_argument("--phase", type=str, default="all",
-                        choices=["ingest", "extract", "translate", "analyze", "council", "cluster", "report", "all"],
+                        choices=["ingest", "extract", "translate", "analyze", "council", "cluster", "report", "all", "nogpu"],
                         help="which phase to run (default: all)")
     parser.add_argument("--status", action="store_true", help="show pipeline status")
     args = parser.parse_args()
@@ -716,17 +720,66 @@ def main():
 
     if args.phase == "all":
         run_phases = ["ingest", "extract", "translate", "analyze", "council", "cluster"]
+    elif args.phase == "nogpu":
+        # run all non-GPU phases, stop before analyze
+        run_phases = ["ingest", "extract", "translate"]
     else:
         run_phases = [args.phase]
 
     log.info(f"topic: {config['name']} (event_id={event_id})")
     log.info(f"phases: {', '.join(run_phases)}")
 
+    gpu_phases = {"analyze", "council", "cluster"}
+    server_started = False
+
     for phase_name in run_phases:
+        # auto-start llama-server for GPU phases
+        if phase_name in gpu_phases and not server_started:
+            model = config.get("llm_model", "qwen3-32b-q4km.gguf")
+            model_path = f"{MODEL_DIR}/{model}"
+            log.info(f"\n  starting llama-server with {model}...")
+            try:
+                subprocess.run(["ssh", "boron", "pkill -f llama-server"], capture_output=True, timeout=10)
+                time.sleep(2)
+                cmd = (
+                    f"nohup {LLAMA_SERVER_BIN} "
+                    f"--model {model_path} "
+                    f"--tensor-split 0.5,0.5 "
+                    f"--host 0.0.0.0 --port 11434 "
+                    f"--ctx-size 16384 --n-gpu-layers 99 "
+                    f"--parallel 4 "
+                    f"> /tmp/llama-server.log 2>&1 &"
+                )
+                subprocess.run(["ssh", "boron", cmd], capture_output=True, timeout=10)
+                # wait for server ready
+                for attempt in range(60):
+                    time.sleep(3)
+                    try:
+                        req = urllib.request.Request(f"{LLM_URL}/v1/models")
+                        with urllib.request.urlopen(req, timeout=5) as resp:
+                            data = json.loads(resp.read().decode("utf-8"))
+                            if data.get("data"):
+                                log.info(f"  llama-server ready: {data['data'][0].get('id')}")
+                                server_started = True
+                                break
+                    except Exception:
+                        pass
+                else:
+                    log.error(f"  llama-server failed to start after 180s")
+                    break
+            except Exception as e:
+                log.error(f"  failed to start llama-server: {e}")
+                break
+
         start_time = time.time()
         result = phases[phase_name]()
         elapsed = time.time() - start_time
         log.info(f"  {phase_name} completed in {elapsed/60:.1f} min")
+
+    # kill llama-server after GPU phases
+    if server_started:
+        log.info("  stopping llama-server on boron...")
+        subprocess.run(["ssh", "boron", "pkill -f llama-server"], capture_output=True, timeout=10)
 
     show_status(config, event_id)
 

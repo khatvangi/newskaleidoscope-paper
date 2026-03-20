@@ -1,0 +1,320 @@
+{
+  "data": [
+    {
+      "id": "994f874a-6b28-464e-8b11-8985051c3127",
+      "slug": "flight-2019-06-30-cdg-to-teb-final",
+      "flight_date": "2019-06-30",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "CDG",
+      "departure_airport": "Charles de Gaulle Airport, Paris",
+      "arrival_airport_code": "TEB",
+      "arrival_airport": "Teterboro Airport",
+      "passenger_names": [
+        "Jeffrey Epstein"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "4e07699b-1795-426d-b5e0-7a30b2d0bec9",
+      "slug": "flight-2018-11-30-pbi-to-sti",
+      "flight_date": "2018-11-30",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "STT",
+      "arrival_airport": "Cyril E. King Airport, St. Thomas",
+      "passenger_names": [
+        "Jeffrey Epstein"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "f9a42818-15d8-4b95-83fd-b5341a2d41cb",
+      "slug": "flight-2015-06-08-teb-to-cdg",
+      "flight_date": "2015-06-08",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "CDG",
+      "arrival_airport": "Charles de Gaulle Airport, Paris",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Lesley Groff"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "00e89826-bd5a-4b33-a8e9-94a4f4173630",
+      "slug": "flight-2013-03-20-teb-to-pbi-gates",
+      "flight_date": "2013-03-20",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "PBI",
+      "arrival_airport": "Palm Beach International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Bill Gates"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "988a3786-d45b-490e-a938-14cf9331ee0f",
+      "slug": "flight-2012-04-10-sti-to-cdg",
+      "flight_date": "2012-04-10",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "STT",
+      "departure_airport": "Cyril E. King Airport, St. Thomas",
+      "arrival_airport_code": "CDG",
+      "arrival_airport": "Charles de Gaulle Airport, Paris",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Jean-Luc Brunel"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "6638c9f4-1f9e-49f5-a9ac-a3f6a07b055a",
+      "slug": "flight-2011-09-20-teb-to-sti",
+      "flight_date": "2011-09-20",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "STT",
+      "arrival_airport": "Cyril E. King Airport, St. Thomas",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Lesley Groff"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "7bb45b77-b7a7-4a95-a2c0-08b8d111db3b",
+      "slug": "flight-2010-05-15-teb-to-pbi-post-prison",
+      "flight_date": "2010-05-15",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "PBI",
+      "arrival_airport": "Palm Beach International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Lesley Groff"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "78c86e1a-c485-4631-8239-410e78766512",
+      "slug": "flight-2006-08-20-pbi-to-sti",
+      "flight_date": "2006-08-20",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "STT",
+      "arrival_airport": "Cyril E. King Airport, St. Thomas",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Sarah Kellen"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "a2ea906a-301c-444f-8bac-675e2668139a",
+      "slug": "flight-2006-03-15-teb-to-pbi",
+      "flight_date": "2006-03-15",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "PBI",
+      "arrival_airport": "Palm Beach International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Alan Dershowitz",
+        "Lesley Groff"
+      ],
+      "pilot_name": "David Rodgers"
+    },
+    {
+      "id": "681a186a-d84f-4fed-a93c-cd3cbf26e2a6",
+      "slug": "flight-2005-07-10-pbi-to-teb-investigation",
+      "flight_date": "2005-07-10",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "TEB",
+      "arrival_airport": "Teterboro Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Lesley Groff"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "15551168-dd7d-4018-a90f-2f49e9922340",
+      "slug": "flight-2005-06-10-pbi-to-cmh",
+      "flight_date": "2005-06-10",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "CMH",
+      "arrival_airport": "John Glenn Columbus International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell"
+      ],
+      "pilot_name": "David Rodgers"
+    },
+    {
+      "id": "0e1e15c5-529a-4f69-a0a0-169e3c92183a",
+      "slug": "flight-2005-04-25-cdg-to-teb",
+      "flight_date": "2005-04-25",
+      "aircraft_tail_number": "N908JE",
+      "departure_airport_code": "CDG",
+      "departure_airport": "Charles de Gaulle Airport, Paris",
+      "arrival_airport_code": "TEB",
+      "arrival_airport": "Teterboro Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Jean-Luc Brunel",
+        "Sarah Kellen"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "992f0738-6797-49ae-a2e6-60f276eb8831",
+      "slug": "flight-2005-04-20-teb-to-cdg",
+      "flight_date": "2005-04-20",
+      "aircraft_tail_number": "N908JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "CDG",
+      "arrival_airport": "Charles de Gaulle Airport, Paris",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Sarah Kellen",
+        "Nadia Marcinkova"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "afb28e60-8ae2-485e-ac32-b103d0f068ce",
+      "slug": "flight-2005-03-10-sti-to-pbi",
+      "flight_date": "2005-03-10",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "STT",
+      "departure_airport": "Cyril E. King Airport, St. Thomas",
+      "arrival_airport_code": "PBI",
+      "arrival_airport": "Palm Beach International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Sarah Kellen",
+        "Nadia Marcinkova"
+      ],
+      "pilot_name": "David Rodgers"
+    },
+    {
+      "id": "fcdb6353-ff30-4135-91e5-419edc0e33e0",
+      "slug": "flight-2005-01-15-pbi-to-sti-jan",
+      "flight_date": "2005-01-15",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "STT",
+      "arrival_airport": "Cyril E. King Airport, St. Thomas",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Sarah Kellen"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "6ff6cbc5-1f86-46d2-b809-a1ed96323017",
+      "slug": "flight-2004-11-22-teb-to-pbi-thanksgiving",
+      "flight_date": "2004-11-22",
+      "aircraft_tail_number": "N908JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "PBI",
+      "arrival_airport": "Palm Beach International Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Sarah Kellen",
+        "Lesley Groff"
+      ],
+      "pilot_name": "David Rodgers"
+    },
+    {
+      "id": "9078ea37-ef7a-4c03-befb-58929f63cbfb",
+      "slug": "flight-2004-09-30-pbi-to-cdg",
+      "flight_date": "2004-09-30",
+      "aircraft_tail_number": "N908JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "CDG",
+      "arrival_airport": "Charles de Gaulle Airport, Paris",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Jean-Luc Brunel",
+        "Sarah Kellen",
+        "Nadia Marcinkova"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "b5974954-a508-46db-8c35-6a398e87dda8",
+      "slug": "flight-2004-07-20-sti-to-teb",
+      "flight_date": "2004-07-20",
+      "aircraft_tail_number": "N908JE",
+      "departure_airport_code": "STT",
+      "departure_airport": "Cyril E. King Airport, St. Thomas",
+      "arrival_airport_code": "TEB",
+      "arrival_airport": "Teterboro Airport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Nadia Marcinkova",
+        "Adriana Ross"
+      ],
+      "pilot_name": "David Rodgers"
+    },
+    {
+      "id": "17c501df-255f-4c55-9084-d1871f16d7d4",
+      "slug": "flight-2004-05-12-teb-to-abq",
+      "flight_date": "2004-05-12",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "TEB",
+      "departure_airport": "Teterboro Airport",
+      "arrival_airport_code": "ABQ",
+      "arrival_airport": "Albuquerque International Sunport",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Ghislaine Maxwell",
+        "Annie Farmer"
+      ],
+      "pilot_name": "Larry Visoski"
+    },
+    {
+      "id": "1e867abe-2dd9-4cbd-bafe-c545ffe9d32f",
+      "slug": "flight-2004-03-15-pbi-to-sti-brunel",
+      "flight_date": "2004-03-15",
+      "aircraft_tail_number": "N986JE",
+      "departure_airport_code": "PBI",
+      "departure_airport": "Palm Beach International Airport",
+      "arrival_airport_code": "STT",
+      "arrival_airport": "Cyril E. King Airport, St. Thomas",
+      "passenger_names": [
+        "Jeffrey Epstein",
+        "Jean-Luc Brunel",
+        "Nadia Marcinkova"
+      ],
+      "pilot_name": "David Rodgers"
+    }
+  ],
+  "total": 55,
+  "page": 1,
+  "limit": 20
+}
