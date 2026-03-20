@@ -1,0 +1,110 @@
+# NewsKaleidoscope Topic Configuration
+# generated: 2026-03-19
+# source: natural language → auto-generated queries
+
+name: "Epstein Files: Global Reaction"
+slug: epstein-files
+event_type: political_scandal
+description: >
+  The U.S. Department of Justice released millions of pages of documents
+  related to Jeffrey Epstein's sex trafficking network. Initial heavily-redacted
+  release in December 2025 drew bipartisan criticism. Major release on January 30,
+  2026 (3M+ pages, 180K images, 2K videos) triggered European political fallout
+  while US response remained muted. Ongoing investigations and career-ending
+  revelations through March 2026.
+
+# multi-window analysis (events unfolded in phases)
+windows:
+  w1_initial_release:
+    label: "Initial Release (Redacted)"
+    start: "2025-12-20"
+    end: "2025-12-31"
+  w2_major_release:
+    label: "Major DOJ Release"
+    start: "2026-01-28"
+    end: "2026-02-10"
+  w3_european_fallout:
+    label: "European Fallout"
+    start: "2026-02-10"
+    end: "2026-03-01"
+  w4_ongoing:
+    label: "Ongoing Reaction"
+    start: "2026-03-01"
+    end: "2026-03-19"
+
+# multilingual search queries
+queries:
+  gdelt:
+    - "Epstein files release documents"
+    - "Epstein DOJ documents scandal"
+    - "Epstein trafficking investigation"
+    - "Epstein associates named"
+    - "Epstein fallout Europe"
+    - "Epstein victims reaction"
+
+  worldnews:
+    default: ["Epstein files released", "Epstein documents DOJ"]
+    fr: ["dossiers Epstein publiés", "fichiers Epstein scandale"]
+    de: ["Epstein Akten veröffentlicht", "Epstein Dokumente Skandal"]
+    es: ["archivos Epstein publicados", "documentos Epstein escándalo"]
+    it: ["file Epstein pubblicati", "documenti Epstein scandalo"]
+    pt: ["arquivos Epstein divulgados", "documentos Epstein escândalo"]
+    ar: ["ملفات إبستين", "وثائق إبستين فضيحة"]
+    tr: ["Epstein dosyaları", "Epstein belgeleri skandal"]
+    ru: ["файлы Эпштейна опубликованы", "документы Эпштейна скандал"]
+    zh: ["爱泼斯坦文件公开", "爱泼斯坦丑闻文件"]
+    ja: ["エプスタイン文書公開", "エプスタインスキャンダル"]
+    ko: ["엡스타인 파일 공개", "엡스타인 문서 스캔들"]
+    he: ["תיקי אפשטיין", "מסמכי אפשטיין"]
+    nl: ["Epstein dossiers vrijgegeven", "Epstein documenten schandaal"]
+    pl: ["akta Epsteina", "dokumenty Epsteina skandal"]
+    sv: ["Epstein-filerna", "Epstein dokument skandal"]
+    hi: ["एपस्टीन फाइलें", "एपस्टीन दस्तावेज़"]
+    fa: ["پرونده‌های اپستین", "اسناد اپستین"]
+
+  reddit:
+    subreddits:
+      # global news
+      - {sub: worldnews, country: International, language: English, region: Global}
+      - {sub: news, country: "United States", language: English, region: "North America"}
+      - {sub: politics, country: "United States", language: English, region: "North America"}
+      # conspiracy / investigation
+      - {sub: conspiracy, country: International, language: English, region: Global}
+      - {sub: Epstein, country: International, language: English, region: Global}
+      - {sub: TrueReddit, country: International, language: English, region: Global}
+      # european reaction
+      - {sub: europe, country: Europe, language: English, region: Europe}
+      - {sub: unitedkingdom, country: "United Kingdom", language: English, region: Europe}
+      - {sub: france, country: France, language: French, region: Europe}
+      - {sub: de, country: Germany, language: German, region: Europe}
+      # other regions
+      - {sub: australia, country: Australia, language: English, region: Oceania}
+      - {sub: canada, country: Canada, language: English, region: "North America"}
+      - {sub: india, country: India, language: English, region: "South Asia"}
+      - {sub: israel, country: Israel, language: English, region: "Middle East"}
+      - {sub: brasil, country: Brazil, language: Portuguese, region: "Latin America"}
+      - {sub: southafrica, country: "South Africa", language: English, region: Africa}
+    queries:
+      - "epstein files"
+      - "epstein documents released"
+      - "epstein scandal"
+      - "epstein associates"
+
+# context for bias compensation (injected into pass 1 prompts)
+country_context_note: >
+  Epstein had connections across multiple jurisdictions. UK (Prince Andrew),
+  France (Jean-Luc Brunel), Israel (Ehud Barak connections), US (political elite).
+  Coverage patterns likely reflect domestic exposure to named individuals.
+
+# what to look for in absence analysis
+absence_examples: >
+  Victim-centered narratives, intelligence agency connections (Mossad/CIA theories),
+  institutional complicity (MIT Media Lab, scientific community), class-based
+  analysis of elite impunity, comparison to other trafficking cases that
+  received less coverage.
+
+# infrastructure
+llm_model: "qwen3-32b-q4km.gguf"
+council_model: "google_gemma-3-27b-it-Q4_K_M.gguf"
+council_strategy: sample  # sample or full
+council_sample_size: 300
