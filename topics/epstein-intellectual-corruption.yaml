@@ -1,0 +1,131 @@
+# NewsKaleidoscope Topic Configuration
+# Epstein & Intellectual Corruption: How Academia Fell for a Pedophile
+# dedicated sub-corpus for the academic/scientific/spiritual enabler angle
+
+name: "Epstein & Intellectual Corruption"
+slug: epstein-intellectual-corruption
+event_type: institutional_corruption
+description: >
+  How the world's most prestigious academic institutions and their leading
+  intellectuals maintained relationships with a convicted sex offender. MIT
+  accepted $850K after his conviction. Harvard received $9.1M. Nobel laureates
+  attended his dinners. Wellness gurus called him friend. The question is not
+  just what they knew — but why they tolerated it, and what that reveals about
+  the corruption of intellectual authority by wealth.
+
+windows:
+  w1_pre_files:
+    label: "Pre-Files Coverage (MIT/Harvard scandals)"
+    start: "2019-08-01"
+    end: "2019-12-31"
+  w2_files_release:
+    label: "DOJ Files Release"
+    start: "2025-12-20"
+    end: "2026-02-10"
+  w3_academic_fallout:
+    label: "Academic Fallout"
+    start: "2026-02-10"
+    end: "2026-03-20"
+
+queries:
+  gdelt:
+    # named academics — heavy hitters
+    - "Joi Ito Epstein MIT Media Lab"
+    - "Lawrence Summers Epstein Harvard"
+    - "Noam Chomsky Epstein meetings"
+    - "Steven Pinker Epstein flight"
+    - "Martin Nowak Epstein Harvard leave"
+    - "George Church Epstein genetics"
+    - "Marvin Minsky Epstein"
+    - "Richard Axel Epstein Columbia Nobel"
+    - "David Gelernter Epstein Yale suspended"
+    - "Nicholas Christakis Epstein Yale"
+    # spiritual / wellness
+    - "Deepak Chopra Epstein emails"
+    - "Deepak Chopra Epstein cute girls"
+    - "Peter Attia Epstein longevity"
+    - "Dean Ornish Epstein"
+    # tech intellectuals
+    - "Danny Hillis Epstein"
+    - "Nathan Myhrvold Epstein"
+    - "Seth Lloyd Epstein MIT quantum"
+    # institutions
+    - "MIT Epstein donations scandal"
+    - "Harvard Epstein donations probe"
+    - "Yale Epstein professor suspended"
+    - "Columbia Epstein Nobel resigned"
+    - "Bard College Epstein Botstein"
+    - "Ohio State Epstein"
+    # thematic
+    - "Epstein academic corruption university"
+    - "Epstein scientists payroll funding"
+    - "Epstein intellectual elite enablers"
+    - "Epstein research funding tainted"
+    - "Epstein university donations returned"
+    - "Epstein academics knew conviction"
+    - "Epstein conference scientists Virgin Islands"
+    - "Epstein science philanthropy pedophile"
+
+  worldnews:
+    default:
+      - "Epstein university scandal"
+      - "Epstein academics scientists"
+      - "Epstein MIT Harvard Yale"
+      - "Deepak Chopra Epstein"
+      - "Epstein intellectual corruption"
+    fr: ["Epstein université scandale", "Epstein scientifiques corrompus"]
+    de: ["Epstein Universität Skandal", "Epstein Wissenschaftler"]
+    es: ["Epstein universidad escándalo", "Epstein científicos corrupción"]
+    it: ["Epstein università scandalo", "Epstein scienziati"]
+    pt: ["Epstein universidade escândalo", "Epstein cientistas"]
+    ar: ["إبستين جامعة فضيحة", "إبستين علماء"]
+    tr: ["Epstein üniversite skandal", "Epstein bilim insanları"]
+    ru: ["Эпштейн университет скандал", "Эпштейн учёные"]
+    zh: ["爱泼斯坦大学丑闻", "爱泼斯坦科学家"]
+    ja: ["エプスタイン大学スキャンダル", "エプスタイン科学者"]
+    ko: ["엡스타인 대학 스캔들", "엡스타인 과학자"]
+    he: ["אפשטיין אוניברסיטה שערורייה"]
+    hi: ["एपस्टीन विश्वविद्यालय", "दीपक चोपड़ा एपस्टीन"]
+    nl: ["Epstein universiteit schandaal"]
+
+  reddit:
+    subreddits:
+      - {sub: Epstein, country: International, language: English, region: Global}
+      - {sub: worldnews, country: International, language: English, region: Global}
+      - {sub: news, country: "United States", language: English, region: "North America"}
+      - {sub: science, country: International, language: English, region: Global}
+      - {sub: academia, country: International, language: English, region: Global}
+      - {sub: HigherEducation, country: International, language: English, region: Global}
+      - {sub: technology, country: International, language: English, region: Global}
+      - {sub: philosophy, country: International, language: English, region: Global}
+      - {sub: yoga, country: International, language: English, region: Global}
+      - {sub: meditation, country: International, language: English, region: Global}
+      - {sub: TrueReddit, country: International, language: English, region: Global}
+      - {sub: politics, country: "United States", language: English, region: "North America"}
+      - {sub: india, country: India, language: English, region: "South Asia"}
+      - {sub: unitedkingdom, country: "United Kingdom", language: English, region: Europe}
+    queries:
+      - "epstein MIT"
+      - "epstein harvard"
+      - "epstein professor"
+      - "epstein scientist"
+      - "epstein university donations"
+      - "deepak chopra epstein"
+      - "epstein academic"
+      - "joi ito epstein"
+      - "epstein intellectual"
+
+absence_examples: >
+  Voices of students/postdocs at implicated institutions,
+  grad students who refused Epstein money,
+  whistleblowers who flagged the donations early,
+  comparison with how non-elite institutions would be treated,
+  analysis of academic incentive structures that enable this,
+  role of development offices in laundering reputation,
+  peer scientists who distanced themselves vs those who didn't,
+  institutional accountability vs individual blame
+
+llm_model: "qwen3-32b-q4km.gguf"
+council_model: "google_gemma-3-27b-it-Q4_K_M.gguf"
+council_strategy: sample
+council_sample_size: 200
