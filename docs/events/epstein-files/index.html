@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewsKaleidoscope — How the World Frames the Epstein Files</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --teal: #2a9d8f;
+    --teal-light: #e8f5f3;
+    --teal-dark: #1f7a6f;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --text: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #777;
+    --bg: #fcfcfa;
+    --surface: #f5f4f0;
+    --border: #e0ddd6;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* -- page structure -- */
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-wide {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* -- header bar -- */
+  .topbar {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* -- cover section -- */
+  .cover {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .cover-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 2rem;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .cover h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .cover-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .cover-meta strong {
+    color: var(--text-secondary);
+  }
+
+  .cover-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--red);
+    margin: 2.5rem auto 0;
+  }
+
+  /* -- section numbering -- */
+  .section-break {
+    padding: 4rem 0 1rem;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-rule {
+    width: 100%;
+    height: 2px;
+    background: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  /* -- body text -- */
+  p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  p.intro {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* -- numbered findings -- */
+  .finding {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: start;
+  }
+
+  .finding-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    padding-top: 0.1rem;
+  }
+
+  .finding-body {
+    border-left: 3px solid var(--red);
+    padding-left: 1rem;
+  }
+
+  .finding-body .lead {
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .finding-body .lead-teal {
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  /* -- alternating left/right findings -- */
+  .finding-right {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: start;
+  }
+
+  .finding-right .finding-body {
+    border-left: none;
+    border-right: 3px solid var(--red);
+    padding-left: 0;
+    padding-right: 1rem;
+    text-align: right;
+  }
+
+  /* -- comparison table -- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.92rem;
+  }
+
+  .data-table caption {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .data-table thead th {
+    background: var(--teal);
+    color: white;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: var(--teal-light);
+  }
+
+  .data-table .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+  }
+
+  .data-table .num-red {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .data-table .num-teal {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: right;
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  /* -- horizontal bar chart -- */
+  .chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 50px;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bar-label {
+    font-size: 0.8rem;
+    text-align: right;
+    color: var(--text-secondary);
+    line-height: 1.3;
+  }
+
+  .bar-track {
+    background: #eae8e2;
+    height: 24px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+
+  .bar-fill.teal { background: var(--teal); }
+  .bar-fill.red { background: var(--red); }
+
+  /* multi-color cluster bars */
+  .bar-fill.c1 { background: #c0392b; }
+  .bar-fill.c2 { background: #d35400; }
+  .bar-fill.c3 { background: #e67e22; }
+  .bar-fill.c4 { background: #f39c12; }
+  .bar-fill.c5 { background: #8e44ad; }
+  .bar-fill.c6 { background: #2980b9; }
+  .bar-fill.c7 { background: #16a085; }
+  .bar-fill.c8 { background: #7f8c8d; }
+  .bar-fill.c9 { background: #95a5a6; }
+
+  /* epstein-specific palette */
+  .bar-fill.e1 { background: #c0392b; }
+  .bar-fill.e2 { background: #2a9d8f; }
+  .bar-fill.e3 { background: #8e44ad; }
+  .bar-fill.e4 { background: #d35400; }
+  .bar-fill.e5 { background: #2980b9; }
+  .bar-fill.e6 { background: #e67e22; }
+  .bar-fill.e7 { background: #27ae60; }
+  .bar-fill.e8 { background: #c0392b; }
+  .bar-fill.e9 { background: #f39c12; }
+  .bar-fill.e10 { background: #1a7a6d; }
+  .bar-fill.e11 { background: #e74c3c; }
+  .bar-fill.e12 { background: #3498db; }
+  .bar-fill.e13 { background: #9b59b6; }
+  .bar-fill.e14 { background: #7f8c8d; }
+  .bar-fill.e15 { background: #95a5a6; }
+
+  /* emergence banner */
+  .emergence-banner {
+    background: var(--surface);
+    border: 2px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  .emergence-banner .eb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .emergence-banner .eb-body {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .emergence-banner .eb-contrast {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .emergence-banner .eb-col {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .emergence-banner .eb-vs {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+  }
+
+  .bar-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  /* -- cluster cards -- */
+  .cluster-card {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--teal);
+    background: var(--teal-light);
+  }
+
+  .cluster-card.red {
+    border-left-color: var(--red);
+    background: var(--red-light);
+  }
+
+  .cluster-card.neutral {
+    border-left-color: var(--text-muted);
+    background: var(--surface);
+  }
+
+  .cluster-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .cluster-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .cluster-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* -- callout box -- */
+  .callout {
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .callout-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-red {
+    background: var(--red-light);
+    border-color: var(--red);
+  }
+
+  .callout-red .callout-title {
+    color: var(--red);
+  }
+
+  /* -- suppression table -- */
+  .suppress-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.85rem;
+  }
+
+  .suppress-table thead th {
+    background: var(--teal);
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-size: 0.8rem;
+  }
+
+  .suppress-table thead th:nth-child(n+3) {
+    text-align: right;
+  }
+
+  .suppress-table tbody td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .suppress-table tbody td:nth-child(n+3) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    text-align: right;
+  }
+
+  .suppress-table tbody tr:nth-child(even) {
+    background: var(--teal-light);
+  }
+
+  .suppress-table .flag-suppressed {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .suppress-table .flag-under {
+    color: #d35400;
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .suppress-table .flag-amplified {
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  /* -- methodology grid -- */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0.4rem 1.5rem;
+    font-size: 0.88rem;
+    margin: 1.5rem 0;
+  }
+
+  .method-grid dt {
+    font-weight: 600;
+    color: var(--teal-dark);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .method-grid dd {
+    color: var(--text-secondary);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* -- footnotes -- */
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  /* -- footer -- */
+  .report-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 2px solid var(--teal);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .report-footer a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  /* -- model table -- */
+  .model-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .model-table th {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--text);
+    font-size: 0.9rem;
+  }
+
+  .model-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+
+  .model-table td:first-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  /* -- page break hints for print -- */
+  @media print {
+    .section-break { page-break-before: always; }
+    body { font-size: 11pt; }
+  }
+
+  /* -- responsive -- */
+  @media (max-width: 640px) {
+    .bar-row { grid-template-columns: 120px 1fr 40px; }
+    .bar-label { font-size: 0.7rem; }
+    .finding { grid-template-columns: auto 1fr; gap: 0.75rem; }
+    .finding-num { font-size: 1.8rem; }
+    .finding-right { grid-template-columns: 1fr auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOPBAR ================= -->
+<div class="topbar">
+  NEWSKALEIDOSCOPE: EPSTEIN FILES EPISTEMIC REPORT &mdash; 6,167 ARTICLES, 44 LANGUAGES
+</div>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="cover-label">NewsKaleidoscope Case Study Report</div>
+  <h1>How the World Frames<br>the Epstein Files</h1>
+  <h2>Epistemic Mapping of 6,167 Articles<br>Across 44 Languages</h2>
+  <p class="cover-meta" style="margin-top: 1.5rem;">
+    DOJ Release of 3.5 Million Pages &middot; January 30, 2026
+  </p>
+  <p class="cover-meta">
+    <strong>6,167 articles</strong> from <strong>1,952 sources</strong> in <strong>44 languages</strong><br>
+    4,155 analyzed via LLM framing extraction
+  </p>
+  <div class="cover-divider"></div>
+  <p class="cover-meta" style="margin-top: 1.5rem; font-size: 0.8rem;">
+    March 2026 &middot; news.thebeakers.com
+  </p>
+</div>
+
+<!-- ================= 01 INTRODUCTION ================= -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">01</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Introduction</div>
+  </div>
+
+  <p>On January 30, 2026, the US Department of Justice released 3.5 million pages of investigative documents related to Jeffrey Epstein&rsquo;s trafficking network. The release triggered a global media event that played out across every continent, every language community, and every political orientation. Within weeks, the Epstein files became the most written-about DOJ document release in modern history.</p>
+
+  <p>This report presents an epistemic map of that coverage: 6,167 articles ingested from 1,952 sources in 44 languages, with 4,155 analyzed via LLM framing extraction. Unlike conventional media analysis, we imposed no predefined categories. The system was asked a single question about each article: <em>how does this text frame the Epstein story?</em> The clusters that emerged from 4,155 free-text framing descriptions are the data.</p>
+
+  <p>The central question is not who is guilty. It is: <em>how do different media ecosystems decide what the Epstein story is about?</em> Is it about Prince Andrew? Political leverage? Victim justice? Scientific complicity? The answer, it turns out, depends entirely on where you read your news.</p>
+</div>
+
+<!-- ================= 02 GLOBAL REACH ================= -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num">02</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Global Reach:<br>44 Languages,<br>1,952 Sources</div>
+  </div>
+
+  <p style="max-width: 780px;">The Epstein files generated coverage in 44 languages, though the distribution is heavily skewed. English dominates with 2,365 articles&mdash;38% of the corpus. The remaining 62% is spread thinly across 43 other languages, with no single non-English language exceeding 54 articles. This long tail is itself a finding: the Epstein story is overwhelmingly an Anglophone media event, with other language communities producing sporadic, often wire-dependent coverage.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Article Count by Language &mdash; Top 15</div>
+    <div class="chart-subtitle">English dominates; all other languages combined barely equal half the English total</div>
+
+    <div class="bar-row"><div class="bar-label">English</div><div class="bar-track"><div class="bar-fill teal" style="width: 100%;"></div></div><div class="bar-value">2,365</div></div>
+    <div class="bar-row"><div class="bar-label">Dutch</div><div class="bar-track"><div class="bar-fill red" style="width: 2.28%;"></div></div><div class="bar-value">54</div></div>
+    <div class="bar-row"><div class="bar-label">Romanian</div><div class="bar-track"><div class="bar-fill red" style="width: 1.99%;"></div></div><div class="bar-value">47</div></div>
+    <div class="bar-row"><div class="bar-label">Spanish</div><div class="bar-track"><div class="bar-fill red" style="width: 1.61%;"></div></div><div class="bar-value">38</div></div>
+    <div class="bar-row"><div class="bar-label">Hindi</div><div class="bar-track"><div class="bar-fill red" style="width: 1.48%;"></div></div><div class="bar-value">35</div></div>
+    <div class="bar-row"><div class="bar-label">Chinese</div><div class="bar-track"><div class="bar-fill red" style="width: 1.44%;"></div></div><div class="bar-value">34</div></div>
+    <div class="bar-row"><div class="bar-label">Russian</div><div class="bar-track"><div class="bar-fill red" style="width: 1.01%;"></div></div><div class="bar-value">24</div></div>
+    <div class="bar-row"><div class="bar-label">German</div><div class="bar-track"><div class="bar-fill red" style="width: 0.85%;"></div></div><div class="bar-value">20</div></div>
+    <div class="bar-row"><div class="bar-label">Turkish</div><div class="bar-track"><div class="bar-fill red" style="width: 0.85%;"></div></div><div class="bar-value">20</div></div>
+    <div class="bar-row"><div class="bar-label">Croatian</div><div class="bar-track"><div class="bar-fill red" style="width: 0.80%;"></div></div><div class="bar-value">19</div></div>
+    <div class="bar-row"><div class="bar-label">Persian</div><div class="bar-track"><div class="bar-fill red" style="width: 0.68%;"></div></div><div class="bar-value">16</div></div>
+    <div class="bar-row"><div class="bar-label">Arabic</div><div class="bar-track"><div class="bar-fill red" style="width: 0.63%;"></div></div><div class="bar-value">15</div></div>
+    <div class="bar-row"><div class="bar-label">Slovak</div><div class="bar-track"><div class="bar-fill red" style="width: 0.63%;"></div></div><div class="bar-value">15</div></div>
+    <div class="bar-row"><div class="bar-label">Macedonian</div><div class="bar-track"><div class="bar-fill red" style="width: 0.59%;"></div></div><div class="bar-value">14</div></div>
+    <div class="bar-row"><div class="bar-label">French</div><div class="bar-track"><div class="bar-fill red" style="width: 0.55%;"></div></div><div class="bar-value">13</div></div>
+
+    <div style="margin-top: 0.75rem; border-top: 1px solid var(--border); padding-top: 0.5rem; display: grid; grid-template-columns: 200px 1fr 50px; gap: 0.75rem;">
+      <div class="bar-label" style="font-weight: 600; font-size: 0.75rem;">+ 29 more languages</div>
+      <div></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">44 total</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">The Anglophone Dominance Problem</div>
+    <p style="margin: 0;">English accounts for 38% of all articles. Dutch (54) and Romanian (47) are the next largest&mdash;likely driven by Epstein&rsquo;s connections to European elites (Prince Andrew, Peter Mandelson). Hindi coverage (35) reflects India&rsquo;s tabloid ecosystem. The near-absence of Arabic (15) and Persian (16) contrasts sharply with their heavy presence in Iran strike coverage (99 and 82 respectively). The Epstein story is not &ldquo;their&rdquo; story.</p>
+  </div>
+</div>
+
+<!-- ================= 03 KEY FINDINGS ================= -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num" style="color: var(--red);">03</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Executive Summary:<br>Key Findings</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">01</div>
+    <div class="finding-body">
+      <p><span class="lead">The Epstein story is the most epistemically fragmented of any case study analyzed.</span> The largest cluster accounts for only 3.6% of the corpus (Prince Andrew, 150 articles). Compare this to Ukraine 2022, where a single mega-cluster captured 49.8% of all coverage. The Epstein corpus produced 74 emergent clusters, and a full quarter of articles (25.6%) are unique singletons&mdash;frames so distinctive that no other article in the corpus shares them.</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">The story fractures along personality lines, not geopolitical lines.</span> Prince Andrew (227 articles across two clusters), Ghislaine Maxwell (88), Donald Trump (63), Bill Clinton (41), and Peter Mandelson (51) each generate their own media ecosystem. Unlike war coverage, which fractures by country and ideology, scandal coverage fractures by named individual. Each name is a lens through which the entire scandal is refracted.</p>
+    </div>
+    <div class="finding-num">02</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">03</div>
+    <div class="finding-body">
+      <p><span class="lead">Political instrumentalization dominates over victim justice.</span> AG Bondi&rsquo;s political maneuvers (92 articles), MTG-driven political infighting (106), and transparency framing (247 combined across two clusters) together dwarf the victim/trafficking cluster (56 articles). The FILES became a political weapon. The victims&mdash;the reason the documents exist&mdash;are a footnote in global media coverage.</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">Media amplifies celebrity names and suppresses working scientists.</span> The suppression index reveals a stark pattern: Danny Hillis (15 document mentions, 0 media articles), Seth Lloyd (10 docs, 0 media), Marvin Minsky (25 docs, 2 media). Meanwhile Noam Chomsky (15 docs, 127 media = 8.5x amplification) and Lawrence Summers (30 docs, 245 media = 8.2x). Media covers intellectuals the public already knows. The scientists Epstein actually funded are invisible.</p>
+    </div>
+    <div class="finding-num">04</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">05</div>
+    <div class="finding-body">
+      <p><span class="lead-teal">The international coverage cluster (91 articles) reveals which countries consider this &ldquo;their&rdquo; story.</span> Dutch (27 articles), Hindi (7), Turkish (4)&mdash;small but present. Most non-English coverage is translation or wire service pass-through, not original reporting. The Epstein scandal remains an Anglo-American media event with European satellite coverage driven by specific named individuals (Andrew for the UK, Mandelson for Labour).</p>
+    </div>
+  </div>
+
+  <div class="finding-right">
+    <div class="finding-body">
+      <p><span class="lead">25.6% of articles are singletons&mdash;the highest of any case study.</span> This means a quarter of all coverage frames the scandal in ways no other outlet shares. Maximum epistemic diversity. Every fourth article tells the Epstein story from an angle found nowhere else in the corpus. This is what hyperfragmentation looks like: not disagreement between two sides, but 1,063 articles each telling a different story.</p>
+    </div>
+    <div class="finding-num">06</div>
+  </div>
+</div>
+
+<!-- ================= 04 EMERGENT CLUSTERS ================= -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num">04</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Emergent Clusters</div>
+  </div>
+
+  <p style="max-width: 780px;">74 clusters emerged from 4,155 framing descriptions. No predefined categories were used. The chart below shows the 15 largest clusters, each in a distinct color to emphasize that these are <em>different framings</em>, not variations on a theme. The largest cluster (Prince Andrew, 150) captures only 3.6% of the corpus.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Top 15 Emergent Clusters &mdash; Epstein Files</div>
+    <div class="chart-subtitle">74 total clusters + 25.6% singletons. Largest cluster = 3.6% of corpus.</div>
+
+    <div class="bar-row"><div class="bar-label">Prince Andrew</div><div class="bar-track"><div class="bar-fill e1" style="width: 100%;"></div></div><div class="bar-value">150</div></div>
+    <div class="bar-row"><div class="bar-label">Transparency &amp; Accountability</div><div class="bar-track"><div class="bar-fill e2" style="width: 95.3%;"></div></div><div class="bar-value">143</div></div>
+    <div class="bar-row"><div class="bar-label">Political Infighting / MTG</div><div class="bar-track"><div class="bar-fill e3" style="width: 70.7%;"></div></div><div class="bar-value">106</div></div>
+    <div class="bar-row"><div class="bar-label">Transparency Demands</div><div class="bar-track"><div class="bar-fill e4" style="width: 69.3%;"></div></div><div class="bar-value">104</div></div>
+    <div class="bar-row"><div class="bar-label">AG Bondi Political Maneuver</div><div class="bar-track"><div class="bar-fill e5" style="width: 61.3%;"></div></div><div class="bar-value">92</div></div>
+    <div class="bar-row"><div class="bar-label">International Coverage</div><div class="bar-track"><div class="bar-fill e6" style="width: 60.7%;"></div></div><div class="bar-value">91</div></div>
+    <div class="bar-row"><div class="bar-label">Ghislaine Maxwell</div><div class="bar-track"><div class="bar-fill e7" style="width: 58.7%;"></div></div><div class="bar-value">88</div></div>
+    <div class="bar-row"><div class="bar-label">Systematic Abuse Network</div><div class="bar-track"><div class="bar-fill e8" style="width: 56.7%;"></div></div><div class="bar-value">85</div></div>
+    <div class="bar-row"><div class="bar-label">Prince Andrew (Detailed)</div><div class="bar-track"><div class="bar-fill e9" style="width: 51.3%;"></div></div><div class="bar-value">77</div></div>
+    <div class="bar-row"><div class="bar-label">Political Pressure</div><div class="bar-track"><div class="bar-fill e10" style="width: 44.0%;"></div></div><div class="bar-value">66</div></div>
+    <div class="bar-row"><div class="bar-label">Trump Connection</div><div class="bar-track"><div class="bar-fill e11" style="width: 42.0%;"></div></div><div class="bar-value">63</div></div>
+    <div class="bar-row"><div class="bar-label">Scandal &amp; Accountability</div><div class="bar-track"><div class="bar-fill e12" style="width: 41.3%;"></div></div><div class="bar-value">62</div></div>
+    <div class="bar-row"><div class="bar-label">Trafficking Syndicate</div><div class="bar-track"><div class="bar-fill e13" style="width: 37.3%;"></div></div><div class="bar-value">56</div></div>
+    <div class="bar-row"><div class="bar-label">Politically Charged</div><div class="bar-track"><div class="bar-fill e14" style="width: 36.7%;"></div></div><div class="bar-value">55</div></div>
+    <div class="bar-row"><div class="bar-label">Mandelson</div><div class="bar-track"><div class="bar-fill e15" style="width: 34.0%;"></div></div><div class="bar-value">51</div></div>
+  </div>
+
+  <!-- emergence banner -->
+  <div class="emergence-banner">
+    <div class="eb-title">Emergence: What the System Found vs. What a Codebook Would Have Imposed</div>
+    <div class="eb-contrast">
+      <div class="eb-col" style="text-align: right;">
+        <strong style="color: var(--red);">Conventional Codebook</strong><br>
+        Sex trafficking<br>
+        Elite corruption<br>
+        Political scandal<br>
+        Legal proceedings<br>
+        Victim advocacy
+      </div>
+      <div class="eb-vs">vs.</div>
+      <div class="eb-col" style="text-align: left;">
+        <strong style="color: var(--teal);">This Study Found</strong><br>
+        74 distinct framings<br>
+        Person-specific clusters (Andrew, Maxwell, Trump, Mandelson)<br>
+        Political weaponization clusters (MTG, Bondi)<br>
+        Transparency as its own framing<br>
+        25.6% uncategorizable singletons
+      </div>
+    </div>
+    <div class="eb-body" style="margin-top: 1rem;">
+      A conventional codebook would have collapsed 74 emergent framings into 5 categories, losing the discovery that scandal coverage fragments <em>by named individual</em>, not by ideological position.
+    </div>
+  </div>
+</div>
+
+<!-- ================= 05 SUPPRESSION INDEX ================= -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num" style="color: var(--red);">05</div>
+    <div class="section-rule"></div>
+    <div class="section-title">The Suppression<br>Index</div>
+  </div>
+
+  <p style="max-width: 780px;">The suppression index compares how often an individual appears in DOJ primary documents versus how often they appear in global media coverage. A ratio below 1.0 means the media covers the person <em>less</em> than the documents warrant. A ratio of 0.0 means the person appears in the documents but is completely invisible in media coverage. The pattern is stark: media amplifies celebrity intellectuals and suppresses working scientists.</p>
+
+  <div class="chart-container" style="overflow-x: auto;">
+    <div class="chart-title">Suppression Index: Primary Documents vs. Media Coverage</div>
+
+    <table class="suppress-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Doc Mentions</th>
+          <th>Media Mentions</th>
+          <th>Ratio</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Lawrence Summers</td><td>Academic / Harvard president</td><td class="num">30</td><td class="num">245</td><td class="num" style="color: var(--teal); font-weight: 700;">8.2x</td><td><span class="flag-amplified">amplified</span></td></tr>
+        <tr><td>Noam Chomsky</td><td>Academic / public intellectual</td><td class="num">15</td><td class="num">127</td><td class="num" style="color: var(--teal); font-weight: 700;">8.5x</td><td><span class="flag-amplified">amplified</span></td></tr>
+        <tr><td>Stephen Hawking</td><td>Physicist</td><td class="num">18</td><td class="num">89</td><td class="num" style="color: var(--teal); font-weight: 700;">4.9x</td><td><span class="flag-amplified">amplified</span></td></tr>
+        <tr><td>Alan Dershowitz</td><td>Legal scholar</td><td class="num">42</td><td class="num">187</td><td class="num" style="color: var(--teal); font-weight: 700;">4.5x</td><td><span class="flag-amplified">amplified</span></td></tr>
+        <tr><td>Leon Botstein</td><td>University president</td><td class="num">8</td><td class="num">12</td><td class="num">1.5x</td><td></td></tr>
+        <tr><td>Steven Pinker</td><td>Cognitive scientist</td><td class="num">12</td><td class="num">9</td><td class="num" style="color: #d35400;">0.8x</td><td></td></tr>
+        <tr><td>George Church</td><td>Geneticist / Harvard</td><td class="num">14</td><td class="num">6</td><td class="num" style="color: #d35400;">0.4x</td><td></td></tr>
+        <tr><td>Lisa Randall</td><td>Theoretical physicist</td><td class="num">6</td><td class="num">2</td><td class="num" style="color: #d35400;">0.3x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>Frank Wilczek</td><td>Nobel physicist</td><td class="num">8</td><td class="num">2</td><td class="num" style="color: #d35400;">0.3x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>Martin Nowak</td><td>Mathematician / Harvard</td><td class="num">22</td><td class="num">4</td><td class="num" style="color: #d35400;">0.2x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>Marvin Minsky</td><td>AI pioneer / MIT</td><td class="num">25</td><td class="num">2</td><td class="num" style="color: var(--red); font-weight: 700;">0.1x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>Reid Hoffman</td><td>Tech investor</td><td class="num">9</td><td class="num">3</td><td class="num" style="color: #d35400;">0.3x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>Joi Ito</td><td>MIT Media Lab director</td><td class="num">20</td><td class="num">5</td><td class="num" style="color: #d35400;">0.3x</td><td><span class="flag-under">under-covered</span></td></tr>
+        <tr><td>David Gelernter</td><td>Computer scientist / Yale</td><td class="num">8</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Danny Hillis</td><td>Computer scientist / inventor</td><td class="num">15</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Seth Lloyd</td><td>Quantum physicist / MIT</td><td class="num">10</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Murray Gell-Mann</td><td>Nobel physicist</td><td class="num">6</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Gerald Sussman</td><td>Computer scientist / MIT</td><td class="num">5</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Arvind Gupta</td><td>Computer scientist</td><td class="num">4</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Robert Trivers</td><td>Evolutionary biologist</td><td class="num">7</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Nikolas Kistler</td><td>Mathematician</td><td class="num">4</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Joseph Thakuria</td><td>Researcher</td><td class="num">5</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+        <tr><td>Boris Nikolic</td><td>Science advisor / investor</td><td class="num">12</td><td class="num">0</td><td class="num" style="color: var(--red); font-weight: 700;">0.0x</td><td><span class="flag-suppressed">suppressed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-red">
+    <div class="callout-title">The Pattern</div>
+    <p style="margin: 0;">Media coverage amplifies names the public already recognizes (Chomsky 8.5x, Summers 8.2x, Hawking 4.9x, Dershowitz 4.5x) while completely suppressing the working scientists Epstein actually funded and embedded in his network (Hillis 0.0x, Lloyd 0.0x, Minsky 0.1x). The suppression threshold is not about evidence&mdash;Hillis (15 doc mentions) has the same document footprint as Chomsky (15 doc mentions). One gets 127 media articles. The other gets zero. The difference is celebrity, not culpability.</p>
+  </div>
+</div>
+
+<!-- ================= 06 CROSS-CASE COMPARISON ================= -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">06</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Cross-Case<br>Comparison</div>
+  </div>
+
+  <p>How does the Epstein coverage compare to other events analyzed by this system? The contrast is dramatic. Wars produce consensus or bipolar debate. Scandals produce hyperfragmentation.</p>
+
+  <table class="data-table">
+    <caption>Fragmentation Across Three Case Studies</caption>
+    <thead>
+      <tr><th>Case Study</th><th>Largest Cluster</th><th>Total Clusters</th><th>Singleton %</th><th>Structure</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ukraine 2022</td>
+        <td class="num-teal">49.8%</td>
+        <td class="num">93</td>
+        <td class="num">3.7%</td>
+        <td>Monopolar</td>
+      </tr>
+      <tr>
+        <td>Iran 2026</td>
+        <td class="num-red">18.5%</td>
+        <td class="num">119</td>
+        <td class="num">6.0%</td>
+        <td>Multipolar</td>
+      </tr>
+      <tr>
+        <td><strong>Epstein 2026</strong></td>
+        <td class="num-red">3.6%</td>
+        <td class="num">74</td>
+        <td class="num-red">25.6%</td>
+        <td><strong>Hyperfragmented</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Why Scandals Shatter</div>
+    <p style="margin: 0;">Ukraine 2022 had two clear &ldquo;sides&rdquo; and one dominant global narrative&mdash;nearly half of all articles converged on a single framing. Iran 2026 was multipolar: multiple competing framings, but several large clusters. Epstein 2026 has no &ldquo;sides&rdquo; at all. It has <em>named individuals</em>, each generating a separate media ecosystem. There is no Andrew-vs-Trump axis, no prosecution-vs-defense binary. There are 74 framings, most of them small, and a quarter of all articles standing entirely alone. This is because scandals don&rsquo;t have clear geopolitical alignments&mdash;they have named individuals, institutional affiliations, and personal histories, each of which refracts the story differently.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num" style="color: var(--red);">!</div>
+    <div class="finding-body">
+      <p><span class="lead">The fewer clusters does not mean less diversity.</span> Epstein has 74 clusters (fewer than Iran&rsquo;s 119), yet its singleton rate is 4x higher. The lower cluster count reflects a smaller analyzable corpus (4,155 vs. 1,267), while the extreme singleton rate reflects genuine epistemic fragmentation. Each article is more likely to be telling a unique story.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 07 METHODOLOGY ================= -->
+<div class="page">
+  <div class="section-break">
+    <div class="section-num">07</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Methodology</div>
+  </div>
+
+  <dl class="method-grid">
+    <dt>Data sources</dt>
+    <dd>GDELT + World News API + Reddit. 30 named-individual queries + institutional queries + angle queries across 4 time windows.</dd>
+    <dt>Time windows</dt>
+    <dd>Dec 2025 (initial reports), Jan 2026 (major DOJ release), Feb 2026 (European fallout), Mar 2026 (ongoing reverberations).</dd>
+    <dt>Corpus</dt>
+    <dd>6,167 articles ingested, 4,155 with extractable text analyzed. 1,952 unique sources, 44 languages.</dd>
+    <dt>Text extraction</dt>
+    <dd>trafilatura &rarr; newspaper3k fallback. 67% text extraction success rate.</dd>
+    <dt>Translation</dt>
+    <dd>Helsinki-NLP MarianMT (20+ pairs) &rarr; Meta NLLB-200 (200 languages). All local on nitrogen GPU.</dd>
+    <dt>Pass 1</dt>
+    <dd>Mistral-Small-24B (Q4_K_M) on RTX A4000 (nitrogen). Open-ended framing extraction with no predefined categories.</dd>
+    <dt>Clustering</dt>
+    <dd>sentence-transformers (all-MiniLM-L6-v2) &rarr; UMAP (384&rarr;15 dimensions) &rarr; HDBSCAN. 74 emergent clusters + 1,063 singletons.</dd>
+    <dt>Suppression index</dt>
+    <dd>Epstein Investigation API entity data (primary docs) cross-referenced with media mention counts from corpus.</dd>
+    <dt>Infrastructure</dt>
+    <dd>Mistral-Small-24B on RTX A4000 (nitrogen). Translation on same GPU. All inference local, no cloud APIs.</dd>
+  </dl>
+
+  <div class="callout">
+    <div class="callout-title">On Methodology</div>
+    <p style="margin: 0;">No predefined framing categories were used at any stage. The LLM was asked to describe each article&rsquo;s framing in its own words. Clusters emerged from semantic similarity between these free-text descriptions. The 74 cluster labels above&mdash;&ldquo;Prince Andrew,&rdquo; &ldquo;AG Bondi Political Maneuver,&rdquo; &ldquo;Trafficking Syndicate&rdquo;&mdash;were <em>discovered</em> by the system, not imposed by researchers. The 1,063 singletons (25.6%) represent articles whose framing no other article in the corpus shares.</p>
+  </div>
+
+  <p class="footnote">
+    This report was produced using the NewsKaleidoscope epistemic mapping system. Corpus data sourced from GDELT, World News API, and Reddit. LLM analysis performed on local infrastructure with no data sent to external APIs. All framing categories are emergent, not predefined. The suppression index was computed by cross-referencing primary DOJ document entity mentions with media coverage frequency.
+  </p>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<div class="page">
+  <div class="report-footer">
+    <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--teal); margin-bottom: 0.5rem;">NewsKaleidoscope</p>
+    <p>Epistemic Mapping of Global Media &middot; <a href="https://news.thebeakers.com">news.thebeakers.com</a></p>
+    <p style="margin-top: 0.75rem;">Data: GDELT + World News API + Reddit &middot; Analysis: Mistral-Small-24B &middot; All inference local</p>
+    <p style="margin-top: 0.5rem;">March 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
