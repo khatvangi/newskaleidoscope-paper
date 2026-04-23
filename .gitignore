@@ -24,3 +24,7 @@ __pycache__/
 # editor
 .vscode/
 *.swp
+
+# NexisUni copyrighted content — do not redistribute
+epstein-intellectual/*.ZIP
+epstein-intellectual/nexisuni_pdfs/

@@ -152,7 +152,7 @@ def fetch_article_text(url):
 
 
 # ── llm calls (OpenAI-compatible API via llama-server) ───────────
-def llm_generate(model, prompt, timeout=LLM_TIMEOUT):
+def llm_generate(model, prompt, timeout=LLM_TIMEOUT, max_tokens=3072):
     """send a prompt to llama-server on boron. returns response text.
     uses OpenAI-compatible /v1/chat/completions endpoint.
     for qwen3, content has the answer and reasoning_content has the thinking."""
@@ -160,7 +160,7 @@ def llm_generate(model, prompt, timeout=LLM_TIMEOUT):
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.3,
-        "max_tokens": 3072,
+        "max_tokens": max_tokens,
     }).encode("utf-8")
 
     req = urllib.request.Request(
@@ -192,10 +192,13 @@ def llm_generate(model, prompt, timeout=LLM_TIMEOUT):
 
 
 def parse_llm_json(raw):
-    """extract JSON from LLM response, handling markdown fences."""
+    """extract JSON from LLM response, handling markdown fences and qwen3 think tags."""
     if not raw:
         return None
     cleaned = raw.strip()
+    # strip qwen3 <think>...</think> blocks
+    import re as _re
+    cleaned = _re.sub(r'<think>.*?</think>', '', cleaned, flags=_re.DOTALL).strip()
     if cleaned.startswith("```"):
         lines = cleaned.split("\n")
         lines = [l for l in lines if not l.strip().startswith("```")]
@@ -439,7 +442,7 @@ def pass2_cluster(model, results, event_context="a major geopolitical event"):
         descriptions="\n".join(descriptions),
         event_context=event_context
     )
-    raw = llm_generate(model, prompt, timeout=300)  # longer timeout for corpus-level reasoning
+    raw = llm_generate(model, prompt, timeout=300, max_tokens=8192)  # clustering needs more tokens for thinking + JSON
     return parse_llm_json(raw)
 
 
