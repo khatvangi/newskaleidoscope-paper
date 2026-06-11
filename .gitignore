@@ -28,3 +28,12 @@ __pycache__/
 # NexisUni copyrighted content — do not redistribute
 epstein-intellectual/*.ZIP
 epstein-intellectual/nexisuni_pdfs/
+
+# entity-level working dossiers — LLM-inferred labels on named individuals; keep private
+manuscript/ENTITY_BRIEFING.md
+manuscript/DATA_FOR_REPORT.md
+manuscript/ABSENT_FRAMES_EVIDENCE.md
+manuscript/epstein_intellectuals_manuscript.md
+manuscript/NEXT_SESSION_INTELLECTUALS.md
+manuscript/PRESENT_FRAMES_PART1.md
+manuscript/PRESENT_FRAMES_PART2.md
