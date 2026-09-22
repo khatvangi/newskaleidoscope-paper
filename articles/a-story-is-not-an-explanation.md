@@ -4,7 +4,7 @@
 
 **Kiran Boggavarapu**
 
-Three years ago, at a scientific conference in Vietnam, my former PhD professor approached me with an observation.
+Three years ago, at a scientific conference in Vietnam, a well-known professor approached me with an observation.
 
 “Kiran, you do not know how much India has changed in twenty-five years.”
 
@@ -18,7 +18,7 @@ I asked him why he would want to visit a place where people might regard eating 
 
 The conversation stayed with me.
 
-My professor was not necessarily wrong about India changing. India has changed, as every society changes. Nor does the question of individual liberty disappear simply because an action is provocative. Freedom includes the freedom to do things that other people find objectionable.
+The professor was not necessarily wrong about India changing. India has changed, as every society changes. Nor does the question of individual liberty disappear simply because an action is provocative. Freedom includes the freedom to do things that other people find objectionable.
 
 What troubled me was how readily an imagined personal act became an account of a country.
 
@@ -44,11 +44,12 @@ We have learned something about one possible trajectory. The equilibrium distrib
 
 <div class="simulation" id="ensemble-simulation" role="group" aria-label="Two populations with the same highlighted molecular path">
 <div class="simulation-heading"><span class="eyebrow">Interactive model</span><strong>One path, two populations</strong></div>
-<p>The outlined molecule follows the same path in both boxes. The other molecules switch states at different rates. Press Play to see whether the outlined path tells you how many molecules occupy the blue state.</p>
+<p>The outlined molecule follows the same path in both boxes. The red line records its state over time. The other molecules switch states at different rates. Press Play to see whether that one path tells you how many molecules occupy the red state.</p>
+<div class="trace-panel"><div class="trace-label"><span>Path of the outlined molecule</span><span class="trace-key"><i></i> red state</span></div><canvas id="sim-trace" width="900" height="150" aria-label="Line tracing the outlined molecule's state over time"></canvas><div class="trace-axis"><span>Earlier</span><span>Now</span></div></div>
 <div class="simulation-controls"><button type="button" id="sim-toggle">Play</button><button type="button" id="sim-reset">Reset</button><span id="sim-step" aria-live="off">Step 0</span></div>
 <div class="simulation-panels">
-<div class="simulation-panel"><div class="simulation-panel-title">Population A <span id="sim-a-value">0% blue</span></div><canvas id="sim-a" width="600" height="220" aria-label="Molecules in population A"></canvas></div>
-<div class="simulation-panel"><div class="simulation-panel-title">Population B <span id="sim-b-value">0% blue</span></div><canvas id="sim-b" width="600" height="220" aria-label="Molecules in population B"></canvas></div>
+<div class="simulation-panel"><div class="simulation-panel-title">Population A <span id="sim-a-value">0% red</span></div><canvas id="sim-a" width="600" height="220" aria-label="Molecules in population A"></canvas></div>
+<div class="simulation-panel"><div class="simulation-panel-title">Population B <span id="sim-b-value">0% red</span></div><canvas id="sim-b" width="600" height="220" aria-label="Molecules in population B"></canvas></div>
 </div>
 <p class="simulation-note" id="sim-summary" aria-live="polite">Both populations begin with the highlighted molecule in the gray state.</p>
 <p class="simulation-note">Illustrative two-state simulation. Each population has 120 molecules. Its switching probabilities are chosen for the demonstration and are not experimental measurements.</p>
@@ -98,7 +99,7 @@ One person buying lobster appears on television. The image returns. Commentators
 
 The frequency of exposure increases, but the underlying number of observations does not.
 
-Ten broadcasts of one purchase are still one observed purchase.
+<p class="pullquote">Ten broadcasts of one purchase are still one observed purchase.</p>
 
 <div class="replay-figure" role="img" aria-label="One recorded event appears in ten broadcasts, but remains one observed event">
 <div><span class="replay-number">1</span><span>recorded purchase</span></div>
@@ -250,7 +251,7 @@ When we encounter a familiar narrative, we may recognize it as an instance of so
 
 The story supplies the particular individual. Our existing framework supplies the larger explanation.
 
-In my professor's account, eating beef in Kanpur was not merely an imagined event. It activated an interpretation of India's transformation.
+In the professor's account, eating beef in Kanpur was not merely an imagined event. It activated an interpretation of India's transformation.
 
 In another person's account, the same episode might activate a different interpretation concerning religious provocation, social norms, or the boundaries of freedom.
 
@@ -260,7 +261,7 @@ The example has become a trigger for an explanation the listener already possess
 
 This habit can also produce stereotypes. We store simplified representations of the world and retrieve them when a new situation resembles something familiar.
 
-I do it. My professor does it. Journalists do it. Readers do it.
+I do it. The professor does it. Journalists do it. Readers do it.
 
 We often stop investigating once a familiar framework has been activated.
 
@@ -296,13 +297,13 @@ The difficulty is not identifying which political position has the better collec
 
 There is an irony in writing this essay.
 
-I began with a story about my professor in Vietnam. It made a strong impression on me. Years later, I can still recall the conversation.
+I began with a story about a professor in Vietnam. It made a strong impression on me. Years later, I can still recall the conversation.
 
 I could use that experience to write an article about the failings of a particular political culture, religious community, or generation of academics.
 
 But what would authorize that conclusion?
 
-My professor's remarks are evidence of what he said to me. My interpretation of those remarks is evidence of how I understood him. Neither, by itself, establishes how his community thinks, how academics generally reason, or how people understand India.
+The professor's remarks are evidence of what he said to me. My interpretation of those remarks is evidence of how I understood him. Neither, by itself, establishes how his community thinks, how academics generally reason, or how people understand India.
 
 If I allowed my encounter to stand for all those things, I would be committing the very error I have spent this essay examining.
 

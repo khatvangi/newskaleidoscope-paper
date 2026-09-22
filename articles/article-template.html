@@ -13,51 +13,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: light; --ink:#1a1a1a; --muted:#666; --teal:#1f7a6f; --line:#e0ddd6; --paper:#fcfcfa; }
+    :root { color-scheme: light; --ink:#211d1c; --muted:#6d6460; --red:#ba3035; --red-dark:#8d2028; --line:#ddd5ce; --paper:#faf8f4; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font:18px/1.72 'Source Serif 4',Georgia,serif; }
-    a { color:var(--teal); text-underline-offset:3px; }
-    a:hover { color:#13584f; }
-    .site-header { border-bottom:1px solid var(--line); padding:16px max(24px,calc((100vw - 900px)/2)); font:600 12px/1.3 'JetBrains Mono',monospace; letter-spacing:.06em; text-transform:uppercase; }
-    .site-header a { text-decoration:none; }
-    main { max-width:760px; margin:auto; padding:64px 24px 96px; }
-    h1,h2 { font-family:'Playfair Display',Georgia,serif; line-height:1.2; }
-    h1 { font-size:clamp(2.7rem,7vw,4.5rem); margin:0 0 14px; font-weight:900; letter-spacing:-.025em; }
-    h1 + p { color:var(--muted); font-size:1.25rem; line-height:1.45; margin:0 0 12px; }
-    h1 + p + p { font-size:.9rem; color:var(--muted); margin:0 0 50px; font-family:'JetBrains Mono',monospace; }
-    h2 { font-size:clamp(1.8rem,4vw,2.3rem); margin:60px 0 20px; padding-top:18px; border-top:1px solid var(--line); }
-    p { margin:0 0 1.3em; }
-    p:has(> math:only-child) { text-align:center; overflow-x:auto; padding:12px 0; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:18px/1.75 'Source Serif 4',Georgia,serif; }
+    a { color:var(--red-dark); text-underline-offset:3px; text-decoration-thickness:1px; }
+    a:hover { color:var(--red); }
+    .site-header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:16px max(24px,calc((100vw - 1000px)/2)); border-bottom:1px solid #342a27; background:#211b1a; color:#e9d8cc; font:600 11px/1.3 'JetBrains Mono',monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .site-header a { color:#fff; text-decoration:none; font:700 17px/1 'Playfair Display',Georgia,serif; letter-spacing:.015em; text-transform:none; }
+    .progress { position:fixed; z-index:5; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg,#8d2028,#f07562); box-shadow:0 0 12px #f0756288; pointer-events:none; }
+    main { max-width:860px; margin:auto; padding:70px 24px 110px; }
+    article { counter-reset:section; }
+    article > p, article > h2 { max-width:690px; margin-left:auto; margin-right:auto; }
+    h1,h2 { font-family:'Playfair Display',Georgia,serif; }
+    h1 { position:relative; overflow:hidden; font-size:clamp(3rem,8vw,6rem); line-height:1.05; letter-spacing:-.045em; font-weight:900; margin:0; padding:60px clamp(24px,5vw,54px) 68px; color:#fffaf5; background:radial-gradient(circle at 88% 12%,#f48370aa 0 3%,transparent 28%),linear-gradient(125deg,#8a2029 0%,#ae2d34 55%,#d34d48 100%); box-shadow:0 20px 40px #45242027, inset 0 1px #ffffff77; }
+    h1::before { content:'ESSAY  /  MEDIA & EVIDENCE'; display:block; margin-bottom:30px; font:600 11px/1.2 'JetBrains Mono',monospace; letter-spacing:.18em; color:#ffe5d6; }
+    h1::after { content:''; position:absolute; right:-80px; bottom:-105px; width:330px; height:330px; border:1px solid #ffffff55; border-radius:50%; box-shadow:0 0 0 40px #ffffff12,0 0 0 90px #ffffff0a; pointer-events:none; }
+    h1 + p { max-width:none; color:#423532; background:#fffdf9; border:1px solid var(--line); border-top:0; padding:26px clamp(24px,5vw,54px) 10px; font-size:clamp(1.2rem,2.8vw,1.55rem); line-height:1.45; margin:0; }
+    h1 + p + p { max-width:none; margin:0 0 66px; padding:0 clamp(24px,5vw,54px) 25px; background:#fffdf9; border:1px solid var(--line); border-top:0; font:600 .73rem/1.4 'JetBrains Mono',monospace; letter-spacing:.09em; text-transform:uppercase; color:var(--red-dark); }
+    h1 + p + p + p::first-letter { float:left; color:var(--red); font:700 4.4rem/.82 'Playfair Display',Georgia,serif; padding:.08em .1em 0 0; }
+    h2 { counter-increment:section; font-size:clamp(2rem,4.5vw,2.7rem); line-height:1.17; letter-spacing:-.025em; margin-top:75px; margin-bottom:26px; padding-top:23px; border-top:1px solid var(--line); }
+    h2::before { content:counter(section,decimal-leading-zero); display:block; margin-bottom:8px; color:var(--red); font:600 11px/1 'JetBrains Mono',monospace; letter-spacing:.12em; }
+    p { margin-top:0; margin-bottom:1.35em; }
+    article > p:has(> math:only-child) { text-align:center; overflow-x:auto; padding:18px; background:#fff; border:1px solid var(--line); }
     math { font-size:1.25em; }
-    article p a { font-size:.9em; }
+    article p a { font-size:.94em; text-decoration-color:#d4a39f; }
     article p a[href^='http']::before { content:'↗ '; }
-    .simulation { margin:2.6rem 0; padding:1.4rem; border:1px solid var(--line); background:#f3f5f2; border-radius:8px; font-size:.92rem; line-height:1.5; }
+    .simulation { margin:3rem 0; padding:clamp(1rem,3vw,2rem); border:1px solid #e3c8c0; background:linear-gradient(150deg,#fffdf9,#f8ece8); box-shadow:0 14px 28px #4d222018,inset 0 1px #fff; font-size:.92rem; line-height:1.5; }
     .simulation-heading { display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
-    .simulation-heading strong { font:700 1.4rem/1.2 'Playfair Display',Georgia,serif; }
-    .eyebrow { color:var(--teal); font:600 .68rem/1.2 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .simulation-heading strong { font:700 1.65rem/1.2 'Playfair Display',Georgia,serif; }
+    .eyebrow { color:var(--red); font:600 .68rem/1.2 'JetBrains Mono',monospace; letter-spacing:.1em; text-transform:uppercase; }
     .simulation p { margin:0 0 1rem; }
-    .simulation-controls { display:flex; align-items:center; gap:.65rem; margin:1rem 0; }
-    .simulation-controls button { font:600 .75rem/1 'JetBrains Mono',monospace; padding:.65rem .9rem; border:1px solid var(--teal); border-radius:4px; background:var(--teal); color:#fff; cursor:pointer; }
-    .simulation-controls button + button { color:var(--teal); background:transparent; }
+    .simulation-controls { display:flex; align-items:center; gap:.65rem; margin:1.15rem 0; }
+    .simulation-controls button { font:600 .75rem/1 'JetBrains Mono',monospace; padding:.7rem 1rem; border:1px solid var(--red); border-radius:3px; background:linear-gradient(#d34a49,#a92a32); color:#fff; box-shadow:0 3px 8px #97232a33,inset 0 1px #ffffff77; cursor:pointer; }
+    .simulation-controls button + button { color:var(--red-dark); background:#fff; box-shadow:none; }
     .simulation-controls button:focus-visible { outline:3px solid #d09b35; outline-offset:2px; }
     #sim-step { margin-left:auto; font:.72rem 'JetBrains Mono',monospace; color:var(--muted); }
+    .trace-panel { background:#241e1e; padding:16px 18px 12px; margin:0 0 14px; color:#fff4ed; box-shadow:inset 0 1px #ffffff22; }
+    .trace-label, .trace-axis { display:flex; align-items:center; justify-content:space-between; font:600 .67rem/1.2 'JetBrains Mono',monospace; letter-spacing:.03em; }
+    .trace-key { color:#f7bcb1; }
+    .trace-key i { display:inline-block; width:12px; height:3px; vertical-align:middle; background:#f35d59; box-shadow:0 0 8px #f35d59; }
+    .trace-axis { color:#afaaa8; font-size:.61rem; }
+    .trace-panel canvas { margin:4px 0!important; }
     .simulation-panels { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
-    .simulation-panel { padding:.7rem; background:#fff; border:1px solid var(--line); border-radius:5px; min-width:0; }
+    .simulation-panel { padding:.85rem; background:#fff; border:1px solid #e6d6d1; min-width:0; box-shadow:0 3px 8px #52251c0c; }
     .simulation-panel-title { display:flex; justify-content:space-between; gap:.3rem; font:600 .69rem 'JetBrains Mono',monospace; }
-    .simulation-panel-title span { color:var(--teal); white-space:nowrap; }
+    .simulation-panel-title span { color:var(--red); white-space:nowrap; }
     .simulation canvas { display:block; width:100%; height:auto; margin:.4rem auto 0; }
     .simulation .simulation-note { font-size:.78rem; color:var(--muted); margin:.7rem 0 0; }
-    .replay-figure { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding:1.2rem; margin:1.7rem 0 2rem; border-block:1px solid var(--line); font:.75rem/1.4 'JetBrains Mono',monospace; text-align:center; }
+    .pullquote { max-width:800px!important; margin:2.2rem auto!important; padding:20px clamp(25px,5vw,55px); border-left:5px solid var(--red); color:var(--red-dark); font:700 clamp(1.5rem,3.8vw,2.3rem)/1.25 'Playfair Display',Georgia,serif; }
+    .replay-figure { display:flex; justify-content:space-between; align-items:center; gap:.5rem; max-width:760px; padding:1.5rem; margin:2rem auto; border-block:2px solid var(--red); background:#fffdf9; font:.75rem/1.4 'JetBrains Mono',monospace; text-align:center; }
     .replay-figure div { display:flex; flex-direction:column; align-items:center; flex:1; }
-    .replay-number { color:var(--teal); font:700 2rem/1 'Playfair Display',Georgia,serif; }
+    .replay-number { color:var(--red); font:700 2.6rem/1 'Playfair Display',Georgia,serif; }
     .replay-arrow { font-size:1.2rem; color:var(--muted); }
-    .site-footer { border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:28px 24px; font-size:.85rem; }
-    @media(max-width:600px) { body{font-size:17px;} main{padding-top:42px;} .simulation-panels{grid-template-columns:1fr;} .simulation{padding:1rem;} }
+    .site-footer { border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:35px 24px; font-size:.85rem; }
+    @media(max-width:600px) { body{font-size:17px;} main{padding:32px 15px 75px;} h1{padding:45px 24px 58px;} h1 + p{padding:22px 24px 10px;} h1 + p + p{padding:0 24px 22px;margin-bottom:45px;} .simulation-panels{grid-template-columns:1fr;} .replay-figure{padding:1rem .3rem;font-size:.61rem;} }
   </style>
 </head>
 <body>
-  <header class="site-header"><a href="/">NewsKaleidoscope</a> <span aria-hidden="true">/</span> Essay</header>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+  <header class="site-header"><a href="/">NewsKaleidoscope</a> <span>Independent essay</span></header>
   <main><article>$body$</article></main>
   <footer class="site-footer"><a href="/">NewsKaleidoscope</a> · news.thebeakers.com</footer>
   <script>
@@ -66,14 +81,15 @@
       if (!root) return;
       const total = 120;
       const panels = [
-        { canvas: document.getElementById('sim-a'), label: document.getElementById('sim-a-value'), states: [], grayToBlue: .025, blueToGray: .025, initialBlue: 60 },
-        { canvas: document.getElementById('sim-b'), label: document.getElementById('sim-b-value'), states: [], grayToBlue: .008, blueToGray: .072, initialBlue: 12 }
+        { canvas: document.getElementById('sim-a'), label: document.getElementById('sim-a-value'), states: [], grayToRed: .025, redToGray: .025, initialRed: 60 },
+        { canvas: document.getElementById('sim-b'), label: document.getElementById('sim-b-value'), states: [], grayToRed: .008, redToGray: .072, initialRed: 12 }
       ];
+      const trace = document.getElementById('sim-trace');
       const playButton = document.getElementById('sim-toggle');
       const resetButton = document.getElementById('sim-reset');
       const stepLabel = document.getElementById('sim-step');
       const summary = document.getElementById('sim-summary');
-      let seed = 24819, step = 0, timer = null;
+      let seed = 24819, step = 0, timer = null, traceHistory = [0];
       function random() { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; }
       function trackedState(time) { return time % 80 >= 20 && time % 80 < 45 ? 1 : 0; }
       function draw(panel) {
@@ -85,26 +101,57 @@
           const y = 13 + Math.floor(index / 12) * 21;
           ctx.beginPath();
           ctx.arc(x, y, index === 0 ? 7.5 : 5.6, 0, Math.PI * 2);
-          ctx.fillStyle = state ? '#267f9d' : '#bbbcb7';
+          ctx.fillStyle = state ? '#c83b41' : '#bdb6b2';
           ctx.fill();
           if (index === 0) {
             ctx.lineWidth = 3;
-            ctx.strokeStyle = '#d18d16';
+            ctx.strokeStyle = '#e2a627';
             ctx.stroke();
           }
         });
-        const blue = panel.states.reduce((sum, state) => sum + state, 0);
-        panel.label.textContent = Math.round(blue / total * 100) + '% blue';
+        const red = panel.states.reduce((sum, state) => sum + state, 0);
+        panel.label.textContent = Math.round(red / total * 100) + '% red';
+      }
+      function drawTrace() {
+        const ctx = trace.getContext('2d');
+        if (!ctx) return;
+        ctx.clearRect(0, 0, 900, 150);
+        ctx.font = '600 14px monospace';
+        ctx.fillStyle = '#dba7a0';
+        ctx.fillText('RED', 4, 38);
+        ctx.fillStyle = '#aaa2a0';
+        ctx.fillText('GRAY', 4, 116);
+        [34, 112].forEach(y => {
+          ctx.beginPath(); ctx.moveTo(58, y); ctx.lineTo(882, y);
+          ctx.strokeStyle = '#ffffff26'; ctx.lineWidth = 1; ctx.stroke();
+        });
+        const x = i => 58 + i * 824 / 79;
+        const y = state => state ? 34 : 112;
+        ctx.beginPath();
+        ctx.moveTo(x(0), y(traceHistory[0]));
+        for (let i = 1; i < traceHistory.length; i++) {
+          ctx.lineTo(x(i), y(traceHistory[i - 1]));
+          ctx.lineTo(x(i), y(traceHistory[i]));
+        }
+        ctx.strokeStyle = '#fa6762'; ctx.lineWidth = 4; ctx.lineJoin = 'round';
+        ctx.shadowColor = '#fa6762'; ctx.shadowBlur = 14; ctx.stroke();
+        ctx.shadowBlur = 0;
+        const last = traceHistory.length - 1;
+        ctx.beginPath(); ctx.arc(x(last), y(traceHistory[last]), 6, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffd0ba'; ctx.fill();
       }
       function report() {
         stepLabel.textContent = 'Step ' + step;
-        summary.textContent = 'The outlined molecule is ' + (trackedState(step) ? 'blue' : 'gray') + ' in both populations. Population A: ' + panels[0].label.textContent + '. Population B: ' + panels[1].label.textContent + '.';
+        summary.textContent = 'The outlined molecule is ' + (trackedState(step) ? 'red' : 'gray') + ' in both populations. Population A: ' + panels[0].label.textContent + '. Population B: ' + panels[1].label.textContent + '.';
       }
       function tick() {
         step++;
+        traceHistory.push(trackedState(step));
+        if (traceHistory.length > 80) traceHistory.shift();
+        drawTrace();
         panels.forEach(panel => {
           for (let i = 1; i < total; i++) {
-            const probability = panel.states[i] ? panel.blueToGray : panel.grayToBlue;
+            const probability = panel.states[i] ? panel.redToGray : panel.grayToRed;
             if (random() < probability) panel.states[i] = panel.states[i] ? 0 : 1;
           }
           panel.states[0] = trackedState(step);
@@ -114,7 +161,7 @@
       }
       function pause() { if (timer) clearInterval(timer); timer = null; playButton.textContent = 'Play'; }
       function reset() {
-        pause(); seed = 24819; step = 0;
+        pause(); seed = 24819; step = 0; traceHistory = [0]; drawTrace();
         panels.forEach(panel => {
           panel.states = Array(total).fill(0);
           const indices = Array.from({ length: total - 1 }, (_, i) => i + 1);
@@ -122,7 +169,7 @@
             const j = Math.floor(random() * (i + 1));
             [indices[i], indices[j]] = [indices[j], indices[i]];
           }
-          indices.slice(0, panel.initialBlue).forEach(index => panel.states[index] = 1);
+          indices.slice(0, panel.initialRed).forEach(index => panel.states[index] = 1);
           draw(panel);
         });
         report();
@@ -133,6 +180,16 @@
       });
       resetButton.addEventListener('click', reset);
       reset();
+    })();
+    (() => {
+      const progress = document.getElementById('reading-progress');
+      const update = () => {
+        const remaining = document.documentElement.scrollHeight - innerHeight;
+        progress.style.width = (remaining > 0 ? scrollY / remaining * 100 : 100) + '%';
+      };
+      addEventListener('scroll', update, { passive:true });
+      addEventListener('resize', update);
+      update();
     })();
   </script>
 </body>
