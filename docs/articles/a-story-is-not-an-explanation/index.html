@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How individual narratives become explanations of entire societies—and why the distinction matters.">
+  <meta name="description" content="A single account can be true without describing a population.">
   <meta name="author" content="Kiran Boggavarapu">
   <meta property="og:type" content="article">
   <meta property="og:title" content="A Story Is Not an Explanation">
-  <meta property="og:description" content="How individual narratives become explanations of entire societies—and why the distinction matters.">
-  <title>A Story Is Not an Explanation — NewsKaleidoscope</title>
+  <meta property="og:description" content="A single account can be true without describing a population.">
+  <title>A Story Is Not an Explanation | NewsKaleidoscope</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -32,14 +32,34 @@
     math { font-size:1.25em; }
     article p a { font-size:.9em; }
     article p a[href^='http']::before { content:'↗ '; }
+    .simulation { margin:2.6rem 0; padding:1.4rem; border:1px solid var(--line); background:#f3f5f2; border-radius:8px; font-size:.92rem; line-height:1.5; }
+    .simulation-heading { display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
+    .simulation-heading strong { font:700 1.4rem/1.2 'Playfair Display',Georgia,serif; }
+    .eyebrow { color:var(--teal); font:600 .68rem/1.2 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .simulation p { margin:0 0 1rem; }
+    .simulation-controls { display:flex; align-items:center; gap:.65rem; margin:1rem 0; }
+    .simulation-controls button { font:600 .75rem/1 'JetBrains Mono',monospace; padding:.65rem .9rem; border:1px solid var(--teal); border-radius:4px; background:var(--teal); color:#fff; cursor:pointer; }
+    .simulation-controls button + button { color:var(--teal); background:transparent; }
+    .simulation-controls button:focus-visible { outline:3px solid #d09b35; outline-offset:2px; }
+    #sim-step { margin-left:auto; font:.72rem 'JetBrains Mono',monospace; color:var(--muted); }
+    .simulation-panels { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+    .simulation-panel { padding:.7rem; background:#fff; border:1px solid var(--line); border-radius:5px; min-width:0; }
+    .simulation-panel-title { display:flex; justify-content:space-between; gap:.3rem; font:600 .69rem 'JetBrains Mono',monospace; }
+    .simulation-panel-title span { color:var(--teal); white-space:nowrap; }
+    .simulation canvas { display:block; width:100%; height:auto; margin:.4rem auto 0; }
+    .simulation .simulation-note { font-size:.78rem; color:var(--muted); margin:.7rem 0 0; }
+    .replay-figure { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding:1.2rem; margin:1.7rem 0 2rem; border-block:1px solid var(--line); font:.75rem/1.4 'JetBrains Mono',monospace; text-align:center; }
+    .replay-figure div { display:flex; flex-direction:column; align-items:center; flex:1; }
+    .replay-number { color:var(--teal); font:700 2rem/1 'Playfair Display',Georgia,serif; }
+    .replay-arrow { font-size:1.2rem; color:var(--muted); }
     .site-footer { border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:28px 24px; font-size:.85rem; }
-    @media(max-width:600px) { body{font-size:17px;} main{padding-top:42px;} }
+    @media(max-width:600px) { body{font-size:17px;} main{padding-top:42px;} .simulation-panels{grid-template-columns:1fr;} .simulation{padding:1rem;} }
   </style>
 </head>
 <body>
   <header class="site-header"><a href="/">NewsKaleidoscope</a> <span aria-hidden="true">/</span> Essay</header>
   <main><article><h1 id="a-story-is-not-an-explanation">A Story Is Not an Explanation</h1>
-<p><em>How individual narratives become explanations of entire societies—and why the distinction matters.</em></p>
+<p><em>A single account can be true without describing a population.</em></p>
 <p><strong>Kiran Boggavarapu</strong></p>
 <p>Three years ago, at a scientific conference in Vietnam, my former PhD professor approached me with an observation.</p>
 <p>“Kiran, you do not know how much India has changed in twenty-five years.”</p>
@@ -53,15 +73,52 @@
 <p>There was no investigation of the extent of the change, its causes, its distribution, or its consequences. There was a memorable scene, and the scene appeared to contain its own explanation.</p>
 <p>Later, he told me about an official appeal encouraging people to hug cows. Again, the account arrived as a striking symbol of what India had become.</p>
 <p>This time, there was a real document behind the story. On February 6, 2023, the Animal Welfare Board of India issued an appeal encouraging people to observe February 14 as Cow Hug Day. Four days later, the appeal was withdrawn on government instructions. <a href="https://indianexpress.com/article/india/cow-hug-day-feb14-awbi-withdraws-order-8436992/">The Indian Express</a></p>
-<p>What should I conclude from this episode? That an Indian government body proposed a cow-hugging observance? Certainly. That the proposal was subsequently withdrawn? Yes. But what does it tell me about the beliefs of India’s population, their actual behavior, or the direction of Indian society?</p>
-<p>Those are different questions.</p>
+<p>The episode establishes that an Indian government body proposed a cow-hugging observance and withdrew it four days later. It tells us little on its own about what India’s population believes or does.</p>
 <p>An official document can establish an institutional act. It does not automatically establish the prevalence of the beliefs expressed in it, their acceptance by the population, or their practical consequences. Those connections may exist, but they must be investigated.</p>
 <p>I was beginning to recognize a recurring intellectual habit. We select an episode, give it a memorable human form, and allow it to stand for something much larger. The episode may be real. Every detail may be accurate. Yet the explanation built upon it may remain entirely unexamined.</p>
 <p>As a physical chemist, I find this transition particularly troubling.</p>
 <h2 id="the-molecule-and-the-ensemble">The molecule and the ensemble</h2>
 <p>Consider a molecule undergoing a conformational transition. We observe its trajectory, record its coordinates, and describe its motion with extraordinary precision.</p>
-<p>What have we learned about the thermodynamic system?</p>
-<p>We have learned something about one possible trajectory. We have not necessarily learned the equilibrium distribution, the relative populations of conformational states, or the macroscopic properties of the ensemble.</p>
+<p>We have learned something about one possible trajectory. The equilibrium distribution, the relative populations of conformational states, and the macroscopic properties of the ensemble remain unknown.</p>
+<div id="ensemble-simulation" class="simulation" role="group" aria-label="Two populations with the same highlighted molecular path">
+<div class="simulation-heading">
+<span class="eyebrow">Interactive model</span><strong>One path, two populations</strong>
+</div>
+<p>
+The outlined molecule follows the same path in both boxes. The other molecules switch states at different rates. Press Play to see whether the outlined path tells you how many molecules occupy the blue state.
+</p>
+<div class="simulation-controls">
+<button type="button" id="sim-toggle">
+Play
+</button>
+<button type="button" id="sim-reset">
+Reset
+</button>
+<span id="sim-step" aria-live="off">Step 0</span>
+</div>
+<div class="simulation-panels">
+<div class="simulation-panel">
+<div class="simulation-panel-title">
+Population A <span id="sim-a-value">0% blue</span>
+</div>
+<canvas id="sim-a" width="600" height="220" aria-label="Molecules in population A">
+</canvas>
+</div>
+<div class="simulation-panel">
+<div class="simulation-panel-title">
+Population B <span id="sim-b-value">0% blue</span>
+</div>
+<canvas id="sim-b" width="600" height="220" aria-label="Molecules in population B">
+</canvas>
+</div>
+</div>
+<p class="simulation-note" id="sim-summary" aria-live="polite">
+Both populations begin with the highlighted molecule in the gray state.
+</p>
+<p class="simulation-note">
+Illustrative two-state simulation. Each population has 120 molecules. Its switching probabilities are chosen for the demonstration and are not experimental measurements.
+</p>
+</div>
 <p>To obtain those properties, we must identify the relevant states, their statistical weights, the constraints under which the system exists, and the relationships among its components.</p>
 <p>In statistical mechanics, the ensemble average of an observable <em>A</em> can be written as</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>A</mi><mo stretchy="false" form="postfix">⟩</mo><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>p</mi><mi>i</mi></msub><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\langle A\rangle = \sum_i p_i A_i</annotation></semantics></math></p>
@@ -71,25 +128,37 @@
 <p>We cannot simply add every microscopic observation and expect a macroscopic explanation to emerge.</p>
 <p>Some properties can be obtained through straightforward summation. Others require distributions, correlations, collective variables, and knowledge of the physical conditions governing the system.</p>
 <p>No amount of precision in describing one molecule can compensate for the absence of those relationships.</p>
-<p>Human affairs present a related problem, although societies are not thermodynamic ensembles and human beings are not interchangeable molecules. The analogy concerns the logic of inference between levels, not the existence of a common physical law governing molecules and human behavior.</p>
+<p>Human affairs present a related problem, although societies are not thermodynamic ensembles and human beings are not interchangeable molecules. The analogy concerns the logic of inference between levels. It does not propose a common physical law for molecules and human behavior.</p>
 <p>An individual experience may be entirely real without being representative of the experiences of a population. A collective phenomenon may be entirely real without being adequately explained by the experience of any one individual.</p>
 <p>Yet much of our public understanding proceeds as though the distinction does not matter.</p>
 <h2 id="one-lobster-twenty-vases">One lobster, twenty vases</h2>
 <p>In 2013, Fox News introduced viewers to Jason Greenslate, an unemployed California man receiving food assistance through the Supplemental Nutrition Assistance Program, or SNAP.</p>
 <p>The report followed him surfing, shopping, and preparing food with friends. At the supermarket, he purchased sushi and lobster using his food assistance benefits. The lobster was on sale.</p>
-<p>The story became part of a wider argument about welfare spending. <a href="https://politifact.com/factchecks/2014/mar/21/greg-morris/food-stamp-lobster-claim-true-extent-unclear/">PolitiFact</a></p>
+<p>The story became part of a wider argument about welfare spending. <a href="https://www.foxnews.com/video/2595939475001">Watch Fox News’s introduction to <em>The Great Food Stamp Binge</em></a> or <a href="https://www.realclearpolitics.com/video/2013/08/10/fox_news_special_the_great_food_stamp_binge.html">view the full program as archived by RealClearPolitics</a>. <a href="https://politifact.com/factchecks/2014/mar/21/greg-morris/food-stamp-lobster-claim-true-extent-unclear/">PolitiFact examined the lobster claim</a>.</p>
 <p>The lobster was real. Greenslate really purchased it.</p>
-<p>But what did the purchase establish?</p>
 <p>It demonstrated that one SNAP recipient bought lobster. It did not establish how frequently recipients purchased expensive seafood, what proportion of benefits were spent on such products, or how much money was being misused.</p>
 <p>Indeed, purchasing lobster with SNAP benefits was permitted. The purchase itself was not evidence of fraud. <a href="https://politifact.com/factchecks/2014/mar/21/greg-morris/food-stamp-lobster-claim-true-extent-unclear/">PolitiFact</a></p>
 <p>The distinction becomes especially important when the same footage is broadcast repeatedly.</p>
 <p>One person buying lobster appears on television. The image returns. Commentators discuss it. Viewers encounter the same example in different contexts.</p>
 <p>The frequency of exposure increases, but the underlying number of observations does not.</p>
-<p>Ten broadcasts of one purchase are not ten purchases.</p>
+<p>Ten broadcasts of one purchase are still one observed purchase.</p>
+<div class="replay-figure" role="img" aria-label="One recorded event appears in ten broadcasts, but remains one observed event">
+<div>
+<span class="replay-number">1</span><span>recorded purchase</span>
+</div>
+<span class="replay-arrow" aria-hidden="true">→</span>
+<div>
+<span class="replay-number">10</span><span>broadcasts</span>
+</div>
+<span class="replay-arrow" aria-hidden="true">→</span>
+<div>
+<span class="replay-number">1</span><span>observed purchase</span>
+</div>
+</div>
 <p>A vivid exception can begin to acquire the familiarity of a general practice without the audience ever learning how prevalent that practice actually is.</p>
 <p>Now consider another incident, from the opposite side of a different public controversy.</p>
-<p>In April 2003, during the American invasion of Iraq, television news repeatedly showed images of looting in Baghdad. One image showed a person carrying a vase from a building.</p>
-<p>At a Pentagon briefing, Defense Secretary Donald Rumsfeld complained that the same footage was being shown repeatedly. He asked whether there could really be that many vases in the country. <a href="https://www.hrw.org/news/2003/04/13/liberation-and-looting-iraq-0">Human Rights Watch</a></p>
+<p>In April 2003, during the American invasion of Iraq, television news repeatedly showed images of looting in Baghdad. At a Pentagon briefing, Defense Secretary Donald Rumsfeld said that viewers were seeing the same image of a person carrying a vase from a building over and over. He asked whether there could really be that many vases in the country. <a href="https://www.globalsecurity.org/wmd/library/news/iraq/2003/iraq-030411-dod01.htm">Read the April 11 briefing transcript</a>. <a href="https://www.hrw.org/news/2003/04/13/liberation-and-looting-iraq-0">Human Rights Watch responded to his remarks</a>.</p>
+<p>I have not located the specific broadcast footage Rumsfeld described. The transcript establishes what he said about the image, not how many times that image actually aired.</p>
 <p>Rumsfeld’s objection contained a legitimate statistical question. How many distinct events were being represented? How much of what the audience believed it had seen came from repeated exposure to the same incident?</p>
 <p>But identifying that problem did not establish that the looting was insignificant.</p>
 <p>The Iraq Museum had suffered substantial losses. Early reports suggesting that approximately 170,000 artifacts had been stolen were later found to be greatly exaggerated. A subsequent investigation estimated that approximately 14,000–15,000 objects had been taken. The losses were real, even though the initial understanding of their magnitude was wrong. <a href="https://ajaonline.org/newsletter/110/">American Journal of Archaeology</a></p>
@@ -106,7 +175,6 @@
 <p>This is a recognizable form of contemporary journalism. A large conflict is introduced through the experience of an identifiable family. Instead of beginning with military operations, displacement statistics, or humanitarian institutions, the reader encounters people who must live through the consequences.</p>
 <p>There is nothing inherently wrong with this approach.</p>
 <p>The Junaid family’s experience is not less real because it is personal. Their displacement is a fact about them. Their suffering does not require statistical validation to matter.</p>
-<p>But what does the family’s experience establish about Gaza?</p>
 <p>If we want to understand the scale of displacement, we need population-level evidence. If we want to understand why people are displaced, we need to investigate the military, geographical, political, and institutional conditions producing displacement.</p>
 <p>If we want to understand variation in experience, we need to know who was displaced, where they moved, whether they could return, what resources were available to them, and how these conditions changed over time.</p>
 <p>The Junaid family can help us understand what displacement meant to them. Their experience alone cannot answer all these questions.</p>
@@ -114,7 +182,7 @@
 <p>Now we have two different kinds of knowledge.</p>
 <p>We know something about the Junaid family. We also know something about the distribution and causes of displacement across Gaza.</p>
 <p>The two accounts are connected, but they are not interchangeable.</p>
-<p>Reuters provided broader context in its report. The problem is not that journalism necessarily stops at the individual, but that the personal account can acquire explanatory authority independent of the evidence connecting it to the larger phenomenon.</p>
+<p>Reuters provided broader context in its report. A reader can still remember the family while losing the evidence that connects its experience to the larger pattern.</p>
 <p>A family gives human form to displacement. A population-level investigation establishes its scale. A causal investigation examines how and why the displacement occurred.</p>
 <p>A family is not a miniature Palestine. Nor is Palestine simply the sum of the stories journalists happen to collect.</p>
 <p>The same applies when the subjects are Israeli families, Ukrainian families, American workers, or victims of crime. The identity of the people involved does not change the inferential problem.</p>
@@ -135,14 +203,14 @@
 <p>Before drawing a population-level conclusion, we need a sampling framework, a denominator, and a definition of the phenomenon we are attempting to measure.</p>
 <p>Even these may not be sufficient for causal explanation.</p>
 <p>A representative sample can establish how widespread a behavior is without establishing why it occurs. Two populations may exhibit similar rates of a behavior for entirely different reasons.</p>
-<p>This is why I am reluctant to accept the familiar narrative progression from individual experience to collective explanation.</p>
+<p>An individual experience becomes a collective explanation only when we establish the connection between them.</p>
 <p>The passage between levels cannot be accomplished by emotional force, repetition, or the accumulation of stories alone. It requires an account of the relevant relationships.</p>
 <p>Those relationships may be straightforward or nonlinear. They may involve interactions, constraints, feedback, or collective organization. We cannot assume in advance that one kind of relationship explains every phenomenon.</p>
 <p>Nor should we presume that the collective explanation eliminates the importance of the individual.</p>
 <p>Macroscopic conditions shape individual lives. Individual actions can also change collective conditions. Institutions constrain behavior, but they are themselves maintained and altered through human activity.</p>
 <p>The levels are neither independent nor interchangeable.</p>
 <p>They must be connected through an account of how one influences the other.</p>
-<h2 id="why-the-formula-works">Why the formula works</h2>
+<h2 id="why-examples-persuade">Why examples persuade</h2>
 <p>There is a reason this narrative method appears so frequently in public discourse.</p>
 <p>A population is difficult to imagine. A family is not.</p>
 <p>A distribution has no face. A grieving parent does.</p>
@@ -162,13 +230,12 @@
 <p>In another person’s account, the same episode might activate a different interpretation concerning religious provocation, social norms, or the boundaries of freedom.</p>
 <p>Neither interpretation follows automatically from the episode.</p>
 <p>The example has become a trigger for an explanation the listener already possesses.</p>
-<p>This is where stereotyping enters, not necessarily as hostility toward another group, but as a general cognitive habit. We store simplified representations of the world and retrieve them when a new situation resembles something familiar.</p>
+<p>This habit can also produce stereotypes. We store simplified representations of the world and retrieve them when a new situation resembles something familiar.</p>
 <p>I do it. My professor does it. Journalists do it. Readers do it.</p>
-<p>The problem is not that we possess these frameworks. It is that we often stop investigating once a familiar framework has been activated.</p>
+<p>We often stop investigating once a familiar framework has been activated.</p>
 <h2 id="the-moral-difficulty">The moral difficulty</h2>
 <p>There is a serious objection to my argument.</p>
-<p>Must every personal tragedy be statistically representative before it deserves public attention?</p>
-<p>Certainly not.</p>
+<p>Personal tragedy deserves public attention regardless of how often it occurs.</p>
 <p>A rare injustice may deserve investigation precisely because it is rare. A single incident can expose a mechanism that had previously escaped attention. A family can reveal the consequences of an institutional failure that would remain invisible in aggregate data.</p>
 <p>Indeed, a single well-documented event may decisively disprove an absolute claim that something never happens.</p>
 <p>The moral significance of suffering is not proportional to the number of people experiencing it.</p>
@@ -187,7 +254,7 @@
 <p>But what would authorize that conclusion?</p>
 <p>My professor’s remarks are evidence of what he said to me. My interpretation of those remarks is evidence of how I understood him. Neither, by itself, establishes how his community thinks, how academics generally reason, or how people understand India.</p>
 <p>If I allowed my encounter to stand for all those things, I would be committing the very error I have spent this essay examining.</p>
-<p>That is why the story matters to me.</p>
+<p>I keep returning to that conversation for a narrower reason.</p>
 <p>It did not teach me what India had become. It made me question how readily I, too, allowed a story to become an explanation.</p>
 <p>The lesson extends beyond journalism. Scientists are not exempt. We select striking results, construct narratives around them, and sometimes allow the elegance of those narratives to exceed what the evidence establishes.</p>
 <p>An experimental observation is not automatically a mechanism. A mechanism established under one set of conditions is not automatically a general law. A correlation is not automatically a causal relationship.</p>
@@ -195,8 +262,83 @@
 <p>A story tells us something about the world. It may reveal a possibility, identify a problem, introduce a mechanism, or make a collective phenomenon comprehensible through an individual life.</p>
 <p>But the story does not carry all its possible explanations within itself.</p>
 <p>We must do the additional work of determining what it establishes, what remains unknown, and how its particular circumstances connect to the larger world.</p>
-<p>The purpose is not to eliminate narrative. It is to prevent narrative from becoming a substitute for inquiry.</p>
+<p>Narrative can lead us into inquiry. It cannot finish the inquiry for us.</p>
 <p>A story is where understanding may begin. It is not where explanation must end.</p></article></main>
   <footer class="site-footer"><a href="/">NewsKaleidoscope</a> · news.thebeakers.com</footer>
+  <script>
+    (() => {
+      const root = document.getElementById('ensemble-simulation');
+      if (!root) return;
+      const total = 120;
+      const panels = [
+        { canvas: document.getElementById('sim-a'), label: document.getElementById('sim-a-value'), states: [], grayToBlue: .025, blueToGray: .025, initialBlue: 60 },
+        { canvas: document.getElementById('sim-b'), label: document.getElementById('sim-b-value'), states: [], grayToBlue: .008, blueToGray: .072, initialBlue: 12 }
+      ];
+      const playButton = document.getElementById('sim-toggle');
+      const resetButton = document.getElementById('sim-reset');
+      const stepLabel = document.getElementById('sim-step');
+      const summary = document.getElementById('sim-summary');
+      let seed = 24819, step = 0, timer = null;
+      function random() { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; }
+      function trackedState(time) { return time % 80 >= 20 && time % 80 < 45 ? 1 : 0; }
+      function draw(panel) {
+        const ctx = panel.canvas.getContext('2d');
+        if (!ctx) return;
+        ctx.clearRect(0, 0, 600, 220);
+        panel.states.forEach((state, index) => {
+          const x = 29 + (index % 12) * 49;
+          const y = 13 + Math.floor(index / 12) * 21;
+          ctx.beginPath();
+          ctx.arc(x, y, index === 0 ? 7.5 : 5.6, 0, Math.PI * 2);
+          ctx.fillStyle = state ? '#267f9d' : '#bbbcb7';
+          ctx.fill();
+          if (index === 0) {
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#d18d16';
+            ctx.stroke();
+          }
+        });
+        const blue = panel.states.reduce((sum, state) => sum + state, 0);
+        panel.label.textContent = Math.round(blue / total * 100) + '% blue';
+      }
+      function report() {
+        stepLabel.textContent = 'Step ' + step;
+        summary.textContent = 'The outlined molecule is ' + (trackedState(step) ? 'blue' : 'gray') + ' in both populations. Population A: ' + panels[0].label.textContent + '. Population B: ' + panels[1].label.textContent + '.';
+      }
+      function tick() {
+        step++;
+        panels.forEach(panel => {
+          for (let i = 1; i < total; i++) {
+            const probability = panel.states[i] ? panel.blueToGray : panel.grayToBlue;
+            if (random() < probability) panel.states[i] = panel.states[i] ? 0 : 1;
+          }
+          panel.states[0] = trackedState(step);
+          draw(panel);
+        });
+        report();
+      }
+      function pause() { if (timer) clearInterval(timer); timer = null; playButton.textContent = 'Play'; }
+      function reset() {
+        pause(); seed = 24819; step = 0;
+        panels.forEach(panel => {
+          panel.states = Array(total).fill(0);
+          const indices = Array.from({ length: total - 1 }, (_, i) => i + 1);
+          for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+          }
+          indices.slice(0, panel.initialBlue).forEach(index => panel.states[index] = 1);
+          draw(panel);
+        });
+        report();
+      }
+      playButton.addEventListener('click', () => {
+        if (timer) pause();
+        else { timer = setInterval(tick, 180); playButton.textContent = 'Pause'; }
+      });
+      resetButton.addEventListener('click', reset);
+      reset();
+    })();
+  </script>
 </body>
 </html>

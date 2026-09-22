@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How individual narratives become explanations of entire societies—and why the distinction matters.">
+  <meta name="description" content="A single account can be true without describing a population.">
   <meta name="author" content="Kiran Boggavarapu">
   <meta property="og:type" content="article">
   <meta property="og:title" content="A Story Is Not an Explanation">
-  <meta property="og:description" content="How individual narratives become explanations of entire societies—and why the distinction matters.">
-  <title>A Story Is Not an Explanation — NewsKaleidoscope</title>
+  <meta property="og:description" content="A single account can be true without describing a population.">
+  <title>A Story Is Not an Explanation | NewsKaleidoscope</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -32,13 +32,108 @@
     math { font-size:1.25em; }
     article p a { font-size:.9em; }
     article p a[href^='http']::before { content:'↗ '; }
+    .simulation { margin:2.6rem 0; padding:1.4rem; border:1px solid var(--line); background:#f3f5f2; border-radius:8px; font-size:.92rem; line-height:1.5; }
+    .simulation-heading { display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
+    .simulation-heading strong { font:700 1.4rem/1.2 'Playfair Display',Georgia,serif; }
+    .eyebrow { color:var(--teal); font:600 .68rem/1.2 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .simulation p { margin:0 0 1rem; }
+    .simulation-controls { display:flex; align-items:center; gap:.65rem; margin:1rem 0; }
+    .simulation-controls button { font:600 .75rem/1 'JetBrains Mono',monospace; padding:.65rem .9rem; border:1px solid var(--teal); border-radius:4px; background:var(--teal); color:#fff; cursor:pointer; }
+    .simulation-controls button + button { color:var(--teal); background:transparent; }
+    .simulation-controls button:focus-visible { outline:3px solid #d09b35; outline-offset:2px; }
+    #sim-step { margin-left:auto; font:.72rem 'JetBrains Mono',monospace; color:var(--muted); }
+    .simulation-panels { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+    .simulation-panel { padding:.7rem; background:#fff; border:1px solid var(--line); border-radius:5px; min-width:0; }
+    .simulation-panel-title { display:flex; justify-content:space-between; gap:.3rem; font:600 .69rem 'JetBrains Mono',monospace; }
+    .simulation-panel-title span { color:var(--teal); white-space:nowrap; }
+    .simulation canvas { display:block; width:100%; height:auto; margin:.4rem auto 0; }
+    .simulation .simulation-note { font-size:.78rem; color:var(--muted); margin:.7rem 0 0; }
+    .replay-figure { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding:1.2rem; margin:1.7rem 0 2rem; border-block:1px solid var(--line); font:.75rem/1.4 'JetBrains Mono',monospace; text-align:center; }
+    .replay-figure div { display:flex; flex-direction:column; align-items:center; flex:1; }
+    .replay-number { color:var(--teal); font:700 2rem/1 'Playfair Display',Georgia,serif; }
+    .replay-arrow { font-size:1.2rem; color:var(--muted); }
     .site-footer { border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:28px 24px; font-size:.85rem; }
-    @media(max-width:600px) { body{font-size:17px;} main{padding-top:42px;} }
+    @media(max-width:600px) { body{font-size:17px;} main{padding-top:42px;} .simulation-panels{grid-template-columns:1fr;} .simulation{padding:1rem;} }
   </style>
 </head>
 <body>
   <header class="site-header"><a href="/">NewsKaleidoscope</a> <span aria-hidden="true">/</span> Essay</header>
   <main><article>$body$</article></main>
   <footer class="site-footer"><a href="/">NewsKaleidoscope</a> · news.thebeakers.com</footer>
+  <script>
+    (() => {
+      const root = document.getElementById('ensemble-simulation');
+      if (!root) return;
+      const total = 120;
+      const panels = [
+        { canvas: document.getElementById('sim-a'), label: document.getElementById('sim-a-value'), states: [], grayToBlue: .025, blueToGray: .025, initialBlue: 60 },
+        { canvas: document.getElementById('sim-b'), label: document.getElementById('sim-b-value'), states: [], grayToBlue: .008, blueToGray: .072, initialBlue: 12 }
+      ];
+      const playButton = document.getElementById('sim-toggle');
+      const resetButton = document.getElementById('sim-reset');
+      const stepLabel = document.getElementById('sim-step');
+      const summary = document.getElementById('sim-summary');
+      let seed = 24819, step = 0, timer = null;
+      function random() { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; }
+      function trackedState(time) { return time % 80 >= 20 && time % 80 < 45 ? 1 : 0; }
+      function draw(panel) {
+        const ctx = panel.canvas.getContext('2d');
+        if (!ctx) return;
+        ctx.clearRect(0, 0, 600, 220);
+        panel.states.forEach((state, index) => {
+          const x = 29 + (index % 12) * 49;
+          const y = 13 + Math.floor(index / 12) * 21;
+          ctx.beginPath();
+          ctx.arc(x, y, index === 0 ? 7.5 : 5.6, 0, Math.PI * 2);
+          ctx.fillStyle = state ? '#267f9d' : '#bbbcb7';
+          ctx.fill();
+          if (index === 0) {
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#d18d16';
+            ctx.stroke();
+          }
+        });
+        const blue = panel.states.reduce((sum, state) => sum + state, 0);
+        panel.label.textContent = Math.round(blue / total * 100) + '% blue';
+      }
+      function report() {
+        stepLabel.textContent = 'Step ' + step;
+        summary.textContent = 'The outlined molecule is ' + (trackedState(step) ? 'blue' : 'gray') + ' in both populations. Population A: ' + panels[0].label.textContent + '. Population B: ' + panels[1].label.textContent + '.';
+      }
+      function tick() {
+        step++;
+        panels.forEach(panel => {
+          for (let i = 1; i < total; i++) {
+            const probability = panel.states[i] ? panel.blueToGray : panel.grayToBlue;
+            if (random() < probability) panel.states[i] = panel.states[i] ? 0 : 1;
+          }
+          panel.states[0] = trackedState(step);
+          draw(panel);
+        });
+        report();
+      }
+      function pause() { if (timer) clearInterval(timer); timer = null; playButton.textContent = 'Play'; }
+      function reset() {
+        pause(); seed = 24819; step = 0;
+        panels.forEach(panel => {
+          panel.states = Array(total).fill(0);
+          const indices = Array.from({ length: total - 1 }, (_, i) => i + 1);
+          for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+          }
+          indices.slice(0, panel.initialBlue).forEach(index => panel.states[index] = 1);
+          draw(panel);
+        });
+        report();
+      }
+      playButton.addEventListener('click', () => {
+        if (timer) pause();
+        else { timer = setInterval(tick, 180); playButton.textContent = 'Pause'; }
+      });
+      resetButton.addEventListener('click', reset);
+      reset();
+    })();
+  </script>
 </body>
 </html>
